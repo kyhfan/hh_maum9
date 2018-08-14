@@ -1,0 +1,126 @@
+body {
+	font-size: 0;
+}
+img {
+	width: 100%;
+}
+.page-wrap {
+	background: url(../images/sub_bg.png) center top / cover no-repeat;
+	width: 100%;
+	height: 100%;
+	/* background-size: cover; */
+}
+.header-wrap {
+	width: 100%;
+	height: 112px;
+	/* background: #fff; */
+	/* position: fixed; */
+	top: 0;
+	z-index: 5;
+}
+
+.header-wrap .inner {
+	position: relative;
+	width: 1219px;
+	height: 112px;
+	font-size: 0;
+	margin: 0 auto;
+}
+.header-wrap .inner .logo {
+	padding-top: 41px;
+	display: inline-block;
+}
+.header-wrap .inner .menu {
+	position: absolute;
+	right: 0;
+	top: 48px;
+}
+.header-wrap .inner .menu a {
+	display: inline-block;
+}
+.header-wrap .inner .menu ._1 {
+	background: url(../images/head_txt1.png);
+	width: 141px;
+	height: 17px;
+	margin-right: 37px;
+}
+.header-wrap .inner .menu ._2 {
+	background: url(../images/head_txt2.png);
+	width: 140px;
+	height: 17px;
+	margin-right: 41px;
+}
+.header-wrap .inner .menu ._3 {
+	background: url(../images/head_txt3.png);
+	width: 108px;
+	height: 16px;
+	margin-right: 39px;
+}
+.header-wrap .inner .menu ._4 {
+	background: url(../images/head_txt4.png);
+	width: 75px;
+	height: 16px;
+}
+.sub-wrap {
+	width: 100%;
+	/* height: 100%; */
+}
+.sub-wrap .inner {
+	/* width: 766px; */
+	height: 100%;
+	margin: 0 auto;
+}
+.sub-wrap .inner .step-area {
+	/* width: 140px; */
+	/* width: 9.25%; */
+	width: 6.875%;
+	margin: 0 auto;
+}
+/* .sub-wrap .inner .step-area .step-num._1 { */
+	/* background: url(../images/sub_step1.png) center top / cover no-repeat; */
+	/* width: 86px; */
+	/* width: 61.4%; */
+	/* height: 87px; */
+	/* margin: 0 0 -2px -14px; */
+/* } */
+.sub-wrap .inner .step-area .step-rail {
+	background: url(../images/sub_rail.png);
+	width: 96px;
+	height: 12px;
+	margin: 0 auto;
+}
+.sub-wrap .inner .title-area {
+	/* background: url(../images/sub_title1.png);
+	width: 502px;
+	height: 91px; */
+	width: 26.1458%;
+	margin: 0 auto;
+	margin-top: 36px;
+}
+.sub-wrap .inner .video-area {
+	/* width: 733px; */
+	width: 38.177%;
+	/* height: 389px; */
+	margin: 0 auto;
+	margin-top: 55px;
+}
+.sub-wrap .inner .btn-area {
+	text-align: center;
+	margin-top: 75px;
+}
+.sub-wrap .inner .btn-area button{
+	background: url(../images/sub_step1_btn.png);
+	width: 363px;
+	height: 72px;
+}
+.footer-wrap {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+}
+.footer-wrap .copyright {
+	background: url(../images/sub_copyright.png);
+	width: 380px;
+	height: 13px;
+	margin: 0 auto;
+}
