@@ -3,52 +3,62 @@ body {
 }
 .header-wrap {
 	width: 100%;
+/*	height: 112px;*/
 	height: 112px;
-	background: #fff;
+/*	background: #fff;*/
+	background: url(../images/header_mask_bg.png) -592px -1px / 2331px 148px repeat-x;
+	will-change: background;
+/*	transition: background 0.78s ease-out;*/
 	position: fixed;
 	top: 0;
 	z-index: 5;
+/*
 	-moz-box-shadow: 0px 1px 15px grey;
 	-webkit-box-shadow: 0px 1px 15px grey; 
 	box-shadow: 0px 1px 15px grey;
+*/
 }
-
 .header-wrap .inner {
 	position: relative;
 	width: 1219px;
-	height: 112px;
+	height: 100%;
 	font-size: 0;
 	margin: 0 auto;
+	min-width: 1219px;
+	max-width: 1219px;
 }
 .header-wrap .inner .logo {
-	padding-top: 41px;
+/*	padding-top: 41px;*/
+	padding-top: 30px;
 	display: inline-block;
 }
 .header-wrap .inner .menu {
 	position: absolute;
 	right: 0;
-	top: 48px;
+/*	top: 48px;*/
+	top: 40px;
 }
 .header-wrap .inner .menu a {
 	display: inline-block;
+	margin-right: 40px;
 }
 .header-wrap .inner .menu ._1 {
 	background: url(../images/head_txt1.png);
 	width: 141px;
 	height: 17px;
-	margin-right: 37px;
+/*	margin-right: 37px;*/
 }
 .header-wrap .inner .menu ._2 {
 	background: url(../images/head_txt2.png);
 	width: 140px;
 	height: 17px;
-	margin-right: 41px;
+/*	margin-right: 41px;*/
 }
 .header-wrap .inner .menu ._3 {
 	background: url(../images/head_txt3.png);
 	width: 108px;
 	height: 16px;
-	margin-right: 39px;
+/*	margin-right: 39px;*/
 }
 .header-wrap .inner .menu ._4 {
 	background: url(../images/head_txt4.png);
@@ -388,7 +398,7 @@ body {
 }
 .section2-wrap .inner {
 	position: relative;
-	width: 1687px;
+/*	width: 1687px;*/
 	height: 100%;
 	margin: 0 auto;
 }
