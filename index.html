@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="page-wrap">
-        <div class="header-wrap">
+		<div class="header-wrap">
             <div class="inner">
                 <div class="logo">
                     <img src="./images/logo.png" alt="현대해상 로고">
@@ -26,11 +26,13 @@
                     <a href="#" class="_3"></a>
                     <a href="#" class="_4"></a>
                 </div>
+<!--
                 <div class="pointer">
                 </div>
+-->
             </div>
         </div>
-        <div class="section1-wrap">
+        <div class="section1-wrap section">
             <div class="inner">
                 <div class="title">
                 </div>
@@ -76,7 +78,7 @@
                 </div>
             </div>
         </div>
-        <div class="section2-wrap">
+		<div class="section2-wrap section">
             <div class="inner">
                 <div class="pointer">
                 </div>
@@ -120,7 +122,7 @@
                 </div>
             </div>
         </div>
-        <div class="section3-wrap">
+		<div class="section3-wrap section">
             <div class="inner">
                 <div class="maumbot-insta">
                 </div>
@@ -133,7 +135,7 @@
                 </div>
             </div>
         </div>
-        <div class="section4-wrap">
+		<div class="section4-wrap section">
             <div class="inner">
                 <div class="pointer">
                 </div>
@@ -183,21 +185,84 @@
         </div>
     </div>
     <script>
-    		var swiper = new Swiper ('.slder-area', {
-                // Optional parameters
-                direction: 'horizontal',
-                loop: true,
-                slidesPerView: 'auto',
-                slidesPerGroup: 5,
-                // loopFillGroupWithBlank: true,
-                spaceBetween: 22,
-                // touchAngle: 75,
-                navigation: {
-                    nextEl: '.button-next',
-                    prevEl: '.button-prev',
-                }
-            })
-    
+		var swiper = new Swiper ('.slder-area', {
+			// Optional parameters
+			direction: 'horizontal',
+			loop: true,
+			slidesPerView: 'auto',
+			slidesPerGroup: 5,
+			// loopFillGroupWithBlank: true,
+			spaceBetween: 22,
+			// touchAngle: 75,
+			navigation: {
+				nextEl: '.button-next',
+				prevEl: '.button-prev',
+			}
+		})
+		var menuOffsetArray = [];
+		var sectionOffsetArray = [];
+		var menuWrapOffset = 0;
+		var targetX = 0;
+		$(window).on('load', function() {
+			$('.header-wrap .menu a').each(function(idx, el) {
+				menuOffsetArray.push($(el).offset().left);
+			});
+			$('.section').each(function(idx, el) {
+				sectionOffsetArray.push($(el).offset().top);
+			});
+			scrolled($(window).scrollTop());
+		});
+		
+		$(window).on('resize', function() {
+			$('.header-wrap .menu a').each(function(idx, el) {
+				//				console.log($(el).offset().left);
+				menuOffsetArray[idx] = $(el).offset().left;
+			});
+			$('.section').each(function(idx, el) {
+				//				console.log($(el).offset().left);
+				sectionOffsetArray[idx] = $(el).offset().top;
+			});
+			scrolled($(window).scrollTop(), 'transition');
+		});
+		
+		$(window).on('scroll', function(e) {
+			var currentScroll = $(this).scrollTop()+98;
+			scrolled(currentScroll, 'transition');
+		});
+		
+		function scrolled(currentScroll, transitionFlag) {
+			if(transitionFlag) {
+				var transition = 'background 0.46s ease-out';
+			} else {
+				var transition = '';
+			}
+			if (currentScroll > sectionOffsetArray[1] && currentScroll < sectionOffsetArray[2]) {
+				//				현재 섹션 2번
+				targetX = menuOffsetArray[1];
+//				console.log("2");
+			} else if (currentScroll > sectionOffsetArray[2] && currentScroll < sectionOffsetArray[3]) {
+				//				현재 섹션 3번
+				targetX = menuOffsetArray[2]-20;
+//				console.log("3");
+			} else if (currentScroll > sectionOffsetArray[3]) {
+				//				현재 섹션 4번
+				targetX = menuOffsetArray[3]-35;
+//				console.log("4");
+			} else {
+				//				현재 섹션 1번
+				targetX = menuOffsetArray[0];
+//				console.log("1");
+			}
+			$('.header-wrap').css({
+				backgroundPositionX: targetX-1360+'px',
+				transition: transition
+			});
+		}
+//		console.log(menuOffsetArray);
+//		console.log(sectionOffsetArray);
+
+		
+		
     </script>
 </body>
 </html>
