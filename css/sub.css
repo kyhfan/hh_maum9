@@ -467,7 +467,7 @@ input[type="checkbox"]:focus {
 	padding-left: 33px;
 	text-align: left;
 	vertical-align: middle;
-	font-size: 25px;
+	font-size: 22px;
 	font-weight: 500;
 	color: #3e301d;
 	background: #ffffff;
@@ -511,6 +511,7 @@ input[type="checkbox"]:focus {
 	width: 279px;
 	margin-left: 11px;
 	vertical-align: top;
+	cursor: pointer;
 }
 .sub-wrap .inner .terms-area .row._2 .check label {
 	width: 261px;

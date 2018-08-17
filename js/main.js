@@ -6,292 +6,184 @@ $(function(){
 		$html = $('html'),
 		$body = $('body');
 	
+	window.hh_maum9 = {};
+	
 	var locationArray = location.href.split('/');
 	var currentLocation = locationArray[locationArray.length-1].split('.')[0];
 	
-	
-	
-	var agree1 	= "N";
-	var agree2 	= "N";
+	hh_maum9.popup = {
+		bind : function(){
+			$doc
+				.on('click', '[data-popup]', function(e){
+				var $this = $(this),
+					$html = $('html'),
+					val = $this.attr('data-popup');
 
-    $(".navi-menu ul li a").on("click", function(e){
-        e.preventDefault();
-        var $this = $(this);
-        $('html').removeClass('menu-opened');
-
-        $('.c-header').removeClass('c-header--active');
-        // isOpened = false;
-        var url = $this.attr('href');
-        setTimeout(function(){
-            // if(!$this.parent().hasClass('is-active')) {
-            if($('.page-wrap > .content').hasClass('main') && ($this.data('slide'))) {
-                // 서브페이지 분기 필요
-                var target = $this.data('slide');
-				var scTop = $('#'+target).offset().top;
-				
-				if (target == "goRoutin")
-					$('html, body').animate({scrollTop:scTop-94}, 500);
-				else
-					$('html, body').animate({scrollTop:scTop+1}, 500);
-				
-            }else{
-                location.href = url;
-            }
-
-        }, 100);
-    });
-	
-	var popup = {
-		scrollTop: 0,
-		bind: function() {
-			$doc.on('click', '[data-popup-target]', function() {
-				console.log("open");
-				var popupId = $(this).data('popup-target'),
-					popupAgree = $(this).data('popup-agree'),
-					dynamicName = $(this).data('dynamic-name');
-
-				if (popupAgree == "#popup-agree1") {
-					popup.close($(popupAgree));
-					agree1 = "Y";
-					$("#agree1_btn").css("background","url(./images/popup/popup_input_agree_on.png) center no-repeat");
-				}
-				if (popupAgree == "#popup-agree2") {
-					popup.close($(popupAgree));
-					agree2 = "Y";
-					$("#agree2_btn").css("background","url(./images/popup/popup_input_agree_on.png) center no-repeat");
+				if (val.match('@close')){
+					hh_maum9.popup.close($this.closest('.popup'));
+				} else {
+					hh_maum9.popup.show($(val));
 				}
 
-				popup.open(popupId, dynamicName);
+				if ($this.is('a')){
+					e.preventDefault();
+				}
+			})
+				.on('click', '[data-popup-close]', function(e){
+				var $this = $(this),
+					val = $this.attr('data-popup-close');
+
+				hh_maum9.popup.close($(val));
+
+				if ($this.is('a')){
+					e.preventDefault();
+				}
 			});
-			$doc.on('click', '.btn-close', function(e) {
-				var $target = $(this).closest('.popup');
-				e.preventDefault();
-				// console.log($target);
-				popup.close($target);
-			});
-			$doc.on('click', '.btn-close2', function(e) {
-				var $target = $(this).closest('.popup');
-				e.preventDefault();
-				// console.log($target);
-				popup.close($target);
-			});			
 		},
-		open: function(popupId, dn) {
-			var $popup = $(popupId),
-				$wrap = $popup.parent();
+		show : function($popup){
+			if ($popup.length){
+				var $wrap = $popup.parent(),
+					$html = $('html');
 
-			if (popupId == "#popup-agree1" || popupId == "#popup-agree2"){
-				popup.close($("#popup-input"));
+
+				if (!$wrap.hasClass('popup-wrap')){
+					$popup.wrap('<div class="popup-wrap"></div>');
+					$wrap = $popup.parent();
+				}
+
+				if (!$wrap.hasClass('is-opened')){
+					$wrap
+						.stop().fadeIn(10, function(){
+						$popup.trigger('afterPopupOpened', $wrap);
+					})
+						.addClass('is-opened');
+				}
+
+				if (!$html.hasClass('popup-opened')){
+					$html.addClass('popup-opened');
+				}
+
+				$popup.trigger('popupOpened', $wrap);
 			}
-            //
-			// if (!$wrap.hasClass('popup-wrap')){
-			// 	$popup.wrap('<div class="popup-wrap"></div>');
-			// 	$wrap = $popup.parent();
-			// 	$wrap.prepend('<span class="popup-align"></span>');
-			// }
-			
-			if($popup.length) {
-				//						팝업 오픈
-
-				//						요일별 처리
-				// if(dn.length) {
-				// 	console.log(dn);
-				// }
-                if (!$html.hasClass('popup-opened')){
-                    // popup.scrollTop = $win.scrollTop();
-                    // $('html').scrollTop(popup.scrollTop);
-                    setTimeout(function() {
-                        $wrap.addClass('is-opened');
-                        $html.addClass('popup-opened');
-                        // $win.scrollTop(popup.scrollTop);
-
-					},10);
-                    //
-                }
-			}
-			$("#ytplayer").attr("src","");
-
 		},
-		close: function($target) {
-			$("#ytplayer").attr("src","https://www.youtube.com/embed/SEsO3gIrnbk?controls=0&loop=1&playlist=SEsO3gIrnbk&modestbranding=1&showinfo=0&wmode=opaque&enablejsapi=1&rel=0&autoplay=0");
-			$target.find('iframe').attr('src', '');
+		close : function($popup){
+			if ($popup.length){
+				var $wrap = $popup.parent(),
+					$html = $('html');
 
-			$target.closest('.popup-wrap').removeClass('is-opened');
-			$html.removeClass('popup-opened');
+				$wrap.stop().fadeOut(10, function(){
+					$wrap.removeClass('is-opened');
+
+					if (!$('.popup-wrap.is-opened').length){
+						$html.removeClass('popup-opened');
+					}
+
+					//					$popup.trigger('afterpopupClosed', $wrap);
+				});
+
+				$popup.trigger('popupClosed', $wrap);
+			}
 		}
-	}
-	popup.bind();
+	};
+	hh_maum9.popup.bind();
+	
+//	var agree1 	= "N";
+//	var agree2 	= "N";
+//
+//    $(".navi-menu ul li a").on("click", function(e){
+//        e.preventDefault();
+//        var $this = $(this);
+//        $('html').removeClass('menu-opened');
+//
+//        $('.c-header').removeClass('c-header--active');
+//        // isOpened = false;
+//        var url = $this.attr('href');
+//        setTimeout(function(){
+//            // if(!$this.parent().hasClass('is-active')) {
+//            if($('.page-wrap > .content').hasClass('main') && ($this.data('slide'))) {
+//                // 서브페이지 분기 필요
+//                var target = $this.data('slide');
+//				var scTop = $('#'+target).offset().top;
+//				
+//				if (target == "goRoutin")
+//					$('html, body').animate({scrollTop:scTop-94}, 500);
+//				else
+//					$('html, body').animate({scrollTop:scTop+1}, 500);
+//				
+//            }else{
+//                location.href = url;
+//            }
+//
+//        }, 100);
+//    });
+	
+	
 
-	var tap = {
-		bind: function() {
-			$(document).on('mouseover', '[data-tap-target]', function() {
-				tap.show($(this));
-			});
-		},
-		show: function(target) {
-			var targetIdx = target.data('tap-target');
-			$("[data-tap-target]").each(function() {
-				var imgSrcs = $(this).find('img').attr('src').replace('_on', '_off');
-				$(this).find('img').attr('src', imgSrcs);
-//				$(this).find('img').attr('src').replace('_active', '');
-			});
-			target.siblings().removeClass('is-active');
-			$("[data-tap-content]").removeClass('is-active');
-			
-			
-
-			target.addClass('is-active');
-			$("[data-tap-content='"+targetIdx+"']").addClass('is-active');
-			target.find('img').attr('src', './images/tap_btn_'+targetIdx+'_on.png');
-			
-//			탭 컬러
-//			$('.tap-area .tap').each(function(idx, el) {
-//				console.log(idx);
+	
+	
+//	var share = {
+//		bind: function() {
+//			Kakao.init('8bd4e13e1a2a0d80bbd60d994b744ce1');
+//
+//			$(document).on('click', '[data-share-target]', function() {
+//
+//				share.open($(this));
 //			});
-			switch (target.data('tapTarget')) {
-				case 1:
-					$('.tab._2').css({
-						background: '#fdf6f7',
-						background: 'rgba(255, 255, 255, 0.6)'
-					});
-					$('.tab._3').css({
-						background: '#fbeff2',
-						background: 'rgba(255, 255, 255, 0.3)'
-					});
-					break;
-				case 2:
-					$('.tab._1').css({
-						background: '#fdf6f7',
-						background: 'rgba(255, 255, 255, 0.6)'
-					});
-					$('.tab._3').css({
-						background: '#fbeff2',
-						background: 'rgba(255, 255, 255, 0.3)'
-					});
-					break;
-				case 3:
-					$('.tab._1').css({
-						background: '#fbeff2',
-						background: 'rgba(255, 255, 255, 0.3)'
-					});
-					$('.tab._2').css({
-						background: '#fdf6f7',
-						background: 'rgba(255, 255, 255, 0.6)'
-					});
-					break;
-			}
-			target.css('background-color', '#ffffff');
-		}
-	}
-	tap.bind();
+//		},
+//		open: function(target) {
+//			// 공유 로직 들어 가야 함
+//			// console.log(target.data("share-target"));
+//			if (target.data("share-target") == "fb")
+//			{
+//				var newWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent('http://routine.itsskin.com/index.php?media=fb'),'sharer','toolbar=0,status=0,width=600,height=325');
+//
+//				$.ajax({
+//					type   : "POST",
+//					async  : false,
+//					url    : "./main_exec.php",
+//					data:{
+//						"exec"          : "insert_share_info",
+//						"sns_media"     : target.data("share-target")
+//					}
+//				});
+//	
+//			} else if (target.data("share-target") == "ks") {
+//				Kakao.Story.share({
+//					url: 'http://routine.itsskin.com/index.php?media=ks'
+//				});
+//				$.ajax({
+//					type   : "POST",
+//					async  : false,
+//					url    : "./main_exec.php",
+//					data:{
+//						"exec" : "insert_share_info",
+//						"sns_media" : target.data("share-target")
+//					}
+//				});
+//	
+//			}else{
+//				var newWindow = window.open('http://blog.naver.com/LinkShare.nhn?url=http://routine.itsskin.com/index.php?media=blog','sharer','toolbar=0,status=0,width=600,height=325');
+//				$.ajax({
+//					type   : "POST",
+//					async  : false,
+//					url    : "./main_exec.php",
+//					data:{
+//						"exec" : "insert_share_info",
+//						"sns_media" : target.data("share-target")
+//					}
+//				});
+//			}
+//
+//			// 공유 로직 들어 가야 함
+//			// setTimeout(function(){
+//			// 	popup.close($("#popup-share"));
+//			// 	popup.open($("#popup-input"));
+//			// }, 2000);
+//		}
+//	}
+//	share.bind();
 	
-	var share = {
-		bind: function() {
-			Kakao.init('8bd4e13e1a2a0d80bbd60d994b744ce1');
-
-			$(document).on('click', '[data-share-target]', function() {
-
-				share.open($(this));
-			});
-		},
-		open: function(target) {
-			// 공유 로직 들어 가야 함
-			// console.log(target.data("share-target"));
-			if (target.data("share-target") == "fb")
-			{
-				var newWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent('http://routine.itsskin.com/index.php?media=fb'),'sharer','toolbar=0,status=0,width=600,height=325');
-
-				$.ajax({
-					type   : "POST",
-					async  : false,
-					url    : "./main_exec.php",
-					data:{
-						"exec"          : "insert_share_info",
-						"sns_media"     : target.data("share-target")
-					}
-				});
 	
-			} else if (target.data("share-target") == "ks") {
-				Kakao.Story.share({
-					url: 'http://routine.itsskin.com/index.php?media=ks'
-				});
-				$.ajax({
-					type   : "POST",
-					async  : false,
-					url    : "./main_exec.php",
-					data:{
-						"exec" : "insert_share_info",
-						"sns_media" : target.data("share-target")
-					}
-				});
-	
-			}else{
-				var newWindow = window.open('http://blog.naver.com/LinkShare.nhn?url=http://routine.itsskin.com/index.php?media=blog','sharer','toolbar=0,status=0,width=600,height=325');
-				$.ajax({
-					type   : "POST",
-					async  : false,
-					url    : "./main_exec.php",
-					data:{
-						"exec" : "insert_share_info",
-						"sns_media" : target.data("share-target")
-					}
-				});
-			}
-
-			// 공유 로직 들어 가야 함
-			// setTimeout(function(){
-			// 	popup.close($("#popup-share"));
-			// 	popup.open($("#popup-input"));
-			// }, 2000);
-		}
-	}
-	share.bind();
-	
-	// $(".gnb").on("click", function(){
-	// 	$(".navi").css("right","0");
-	// });
-    //
-	// $(".close_navi").on("click", function(){
-	// 	$(".navi").css("right","-330px");
-	// });
-	$(".menu-trigger").on("click", function() {
-		$(".navi").toggleClass('is-active');
-	});
-
-	$(".scroll-arrow").on("click", function(){
-		moveEvent();
-	});
-
-	$(".april-banner > a").on("click", function(){
-		clear_winner_list();
-		popup.open("#popup-winner");
-	});
-
-	$(".event-go > a").on("click", function(){
-		moveEvent();
-	});
-
-
-	function moveEvent() {
-		var scTop = $('.section2-wrap').offset().top;
-
-		$('html, body').animate({scrollTop:scTop+'px'}, 500);
-	}
-
-	$(document).on('click', '#sub-submit', function() {
-		alert("이벤트가 종료 되었습니다.");
-		// var quizAnswer = $(".blank1").val();
-		// if (quizAnswer == "7")
-		// {
-		// 	popup.open("#popup-input");
-		// }else{
-		// 	// alert("오답입니다 영상을 다시 확인 후 입력해주세요!");
-		// 	popup.open("#popup-wrong");
-		// 	$(".blank1").val("");
-		// 	// return false;
-		// }
-    });
-
 	$(".input-submit-btn").on("click", function(){
 		var mb_name 	= $("#mb_name").val();
 		var mb_phone1 	= $("#mb_phone1").val();
@@ -391,8 +283,8 @@ $(function(){
 				}
 	
 				// 우편번호와 주소 정보를 해당 필드에 넣는다.
-				// document.getElementById('mb_zipcode').value = data.zonecode; //5자리 새우편번호 사용
-				document.getElementById('mb_addr1').value 	= "(" + data.zonecode + ") " + fullRoadAddr;
+				document.getElementById('mb_zipcode').value = data.zonecode; //5자리 새우편번호 사용
+				document.getElementById('mb_addr1').value = fullRoadAddr;
 			}
 		}).open();	
 	});
@@ -517,18 +409,18 @@ function event1(depth){
 	return false;
 }
 
-function openWinner() {
-	// popup.open("#popup-winner");
-	var $popup = $("#popup-winner"),
-	$wrap = $popup.parent();
-
-	if($popup.length) {
-		if (!$('html').hasClass('popup-opened')){
-			setTimeout(function() {
-				$wrap.addClass('is-opened');
-				$('html').addClass('popup-opened');
-			},10);
-		}
-	}
-
-}
+//function openWinner() {
+//	// popup.open("#popup-winner");
+//	var $popup = $("#popup-winner"),
+//	$wrap = $popup.parent();
+//
+//	if($popup.length) {
+//		if (!$('html').hasClass('popup-opened')){
+//			setTimeout(function() {
+//				$wrap.addClass('is-opened');
+//				$('html').addClass('popup-opened');
+//			},10);
+//		}
+//	}
+//
+//}

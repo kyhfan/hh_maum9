@@ -12,6 +12,8 @@
 		<script src="./js/jquery-1.11.2.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/js/swiper.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+		<script src="./js/main.js"></script>
 	</head>
 	<body>
 		<div class="page-wrap">
@@ -61,15 +63,15 @@
 									<img src="./images/sub_step4_input_addr.png" alt="">
 								</div>
 								<div class="input">
-									<input type="text">
-									<button type="button"></button>
+									<input type="text" id="mb_zipcode" readonly>
+									<button type="button" class="find-addr"></button>
 								</div>
 							</div>
 							<div class="input-group no-guide">
 								<div class="guide">
 								</div>
 								<div class="input">
-									<input type="text">
+									<input type="text" id="mb_addr1" readonly>
 								</div>
 							</div>
 							<div class="input-group no-guide">
@@ -88,7 +90,7 @@
 									<label for="terms1"><img src="./images/terms_label1.png" alt=""></label>
 								</div>
 								<div class="view">
-									<button type="button"></button>
+									<button type="button" data-popup="#popup-agree2"></button>
 								</div>
 							</div>
 							<div class="row _2">
@@ -98,12 +100,12 @@
 									<label for="terms2"><img src="./images/terms_label2.png" alt=""></label>
 								</div>
 								<div class="view">
-									<button type="button"></button>
+									<button type="button" data-popup="#popup-agree1"></button>
 								</div>
 							</div>
 						</div>
 						<div class="btn-area _4">
-							<button type="button">
+							<button type="button" id="submit-info">
 								<img src="./images/sub_step4_btn.jpg" alt="">
 							</button>
 						</div>
@@ -116,15 +118,79 @@
 				</div>
 			</div>
 		</div>
+		<button id="popup-open-btn" data-popup="#popup-winner"></button>
+		<!-- 개인정보 취급 위탁 약관 팝업 -->
+		<div class="popup agree1" id="popup-agree1">
+			<div class="inner">
+				<div class="agree1-wrap">
+					<div class="agree1-area">
+						<div class="button-area">
+							<button class="confirm-btn"></button>
+						</div>
+						<img src="./images/popup_agree1_bg.jpg" alt="">
+					</div>
+				</div>
+			</div>
+			<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>
+		</div>
+		<!-- 개인정보 취급 위탁 약관 팝업 -->
+
+		<!-- 개인정보 수집 및 이용에 관한 약관 팝업 -->
+		<div class="popup agree2" id="popup-agree2">
+			<div class="inner">
+				<div class="agree2-wrap">
+					<div class="agree2-area">
+						<div class="button-area">
+							<button class="confirm-btn"></button>
+						</div>
+						<img src="./images/popup_agree2_bg.jpg" alt="">
+					</div>
+				</div>
+			</div>
+			<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>
+		</div>
+		<!-- 개인정보 수집 및 이용에 관한 약관 팝업 -->
+		<!-- 참여 감사 팝업 -->
+		<div class="popup thanks" id="popup-thanks">
+			<div class="inner">
+				<div class="thanks-wrap">
+					<div class="thanks-area">
+						<div class="button-area">
+							<button class="kakao-btn"></button>
+							<button class="confirm-btn"></button>
+						</div>
+						<img src="./images/popup_thanks_bg.jpg" alt="">
+					</div>
+				</div>
+			</div>
+			<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>
+		</div>
+		<!-- 참여 감사 팝업 -->
+		<!-- 당첨자 발표 안내 팝업 -->
+		<div class="popup winner" id="popup-winner">
+			<div class="inner">
+				<div class="winner-wrap">
+					<div class="winner-area">
+						<button class="confirm-btn"></button>
+						<img src="./images/popup_winner_bg.jpg" alt="">
+					</div>
+				</div>
+			</div>
+			<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>
+		</div>
+		<!-- 당첨자 발표 안내 팝업 -->
 		<script>
-			$('.checkbox').on('click', function() {
-				var that = $(this);
-				$('.checkbox').each(function() {
-					if($(this).attr('id') !== that.attr('id')) {
-						$(this).context.checked = false;
-					}
-				});
-			});
+//			$(window).on('load', function() {
+//				$('#popup-open-btn').trigger('click');
+//			});
+//			$('.checkbox').on('click', function() {
+//				var that = $(this);
+//				$('.checkbox').each(function() {
+//					if($(this).attr('id') !== that.attr('id')) {
+//						$(this).context.checked = false;
+//					}
+//				});
+//			});
 		</script>
 	</body>
 </html>
