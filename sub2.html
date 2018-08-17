@@ -245,7 +245,11 @@
 					return '<span class="' + className + '">' + (index + 1) + '</span>';
 				},
 			}
-		})
+		});
+		
+		swiper.on('slideChange', function() {
+//			console.log(this.realIndex);
+		});
 
     </script>
 </body>
