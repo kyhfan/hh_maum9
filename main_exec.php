@@ -137,7 +137,7 @@ switch ($_REQUEST['exec'])
             $box->setTextAlign('center', 'center');
             $box->draw($BgMsg5);
             
-            if (is_dir("./files/".$serial."/"))
+            if (!is_dir("./files/".$serial."/"))
             {
                 mkdir("./files/".$serial."/");
             }
