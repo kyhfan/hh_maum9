@@ -86,7 +86,7 @@
 		<script>
 			var rs_img = "";
 			$(window).on('load', function() {
-				rs_img	= "./files/" + localStorage.serial + "/2.png";
+				rs_img	= "./files/" + localStorage.serial + "/2.jpg";
 				$('.card-result img').attr("src",rs_img);
 				$('.btn-area._3 a').attr("href",rs_img);
 			});
@@ -103,7 +103,7 @@
 				});
 
 				localStorage.setItem("size",that.val());
-				var change_rs_img = "./files/" + localStorage.serial + "/" + that.val() + ".png";
+				var change_rs_img = "./files/" + localStorage.serial + "/" + that.val() + ".jpg";
 				$('.btn-area._3 a').attr("href",change_rs_img);
 				setTimeout(() => {
 					$(".select-wrap").removeClass("is-active");					
