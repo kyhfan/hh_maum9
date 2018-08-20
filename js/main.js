@@ -449,7 +449,10 @@ function saveImageInfo()
 		url: "./main_exec.php",
 		success: function(response){
 			console.log(response);
-			// nextPage(3);
+			var resArr = response.split("||");
+			localStorage.setItem('serial', resArr[0]);
+			localStorage.setItem('type', resArr[1]);
+			nextPage(3);
 		}
 	});
 

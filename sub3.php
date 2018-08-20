@@ -1,33 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>Document</title>
-		<link rel="stylesheet" href="./css/reset.css">
-		<link rel="stylesheet" href="./css/common.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/css/swiper.min.css">
-		<link rel="stylesheet" href="./css/sub.css">
-		<script src="./js/jquery-1.11.2.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/js/swiper.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
-	</head>
+<?
+    include_once "sub_head.php";
+?>
 	<body>
 		<div class="page-wrap">
-			<div class="header-wrap">
-				<div class="inner">
-					<div class="logo">
-						<img src="./images/logo.png" alt="현대해상 로고">
-					</div>
-					<div class="menu">
-						<a href="#" class="_1"></a>
-						<a href="#" class="_2"></a>
-						<a href="#" class="_3"></a>
-						<a href="#" class="_4"></a>
-					</div>
-				</div>
-			</div>
+<?
+    include_once "sub_header.php";
+?>        
 			<div class="content sub">
 				<div class="sub-wrap">
 					<div class="inner">
@@ -90,9 +68,11 @@
 							<img src="./images/sub_step3_card_result.jpg" alt="">
 						</div>
 						<div class="btn-area _3">
-							<button type="button">
-								<img src="./images/sub_step3_btn.jpg" alt="">
-							</button>
+							<a href="" download>
+								<button type="button">
+									<img src="./images/sub_step3_btn.jpg" alt="">
+								</button>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -104,6 +84,12 @@
 			</div>
 		</div>
 		<script>
+			$(window).on('load', function() {
+				var rs_img	= "./files/" + localStorage.serial + "/2.png";
+				$('.card-result img').attr("src",rs_img);
+				$('.btn-area._3 a').attr("href",rs_img);
+			});
+
 			$('.select-box').on('click', function() {
 				$(this).parent().toggleClass('is-active');
 			});
