@@ -495,13 +495,13 @@ function kakao_send()
 	console.log(s_width+"|"+s_height);
 
 	Kakao.Link.sendTalkLink({
-		label: '[현대해상] 공유 테스트'
+		label: '[현대해상] 공유 테스트',
 		// image: {
 		// 	// src: "http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".jpg",
 		// 	src: "http://minivertest.hi-maumbot.co.kr/images/section4_list3.png",
 		// 	width: 476,
 		// 	height: 588
-		},
+		// },
 		webButton: {
 			text: "현대해상",
 			url: 'http://minivertest.hi-maumbot.co.kr/index.php?media=kt' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
