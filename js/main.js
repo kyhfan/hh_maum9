@@ -479,12 +479,12 @@ function kakao_send()
 		}
 	});
 
-	var url = "http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".png";
-	Kakao.Link.scrapImage({
-	  imageUrl: url
-	}).then(function(res){
-		console.log(res);
+	// var url = "http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".png";
+	// Kakao.Link.scrapImage({
+	//   imageUrl: url
+	// }).then(function(res){
+	// 	console.log(res);
 
-		// document.getElementById('scrapUrl').value = res.infos.original.url
-	});
+	// 	// document.getElementById('scrapUrl').value = res.infos.original.url
+	// });
 }
