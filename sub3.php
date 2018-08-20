@@ -101,6 +101,8 @@
 						$(this).context.checked = false;
 					}
 				});
+
+				localStorage.setItem("size",that.val());
 				var change_rs_img = "./files/" + localStorage.serial + "/" + that.val() + ".png";
 				$('.btn-area._3 a').attr("href",change_rs_img);
 				setTimeout(() => {

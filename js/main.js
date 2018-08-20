@@ -468,12 +468,34 @@ function saveImageInfo()
 
 function kakao_send()
 {
+	var s_size = localStorage.size;
+
+	switch (s_size)
+	{
+		case "1" :
+			var s_width		= "1125";
+			var s_height	= "2436";
+		break;
+		case "2" :
+			var s_width		= "1440";
+			var s_height	= "2560";
+		break;
+		case "3" :
+			var s_width		= "1440";
+			var s_height	= "2880";
+		break;
+		case "4" :
+			var s_width		= "1440";
+			var s_height	= "2960";
+		break;
+	}
+
 	Kakao.Link.sendTalkLink({
 		label: '[현대해상] 공유 테스트',
 		image: {
-			src: "http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".png"
-			// width: '1200',
-			// height: '630'
+			src: "http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".png",
+			width: s_width,
+			height: s_height
 		},
 		webButton: {
 			text: "현대해상",
