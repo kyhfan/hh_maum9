@@ -472,6 +472,7 @@ function kakao_send()
 	Kakao.Link.scrapImage({
 	  imageUrl: url
 	}).then(function(res){
-		document.getElementById('scrapUrl').value = res.infos.original.url
+		console.log(res);
+		// document.getElementById('scrapUrl').value = res.infos.original.url
 	});
 }
