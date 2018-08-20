@@ -390,37 +390,67 @@ function chk_strlen(obj, maxByte, num) {
 	}
 }
 
-function event1(depth){
-	// console.log(depth);
-	$.ajax({
-		url : "http://vtag15.midas-i.com/vat-tag?cmp_no=3565&depth=" + depth,
-		dataType : "jsonp",
-		async : true, 
-		timeout: 500,
-		success: function(data) {
-			// console.log("1111");
-					// location.href=url;
-		}, 
-		error : function(e) {
-			// console.log(e);
-					// location.href=url;
-		}
-	});
-	return false;
+function nextPage(page)
+{
+	location.href = "sub"+page+".php";
 }
 
-//function openWinner() {
-//	// popup.open("#popup-winner");
-//	var $popup = $("#popup-winner"),
-//	$wrap = $popup.parent();
-//
-//	if($popup.length) {
-//		if (!$('html').hasClass('popup-opened')){
-//			setTimeout(function() {
-//				$wrap.addClass('is-opened');
-//				$('html').addClass('popup-opened');
-//			},10);
-//		}
-//	}
-//
-//}
+function saveImageInfo()
+{
+	var BgImageType		= realIdx;
+	var BgTo			= $("#msg_to_"+realIdx).val();
+	var BgFrom			= $("#msg_from_"+realIdx).val();
+	var BgMsg1			= $("#msg_conntent1_"+realIdx).val();
+	var BgMsg2			= $("#msg_conntent2_"+realIdx).val();
+	var BgMsg3			= $("#msg_conntent3_"+realIdx).val();
+	var BgMsg4			= $("#msg_conntent4_"+realIdx).val();
+	var BgMsg5			= $("#msg_conntent5_"+realIdx).val();
+
+	// localStorage.setItem('BgImageType', BgImageType);
+	// localStorage.setItem('BgTo', BgTo);
+	// localStorage.setItem('BgFrom', BgFrom);
+	// localStorage.setItem('BgMsg1', BgMsg1);
+	// localStorage.setItem('BgMsg2', BgMsg2);
+	// localStorage.setItem('BgMsg3', BgMsg3);
+	// localStorage.setItem('BgMsg4', BgMsg4);
+	// localStorage.setItem('BgMsg5', BgMsg5);
+
+	if (BgTo == "")
+	{
+		alert("받으시는 분을 5글자 이내로 입력해 주세요.");
+		return false;
+	}
+
+	if (BgFrom == "")
+	{
+		alert("보내시는 분을 5글자 이내로 입력해 주세요.");
+		return false;
+	}
+
+	if (BgMsg1 == "" && BgMsg2 == "" && BgMsg3 == "" && BgMsg4 == "" && BgMsg5 == "")
+	{
+		alert("보내시는 메세지를 입력해 주세요.");
+		return false;
+	}
+
+	$.ajax({
+		type:"POST",
+		data:{
+			"exec"				: "create_image",
+			"BgImageType"		: BgImageType,
+			"BgTo"				: BgTo,
+			"BgFrom"			: BgFrom,
+			"BgMsg1"			: BgMsg1,
+			"BgMsg2"			: BgMsg2,
+			"BgMsg3"			: BgMsg3,
+			"BgMsg4"			: BgMsg4,
+			"BgMsg5"			: BgMsg5
+		},
+		url: "./main_exec.php",
+		success: function(response){
+			console.log(response);
+			// nextPage(3);
+		}
+	});
+
+}

@@ -28,7 +28,8 @@
  * THE SOFTWARE.
  */
 
-class PHPRandom
+// class PHPRandom
+class mnv_phprandom
 {
     // Le version, what else?
     

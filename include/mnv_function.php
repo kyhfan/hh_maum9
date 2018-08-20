@@ -36,35 +36,35 @@ class mnv_function extends mnv_dbi
 
 	public function IPhoneCheck()
 	{
-        if(stripos( $_SERVER['HTTP_USER_AGENT'], "iPhone" ))
-        	$iPhone	    = "Y";
-        else
-        	$iPhone	= "N";
-        return $iPhone;
+		if(stripos( $_SERVER['HTTP_USER_AGENT'], "iPhone" ))
+			$iPhone	    = "Y";
+		else
+			$iPhone	= "N";
+		return $iPhone;
 	}
 	public function BrowserCheck()
 	{
-        if(stripos( $_SERVER['HTTP_USER_AGENT'], "MSIE 8" ) || stripos( $_SERVER['HTTP_USER_AGENT'], "MSIE 9" ))
-        	$OB	    = "Y";
-        else
-        	$OB	= "N";
-        return $OB;
+		if(stripos( $_SERVER['HTTP_USER_AGENT'], "MSIE 8" ) || stripos( $_SERVER['HTTP_USER_AGENT'], "MSIE 9" ))
+			$OB	    = "Y";
+		else
+			$OB	= "N";
+		return $OB;
 	}
 	public function IECheck()
 	{
-        if(stripos( $_SERVER['HTTP_USER_AGENT'], "MSIE" ) || stripos( $_SERVER['HTTP_USER_AGENT'], "Trident" ))
-        	$IE	    = "Y";
-        else
-        	$IE	= "N";
-        return $IE;
+		if(stripos( $_SERVER['HTTP_USER_AGENT'], "MSIE" ) || stripos( $_SERVER['HTTP_USER_AGENT'], "Trident" ))
+			$IE	    = "Y";
+		else
+			$IE	= "N";
+		return $IE;
 	}
 	public function SafariCheck()
 	{
-        if(stripos( $_SERVER['HTTP_USER_AGENT'], "MSIE" ) || stripos( $_SERVER['HTTP_USER_AGENT'], "Chrome" ) || stripos( $_SERVER['HTTP_USER_AGENT'], "Trident" ))
-        	$Safari	    = "N";
-        else
-        	$Safari	= "Y";
-        return $Safari;
+		if(stripos( $_SERVER['HTTP_USER_AGENT'], "MSIE" ) || stripos( $_SERVER['HTTP_USER_AGENT'], "Chrome" ) || stripos( $_SERVER['HTTP_USER_AGENT'], "Trident" ))
+			$Safari	    = "N";
+		else
+			$Safari	= "Y";
+		return $Safari;
 	}
 
 	public function SaveMedia()
@@ -72,5 +72,21 @@ class mnv_function extends mnv_dbi
 		$_SESSION['ss_media']		= $_REQUEST['media'];
 	}
 
+	public function create_serial()
+	{
+		global $my_db;
+
+		$serial = sprintf('%12d',rand(100000000000,999999999999));
+
+		// $serial	= 111111111111;
+		// $query		= "SELECT * FROM member_info WHERE mb_serial='".$serial."'";
+		// $result 	= mysqli_query($my_db, $query);
+		// $data_cnt	= mysqli_num_rows($result);
+
+		// if ($data_cnt > 0)
+		// 	$serial = $mnv_f->create_serial();
+
+		return $serial;
+	}
 
 }
