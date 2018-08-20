@@ -137,6 +137,10 @@ switch ($_REQUEST['exec'])
             $box->setTextAlign('center', 'center');
             $box->draw($BgMsg5);
             
+            if (is_dir("./files/".$serial."/"))
+            {
+                mkdir("./files/".$serial."/");
+            }
             // header("Content-type: image/png");
             $output_image   = "./files/".$serial."/".$i.".png";
             // chmod($output_image,0755);
