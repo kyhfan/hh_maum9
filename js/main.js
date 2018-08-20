@@ -494,17 +494,53 @@ function kakao_send()
 	console.log("http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".jpg");
 	console.log(s_width+"|"+s_height);
 
-	Kakao.Link.sendTalkLink({
+	// Kakao.Link.sendTalkLink({
+	Kakao.Link.sendDefault({
 		label: '[현대해상] 공유 테스트',
-		// image: {
-		// 	// src: "http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".jpg",
-		// 	src: "http://minivertest.hi-maumbot.co.kr/images/section4_list3.png",
-		// 	width: 476,
-		// 	height: 588
-		// },
+		image: {
+			src: "http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".jpg",
+			// src: "http://minivertest.hi-maumbot.co.kr/images/section4_list3.png",
+			// width: 476,
+			// height: 588
+			width: s_width,
+			height: s_height
+		},
 		webButton: {
 			text: "현대해상",
 			url: 'http://minivertest.hi-maumbot.co.kr/index.php?media=kt' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
+		}
+	});
+	Kakao.Link.sendDefault({
+		objectType: 'feed',
+		content: {
+			title: '[현대해상] 공유 테스트',
+			// description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
+			imageUrl: "http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".jpg",
+			link: {
+				mobileWebUrl: 'http://minivertest.hi-maumbot.co.kr/index.php?media=kt',
+				webUrl: 'http://minivertest.hi-maumbot.co.kr/index.php?media=kt'
+			}
+		},
+		buttons: [
+			{
+				title: '웹으로 보기',
+				link: {
+					mobileWebUrl: 'http://minivertest.hi-maumbot.co.kr/index.php?media=kt',
+					webUrl: 'http://minivertest.hi-maumbot.co.kr/index.php?media=kt'
+				}
+			}
+		],
+		success: function(res) {
+			console.log("success");
+			console.log(res);
+		},
+		fail: function(res) {
+			console.log("fail");
+			console.log(res);
+		},
+		callback: function() {
+//					console.log("callback:"+res);
+			shareEnd();
 		}
 	});
 
