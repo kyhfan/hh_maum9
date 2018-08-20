@@ -471,7 +471,9 @@ function kakao_send()
 	Kakao.Link.sendTalkLink({
 		label: '[현대해상] 공유 테스트',
 		image: {
-			src: 'http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".png'
+			src: "http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".png"
+			// width: '1200',
+			// height: '630'
 		},
 		webButton: {
 			text: "현대해상",
