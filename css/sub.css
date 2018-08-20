@@ -171,13 +171,13 @@ input[type="checkbox"]:focus {
 .sub-wrap .inner .text-area .text-line {
 /*	width: 80%;*/
 	width: 159px;
-	padding: 30px 0 0;
+	padding: 24px 0 0;
 /*	margin-left: 17%;*/
 	margin: 0 auto;
 	text-align: center;
 }
 .sub-wrap .inner .text-area .text-line.bottom {
-	padding: 15px 0 0;
+	padding: 12px 0 0;
 }
 .sub-wrap .inner .text-area .text-line span{
 	font-size: 16px;
@@ -193,7 +193,7 @@ input[type="checkbox"]:focus {
 /*	width: 60%;*/
 /*	width: 100%;*/
 	padding-left: 5px;
-	width: 80px;
+	width: 85px;
 }
 .sub-wrap .inner .text-area .text-line .input input {
 	width: 100%;
@@ -212,7 +212,7 @@ input[type="checkbox"]:focus {
 }
 .sub-wrap .inner .text-area .text-line2 {
 /*	margin-top: 6%;*/
-	margin-top: 8px;
+	margin-top: 5px;
 }
 .sub-wrap .inner .text-area .text-line2.first {
 /*	margin-top: 0;*/
