@@ -183,12 +183,12 @@ $(function(){
 //	}
 //	share.bind();
 	
-	
-	$(".input-submit-btn").on("click", function(){
+	$("#submit-info").on("click", function(){
 		var mb_name 	= $("#mb_name").val();
 		var mb_phone1 	= $("#mb_phone1").val();
 		var mb_phone2 	= $("#mb_phone2").val();
 		var mb_phone3 	= $("#mb_phone3").val();
+		var mb_zipcode 	= $("#mb_zipcode").val();
 		var mb_addr1 	= $("#mb_addr1").val();
 		var mb_addr2 	= $("#mb_addr2").val();
 		var mb_phone 	= mb_phone1 + mb_phone2 + mb_phone3;
@@ -225,14 +225,15 @@ $(function(){
 			return false;
 		}
 
-
-		if (agree1 == "N") {
-			alert("개인정보 수집 약관에 동의해 주셔야만 이벤트에 참여하실 수 있습니다.");
+		if ($("#terms1").is(":checked") === false)
+		{
+			alert('개인정보 수집 및 이용약관에 동의하셔야만 이벤트 참여가 가능합니다.');
 			return false;
 		}
 
-		if (agree2 == "N") {
-			alert("개인정보 취급 약관에 동의해 주셔야만 이벤트에 참여하실 수 있습니다.");
+		if ($("#terms2").is(":checked") === false)
+		{
+			alert('개인정보 취급 위탁 약관에 동의하셔야만 이벤트 참여가 가능합니다.');
 			return false;
 		}
 
@@ -242,16 +243,24 @@ $(function(){
 				"exec"				: "insert_member_info",
 				"mb_name"			: mb_name,
 				"mb_phone"			: mb_phone,
+				"mb_zipcode"		: mb_zipcode,
 				"mb_addr1"			: mb_addr1,
-				"mb_addr2"			: mb_addr2
+				"mb_addr2"			: mb_addr2,
+				"mb_serial"			: localStorage.serial,
+				"mb_type"			: localStorage.type
 			},
 			url: "./main_exec.php",
 			success: function(response){
-				alert("이벤트에 참여해 주셔서 감사합니다!");
-				location.href = "index.php";
+				console.log(response);
+				// localStorage.clear();
+				if (response == "Y")
+				{
+					hh_maum9.popup.show($("#popup-thanks"));
+				}else{
+					alert("참여자가 많습니다. 다시시도해 주세요!");
+				}
 			}
 		});
-	
 	});
 
 	$(".find-addr").on("click", function(){
@@ -455,5 +464,14 @@ function saveImageInfo()
 			nextPage(3);
 		}
 	});
+}
 
+function kakao_send()
+{
+	var url = "http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".png";
+	Kakao.Link.scrapImage({
+	  imageUrl: url
+	}).then(function(res){
+		document.getElementById('scrapUrl').value = res.infos.original.url
+	});
 }

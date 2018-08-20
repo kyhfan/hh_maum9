@@ -27,7 +27,7 @@
 										</div>
 										<div class="check">
 											<label for="check1"></label>
-											<input type="checkbox" class="checkbox" id="check1">
+											<input type="checkbox" class="checkbox" id="check1" value="2">
 											<div class="checkbox-visual"></div>
 										</div>
 									</li>
@@ -37,7 +37,7 @@
 										</div>
 										<div class="check">
 											<label for="check2"></label>
-											<input type="checkbox" class="checkbox" id="check2">
+											<input type="checkbox" class="checkbox" id="check2" value="3">
 											<div class="checkbox-visual"></div>
 										</div>
 									</li>
@@ -47,7 +47,7 @@
 										</div>
 										<div class="check">
 											<label for="check3"></label>
-											<input type="checkbox" class="checkbox" id="check3">
+											<input type="checkbox" class="checkbox" id="check3" value="4">
 											<div class="checkbox-visual"></div>
 										</div>
 									</li>
@@ -57,7 +57,7 @@
 										</div>
 										<div class="check">
 											<label for="check4"></label>
-											<input type="checkbox" class="checkbox" id="check4">
+											<input type="checkbox" class="checkbox" id="check4" value="1">
 											<div class="checkbox-visual"></div>
 										</div>
 									</li>
@@ -69,7 +69,7 @@
 						</div>
 						<div class="btn-area _3">
 							<a href="" download>
-								<button type="button">
+								<button type="button" onclick="nextPage(4);">
 									<img src="./images/sub_step3_btn.jpg" alt="">
 								</button>
 							</a>
@@ -84,8 +84,9 @@
 			</div>
 		</div>
 		<script>
+			var rs_img = "";
 			$(window).on('load', function() {
-				var rs_img	= "./files/" + localStorage.serial + "/2.png";
+				rs_img	= "./files/" + localStorage.serial + "/2.png";
 				$('.card-result img').attr("src",rs_img);
 				$('.btn-area._3 a').attr("href",rs_img);
 			});
@@ -100,6 +101,11 @@
 						$(this).context.checked = false;
 					}
 				});
+				var change_rs_img = "./files/" + localStorage.serial + "/" + that.val() + ".png";
+				$('.btn-area._3 a').attr("href",change_rs_img);
+				setTimeout(() => {
+					$(".select-wrap").removeClass("is-active");					
+				}, 700);
 			});
 		</script>
 	</body>
