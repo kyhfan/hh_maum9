@@ -348,7 +348,7 @@ switch ($_REQUEST['exec'])
             $output_image   = "./files/".$serial."/".$i.".png";
             // chmod($output_image,0755);
             // imagepng($im,'test.png');
-            imagepng($im,$output_image);
+            imagejpeg($im,$output_image);
 
             $i++;
         }
