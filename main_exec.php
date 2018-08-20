@@ -142,12 +142,12 @@ switch ($_REQUEST['exec'])
             // chmod($output_image,0755);
             // imagepng($im,'test.png');
             imagepng($im,$output_image);
+            echo $output_image;
 
             $i++;
         }
     
 
-        echo $output_image;
     break;
 }
 ?>
