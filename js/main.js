@@ -491,13 +491,13 @@ function kakao_send()
 	}
 
 	console.log(s_size);
-	console.log("http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".png");
+	console.log("http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".jpg");
 	console.log(s_width+"|"+s_height);
 
 	Kakao.Link.sendTalkLink({
 		label: '[현대해상] 공유 테스트',
 		image: {
-			src: "http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".png",
+			src: "http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".jpg",
 			width: s_width,
 			height: s_height
 		},

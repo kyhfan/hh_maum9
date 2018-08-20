@@ -345,7 +345,7 @@ switch ($_REQUEST['exec'])
                 mkdir("./files/".$serial."/");
             }
             // header("Content-type: image/png");
-            $output_image   = "./files/".$serial."/".$i.".png";
+            $output_image   = "./files/".$serial."/".$i.".jpg";
             // chmod($output_image,0755);
             // imagepng($im,'test.png');
             imagejpeg($im,$output_image);
