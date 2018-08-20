@@ -490,6 +490,7 @@ function kakao_send()
 		break;
 	}
 
+	console.log(s_size);
 	Kakao.Link.sendTalkLink({
 		label: '[현대해상] 공유 테스트',
 		image: {
