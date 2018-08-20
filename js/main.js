@@ -468,11 +468,23 @@ function saveImageInfo()
 
 function kakao_send()
 {
+	Kakao.Link.sendTalkLink({
+		label: '[현대해상] 공유 테스트',
+		image: {
+			src: 'http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".png'
+		},
+		webButton: {
+			text: "현대해상",
+			url: 'http://minivertest.hi-maumbot.co.kr/index.php?media=kt' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
+		}
+	});
+
 	var url = "http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".png";
 	Kakao.Link.scrapImage({
 	  imageUrl: url
 	}).then(function(res){
 		console.log(res);
+
 		// document.getElementById('scrapUrl').value = res.infos.original.url
 	});
 }
