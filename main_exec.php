@@ -50,8 +50,8 @@ switch ($_REQUEST['exec'])
         $BgMsg4		    =	$_REQUEST["BgMsg4"];
         $BgMsg5		    =	$_REQUEST["BgMsg5"];
 
-        // $serial         = $mnv_f->create_serial();
-        $serial         = "test";
+        $serial         = $mnv_f->create_serial();
+        // $serial         = "test";
 
         $im1 = imagecreatefromjpeg("./images/bg_image/1125_2436/1125_2436_0".$BgImageType.".jpg");
         $im2 = imagecreatefromjpeg("./images/bg_image/1440_2560/1440_2560_0".$BgImageType.".jpg");
