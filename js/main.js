@@ -513,7 +513,7 @@ function kakao_send()
 	Kakao.Link.sendDefault({
 		objectType: 'feed',
 		content: {
-			title: '[현대해상] 공유 테스트',
+			title: '마음봇이 따뜻한 메시지를 전합니다',
 			// description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
 			imageUrl: "http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".jpg",
 			link: {

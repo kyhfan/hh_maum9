@@ -110,17 +110,23 @@
 				var change_rs_img = "./files/" + localStorage.serial + "/" + that.val() + ".jpg";
 				// $('.btn-area._3 a').attr("href",change_rs_img);
 				$('.btn-area._3 button').attr("onclick","downloadImg('"+change_rs_img+"')");
-				setTimeout(() => {
+				setTimeout(function(){
 					$(".select-wrap").removeClass("is-active");					
-				}, 700);
+				},700);
+				// setTimeout(() => {
+				// 	$(".select-wrap").removeClass("is-active");					
+				// }, 700);
 			});
 
 			function downloadImg(url)
 			{
 				location.href = "ajax_download.php?rs="+url;
-				setTimeout(() => {
+				setTimeout(function(){
 					nextPage(4);
-				}, 1000);
+				},1000);
+				// setTimeout(() => {
+				// 	nextPage(4);
+				// }, 1000);
 			}
 		</script>
 	</body>
