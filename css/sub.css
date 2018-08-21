@@ -143,14 +143,16 @@ input[type="checkbox"]:focus {
 	margin-top: 2.135%;
 }
 .sub-wrap .inner .btn-area._1 button{
-	background: url(../images/sub_step1_before_btn.png);
-	width: 327px;
-	height: 65px;
+/*	background: url(../images/sub_step1_before_btn.png);*/
+/*	width: 327px;*/
+	width: 17%;
+/*	height: 65px;*/
 }
 .sub-wrap .inner .btn-area._1 .balloon{
 	position: absolute;
-	width: 202px;
-	height: 163px;
+/*	width: 202px;*/
+	width: 10.5%;
+/*	height: 163px;*/
 	top: -198%;
 	left: 58%;
 }
@@ -168,18 +170,18 @@ input[type="checkbox"]:focus {
 .sub-wrap .inner .letter-paper {
 	background: url(../images/letter_paper.png) 0 0 / cover no-repeat;
 	width: 205px;
-	height: 281px;
+	height: 254px;
 	position: absolute;
-	top: 58px;
+	top: 76px;
 	left: 18px;
 	z-index: 3;
 }
 .sub-wrap .inner .text-area {
 	position: absolute;
 /*	width: 36%;*/
-	width: 176px;
+	width: 177px;
 /*	top: 26%;*/
-	top: 66px;
+	top: 84px;
 /*	left: 32%;*/
 	left: 29px;
 	z-index: 9;
@@ -196,7 +198,7 @@ input[type="checkbox"]:focus {
 	font-size: 0;
 }
 .sub-wrap .inner .text-area .text-line.bottom {
-	padding: 12px 0 0;
+	padding: 6px 0 0;
 }
 .sub-wrap .inner .text-area .text-line span{
 	font-size: 16px;
