@@ -1,0 +1,312 @@
+@charset 'utf-8';
+
+ @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css); 
+
+/*
+@font-face {
+	font-family: 'Noto Sans Korean';
+	font-style: normal;
+	font-weight: 100;
+	src: local("Noto Sans Thin"), local("NotoSans-Thin"), url(../fonts/NotoSansKR-Thin.eot), url(../fonts/NotoSansKR-Thin.eot?#iefix) format("embedded-opentype"), url(../fonts/NotoSansKR-Thin.woff) format("woff"), url(../fonts/NotoSansKR-Thin.otf) format("opentype");
+}
+
+@font-face {
+	font-family: 'Noto Sans Korean';
+	font-style: normal;
+	font-weight: 300;
+	src: local("Noto Sans Light"), local("NotoSans-Light"), url(../fonts/NotoSansKR-Light.eot), url(../fonts/NotoSansKR-Light.eot?#iefix) format("embedded-opentype"), url(../fonts/NotoSansKR-Light.woff) format("woff"), url(../fonts/NotoSansKR-Light.otf) format("opentype");
+}
+
+@font-face {
+	font-family: 'Noto Sans Korean';
+	font-style: normal;
+	font-weight: 400;
+	src: local("Noto Sans DemiLight"), local("NotoSans-DemiLight"), url(../fonts/NotoSansKR-DemiLight.eot), url(../fonts/NotoSansKR-DemiLight.eot?#iefix) format("embedded-opentype"), url(../fonts/NotoSansKR-DemiLight.woff) format("woff"), url(../fonts/NotoSansKR-DemiLight.otf) format("opentype");
+}
+
+@font-face {
+	font-family: 'Noto Sans Korean';
+	font-style: normal;
+	font-weight: 500;
+	src: local("Noto Sans Regular"), local("NotoSans-Regular"), url(../fonts/NotoSansKR-Regular.eot), url(../fonts/NotoSansKR-Regular.eot?#iefix) format("embedded-opentype"), url(../fonts/NotoSansKR-Regular.woff) format("woff"), url(../fonts/NotoSansKR-Regular.otf) format("opentype");
+}
+
+@font-face {
+	font-family: 'Noto Sans Korean';
+	font-style: normal;
+	font-weight: 700;
+	src: local("Noto Sans Medium"), local("NotoSans-Medium"), url(../fonts/NotoSansKR-Medium.eot), url(../fonts/NotoSansKR-Medium.eot?#iefix) format("embedded-opentype"), url(../fonts/NotoSansKR-Medium.woff) format("woff"), url(../fonts/NotoSansKR-Medium.otf) format("opentype");
+}
+
+@font-face {
+	font-family: 'Noto Sans Korean';
+	font-style: normal;
+	font-weight: 800;
+	src: local("Noto Sans Bold"), local("NotoSans-Bold"), url(../fonts/NotoSansKR-Bold.eot), url(../fonts/NotoSansKR-Bold.eot?#iefix) format("embedded-opentype"), url(../fonts/NotoSansKR-Bold.woff) format("woff"), url(../fonts/NotoSansKR-Bold.otf) format("opentype");
+}
+*/
+
+
+/* common */
+html {
+	font-size: 16px;
+	-webkit-tap-highlight-color: transparent;
+	/* overflow-y: auto; */
+}
+html, body {
+	height: 100%;
+}
+body {
+	background: #e9e1d6;
+	color: #333333;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	font-family: "Noto Sans KR", sans-serif, '맑은고딕', 'Malgun Gothic', '돋움', Dotum;
+	font-weight: 400;
+	-webkit-transition: background-color 1s ease-out;
+	transition: background-color 1s ease-out;
+	overflow-x: hidden;
+
+}
+input[type="text"],
+input[type="tel"],
+button {
+	font-family: "Noto Sans KR", sans-serif, '맑은고딕', 'Malgun Gothic', '돋움', Dotum;
+}
+*, :after, :before {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+button {
+	cursor: pointer;
+	outline: none;
+}
+a {
+	cursor: pointer;
+	text-decoration: none;
+	color: inherit;
+}
+img {
+	width: 100%;
+}
+iframe {
+	display: block;
+}
+.blind {
+	position: absolute; display: block; width: 1px; height: 1px; overflow: hidden; color: transparent; font-size: 1px; line-height: 1px; opacity: 0; -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)'; filter: alpha(opacity=0);
+}
+/* common */
+
+/* popup */
+
+html.menu-opened,
+html.popup-opened {
+	overflow: hidden;
+}
+.popup-wrap {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	/* z-index: 2000; */
+	z-index: 99;
+	overflow-y: scroll;
+	overflow-x: auto;
+	font-size: 0;
+	/*	line-height: 0;*/
+	opacity: 0;
+	text-align: center;
+	white-space: normal;
+	word-break: normal;
+	word-wrap: normal;
+	background: rgb(19, 23, 26);
+	background: rgba(19, 23, 26, 0.26);
+	-webkit-transition: opacity 0.1s ease;
+	transition: opacity 0.1s ease;
+}
+.popup-wrap, .popup {
+	display: none;
+}
+.popup-wrap.is-opened {
+	display: block;
+	opacity: 1;
+}
+.popup-wrap:before {
+	content: "";
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+.popup-wrap .popup {
+	display: inline-block;
+}
+.popup {
+	position: relative;
+	margin: 20px;
+	vertical-align: middle;
+	/*	line-height: 100%;*/
+	white-space: normal;
+	word-break: keep-all;
+	word-wrap: break-word;
+	text-align: left;
+	font-size: 16px;
+/*
+	-webkit-transform: scale(0);
+	transform: scale(0);
+*/
+	-webkit-transition: all 0.15s ease;
+	transition: all 0.15s ease;
+	box-shadow: 0px 0px 18px 1px #666;
+}
+.popup .popup-close {
+	position: absolute;
+	top: 13px;
+	right: 13px;
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	background: url(../images/popup_close.png) center / 14px 14px no-repeat #c93e8b;
+}
+.popup-wrap.is-opened .popup::before {
+	transform: scale(1);
+
+}
+.popup .btn-close {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 29px;
+	height: 29px;
+	background: url(../images/popup_close.png) no-repeat;
+	margin: 26px 28px 0 0;
+}
+.popup .button-area {
+	cursor: pointer;
+}
+.popup > .inner {
+	/* background: url(../images/popup/popup_bg.png) center no-repeat; */
+	/* background-size: cover; */
+	/* background-size: 100% 100%; */
+	background: #fff;
+}
+.popup.winner {
+/*	height: 448px;*/
+	/* display: none; */
+}
+.popup.winner > .inner {
+	height: 100%;
+	/* padding: 102px 0 81px; */
+}
+.popup.winner .winner-wrap {
+	text-align: center;
+}
+.popup.winner .winner-wrap .winner-area{
+	/* margin-bottom: 27px; */
+}
+.popup.winner .winner-wrap .winner-area .confirm-btn{
+	background: url(../images/popup_winner_confirm.png) center no-repeat;
+	width: 219px;
+	height: 58px;
+	position: absolute;
+	bottom: 147px;
+	left: 50%;
+	margin-left: -110px;
+}
+
+.popup.thanks {
+/*	height: 448px;*/
+	/* display: none; */
+}
+.popup.thanks > .inner {
+	height: 100%;
+	/* padding: 102px 0 81px; */
+}
+.popup.thanks .winner-wrap {
+	text-align: center;
+}
+.popup.thanks .thanks-wrap .thanks-area{
+	/* margin-bottom: 27px; */
+}
+.popup.thanks .thanks-wrap .thanks-area .button-area {
+	position: absolute;
+	bottom: 145px;
+	left: 0;
+	right: 0;
+	font-size: 0;
+	width: 100%;
+	text-align: center;
+}
+.popup.thanks .thanks-wrap .thanks-area .confirm-btn{
+	display: inline-block;
+	background: url(../images/popup_thanks_confirm.png) center no-repeat;
+	width: 219px;
+	height: 58px;
+	margin-left: 8px;
+}
+.popup.thanks .thanks-wrap .thanks-area .kakao-btn{
+	display: inline-block;
+	background: url(../images/popup_thanks_kakao.png) center no-repeat;
+	width: 219px;
+	height: 58px;
+}
+.popup.agree1 {
+/*	height: 556px;*/
+	/* display: none; */
+}
+.popup.agree1 > .inner {
+	height: 100%;
+	/* padding: 102px 0 81px; */
+}
+.popup.agree1 .winner-wrap {
+	text-align: center;
+}
+.popup.agree1 .agree1-wrap .agree1-area{
+	/* margin-bottom: 27px; */
+}
+.popup.agree1 .agree1-wrap .agree1-area .button-area {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 51px;
+	font-size: 0;
+	width: 100%;
+	text-align: center;
+}
+.popup.agree1 .agree1-wrap .agree1-area .confirm-btn{
+	display: inline-block;
+	background: url(../images/popup_agree1_confirm.png) center no-repeat;
+	width: 162px;
+	height: 58px;
+}
+.popup.agree2 {
+/*	height: 713px;*/
+/*	width: 542px;*/
+	/* display: none; */
+}
+.popup.agree2 > .inner {
+	height: 100%;
+	/* padding: 102px 0 81px; */
+}
+.popup.agree2 .winner-wrap {
+	text-align: center;
+}
+.popup.agree2 .agree2-wrap .agree2-area{
+	/* margin-bottom: 27px; */
+}
+.popup.agree2 .agree2-wrap .agree2-area .button-area {
+	position: absolute;
+	bottom: 51px;
+	left: 0;
+	right: 0;
+	font-size: 0;
+	width: 100%;
+	text-align: center;
+}
+.popup.agree2 .agree2-wrap .agree2-area .confirm-btn{
+	display: inline-block;
+	background: url(../images/popup_agree1_confirm.png) center no-repeat;
+	width: 162px;
+	height: 58px;
+}
+/* popup */

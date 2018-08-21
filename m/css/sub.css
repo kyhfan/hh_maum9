@@ -626,7 +626,7 @@ input[type="checkbox"]:focus {
 	margin: 0 auto;
 }
 
-@media all and (max-height: 900px) {
+@media all and (max-height: 800px) {
 	html, body {
 /*		height: auto;*/
 	}
