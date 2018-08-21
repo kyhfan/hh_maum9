@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/main.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <script src="./js/jquery-1.11.2.min.js"></script>
     <script src="./js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/js/swiper.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
 </head>
 <body>
@@ -93,12 +95,23 @@
                     <div class="chat2"></div>
                 </div>
                 <div class="slider">
-                    <div class="swiper-container slder-area">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide slide">
-                                <img src="./images/slide_image1.png" alt="">
+                    <div class="slder-area">
+                    <!-- <div class="swiper-container slder-area"> -->
+                        <!-- <div class="swiper-wrapper"> -->
+<?
+    $query 		= "SELECT * FROM member_info_9 WHERE mb_serial <> '' ORDER BY idx DESC LIMIT 100";
+    $result 	= mysqli_query($my_db, $query);
+
+    while ($data = mysqli_fetch_array($result))
+    {
+?>                            
+                            <div class="slide">
+                                <img src="./files/<?=$data['mb_serial']?>/<?=$data['mb_type']?>.jpg" alt="">
                             </div>
-                            <div class="swiper-slide slide">
+<?
+    }
+?>                            
+                            <!-- <div class="swiper-slide slide">
                                 <img src="./images/slide_image2.png" alt="">
                             </div>
                             <div class="swiper-slide slide">
@@ -109,8 +122,9 @@
                             </div>
                             <div class="swiper-slide slide">
                                 <img src="./images/slide_image5.png" alt="">
-                            </div>
-                        </div>
+                            </div> -->
+                        <!-- </div> -->
+                    <!-- </div> -->
                     </div>
                     <div class="prev-button">
                         <button type="button" class="button-prev"></button>
@@ -186,20 +200,20 @@
         </div>
     </div>
     <script>
-		var swiper = new Swiper ('.slder-area', {
-			// Optional parameters
-			direction: 'horizontal',
-			loop: true,
-			slidesPerView: 'auto',
-			slidesPerGroup: 5,
-			// loopFillGroupWithBlank: true,
-			spaceBetween: 22,
-			// touchAngle: 75,
-			navigation: {
-				nextEl: '.button-next',
-				prevEl: '.button-prev',
-			}
-		})
+		// var swiper = new Swiper ('.slder-area', {
+		// 	// Optional parameters
+		// 	direction: 'horizontal',
+		// 	loop: true,
+		// 	slidesPerView: 'auto',
+		// 	slidesPerGroup: 5,
+		// 	// loopFillGroupWithBlank: true,
+		// 	spaceBetween: 22,
+		// 	// touchAngle: 75,
+		// 	navigation: {
+		// 		nextEl: '.button-next',
+		// 		prevEl: '.button-prev',
+		// 	}
+		// })
 		var menuOffsetArray = [];
 		var sectionOffsetArray = [];
 		var menuWrapOffset = 0;
@@ -211,7 +225,13 @@
 			$('.section').each(function(idx, el) {
 				sectionOffsetArray.push($(el).offset().top);
 			});
-			scrolled($(window).scrollTop());
+            scrolled($(window).scrollTop());
+            
+            $('.slder-area').slick({
+                lazyLoad: 'ondemand',
+                slidesToShow: 5,
+                slidesToScroll: 5
+            });
 		});
 		
 		$(window).on('resize', function() {
