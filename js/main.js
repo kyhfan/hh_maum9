@@ -407,13 +407,13 @@ function nextPage(page)
 function saveImageInfo()
 {
 	var BgImageType		= realIdx;
-	var BgTo			= $("#msg_to_"+realIdx).val();
-	var BgFrom			= $("#msg_from_"+realIdx).val();
-	var BgMsg1			= $("#msg_conntent1_"+realIdx).val();
-	var BgMsg2			= $("#msg_conntent2_"+realIdx).val();
-	var BgMsg3			= $("#msg_conntent3_"+realIdx).val();
-	var BgMsg4			= $("#msg_conntent4_"+realIdx).val();
-	var BgMsg5			= $("#msg_conntent5_"+realIdx).val();
+	var BgTo			= $("#msg_to").val();
+	var BgFrom			= $("#msg_from").val();
+	var BgMsg1			= $("#msg_conntent1").val();
+	var BgMsg2			= $("#msg_conntent2").val();
+	var BgMsg3			= $("#msg_conntent3").val();
+	var BgMsg4			= $("#msg_conntent4").val();
+	var BgMsg5			= $("#msg_conntent5").val();
 
 	// localStorage.setItem('BgImageType', BgImageType);
 	// localStorage.setItem('BgTo', BgTo);
