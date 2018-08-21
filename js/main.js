@@ -468,48 +468,17 @@ function saveImageInfo()
 
 function kakao_send()
 {
-	var s_size = localStorage.size;
+	if (localStorage.type == 1)
+		var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_takecare" + localStorage.type + ".jpg";
+	else if (localStorage.type == 2)
+		var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_loveyou" + localStorage.type + ".jpg";
+	else if (localStorage.type == 3)
+		var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_thanks" + localStorage.type + ".jpg";
+	else if (localStorage.type == 4)
+		var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_cheerup" + localStorage.type + ".jpg";
+	else if (localStorage.type == 5)
+		var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_dontworry" + localStorage.type + ".jpg";
 
-	switch (s_size)
-	{
-		case "1" :
-			var s_width		= "1125";
-			var s_height	= "2436";
-		break;
-		case "2" :
-			var s_width		= "1440";
-			var s_height	= "2560";
-		break;
-		case "3" :
-			var s_width		= "1440";
-			var s_height	= "2880";
-		break;
-		case "4" :
-			var s_width		= "1440";
-			var s_height	= "2960";
-		break;
-	}
-
-	// console.log(s_size);
-	// console.log("http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".jpg");
-	// console.log(s_width+"|"+s_height);
-
-	// Kakao.Link.sendTalkLink({
-	// Kakao.Link.sendDefault({
-	// 	label: '[현대해상] 공유 테스트',
-	// 	image: {
-	// 		src: "http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".jpg",
-	// 		// src: "http://minivertest.hi-maumbot.co.kr/images/section4_list3.png",
-	// 		// width: 476,
-	// 		// height: 588
-	// 		width: s_width,
-	// 		height: s_height
-	// 	},
-	// 	webButton: {
-	// 		text: "현대해상",
-	// 		url: 'http://minivertest.hi-maumbot.co.kr/index.php?media=kt' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
-	// 	}
-	// });
 	Kakao.Link.sendDefault({
 		objectType: 'feed',
 		content: {
@@ -518,16 +487,16 @@ function kakao_send()
 			// imageUrl: "http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".jpg",
 			imageUrl: "http://minivertest.hi-maumbot.co.kr/images/kt_message_share.jpg",
 			link: {
-				mobileWebUrl: 'http://minivertest.hi-maumbot.co.kr/images/bg_image/1440_2560/1440_2560_01.jpg',
-				webUrl: 'http://minivertest.hi-maumbot.co.kr/images/bg_image/1440_2560/1440_2560_01.jpg'
+				mobileWebUrl: rs_img,
+				webUrl: rs_img
 			}
 		},
 		buttons: [
 			{
 				title: '웹으로 보기',
 				link: {
-					mobileWebUrl: 'http://minivertest.hi-maumbot.co.kr/images/bg_image/1440_2560/1440_2560_01.jpg',
-					webUrl: 'http://minivertest.hi-maumbot.co.kr/images/bg_image/1440_2560/1440_2560_01.jpg'
+					mobileWebUrl: rs_img,
+					webUrl: rs_img
 				}
 			}
 		],
@@ -541,7 +510,7 @@ function kakao_send()
 		},
 		callback: function() {
 //					console.log("callback:"+res);
-			shareEnd();
+			// shareEnd();
 		}
 	});
 
