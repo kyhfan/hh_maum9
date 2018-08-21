@@ -257,12 +257,13 @@
             
             $('.slder-area').slick({
                 lazyLoad: 'ondemand',
+                variableWidth: true,
                 slidesToShow: 5,
                 slidesToScroll: 5
             });
-            $('.slider-area').on('setPosition', function(slick){
-                $(".slick-slide").width(255);
-            });
+            // $('.slider-area').on('setPosition', function(slick){
+            //     $(".slick-slide").width(285);
+            // });
 		});
 		
 		$(window).on('resize', function() {
