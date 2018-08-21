@@ -27,7 +27,7 @@
 										</div>
 										<div class="check">
 											<label for="check1"></label>
-											<input type="checkbox" class="checkbox" id="check1" value="2">
+											<input type="checkbox" class="checkbox" name="check" id="check1" value="2">
 											<div class="checkbox-visual"></div>
 										</div>
 									</li>
@@ -37,7 +37,7 @@
 										</div>
 										<div class="check">
 											<label for="check2"></label>
-											<input type="checkbox" class="checkbox" id="check2" value="3">
+											<input type="checkbox" class="checkbox" name="check" id="check2" value="3">
 											<div class="checkbox-visual"></div>
 										</div>
 									</li>
@@ -47,7 +47,7 @@
 										</div>
 										<div class="check">
 											<label for="check3"></label>
-											<input type="checkbox" class="checkbox" id="check3" value="4">
+											<input type="checkbox" class="checkbox" name="check" id="check3" value="4">
 											<div class="checkbox-visual"></div>
 										</div>
 									</li>
@@ -57,7 +57,7 @@
 										</div>
 										<div class="check">
 											<label for="check4"></label>
-											<input type="checkbox" class="checkbox" id="check4" value="1">
+											<input type="checkbox" class="checkbox" name="check" id="check4" value="1">
 											<div class="checkbox-visual"></div>
 										</div>
 									</li>
@@ -69,7 +69,7 @@
 						</div>
 						<div class="btn-area _3">
 							<!-- <a href="" download> -->
-								<button type="button" onclick="nextPage(4);">
+								<button type="button" onclick="go_next();">
 									<img src="./images/sub_step3_btn.jpg" alt="">
 								</button>
 								<div class="balloon">
@@ -88,6 +88,7 @@
 		</div>
 		<script>
 			var rs_img = "";
+			var change_rs_img = "";
 			$(window).on('load', function() {
 				if (localStorage.type == 1)
 					rs_img	= "./files/" + localStorage.serial + "/maumbot_takecare2.jpg";
@@ -101,7 +102,7 @@
 					rs_img	= "./files/" + localStorage.serial + "/maumbot_dontworry2.jpg";
 				$('.card-result img').attr("src",rs_img);
 				// $('.btn-area._3 a').attr("href",rs_img);
-				$('.btn-area._3 button').attr("onclick","downloadImg('"+rs_img+"')");
+				// $('.btn-area._3 button').attr("onclick","downloadImg('"+rs_img+"')");
 			});
 
 			$('.select-box').on('click', function() {
@@ -117,20 +118,26 @@
 
 				localStorage.setItem("size",that.val());
 				if (localStorage.type == 1)
-					var change_rs_img = "./files/" + localStorage.serial + "/maumbot_takecare" + that.val() + ".jpg";
+					change_rs_img = "./files/" + localStorage.serial + "/maumbot_takecare" + that.val() + ".jpg";
 				else if (localStorage.type == 2)
-					var change_rs_img = "./files/" + localStorage.serial + "/maumbot_loveyou" + that.val() + ".jpg";
+					change_rs_img = "./files/" + localStorage.serial + "/maumbot_loveyou" + that.val() + ".jpg";
 				else if (localStorage.type == 3)
-					var change_rs_img = "./files/" + localStorage.serial + "/maumbot_thanks" + that.val() + ".jpg";
+					change_rs_img = "./files/" + localStorage.serial + "/maumbot_thanks" + that.val() + ".jpg";
 				else if (localStorage.type == 4)
-					var change_rs_img = "./files/" + localStorage.serial + "/maumbot_cheerup" + that.val() + ".jpg";
+					change_rs_img = "./files/" + localStorage.serial + "/maumbot_cheerup" + that.val() + ".jpg";
 				else if (localStorage.type == 5)
-					var change_rs_img = "./files/" + localStorage.serial + "/maumbot_dontworry" + that.val() + ".jpg";
-				// $('.btn-area._3 a').attr("href",change_rs_img);
-				$('.btn-area._3 button').attr("onclick","downloadImg('"+change_rs_img+"')");
-				setTimeout(function(){
+					change_rs_img = "./files/" + localStorage.serial + "/maumbot_dontworry" + that.val() + ".jpg";
+				// $('.btn-area._3 button').attr("onclick","downloadImg('"+change_rs_img+"')");
+
+				if ($("#"+that.attr('id')).is(":checked") === true)
+				{
+					$(".select-box img").attr("src","./images/sub_step3_select" + that.val() + ".png");
+				}
+
+
+				// setTimeout(function(){
 					$(".select-wrap").removeClass("is-active");					
-				},700);
+				// },300);
 				// setTimeout(() => {
 				// 	$(".select-wrap").removeClass("is-active");					
 				// }, 700);
@@ -145,6 +152,17 @@
 				// setTimeout(() => {
 				// 	nextPage(4);
 				// }, 1000);
+			}
+
+			function go_next()
+			{
+				if ($("input:checkbox[name='check']").is(":checked") === false)
+				{
+					alert("화면 비율을 선택해 주세요.");
+				}else{
+					$('.btn-area._3 button').attr("onclick","downloadImg('"+change_rs_img+"')");
+					nextPage(4);
+				}
 			}
 		</script>
 	</body>

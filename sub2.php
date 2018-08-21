@@ -217,6 +217,7 @@
         </div>
     </div>
     <script>
+		var prev_bot_idx = 4;
 		$('.text-area input').on('keypress', function(e) {
 //			console.log(e);
 			if(e.keyCode == 13) {
@@ -251,16 +252,39 @@
 				},
 			},
 			on: {
-				slideChange: function() {
+				slideChangeTransitionEnd: function() {
 					realIdx = this.realIndex + 1;
 
 					if (this.realIndex == 0)
-						var prevIdx = 4;
-					else
-						var prevIdx = this.realIndex -1;
+					{
+						if (prev_bot_idx > this.realIndex)
+						{
+							if (prev_bot_idx == 4)
+								var prevIdx = 4;
+							else
+								var prevIdx = 1;
+						}else{
+							var prevIdx = 4;
+						}
+					}
+					else if (this.realIndex == 4)
+					{
+						if (prev_bot_idx == 0)
+							var prevIdx = 0;
+						else
+							var prevIdx = 3;
+					}else{
+						if (prev_bot_idx > this.realIndex)
+							var  prevIdx = this.realIndex +1;
+						else
+							var  prevIdx = this.realIndex -1;
+					}
+					// console.log(prev_bot_idx);
+					// console.log(this.previousIndex+"||"+this.realIndex);
 
+					prev_bot_idx = this.realIndex;
 					$('.slide-wrap .bot').removeClass('_'+prevIdx).addClass('_'+(this.realIndex));
-					console.log(realIdx);
+					// console.log(prev_bot_idx);
 				},
 			}
 		});
