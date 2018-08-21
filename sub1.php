@@ -25,7 +25,10 @@
 						</div>
 					</div>
 					<div class="btn-area _1">
-						<button type="button" id="next_btn" style="display:none" onclick="nextPage(2)"></button>
+                        <button type="button" id="next_btn" onclick="alert('영상 재생 후 15초 뒤에 다음단계로 넘어가실 수 있습니다.')"></button>
+                        <div class="balloon">
+                            <img src="./images/sub1_message_balloon.png" alt="">
+                        </div>
 					</div>
 				</div>
 			</div>
@@ -60,8 +63,8 @@
     //     var yt_width = '1040';
     //     var yt_height = '582';
     // }
-console.log(yt_width);
-console.log(yt_height);
+// console.log(yt_width);
+// console.log(yt_height);
     function onYouTubeIframeAPIReady() {
         player = new YT.Player('player_area', {
             height: yt_height,
@@ -81,8 +84,11 @@ console.log(yt_height);
             if (play_flag == 0)
             {
                 console.log("1");
+                $(".balloon").fadeOut("fast");
                 setTimeout(() => {
-                    $("#next_btn").show();
+                    // $("#next_btn").show();
+                    $("#next_btn").css("background","url(./images/sub_step1_btn.png)");
+                    $("#next_btn").attr("onclick","nextPage(2)");
                 }, 15000);
             }
         }else if (event.data == 2){

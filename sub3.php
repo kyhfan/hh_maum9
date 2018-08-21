@@ -68,11 +68,14 @@
 							<img src="./images/sub_step3_card_result.jpg" alt="">
 						</div>
 						<div class="btn-area _3">
-							<a href="" download>
+							<!-- <a href="" download> -->
 								<button type="button" onclick="nextPage(4);">
 									<img src="./images/sub_step3_btn.jpg" alt="">
 								</button>
-							</a>
+								<div class="balloon">
+									<img src="./images/sub3_message_balloon.png" alt="">
+								</div>
+							<!-- </a> -->
 						</div>
 					</div>
 				</div>
@@ -88,7 +91,8 @@
 			$(window).on('load', function() {
 				rs_img	= "./files/" + localStorage.serial + "/2.jpg";
 				$('.card-result img').attr("src",rs_img);
-				$('.btn-area._3 a').attr("href",rs_img);
+				// $('.btn-area._3 a').attr("href",rs_img);
+				$('.btn-area._3 button').attr("onclick","downloadImg('"+rs_img+"')");
 			});
 
 			$('.select-box').on('click', function() {
@@ -104,11 +108,20 @@
 
 				localStorage.setItem("size",that.val());
 				var change_rs_img = "./files/" + localStorage.serial + "/" + that.val() + ".jpg";
-				$('.btn-area._3 a').attr("href",change_rs_img);
+				// $('.btn-area._3 a').attr("href",change_rs_img);
+				$('.btn-area._3 button').attr("onclick","downloadImg('"+change_rs_img+"')");
 				setTimeout(() => {
 					$(".select-wrap").removeClass("is-active");					
 				}, 700);
 			});
+
+			function downloadImg(url)
+			{
+				location.href = "ajax_download.php?rs="+url;
+				setTimeout(() => {
+					nextPage(4);
+				}, 1000);
+			}
 		</script>
 	</body>
 </html>
