@@ -38,9 +38,11 @@
 								<div class="text-line2 text-group">
 									<div class="input"><input type="text" id="msg_conntent4"></div>
 								</div>
+<!--
 								<div class="text-line2 text-group">
 									<div class="input"><input type="text" id="msg_conntent5"></div>
 								</div>
+-->
 								<div class="text-line bottom text-group">
 									<span>From.</span>
 									<div class="input"><input type="text" id="msg_from" placeholder="보내시는 분"></div>

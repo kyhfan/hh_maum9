@@ -25,7 +25,9 @@
 						</div>
 					</div>
 					<div class="btn-area _1">
-                        <button type="button" id="next_btn" onclick="alert('영상 재생 후 15초 뒤에 다음단계로 넘어가실 수 있습니다.')"></button>
+                        <button type="button" id="next_btn" onclick="alert('영상 재생 후 15초 뒤에 다음단계로 넘어가실 수 있습니다.')">
+							<img src="./images/sub_step1_before_btn.png" alt="">
+                        </button>
                         <div class="balloon">
                             <img src="./images/sub1_message_balloon.png" alt="">
                         </div>
@@ -87,7 +89,9 @@
                 $(".balloon").fadeOut("fast");
                 setTimeout(() => {
                     // $("#next_btn").show();
-                    $("#next_btn").css("background","url(./images/sub_step1_btn.png)");
+//                    $("#next_btn").css("background","url(./images/sub_step1_btn.png)");
+//                    $("#next_btn").css("background","url(./images/sub_step1_btn.png)");
+					$("#next_btn").find('img').attr('src', './images/sub_step1_btn.png');
                     $("#next_btn").attr("onclick","nextPage(2)");
                 }, 15000);
             }

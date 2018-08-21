@@ -98,6 +98,85 @@ iframe {
 /* common */
 
 /* popup */
+.menu-opened .menu-layer {
+	transform: translateY(0);
+	opacity: 1;
+}
+.menu-layer {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	z-index: 10;
+	transform: translateY(-105%);
+	opacity: 0;
+	transition: all 0.76s ease-in;
+}
+.menu-layer .inner {
+	position: relative;
+	padding: 77px 0 37px;
+	background: #f7f6f4;
+	text-align: center;
+}
+.menu-layer .inner .menu-close {
+	width: 25px;
+	height: 24px;
+	background: url(../images/menu_close.png) 0 0 / 25px 24px no-repeat;
+	margin-bottom: 38px;
+}
+.menu-layer .menu-list {
+	padding: 0 37px;
+	margin-bottom: 35px;
+}
+.menu-layer .menu-list li {
+	display: block;
+	position: relative;
+}
+.menu-layer .menu-list li:after {
+	content: "";
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 1px;
+	background: rgba(71, 55, 31, 0.2);
+}
+.menu-layer .menu-list li:last-child:after {
+	content: none;
+}
+.menu-layer .menu-list li a {
+	display: inline-block;
+	padding: 20px 0;
+}
+.menu-layer .share-list {
+	font-size: 0;
+}
+.menu-layer .share-list li {
+	display: inline-block;
+	margin-right: 7px;
+}
+.menu-layer .share-list li button {
+	display: block;
+	width: 33px;
+	height: 32px;
+}
+.menu-layer .share-list li .ks {background: url(../images/share_ks.png) center / 33px 32px no-repeat;}
+.menu-layer .share-list li .kt {background: url(../images/share_kt.png) center / 33px 32px no-repeat;}
+.menu-layer .share-list li .fb {background: url(../images/share_fb.png) center / 33px 32px no-repeat;}
+.menu-layer .share-guide {
+	width: 131px;
+	margin-top: 12px;
+}
+.menu-layer .box-point {
+	position: absolute;
+	width: 133px;
+	height: 22px;
+	left: 50%;
+	margin-left: -66px;
+	bottom: -17px;
+	background: url(../images/menu_box_point.png) 0 0 / 133px 22px no-repeat;
+}
 
 html.menu-opened,
 html.popup-opened {

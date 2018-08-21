@@ -29,9 +29,9 @@
 									<img src="./images/sub_step4_input_phone.png" alt="">
 								</div>
 								<div class="input">
-									<input type="tel" id="mb_phone1">
-									<input type="tel" id="mb_phone2">
-									<input type="tel" id="mb_phone3">
+									<input type="tel" id="mb_phone1" onkeyup="lengthCheck(this, 3)">
+									<input type="tel" id="mb_phone2" onkeyup="lengthCheck(this, 4)">
+									<input type="tel" id="mb_phone3" onkeyup="lengthCheck(this, 4)">
 								</div>
 							</div>
 							<div class="input-group addr">
@@ -171,6 +171,13 @@
 //					}
 //				});
 //			});
+			function lengthCheck(obj, ln) {
+				var $obj = $(obj);
+//				console.log($obj.val().length);
+				if($obj.val().length>=ln) {
+					$obj.is('input:last-child') ? $obj.blur() : $obj.next().focus();
+				}
+			}
 		</script>
 	</body>
 </html>
