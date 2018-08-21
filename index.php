@@ -155,10 +155,10 @@
                     <!-- </div> -->
                     </div>
                     <div class="prev-button">
-                        <button type="button" class="button-prev"></button>
+                        <button type="button" class="button-prev slick-prev"></button>
                     </div>
                     <div class="next-button">
-                        <button type="button" class="button-next"></button>
+                        <button type="button" class="button-next slick-next"></button>
                     </div>
                 </div>
                 <div class="swipe-message">
