@@ -122,9 +122,19 @@
 
     while ($data = mysqli_fetch_array($result))
     {
+        if ($data['mb_type'] == "1")
+            $file_name = "/maumbot_takecare2.jpg";
+        else if ($data['mb_type'] == "2")
+            $file_name = "/maumbot_loveyou2.jpg";
+        else if ($data['mb_type'] == "3")
+            $file_name = "/maumbot_thanks2.jpg";
+        else if ($data['mb_type'] == "4")
+            $file_name = "/maumbot_cheerup2.jpg";
+        else if ($data['mb_type'] == "5")
+            $file_name = "/maumbot_dontworry2.jpg";
 ?>                            
                             <div class="slide">
-                                <img src="./files/<?=$data['mb_serial']?>/<?=$data['mb_type']?>.jpg" alt="">
+                                <img src="./files/<?=$data['mb_serial']?>/<?=$file_name?>" alt="">
                             </div>
 <?
     }
