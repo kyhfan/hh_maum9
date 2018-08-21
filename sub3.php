@@ -89,7 +89,16 @@
 		<script>
 			var rs_img = "";
 			$(window).on('load', function() {
-				rs_img	= "./files/" + localStorage.serial + "/2.jpg";
+				if (localStorage.type == 1)
+					rs_img	= "./files/" + localStorage.serial + "/maumbot_takecare2.jpg";
+				else if (localStorage.type == 2)
+					rs_img	= "./files/" + localStorage.serial + "/maumbot_loveyou2.jpg";
+				else if (localStorage.type == 3)
+					rs_img	= "./files/" + localStorage.serial + "/maumbot_thanks2.jpg";
+				else if (localStorage.type == 4)
+					rs_img	= "./files/" + localStorage.serial + "/maumbot_cheerup2.jpg";
+				else if (localStorage.type == 5)
+					rs_img	= "./files/" + localStorage.serial + "/maumbot_dontworry2.jpg";
 				$('.card-result img').attr("src",rs_img);
 				// $('.btn-area._3 a').attr("href",rs_img);
 				$('.btn-area._3 button').attr("onclick","downloadImg('"+rs_img+"')");
@@ -107,7 +116,16 @@
 				});
 
 				localStorage.setItem("size",that.val());
-				var change_rs_img = "./files/" + localStorage.serial + "/" + that.val() + ".jpg";
+				if (localStorage.type == 1)
+					var change_rs_img = "./files/" + localStorage.serial + "/maumbot_takecare" + that.val() + ".jpg";
+				else if (localStorage.type == 2)
+					var change_rs_img = "./files/" + localStorage.serial + "/maumbot_loveyou" + that.val() + ".jpg";
+				else if (localStorage.type == 3)
+					var change_rs_img = "./files/" + localStorage.serial + "/maumbot_thanks" + that.val() + ".jpg";
+				else if (localStorage.type == 4)
+					var change_rs_img = "./files/" + localStorage.serial + "/maumbot_cheerup" + that.val() + ".jpg";
+				else if (localStorage.type == 5)
+					var change_rs_img = "./files/" + localStorage.serial + "/maumbot_dontworry" + that.val() + ".jpg";
 				// $('.btn-area._3 a').attr("href",change_rs_img);
 				$('.btn-area._3 button').attr("onclick","downloadImg('"+change_rs_img+"')");
 				setTimeout(function(){

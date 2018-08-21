@@ -345,7 +345,17 @@ switch ($_REQUEST['exec'])
                 mkdir("./files/".$serial."/");
             }
             // header("Content-type: image/png");
-            $output_image   = "./files/".$serial."/".$i.".jpg";
+
+            if ($BgImageType == 1)
+                $output_image   = "./files/".$serial."/maumbot_takecare".$i.".jpg";
+            else if ($BgImageType == 2)
+                $output_image   = "./files/".$serial."/maumbot_loveyou".$i.".jpg";
+            else if ($BgImageType == 3)
+                $output_image   = "./files/".$serial."/maumbot_thanks".$i.".jpg";
+            else if ($BgImageType == 4)
+                $output_image   = "./files/".$serial."/maumbot_cheerup".$i.".jpg";
+            else if ($BgImageType == 5)
+                $output_image   = "./files/".$serial."/maumbot_dontworry".$i.".jpg";
             // chmod($output_image,0755);
             // imagepng($im,'test.png');
             imagejpeg($im,$output_image);
