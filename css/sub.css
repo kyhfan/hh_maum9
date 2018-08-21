@@ -157,6 +157,15 @@ input[type="checkbox"]:focus {
 	font-size: 16px;
 	color: #3e301d;
 }
+.sub-wrap .inner .letter-paper {
+	background: url(../images/letter_paper.png) 0 0 / cover no-repeat;
+	width: 205px;
+	height: 281px;
+	position: absolute;
+	top: 58px;
+	left: 18px;
+	z-index: 3;
+}
 .sub-wrap .inner .text-area {
 	position: absolute;
 /*	width: 36%;*/
@@ -195,7 +204,7 @@ input[type="checkbox"]:focus {
 	display: inline-block;
 /*	width: 60%;*/
 /*	width: 100%;*/
-	width: 85px;
+	width: 90px;
 }
 .sub-wrap .inner .text-area .text-line .input input {
 	width: 100%;
