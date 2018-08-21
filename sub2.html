@@ -68,6 +68,7 @@
 									<div class="input"><input type="text" placeholder="보내시는 분"></div>
 								</div>
 							</div>
+							<div class="bot _0"><span></span></div>
 							<div class="swiper-wrapper">
 								<div class="swiper-slide slide _1">
 									<img src="./images/sub_step2_card1_new.png" alt="">
@@ -283,10 +284,9 @@
 			}
 		});
 		
-		swiper.on('slideChange', function() {
-//			console.log(this.realIndex);
+		swiper.on('slideChangeTransitionEnd', function() {
+			$('.slide-wrap .bot').removeClass('_'+this.previousIndex).addClass('_'+(this.realIndex));
 		});
-
     </script>
 </body>
 </html>

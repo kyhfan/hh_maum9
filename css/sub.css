@@ -277,6 +277,46 @@ input[type="checkbox"]:focus {
 	-webkit-box-shadow: 2px 7px 26px 2px rgba(190, 178, 161, 0.6);
 	box-shadow: 2px 7px 26px 2px rgba(190, 178, 161, 0.6);
 }
+.sub-wrap .inner .slider-area .bot {
+	position: absolute;
+/*
+	width: 123px;
+	height: 105px;
+*/
+	width: 156px;
+	bottom: 0;
+	right: 0;
+	z-index: 9;
+}
+.sub-wrap .inner .slider-area .bot span {
+	display: block;
+	margin: 0 0 0 auto;
+}
+.sub-wrap .inner .slider-area .bot._0 span {
+	background: url(../images/sub_step2_bot_1.png) center / 123px 105px no-repeat;
+	width: 123px;
+	height: 105px;
+}
+.sub-wrap .inner .slider-area .bot._1 span {
+	background: url(../images/sub_step2_bot_2.png) center / 129px 104px no-repeat;
+	width: 129px;
+	height: 104px;
+}
+.sub-wrap .inner .slider-area .bot._2 span {
+	background: url(../images/sub_step2_bot_3.png) center / 156px 110px no-repeat;
+	width: 156px;
+	height: 110px;
+}
+.sub-wrap .inner .slider-area .bot._3 span {
+	background: url(../images/sub_step2_bot_4.png) center / 123px 105px no-repeat;
+	width: 123px;
+	height: 105px;
+}
+.sub-wrap .inner .slider-area .bot._4 span {
+	background: url(../images/sub_step2_bot_5.png) center / 129px 110px no-repeat;
+	width: 129px;
+	height: 110px;
+}
 .sub-wrap .inner .slider-area .prev-button {
 	position: absolute;
 	top: 50%;
