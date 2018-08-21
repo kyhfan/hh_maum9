@@ -260,7 +260,7 @@
                 slidesToShow: 5,
                 slidesToScroll: 5
             });
-            $('.slider-area').on('reInit', function(slick){
+            $('.slider-area').on('setPosition', function(slick){
                 $(".slick-slide").width(255);
             });
 		});
