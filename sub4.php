@@ -101,7 +101,7 @@
 				<div class="agree1-wrap">
 					<div class="agree1-area">
 						<div class="button-area">
-							<button class="confirm-btn"></button>
+							<button class="confirm-btn" onclick="check_agree('terms2','#popup-agree1')"></button>
 						</div>
 						<img src="./images/popup_agree1_bg.jpg" alt="">
 					</div>
@@ -117,7 +117,7 @@
 				<div class="agree2-wrap">
 					<div class="agree2-area">
 						<div class="button-area">
-							<button class="confirm-btn"></button>
+							<button class="confirm-btn" onclick="check_agree('terms1','#popup-agree2')"></button>
 						</div>
 						<img src="./images/popup_agree2_bg.jpg" alt="">
 					</div>

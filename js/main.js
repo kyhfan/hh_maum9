@@ -466,6 +466,12 @@ function saveImageInfo()
 	});
 }
 
+function check_agree(param, id)
+{
+	$("input:checkbox[id='"+param+"']").prop("checked", true);
+	hh_maum9.popup.close($(id));
+}
+
 function kakao_send()
 {
 	if (localStorage.type == 1)
@@ -513,13 +519,4 @@ function kakao_send()
 			// shareEnd();
 		}
 	});
-
-	// var url = "http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".png";
-	// Kakao.Link.scrapImage({
-	//   imageUrl: url
-	// }).then(function(res){
-	// 	console.log(res);
-
-	// 	// document.getElementById('scrapUrl').value = res.infos.original.url
-	// });
 }
