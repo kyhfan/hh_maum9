@@ -124,76 +124,117 @@
 			<div class="section3-wrap section">
 				<div class="inner">
 					<div class="white-bg">
+						<div class="bot">
+							<img src="./images/main_sec3_maumbot.png" alt="">
+						</div>
 						<div class="title">
 							<img src="./images/main_sec3_title.png" alt="">
 						</div>
-					</div>
-				</div>
-			</div>
-<!--
-			
-			<div class="section3-wrap section">
-				<div class="inner">
-					<div class="maumbot-insta">
-					</div>
-					<div class="title">
-					</div>
-					<div class="info">
-						<div class="button">
-							<button type="button"></button>
+						<div class="info-box">
+							<img src="./images/main_sec3_infobox.jpg" alt="">
+							<button type="button">
+								<img src="./images/main_sec3_infobox_btn.jpg" alt="">
+							</button>
 						</div>
+						<button type="button" class="btn-verify">
+							<img src="./images/main_sec3_verify.jpg" alt="">
+						</button>
+						<div class="list-container">
+							<div class="col indent">
+								<div class="box">
+									<div class="img">
+										<img src="./images/main_sec3_box_sample1.jpg" alt="">
+									</div>
+									<div class="hashtag">
+										<span>#마음봇건강키트</span>
+										<span>#우리가족튼튼메신저</span>
+									</div>
+								</div>
+								<div class="box">
+									<div class="img">
+										<img src="./images/main_sec3_box_sample2.jpg" alt="">
+									</div>
+									<div class="hashtag">
+										<span>#마음봇</span>
+									</div>
+								</div>
+								<div class="box">
+									<div class="img">
+										<img src="./images/main_sec3_box_sample1.jpg" alt="">
+									</div>
+									<div class="hashtag">
+										<span>#마음봇건강키트</span>
+										<span>#우리가족튼튼메신저</span>
+									</div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="box">
+									<div class="img">
+										<img src="./images/main_sec3_box_sample2.jpg" alt="">
+									</div>
+									<div class="hashtag">
+										<span>#좋아요</span>
+										<span>#마음봇</span>
+									</div>
+								</div>
+								<div class="box">
+									<div class="img">
+										<img src="./images/main_sec3_box_sample1.jpg" alt="">
+									</div>
+									<div class="hashtag">
+										<span>#마음봇건강키트</span>
+										<span>#우리가족튼튼메신저</span>
+									</div>
+								</div>
+								<div class="box">
+									<div class="img">
+										<img src="./images/main_sec3_box_sample2.jpg" alt="">
+									</div>
+									<div class="hashtag">
+										<span>#마음봇건강키트</span>
+										<span>#우리가족튼튼메신저</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<button type="button" class="btn-more">
+							<img src="./images/main_sec3_more.png" alt="">
+						</button>
 					</div>
 				</div>
 			</div>
 			<div class="section4-wrap section">
-				<div class="inner">
-					<div class="pointer">
-					</div>
-					<div class="title">
-					</div>
-					<div class="list">
-						<ul>
-							<li class="no-margin">
-								<div>
-									<img src="./images/section4_list1.png" alt="">
-								</div>
-								<div class="button">
-									<button type="button"></button>
-								</div>
-							</li>
-							<li>
-								<div>
-									<img src="./images/section4_list2.png" alt="">
-								</div>
-								<div class="button">
-									<button type="button"></button>
-								</div>
-							</li>
-							<li class="no-margin">
-								<div>
-									<img src="./images/section4_list3.png" alt="">
-								</div>
-								<div class="button">
-									<button type="button"></button>
-								</div>
-							</li>
-							<li>
-								<div>
-									<img src="./images/section4_list4.png" alt="">
-								</div>
-								<div class="button">
-									<button type="button"></button>
-								</div>
-							</li>
-						</ul>
-					</div>      
+				<div class="bg">
+					<img src="./images/main_sec4_bg.png" alt="">
 				</div>
-				<div class="footer-wrap">
-					<div class="copyright">
+				<div class="wrapper">
+					<div class="title">
+						<img src="./images/main_sec4_title.png" alt="">
+					</div>
+					<div class="list-campaign">
+						<div class="memory">
+							<img src="./images/main_sec4_memory1.png" alt="">
+							<a href="#" class="btn"></a>
+						</div>
+						<div class="memory">
+							<img src="./images/main_sec4_memory2.png" alt="">
+							<a href="#" class="btn"></a>
+						</div>
+						<div class="memory">
+							<img src="./images/main_sec4_memory3.png" alt="">
+							<a href="#" class="btn"></a>
+						</div>
+						<div class="memory">
+							<img src="./images/main_sec4_memory4.png" alt="">
+							<a href="#" class="btn"></a>
+						</div>
+					</div>
+					<div class="footer">
+						<img src="./images/copyright.png" alt="">
 					</div>
 				</div>
 			</div>
--->
 		</div>
 		<script>
 			var swiper = new Swiper ('.slide-area', {
@@ -209,70 +250,65 @@
 					prevEl: '.button-prev',
 				}
 			})
-			var menuOffsetArray = [];
-			var sectionOffsetArray = [];
-			var menuWrapOffset = 0;
-			var targetX = 0;
-			$(window).on('load', function() {
-				$('.header-wrap .menu a').each(function(idx, el) {
-					menuOffsetArray.push($(el).offset().left);
-				});
-				$('.section').each(function(idx, el) {
-					sectionOffsetArray.push($(el).offset().top);
-				});
-				scrolled($(window).scrollTop());
-			});
-
-			$(window).on('resize', function() {
-				$('.header-wrap .menu a').each(function(idx, el) {
-					//				console.log($(el).offset().left);
-					menuOffsetArray[idx] = $(el).offset().left;
-				});
-				$('.section').each(function(idx, el) {
-					//				console.log($(el).offset().left);
-					sectionOffsetArray[idx] = $(el).offset().top;
-				});
-				scrolled($(window).scrollTop(), 'transition');
-			});
-
-			$(window).on('scroll', function(e) {
-				var currentScroll = $(this).scrollTop()+98;
-				scrolled(currentScroll, 'transition');
-			});
-
-			function scrolled(currentScroll, transitionFlag) {
-				if(transitionFlag) {
-					var transition = 'background 0.46s ease-out';
-				} else {
-					var transition = '';
-				}
-				if (currentScroll > sectionOffsetArray[1] && currentScroll < sectionOffsetArray[2]) {
-					//				현재 섹션 2번
-					targetX = menuOffsetArray[1];
-					//				console.log("2");
-				} else if (currentScroll > sectionOffsetArray[2] && currentScroll < sectionOffsetArray[3]) {
-					//				현재 섹션 3번
-					targetX = menuOffsetArray[2]-20;
-					//				console.log("3");
-				} else if (currentScroll > sectionOffsetArray[3]) {
-					//				현재 섹션 4번
-					targetX = menuOffsetArray[3]-35;
-					//				console.log("4");
-				} else {
-					//				현재 섹션 1번
-					targetX = menuOffsetArray[0];
-					//				console.log("1");
-				}
-				$('.header-wrap').css({
-					backgroundPositionX: targetX-1360+'px',
-					transition: transition
-				});
-			}
-			//		console.log(menuOffsetArray);
-			//		console.log(sectionOffsetArray);
-
-
-
+//			var menuOffsetArray = [];
+//			var sectionOffsetArray = [];
+//			var menuWrapOffset = 0;
+//			var targetX = 0;
+//			$(window).on('load', function() {
+//				$('.header-wrap .menu a').each(function(idx, el) {
+//					menuOffsetArray.push($(el).offset().left);
+//				});
+//				$('.section').each(function(idx, el) {
+//					sectionOffsetArray.push($(el).offset().top);
+//				});
+//				scrolled($(window).scrollTop());
+//			});
+//
+//			$(window).on('resize', function() {
+//				$('.header-wrap .menu a').each(function(idx, el) {
+//					//				console.log($(el).offset().left);
+//					menuOffsetArray[idx] = $(el).offset().left;
+//				});
+//				$('.section').each(function(idx, el) {
+//					//				console.log($(el).offset().left);
+//					sectionOffsetArray[idx] = $(el).offset().top;
+//				});
+//				scrolled($(window).scrollTop(), 'transition');
+//			});
+//
+//			$(window).on('scroll', function(e) {
+//				var currentScroll = $(this).scrollTop()+98;
+//				scrolled(currentScroll, 'transition');
+//			});
+//
+//			function scrolled(currentScroll, transitionFlag) {
+//				if(transitionFlag) {
+//					var transition = 'background 0.46s ease-out';
+//				} else {
+//					var transition = '';
+//				}
+//				if (currentScroll > sectionOffsetArray[1] && currentScroll < sectionOffsetArray[2]) {
+//					//				현재 섹션 2번
+//					targetX = menuOffsetArray[1];
+//					//				console.log("2");
+//				} else if (currentScroll > sectionOffsetArray[2] && currentScroll < sectionOffsetArray[3]) {
+//					//				현재 섹션 3번
+//					targetX = menuOffsetArray[2]-20;
+//					//				console.log("3");
+//				} else if (currentScroll > sectionOffsetArray[3]) {
+//					//				현재 섹션 4번
+//					targetX = menuOffsetArray[3]-35;
+//					//				console.log("4");
+//				} else {
+//					//				현재 섹션 1번
+//					targetX = menuOffsetArray[0];
+//					//				console.log("1");
+//				}
+//				$('.header-wrap').css({
+//					backgroundPositionX: targetX-1360+'px',
+//					transition: transition
+//				});
+//			}
 		</script>
 	</body>
 </html>
