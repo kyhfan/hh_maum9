@@ -183,12 +183,12 @@ $(function(){
 //	}
 //	share.bind();
 	
-	
-	$(".input-submit-btn").on("click", function(){
+	$("#submit-info").on("click", function(){
 		var mb_name 	= $("#mb_name").val();
 		var mb_phone1 	= $("#mb_phone1").val();
 		var mb_phone2 	= $("#mb_phone2").val();
 		var mb_phone3 	= $("#mb_phone3").val();
+		var mb_zipcode 	= $("#mb_zipcode").val();
 		var mb_addr1 	= $("#mb_addr1").val();
 		var mb_addr2 	= $("#mb_addr2").val();
 		var mb_phone 	= mb_phone1 + mb_phone2 + mb_phone3;
@@ -225,14 +225,15 @@ $(function(){
 			return false;
 		}
 
-
-		if (agree1 == "N") {
-			alert("개인정보 수집 약관에 동의해 주셔야만 이벤트에 참여하실 수 있습니다.");
+		if ($("#terms1").is(":checked") === false)
+		{
+			alert('개인정보 수집 및 이용약관에 동의하셔야만 이벤트 참여가 가능합니다.');
 			return false;
 		}
 
-		if (agree2 == "N") {
-			alert("개인정보 취급 약관에 동의해 주셔야만 이벤트에 참여하실 수 있습니다.");
+		if ($("#terms2").is(":checked") === false)
+		{
+			alert('개인정보 취급 위탁 약관에 동의하셔야만 이벤트 참여가 가능합니다.');
 			return false;
 		}
 
@@ -242,16 +243,24 @@ $(function(){
 				"exec"				: "insert_member_info",
 				"mb_name"			: mb_name,
 				"mb_phone"			: mb_phone,
+				"mb_zipcode"		: mb_zipcode,
 				"mb_addr1"			: mb_addr1,
-				"mb_addr2"			: mb_addr2
+				"mb_addr2"			: mb_addr2,
+				"mb_serial"			: localStorage.serial,
+				"mb_type"			: localStorage.type
 			},
 			url: "./main_exec.php",
 			success: function(response){
-				alert("이벤트에 참여해 주셔서 감사합니다!");
-				location.href = "index.php";
+				console.log(response);
+				// localStorage.clear();
+				if (response == "Y")
+				{
+					hh_maum9.popup.show($("#popup-thanks"));
+				}else{
+					alert("참여자가 많습니다. 다시시도해 주세요!");
+				}
 			}
 		});
-	
 	});
 
 	$(".find-addr").on("click", function(){
@@ -390,37 +399,124 @@ function chk_strlen(obj, maxByte, num) {
 	}
 }
 
-function event1(depth){
-	// console.log(depth);
-	$.ajax({
-		url : "http://vtag15.midas-i.com/vat-tag?cmp_no=3565&depth=" + depth,
-		dataType : "jsonp",
-		async : true, 
-		timeout: 500,
-		success: function(data) {
-			// console.log("1111");
-					// location.href=url;
-		}, 
-		error : function(e) {
-			// console.log(e);
-					// location.href=url;
-		}
-	});
-	return false;
+function nextPage(page)
+{
+	location.href = "sub"+page+".php";
 }
 
-//function openWinner() {
-//	// popup.open("#popup-winner");
-//	var $popup = $("#popup-winner"),
-//	$wrap = $popup.parent();
-//
-//	if($popup.length) {
-//		if (!$('html').hasClass('popup-opened')){
-//			setTimeout(function() {
-//				$wrap.addClass('is-opened');
-//				$('html').addClass('popup-opened');
-//			},10);
-//		}
-//	}
-//
-//}
+function saveImageInfo()
+{
+	var BgImageType		= realIdx;
+	var BgTo			= $("#msg_to").val();
+	var BgFrom			= $("#msg_from").val();
+	var BgMsg1			= $("#msg_conntent1").val();
+	var BgMsg2			= $("#msg_conntent2").val();
+	var BgMsg3			= $("#msg_conntent3").val();
+	var BgMsg4			= $("#msg_conntent4").val();
+	var BgMsg5			= $("#msg_conntent5").val();
+
+	// localStorage.setItem('BgImageType', BgImageType);
+	// localStorage.setItem('BgTo', BgTo);
+	// localStorage.setItem('BgFrom', BgFrom);
+	// localStorage.setItem('BgMsg1', BgMsg1);
+	// localStorage.setItem('BgMsg2', BgMsg2);
+	// localStorage.setItem('BgMsg3', BgMsg3);
+	// localStorage.setItem('BgMsg4', BgMsg4);
+	// localStorage.setItem('BgMsg5', BgMsg5);
+
+	if (BgTo == "")
+	{
+		alert("받으시는 분을 5글자 이내로 입력해 주세요.");
+		return false;
+	}
+
+	if (BgFrom == "")
+	{
+		alert("보내시는 분을 5글자 이내로 입력해 주세요.");
+		return false;
+	}
+
+	if (BgMsg1 == "" && BgMsg2 == "" && BgMsg3 == "" && BgMsg4 == "" && BgMsg5 == "")
+	{
+		alert("보내시는 메세지를 입력해 주세요.");
+		return false;
+	}
+
+	$.ajax({
+		type:"POST",
+		data:{
+			"exec"				: "create_image",
+			"BgImageType"		: BgImageType,
+			"BgTo"				: BgTo,
+			"BgFrom"			: BgFrom,
+			"BgMsg1"			: BgMsg1,
+			"BgMsg2"			: BgMsg2,
+			"BgMsg3"			: BgMsg3,
+			"BgMsg4"			: BgMsg4,
+			"BgMsg5"			: BgMsg5
+		},
+		url: "./main_exec.php",
+		success: function(response){
+			console.log(response);
+			var resArr = response.split("||");
+			localStorage.setItem('serial', resArr[0]);
+			localStorage.setItem('type', resArr[1]);
+			nextPage(3);
+		}
+	});
+}
+
+function check_agree(param, id)
+{
+	$("input:checkbox[id='"+param+"']").prop("checked", true);
+	hh_maum9.popup.close($(id));
+}
+
+function kakao_send()
+{
+	if (localStorage.type == 1)
+		var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_takecare" + localStorage.type + ".jpg";
+	else if (localStorage.type == 2)
+		var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_loveyou" + localStorage.type + ".jpg";
+	else if (localStorage.type == 3)
+		var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_thanks" + localStorage.type + ".jpg";
+	else if (localStorage.type == 4)
+		var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_cheerup" + localStorage.type + ".jpg";
+	else if (localStorage.type == 5)
+		var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_dontworry" + localStorage.type + ".jpg";
+
+	Kakao.Link.sendDefault({
+		objectType: 'feed',
+		content: {
+			title: '마음봇이 따뜻한 메시지를 전합니다',
+			// description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
+			// imageUrl: "http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".jpg",
+			imageUrl: "http://minivertest.hi-maumbot.co.kr/images/kt_message_share.jpg",
+			link: {
+				mobileWebUrl: rs_img,
+				webUrl: rs_img
+			}
+		},
+		buttons: [
+			{
+				title: '웹으로 보기',
+				link: {
+					mobileWebUrl: rs_img,
+					webUrl: rs_img
+				}
+			}
+		],
+		success: function(res) {
+			console.log("success");
+			console.log(res);
+		},
+		fail: function(res) {
+			console.log("fail");
+			console.log(res);
+		},
+		callback: function() {
+//					console.log("callback:"+res);
+			// shareEnd();
+		}
+	});
+}
