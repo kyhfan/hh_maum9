@@ -154,7 +154,7 @@ input[type="checkbox"]:focus {
 	width: 10.5%;
 /*	height: 163px;*/
 	top: -198%;
-	left: 58%;
+	left: 56.5%;
 }
 .sub-wrap .inner .num-area {
 /*	width: 4.166%;*/
@@ -358,10 +358,11 @@ input[type="checkbox"]:focus {
 }
 .sub-wrap .inner .btn-area._3 .balloon{
 	position: absolute;
-	width: 202px;
-	height: 163px;
-	top: -259%;
-	left: 55%;
+/*	width: 202px;*/
+	width: 10.5%;
+/*	height: 163px;*/
+	top: -202%;
+	left: 56.2%;
 }
 .sub-wrap .inner .btn-area._4 {
 	text-align: center;
