@@ -490,9 +490,9 @@ function kakao_send()
 		break;
 	}
 
-	console.log(s_size);
-	console.log("http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".jpg");
-	console.log(s_width+"|"+s_height);
+	// console.log(s_size);
+	// console.log("http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".jpg");
+	// console.log(s_width+"|"+s_height);
 
 	// Kakao.Link.sendTalkLink({
 	// Kakao.Link.sendDefault({
@@ -515,7 +515,8 @@ function kakao_send()
 		content: {
 			title: '마음봇이 따뜻한 메시지를 전합니다',
 			// description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
-			imageUrl: "http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".jpg",
+			// imageUrl: "http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".jpg",
+			imageUrl: "http://minivertest.hi-maumbot.co.kr/images/kt_message_share.jpg",
 			link: {
 				mobileWebUrl: 'http://minivertest.hi-maumbot.co.kr/index.php?media=kt',
 				webUrl: 'http://minivertest.hi-maumbot.co.kr/index.php?media=kt'
