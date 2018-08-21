@@ -471,11 +471,11 @@ body {
 }
 .section2-wrap .inner .slider .slide{
 	display: inline-block;
-	/* margin-left: 22px; */
+	margin-left: 22px;
 	width: 285px;
 }
 .section2-wrap .inner .slider .slide:first-child{
-	/* margin-left: 0; */
+	margin-left: 0;
 }
 .section2-wrap .inner .slider .slide img {
 	width: 100%;
