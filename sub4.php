@@ -133,7 +133,7 @@
 					<div class="thanks-area">
 						<div class="button-area">
 							<button class="kakao-btn" onclick="kakao_send()"></button>
-							<button class="confirm-btn"></button>
+							<button class="confirm-btn" onclick="location.href='index.php'"></button>
 						</div>
 						<img src="./images/popup_thanks_bg.jpg" alt="">
 					</div>
