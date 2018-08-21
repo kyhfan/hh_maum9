@@ -144,16 +144,16 @@
 											<div class="input"><input type="text" id="msg_conntent1_5" placeholder="내용을 입력해 주세요"></div>
 										</div>
 										<div class="text-line2 text-group">
-											<div class="input"><input type="text" id="msg_conntent2_5" placeholder="내용을 입력해 주세요"></div>
+											<div class="input"><input type="text" id="msg_conntent2_5"></div>
 										</div>
 										<div class="text-line2 text-group">
-											<div class="input"><input type="text" id="msg_conntent3_5" placeholder="내용을 입력해 주세요"></div>
+											<div class="input"><input type="text" id="msg_conntent3_5"></div>
 										</div>
 										<div class="text-line2 text-group">
-											<div class="input"><input type="text" id="msg_conntent4_5" placeholder="내용을 입력해 주세요"></div>
+											<div class="input"><input type="text" id="msg_conntent4_5"></div>
 										</div>
 										<div class="text-line2 text-group">
-											<div class="input"><input type="text" id="msg_conntent5_5" placeholder="내용을 입력해 주세요"></div>
+											<div class="input"><input type="text" id="msg_conntent5_5"></div>
 										</div>
 										<div class="text-line bottom text-group">
 											<span>From.</span>
