@@ -98,7 +98,8 @@ switch ($_REQUEST['exec'])
                     $box->setFontFace('./lib/gd-text/asset/font/nanumBold.ttf');
                     $box->setFontColor(new Color(62, 48, 29));
                     $box->setFontSize(70);
-                    $box->setBox(284, 821, 700, 0);
+                    // $box->setBox(284, 821, 700, 0);
+                    $box->setBox(284, 1165, 700, 0);
                     $box->setTextAlign('left', 'center');
                     $box->draw($BgTo);
                     
@@ -107,7 +108,8 @@ switch ($_REQUEST['exec'])
                     $box->setFontFace('./lib/gd-text/asset/font/nanumBold.ttf');
                     $box->setFontColor(new Color(62, 48, 29));
                     $box->setFontSize(70);
-                    $box->setBox(402, 1760, 700, 0);
+                    // $box->setBox(402, 1760, 700, 0);
+                    $box->setBox(402, 1916, 700, 0);
                     $box->setTextAlign('left', 'center');
                     $box->draw($BgFrom);
                     
@@ -115,7 +117,7 @@ switch ($_REQUEST['exec'])
                     $box->setFontFace('./lib/gd-text/asset/font/nanumBold.ttf');
                     $box->setFontSize(70);
                     $box->setFontColor(new Color(62, 48, 29));
-                    $box->setBox(135, 1005, 860, 0);
+                    $box->setBox(135, 1335, 860, 0);
                     $box->setTextAlign('center', 'center');
                     $box->draw($BgMsg1);
                     
@@ -123,7 +125,7 @@ switch ($_REQUEST['exec'])
                     $box->setFontFace('./lib/gd-text/asset/font/nanumBold.ttf');
                     $box->setFontSize(70);
                     $box->setFontColor(new Color(62, 48, 29));
-                    $box->setBox(135, 1145, 860, 0);
+                    $box->setBox(135, 1475, 860, 0);
                     $box->setTextAlign('center', 'center');
                     // $box->setBackgroundColor(new Color(255, 86, 77));
                     $box->draw($BgMsg2);
@@ -132,7 +134,8 @@ switch ($_REQUEST['exec'])
                     $box->setFontFace('./lib/gd-text/asset/font/nanumBold.ttf');
                     $box->setFontSize(70);
                     $box->setFontColor(new Color(62, 48, 29));
-                    $box->setBox(135, 1285, 860, 0);
+                    // $box->setBox(135, 1285, 860, 0);
+                    $box->setBox(135, 1615, 860, 0);
                     $box->setTextAlign('center', 'center');
                     $box->draw($BgMsg3);
                     
@@ -140,7 +143,8 @@ switch ($_REQUEST['exec'])
                     $box->setFontFace('./lib/gd-text/asset/font/nanumBold.ttf');
                     $box->setFontSize(70);
                     $box->setFontColor(new Color(62, 48, 29));
-                    $box->setBox(135, 1425, 860, 0);
+                    // $box->setBox(135, 1425, 860, 0);
+                    $box->setBox(135, 1755, 860, 0);
                     $box->setTextAlign('center', 'center');
                     $box->draw($BgMsg4);
                     
@@ -160,7 +164,8 @@ switch ($_REQUEST['exec'])
                     $box->setFontFace('./lib/gd-text/asset/font/nanumBold.ttf');
                     $box->setFontColor(new Color(62, 48, 29));
                     $box->setFontSize(70);
-                    $box->setBox(428, 886, 700, 0);
+                    // $box->setBox(428, 886, 700, 0);
+                    $box->setBox(428, 1162, 700, 0);
                     $box->setTextAlign('left', 'center');
                     $box->draw($BgTo);
                     
@@ -169,7 +174,8 @@ switch ($_REQUEST['exec'])
                     $box->setFontFace('./lib/gd-text/asset/font/nanumBold.ttf');
                     $box->setFontColor(new Color(62, 48, 29));
                     $box->setFontSize(70);
-                    $box->setBox(546, 1825, 700, 0);
+                    // $box->setBox(546, 1825, 700, 0);
+                    $box->setBox(546, 1913, 700, 0);
                     $box->setTextAlign('left', 'center');
                     $box->draw($BgFrom);
                     
@@ -177,7 +183,8 @@ switch ($_REQUEST['exec'])
                     $box->setFontFace('./lib/gd-text/asset/font/nanumBold.ttf');
                     $box->setFontSize(70);
                     $box->setFontColor(new Color(62, 48, 29));
-                    $box->setBox(280, 1070, 860, 0);
+                    // $box->setBox(280, 1070, 860, 0);
+                    $box->setBox(280, 1331, 860, 0);
                     $box->setTextAlign('center', 'center');
                     $box->draw($BgMsg1);
                     
@@ -185,7 +192,8 @@ switch ($_REQUEST['exec'])
                     $box->setFontFace('./lib/gd-text/asset/font/nanumBold.ttf');
                     $box->setFontSize(70);
                     $box->setFontColor(new Color(62, 48, 29));
-                    $box->setBox(280, 1210, 860, 0);
+                    // $box->setBox(280, 1210, 860, 0);
+                    $box->setBox(280, 1471, 860, 0);
                     $box->setTextAlign('center', 'center');
                     // $box->setBackgroundColor(new Color(255, 86, 77));
                     $box->draw($BgMsg2);
@@ -194,7 +202,8 @@ switch ($_REQUEST['exec'])
                     $box->setFontFace('./lib/gd-text/asset/font/nanumBold.ttf');
                     $box->setFontSize(70);
                     $box->setFontColor(new Color(62, 48, 29));
-                    $box->setBox(280, 1350, 860, 0);
+                    // $box->setBox(280, 1350, 860, 0);
+                    $box->setBox(280, 1611, 860, 0);
                     $box->setTextAlign('center', 'center');
                     $box->draw($BgMsg3);
                     
@@ -202,7 +211,8 @@ switch ($_REQUEST['exec'])
                     $box->setFontFace('./lib/gd-text/asset/font/nanumBold.ttf');
                     $box->setFontSize(70);
                     $box->setFontColor(new Color(62, 48, 29));
-                    $box->setBox(280, 1490, 860, 0);
+                    // $box->setBox(280, 1490, 860, 0);
+                    $box->setBox(280, 1751, 860, 0);
                     $box->setTextAlign('center', 'center');
                     $box->draw($BgMsg4);
                     
@@ -222,7 +232,8 @@ switch ($_REQUEST['exec'])
                     $box->setFontFace('./lib/gd-text/asset/font/nanumBold.ttf');
                     $box->setFontColor(new Color(62, 48, 29));
                     $box->setFontSize(70);
-                    $box->setBox(428, 1201, 700, 0);
+                    // $box->setBox(428, 1201, 700, 0);
+                    $box->setBox(428, 1478, 700, 0);
                     $box->setTextAlign('left', 'center');
                     $box->draw($BgTo);
                     
@@ -231,7 +242,8 @@ switch ($_REQUEST['exec'])
                     $box->setFontFace('./lib/gd-text/asset/font/nanumBold.ttf');
                     $box->setFontColor(new Color(62, 48, 29));
                     $box->setFontSize(70);
-                    $box->setBox(546, 2140, 700, 0);
+                    // $box->setBox(546, 2140, 700, 0);
+                    $box->setBox(546, 2232, 700, 0);
                     $box->setTextAlign('left', 'center');
                     $box->draw($BgFrom);
                     
@@ -239,7 +251,7 @@ switch ($_REQUEST['exec'])
                     $box->setFontFace('./lib/gd-text/asset/font/nanumBold.ttf');
                     $box->setFontSize(70);
                     $box->setFontColor(new Color(62, 48, 29));
-                    $box->setBox(280, 1385, 860, 0);
+                    $box->setBox(280, 1653, 860, 0);
                     $box->setTextAlign('center', 'center');
                     $box->draw($BgMsg1);
                     
@@ -247,7 +259,7 @@ switch ($_REQUEST['exec'])
                     $box->setFontFace('./lib/gd-text/asset/font/nanumBold.ttf');
                     $box->setFontSize(70);
                     $box->setFontColor(new Color(62, 48, 29));
-                    $box->setBox(280, 1525, 860, 0);
+                    $box->setBox(280, 1791, 860, 0);
                     $box->setTextAlign('center', 'center');
                     // $box->setBackgroundColor(new Color(255, 86, 77));
                     $box->draw($BgMsg2);
@@ -256,7 +268,7 @@ switch ($_REQUEST['exec'])
                     $box->setFontFace('./lib/gd-text/asset/font/nanumBold.ttf');
                     $box->setFontSize(70);
                     $box->setFontColor(new Color(62, 48, 29));
-                    $box->setBox(280, 1665, 860, 0);
+                    $box->setBox(280, 1931, 860, 0);
                     $box->setTextAlign('center', 'center');
                     $box->draw($BgMsg3);
                     
@@ -264,7 +276,7 @@ switch ($_REQUEST['exec'])
                     $box->setFontFace('./lib/gd-text/asset/font/nanumBold.ttf');
                     $box->setFontSize(70);
                     $box->setFontColor(new Color(62, 48, 29));
-                    $box->setBox(280, 1805, 860, 0);
+                    $box->setBox(280, 2071, 860, 0);
                     $box->setTextAlign('center', 'center');
                     $box->draw($BgMsg4);
                     
@@ -284,7 +296,7 @@ switch ($_REQUEST['exec'])
                     $box->setFontFace('./lib/gd-text/asset/font/nanumBold.ttf');
                     $box->setFontColor(new Color(62, 48, 29));
                     $box->setFontSize(70);
-                    $box->setBox(428, 1286, 700, 0);
+                    $box->setBox(428, 1556, 700, 0);
                     $box->setTextAlign('left', 'center');
                     $box->draw($BgTo);
                     
@@ -293,7 +305,7 @@ switch ($_REQUEST['exec'])
                     $box->setFontFace('./lib/gd-text/asset/font/nanumBold.ttf');
                     $box->setFontColor(new Color(62, 48, 29));
                     $box->setFontSize(70);
-                    $box->setBox(546, 2225, 700, 0);
+                    $box->setBox(546, 2309, 700, 0);
                     $box->setTextAlign('left', 'center');
                     $box->draw($BgFrom);
                     
@@ -301,7 +313,7 @@ switch ($_REQUEST['exec'])
                     $box->setFontFace('./lib/gd-text/asset/font/nanumBold.ttf');
                     $box->setFontSize(70);
                     $box->setFontColor(new Color(62, 48, 29));
-                    $box->setBox(280, 1470, 860, 0);
+                    $box->setBox(280, 1733, 860, 0);
                     $box->setTextAlign('center', 'center');
                     $box->draw($BgMsg1);
                     
@@ -309,7 +321,7 @@ switch ($_REQUEST['exec'])
                     $box->setFontFace('./lib/gd-text/asset/font/nanumBold.ttf');
                     $box->setFontSize(70);
                     $box->setFontColor(new Color(62, 48, 29));
-                    $box->setBox(280, 1610, 860, 0);
+                    $box->setBox(280, 1873, 860, 0);
                     $box->setTextAlign('center', 'center');
                     // $box->setBackgroundColor(new Color(255, 86, 77));
                     $box->draw($BgMsg2);
@@ -318,7 +330,7 @@ switch ($_REQUEST['exec'])
                     $box->setFontFace('./lib/gd-text/asset/font/nanumBold.ttf');
                     $box->setFontSize(70);
                     $box->setFontColor(new Color(62, 48, 29));
-                    $box->setBox(280, 1750, 860, 0);
+                    $box->setBox(280, 2013, 860, 0);
                     $box->setTextAlign('center', 'center');
                     $box->draw($BgMsg3);
                     
@@ -326,7 +338,7 @@ switch ($_REQUEST['exec'])
                     $box->setFontFace('./lib/gd-text/asset/font/nanumBold.ttf');
                     $box->setFontSize(70);
                     $box->setFontColor(new Color(62, 48, 29));
-                    $box->setBox(280, 1890, 860, 0);
+                    $box->setBox(280, 2153, 860, 0);
                     $box->setTextAlign('center', 'center');
                     $box->draw($BgMsg4);
                     

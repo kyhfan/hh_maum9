@@ -87,13 +87,15 @@
             {
                 console.log("1");
                 $(".balloon").fadeOut("fast");
-                setTimeout(() => {
-                    // $("#next_btn").show();
-//                    $("#next_btn").css("background","url(./images/sub_step1_btn.png)");
-//                    $("#next_btn").css("background","url(./images/sub_step1_btn.png)");
+                setTimeout(function(){
 					$("#next_btn").find('img').attr('src', './images/sub_step1_btn.png');
                     $("#next_btn").attr("onclick","nextPage(2)");
                 }, 15000);
+//                 setTimeout(() => {
+//                     // $("#next_btn").show();
+// //                    $("#next_btn").css("background","url(./images/sub_step1_btn.png)");
+// //                    $("#next_btn").css("background","url(./images/sub_step1_btn.png)");
+//                 }, 15000);
             }
         }else if (event.data == 2){
             play_flag = 1;

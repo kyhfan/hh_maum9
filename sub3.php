@@ -127,11 +127,11 @@
 					change_rs_img = "./files/" + localStorage.serial + "/maumbot_cheerup" + that.val() + ".jpg";
 				else if (localStorage.type == 5)
 					change_rs_img = "./files/" + localStorage.serial + "/maumbot_dontworry" + that.val() + ".jpg";
-				// $('.btn-area._3 button').attr("onclick","downloadImg('"+change_rs_img+"')");
 
 				if ($("#"+that.attr('id')).is(":checked") === true)
 				{
 					$(".select-box img").attr("src","./images/sub_step3_select" + that.val() + ".png");
+					$('.btn-area._3 button').attr("onclick","downloadImg('"+change_rs_img+"')");
 				}
 
 
