@@ -255,6 +255,7 @@
 			},
 			on: {
 				slideChangeTransitionEnd: function() {
+					console.log(this);
 					realIdx = this.realIndex + 1;
 
 					if (this.realIndex == 0)
