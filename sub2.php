@@ -232,6 +232,7 @@
 				}
 			}
 		})
+		var headlineColorArr = ['#fa5266', '#d55143', '#376639', '#1b4375', '#dd7722'];
         var swiper = new Swiper ('.slide-wrap', {
 			// Optional parameters
 			allowTouchMove: false,
@@ -255,8 +256,11 @@
 			},
 			on: {
 				slideChangeTransitionEnd: function() {
-					console.log(this);
+					$('.text-area .text-line > span').css({
+						color: headlineColorArr[this.realIndex]
+					});
 					realIdx = this.realIndex + 1;
+					
 
 					if (this.realIndex == 0)
 					{
