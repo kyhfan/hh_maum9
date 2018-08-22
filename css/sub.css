@@ -232,6 +232,7 @@ input[type="checkbox"]:focus {
 .sub-wrap .inner .text-area .text-line .input input::placeholder {
 	color: #b6ad9e;
 }
+/*.sub-wrap .inner .text-area .text-line .input input:focus:-ms-input-placeholder { color: transparent; }*/
 .sub-wrap .inner .text-area .text-line2 {
 /*	margin-top: 6%;*/
 	margin-top: 5px;
