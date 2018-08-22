@@ -102,6 +102,9 @@ body {
 	text-align: center;
 	z-index: 3;
 }
+.section1-wrap .inner .button .btn-message {
+	position: relative;
+}
 /* .section1-wrap .inner .button button {
 	background: url(../images/btn_message.png);
 	width: 402px;
@@ -110,7 +113,8 @@ body {
 .section1-wrap .inner .button button .pencil {
 	position: absolute;
 	top: 17px;
-	margin-left: 100px;
+/*	margin-left: 100px;*/
+	right: 26px;
 	-webkit-animation-name: move-icon;
 	animation-name: move-icon;
 	-webkit-animation-duration: 1300ms;
