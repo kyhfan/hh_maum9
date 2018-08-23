@@ -289,7 +289,9 @@
 		$(".menu a").on('click', function(e) {
             // console.log($(this).attr("class"));
             var this_class  = $(this).attr("class");
-            $('html, body').animate({scrollTop :  $('.section'+this_class+'-wrap').offset().top+10}, 1000);
+            var last_str	= this_class.substr(this_class.length - 1);
+
+            $('html, body').animate({scrollTop :  $('.section'+last_str+'-wrap').offset().top+10}, 1000);
             // switch (this_class)
             // {
             //     case "_1" :
