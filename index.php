@@ -287,7 +287,21 @@
 		});
 		
 		$(".menu a").on('click', function(e) {
-            console.log($(this).attr("class"));
+            // console.log($(this).attr("class"));
+            var this_class  = $(this).attr("class");
+            $('html, body').animate({scrollTop :  $('.section'+this_class+'-wrap').offset().top+10}, 1000);
+            // switch (this_class)
+            // {
+            //     case "_1" :
+            //         $('html, body').animate({scrollTop :  $('.section'+this_class+'-wrap').offset().top+10}, 1000);
+            //     break;
+            //     case "_2" :
+            //     break;
+            //     case "_3" :
+            //     break;
+            //     case "_4" :
+            //     break;
+            // }
         });
 		
 		function scrolled(currentScroll, transitionFlag) {
