@@ -70,7 +70,7 @@
 						<img src="./images/main_sec1_title.png" alt="">
 					</div>
 					<div class="button">
-						<button type="button" class="btn-message">
+						<button type="button" class="btn-message" onclick="nextPage(1)">
 							<img src="./images/main_sec1_btn_bg.png" alt="">
 							<img src="./images/main_sec1_btn_pencile.png" class="pencil" alt="">
 						</button>
