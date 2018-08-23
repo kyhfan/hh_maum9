@@ -291,7 +291,7 @@
             var this_class  = $(this).attr("class");
             var last_str	= this_class.substr(this_class.length - 1);
 
-            $('html, body').animate({scrollTop :  $('.section'+last_str+'-wrap').offset().top + 112}, 1000);
+            $('html, body').animate({scrollTop :  $('.section'+last_str+'-wrap').offset().top - 112}, 1000);
             // switch (this_class)
             // {
             //     case "_1" :
