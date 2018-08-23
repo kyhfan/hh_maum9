@@ -198,7 +198,7 @@
                             <div>
                                 <img src="./images/section4_list2.png" alt="">
                             </div>
-                            <div class="button">
+                            <div class="button" onclick="window.open('http://event3.hi-maumbot.co.kr', 'event3','width=#, height=#'); return false">
                                 <button type="button"></button>
                             </div>
                         </li>
@@ -206,7 +206,7 @@
                             <div>
                                 <img src="./images/section4_list3.png" alt="">
                             </div>
-                            <div class="button">
+                            <div class="button" onclick="window.open('http://event2.hi-maumbot.co.kr', 'event2','width=#, height=#'); return false">
                                 <button type="button"></button>
                             </div>
                         </li>
@@ -214,7 +214,7 @@
                             <div>
                                 <img src="./images/section4_list4.png" alt="">
                             </div>
-                            <div class="button">
+                            <div class="button" onclick="window.open('http://event1.hi-maumbot.co.kr', 'event1','width=#, height=#'); return false">
                                 <button type="button"></button>
                             </div>
                         </li>
