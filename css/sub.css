@@ -105,16 +105,20 @@ input[type="checkbox"]:focus {
 	/* margin-top: 0.35%; */
 }
 .sub-wrap .inner .step-area._1 {
-	width: 6.25%;
+	/* width: 6.25%; */
+	width: 8.02%;
 }
 .sub-wrap .inner .step-area._2 {
-	width: 5%;
+	/* width: 5%; */
+	width: 8.02%;
 }
 .sub-wrap .inner .step-area._3 {
-	width: 4.94%;
+	/* width: 4.94%; */
+	width: 8.02%;
 }
 .sub-wrap .inner .step-area._4 {
-	width: 4.94%;
+	/* width: 4.94%; */
+	width: 8.02%;
 }
 .sub-wrap .inner .title-area {
 	margin: 0 auto;
