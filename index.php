@@ -297,13 +297,13 @@
                     $('html, body').animate({scrollTop : 0}, 1000);
                 break;
                 case "_2" :
-                    $('html, body').animate({scrollTop :  $('.section'+last_str+'-wrap').offset().top - 102}, 1000);
+                    $('html, body').animate({scrollTop :  $('.section'+last_str+'-wrap').offset().top - 94}, 1000);
                 break;
                 case "_3" :
-                    $('html, body').animate({scrollTop :  $('.section'+last_str+'-wrap').offset().top - 510}, 1000);
+                    $('html, body').animate({scrollTop :  $('.section'+last_str+'-wrap').offset().top - 530}, 1000);
                 break;
                 case "_4" :
-                    $('html, body').animate({scrollTop :  $('.section'+last_str+'-wrap').offset().top - 102}, 1000);
+                    $('html, body').animate({scrollTop :  $('.section'+last_str+'-wrap').offset().top - 94}, 1000);
                 break;
             }
         });
