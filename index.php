@@ -259,7 +259,10 @@
                 lazyLoad: 'ondemand',
                 variableWidth: true,
                 slidesToShow: 5,
-                slidesToScroll: 5
+                slidesToScroll: 5,
+                arrows: false,
+                prevArrow: $('.slick-prev'),
+                nextArrow: $('.slick-next')
             });
             // $('.slider-area').on('setPosition', function(slick){
             //     $(".slick-slide").width(285);
