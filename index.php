@@ -259,7 +259,7 @@
                 lazyLoad: 'ondemand',
                 variableWidth: true,
                 slidesToShow: 5,
-                slidesToScroll: 5,
+                slidesToScroll: 1,
                 arrows: true,
                 prevArrow: $('.slick-prev'),
                 nextArrow: $('.slick-next')
