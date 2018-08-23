@@ -260,7 +260,7 @@
                 variableWidth: true,
                 slidesToShow: 5,
                 slidesToScroll: 5,
-                arrows: false,
+                arrows: true,
                 prevArrow: $('.slick-prev'),
                 nextArrow: $('.slick-next')
             });
