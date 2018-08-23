@@ -472,6 +472,25 @@ function check_agree(param, id)
 	hh_maum9.popup.close($(id));
 }
 
+// function strCheck(val, num)
+// {
+// 	var strlen 	= val.value.length;
+// 	var nextNum		= num + 1;
+// 	console.log(window.event.keyCode);
+// 	if (window.event.keyCode == "37" || window.event.keyCode == "39")
+// 	{
+// 		// conso
+// 	}else{
+// 		if (strlen == 11)
+// 		{
+// 			if (nextNum == 5)
+// 				$("#msg_conntent4").blur();
+// 			else
+// 				$("#msg_conntent"+nextNum).focus();
+// 		}
+// 	}
+// }
+
 function kakao_send()
 {
 	if (localStorage.type == 1)

@@ -486,7 +486,8 @@ body {
 }
 .section2-wrap .inner .slider .prev-button {
 	position: absolute;
-	left: -27px;
+	/* left: -27px; */
+	left: 90px;
 	top: 50%;
 	margin-top: -57px;
 }
@@ -497,7 +498,8 @@ body {
 }
 .section2-wrap .inner .slider .next-button {
 	position: absolute;
-	right: -27px;
+	/* right: -27px; */
+	right: 90px;
 	top: 50%;
 	margin-top: -57px;
 }

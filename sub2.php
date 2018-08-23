@@ -28,15 +28,19 @@
 								</div>
 								<div class="text-line2 text-group first">
 									<div class="input"><input type="text" id="msg_conntent1" placeholder="내용을 입력해 주세요"></div>
+									<span id="msg_conntent1_span" style="visibility:hidden; position:absolute; top:-10000px; font-size:15px;"></span>
 								</div>
 								<div class="text-line2 text-group">
 									<div class="input"><input type="text" id="msg_conntent2"></div>
+									<span id="msg_conntent2_span" style="visibility:hidden; position:absolute; top:-10000px; font-size:15px;"></span>
 								</div>
 								<div class="text-line2 text-group">
 									<div class="input"><input type="text" id="msg_conntent3"></div>
+									<span id="msg_conntent3_span" style="visibility:hidden; position:absolute; top:-10000px; font-size:15px;"></span>
 								</div>
 								<div class="text-line2 text-group">
 									<div class="input"><input type="text" id="msg_conntent4"></div>
+									<span id="msg_conntent4_span" style="visibility:hidden; position:absolute; top:-10000px; font-size:15px;"></span>
 								</div>
 <!--
 								<div class="text-line2 text-group">
@@ -220,8 +224,21 @@
     </div>
     <script>
 		var prev_bot_idx = 4;
-		$('.text-area input').on('keypress', function(e) {
-//			console.log(e);
+		// $('.text-area input').on('keypress', function(e) {
+		$('.text-area input').on('keydown', function(e) {
+			var this_val 	= $(this).val();
+			$("#"+$(this).attr("id")+"_span").text(this_val);
+			console.log($("#"+$(this).attr("id")+"_span").outerWidth());
+			if ($("#"+$(this).attr("id")+"_span").outerWidth() > 150)
+			{
+				// 현재 인풋에서 마지막 문자 삭제
+				$(this).val($(this).val().slice(0, -1));
+				// 다음 인풋에 마지막 문자 삽입
+				var last_str	= this_val.substr(this_val.length - 1);
+				$(this).closest('.text-group').next().find('input').val(last_str);
+				$(this).closest('.text-group').next().find('input').focus();
+			}
+
 			if(e.keyCode == 13) {
 				if($(this).closest('.text-group').hasClass('bottom')) {
 //					console.log("if");
