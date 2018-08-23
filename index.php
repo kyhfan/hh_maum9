@@ -286,6 +286,10 @@
 			scrolled(currentScroll, 'transition');
 		});
 		
+		$(".menu a").on('click', function(e) {
+            console.log("a click");
+        });
+		
 		function scrolled(currentScroll, transitionFlag) {
 			if(transitionFlag) {
 				var transition = 'background 0.46s ease-out';
