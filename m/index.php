@@ -113,21 +113,30 @@
 					<div class="slide-wrap">
 						<div class="swiper-container slide-area">
 							<div class="swiper-wrapper">
+<?
+    $query 		= "SELECT * FROM member_info_9 WHERE mb_serial <> '' ORDER BY idx DESC LIMIT 100";
+    $result 	= mysqli_query($my_db, $query);
+
+    while ($data = mysqli_fetch_array($result))
+    {
+        if ($data['mb_type'] == "1")
+            $file_name = "/maumbot_takecare2.jpg";
+        else if ($data['mb_type'] == "2")
+            $file_name = "/maumbot_loveyou2.jpg";
+        else if ($data['mb_type'] == "3")
+            $file_name = "/maumbot_thanks2.jpg";
+        else if ($data['mb_type'] == "4")
+            $file_name = "/maumbot_cheerup2.jpg";
+        else if ($data['mb_type'] == "5")
+            $file_name = "/maumbot_dontworry2.jpg";
+?>                            
+
 								<div class="swiper-slide slide">
-									<img src="./images/main_sec2_slide_sample.png" alt="">
+									<img src="../files/<?=$data['mb_serial']?>/<?=$file_name?>" alt="">
 								</div>
-								<div class="swiper-slide slide">
-									<img src="./images/main_sec2_slide_sample.png" alt="">
-								</div>
-								<div class="swiper-slide slide">
-									<img src="./images/main_sec2_slide_sample.png" alt="">
-								</div>
-								<div class="swiper-slide slide">
-									<img src="./images/main_sec2_slide_sample.png" alt="">
-								</div>
-								<div class="swiper-slide slide">
-									<img src="./images/main_sec2_slide_sample.png" alt="">
-								</div>
+<?
+    }
+?>                            
 							</div>
 						</div>
 						<div class="prev-button arrow">
