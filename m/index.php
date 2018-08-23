@@ -114,7 +114,11 @@
 						<div class="swiper-container slide-area">
 							<div class="swiper-wrapper">
 <?
-    $query 		= "SELECT * FROM member_info_9 WHERE mb_serial <> '' ORDER BY idx DESC LIMIT 100";
+    $total_query 	= "SELECT * FROM member_info_9 WHERE mb_serial <> ''";
+	$total_result 	= mysqli_query($my_db, $total_query);
+	$total_count	= mysqli_num_rows($total_result);
+	
+	$query 		= "SELECT * FROM member_info_9 WHERE mb_serial <> '' ORDER BY idx DESC LIMIT 100";
     $result 	= mysqli_query($my_db, $query);
 
     while ($data = mysqli_fetch_array($result))
@@ -158,7 +162,7 @@
 							</div>
 							<div class="balloon right">
 								<img src="./images/main_sec2_balloon_right.png" alt="">
-								<span class="total">27,000</span>
+								<span class="total"><?=number_format($total_count)?></span>
 							</div>
 						</div>
 					</div>

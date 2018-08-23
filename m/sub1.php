@@ -1,0 +1,81 @@
+<?
+    include_once "sub_head.php";
+?>
+	<body>
+		<div class="page-wrap sub">
+			<div class="menu-layer">
+				<div class="inner">
+					<button type="button" class="menu-close"></button>
+					<ul class="menu-list">
+						<li><a href="javascript:void(0)"><img src="./images/menu_1.png" alt="" style="width: 144px;"></a></li>
+						<li><a href="javascript:void(0)"><img src="./images/menu_2.png" alt="" style="width: 144px;"></a></li>
+						<li><a href="javascript:void(0)"><img src="./images/menu_3.png" alt="" style="width: 110px;"></a></li>
+						<li><a href="javascript:void(0)"><img src="./images/menu_4.png" alt="" style="width: 77px;"></a></li>
+					</ul>
+					<ul class="share-list">
+						<li><button type="button" class="kt"></button></li>
+						<li><button type="button" class="ks"></button></li>
+						<li><button type="button" class="fb"></button></li>
+					</ul>
+					<img src="./images/share_guide.png" alt="" class="share-guide">
+					<div class="box-point"></div>
+				</div>
+			</div>
+			<div class="header-wrap">
+				<div class="inner">
+					<div class="logo">
+						<img src="./images/logo.png" alt="현대해상 로고">
+					</div>
+					<div class="burger">
+						<span class="line top"></span>
+						<span class="line mid"></span>
+						<span class="line bot"></span>
+					</div>
+				</div>
+			</div>
+			<div class="content sub1 sub">
+				<div class="step">
+					<img src="./images/sub1_step.png" alt="">
+				</div>
+				<div class="title">
+					<img src="./images/sub1_title.png" alt="">
+				</div>
+				<div class="video-area">
+					<div id="player">
+						<img src="./images/sub1_video_sample.jpg" alt="">
+					</div>
+				</div>
+				<div class="btn-wrap">
+					<button type="button" class="btn">
+						<img src="./images/sub1_btn_before.jpg" alt="">
+					</button>
+					<div class="msg"></div>
+				</div>
+				<div class="copyright">
+					<img src="./images/sub_copyright.png" alt="">
+				</div>
+			</div>
+		</div>
+		<script>
+			var swiper = new Swiper ('.slide-area', {
+				// Optional parameters
+				direction: 'horizontal',
+				loop: true,
+				slidesPerView: 'auto',
+				// loopFillGroupWithBlank: true,
+				spaceBetween: 22,
+				// touchAngle: 75,
+				navigation: {
+					nextEl: '.button-next',
+					prevEl: '.button-prev',
+				}
+			})
+			$('.burger').on('click', function() {
+				$('html').toggleClass('menu-opened');
+			});
+			$('.menu-layer .menu-close').on('click', function() {
+				$('html').removeClass('menu-opened');
+			});
+		</script>
+	</body>
+</html>
