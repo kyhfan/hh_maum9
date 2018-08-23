@@ -287,7 +287,7 @@
 		});
 		
 		$(".menu a").on('click', function(e) {
-            console.log("a click");
+            console.log($(this).attr("class"));
         });
 		
 		function scrolled(currentScroll, transitionFlag) {
