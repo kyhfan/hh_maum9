@@ -42,12 +42,12 @@
 				</div>
 				<div class="video-area">
 					<div id="player">
-						<img src="./images/sub1_video_sample.jpg" alt="">
+						<!-- <img src="./images/sub1_video_sample.jpg" alt=""> -->
 					</div>
 				</div>
 				<div class="btn-wrap">
-					<button type="button" class="btn">
-						<img src="./images/sub1_btn_before.jpg" alt="">
+					<button type="button" class="btn" onclick="alert('영상 재생 후 15초 뒤에 다음단계로 넘어가실 수 있습니다.')">
+						<img src="./images/sub1_btn_before.jpg" alt="" id="sub1_btn">
 					</button>
 					<div class="msg"></div>
 				</div>
@@ -57,19 +57,64 @@
 			</div>
 		</div>
 		<script>
-			var swiper = new Swiper ('.slide-area', {
-				// Optional parameters
-				direction: 'horizontal',
-				loop: true,
-				slidesPerView: 'auto',
-				// loopFillGroupWithBlank: true,
-				spaceBetween: 22,
-				// touchAngle: 75,
-				navigation: {
-					nextEl: '.button-next',
-					prevEl: '.button-prev',
+			// var swiper = new Swiper ('.slide-area', {
+			// 	// Optional parameters
+			// 	direction: 'horizontal',
+			// 	loop: true,
+			// 	slidesPerView: 'auto',
+			// 	// loopFillGroupWithBlank: true,
+			// 	spaceBetween: 22,
+			// 	// touchAngle: 75,
+			// 	navigation: {
+			// 		nextEl: '.button-next',
+			// 		prevEl: '.button-prev',
+			// 	}
+			// })
+
+			// 유튜브 api 재생 클릭시 이벤트 설정
+			var tag = document.createElement('script');
+
+			tag.src = "https://www.youtube.com/iframe_api";
+			var firstScriptTag = document.getElementsByTagName('script')[0];
+			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+			var player;
+
+			var yt_width = $(".video-area").width();
+			var yt_height = Math.round((yt_width / 16) * 9);
+
+			function onYouTubeIframeAPIReady() {
+				player = new YT.Player('player', {
+					height: yt_height,
+					width: yt_width,
+					videoId: 'sarZNWn77GE',
+					events: {
+						// 'onReady': onPlayerReady,
+						'onStateChange': onPlayerStateChange
+					}
+				});
+			}
+
+			var play_flag = 0;
+			function onPlayerStateChange(event) {
+				if (event.data == 1)
+				{
+					if (play_flag == 0)
+					{
+						console.log("1");
+						$(".msg").fadeOut("fast");
+						setTimeout(function(){
+							$("#sub1_btn").attr('src', './images/sub1_btn_after.jpg');
+							$(".btn-wrap button").attr("onclick","nextPage(2)");
+						}, 3000);
+					}
+				}else if (event.data == 2){
+					play_flag = 1;
+					console.log("2");
 				}
-			})
+			}
+
+
 			$('.burger').on('click', function() {
 				$('html').toggleClass('menu-opened');
 			});

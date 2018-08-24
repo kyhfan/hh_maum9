@@ -413,16 +413,7 @@ function saveImageInfo()
 	var BgMsg2			= $("#msg_conntent2").val();
 	var BgMsg3			= $("#msg_conntent3").val();
 	var BgMsg4			= $("#msg_conntent4").val();
-	var BgMsg5			= $("#msg_conntent5").val();
-
-	// localStorage.setItem('BgImageType', BgImageType);
-	// localStorage.setItem('BgTo', BgTo);
-	// localStorage.setItem('BgFrom', BgFrom);
-	// localStorage.setItem('BgMsg1', BgMsg1);
-	// localStorage.setItem('BgMsg2', BgMsg2);
-	// localStorage.setItem('BgMsg3', BgMsg3);
-	// localStorage.setItem('BgMsg4', BgMsg4);
-	// localStorage.setItem('BgMsg5', BgMsg5);
+	// var BgMsg5			= $("#msg_conntent5").val();
 
 	if (BgTo == "")
 	{
@@ -436,7 +427,7 @@ function saveImageInfo()
 		return false;
 	}
 
-	if (BgMsg1 == "" && BgMsg2 == "" && BgMsg3 == "" && BgMsg4 == "" && BgMsg5 == "")
+	if (BgMsg1 == "" && BgMsg2 == "" && BgMsg3 == "" && BgMsg4 == "")
 	{
 		alert("보내시는 메세지를 입력해 주세요.");
 		return false;
@@ -452,16 +443,15 @@ function saveImageInfo()
 			"BgMsg1"			: BgMsg1,
 			"BgMsg2"			: BgMsg2,
 			"BgMsg3"			: BgMsg3,
-			"BgMsg4"			: BgMsg4,
-			"BgMsg5"			: BgMsg5
+			"BgMsg4"			: BgMsg4
 		},
-		url: "./main_exec.php",
+		url: "../main_exec.php",
 		success: function(response){
 			console.log(response);
 			var resArr = response.split("||");
 			localStorage.setItem('serial', resArr[0]);
 			localStorage.setItem('type', resArr[1]);
-			nextPage(3);
+			// nextPage(3);
 		}
 	});
 }

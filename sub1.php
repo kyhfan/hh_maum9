@@ -42,13 +42,7 @@
         </div>
     </div>
     <script>
-    // $("document").ready(function(){
-    //     var yt_width = $(".video-area").width();
-    //     var yt_height = ($(".video-area").width() / 16) * 9;
-    //     $("#ytplayer").width(yt_width);
-    //     $("#ytplayer").height(yt_height);
-    // });
-    	// 유튜브 api 재생 클릭시 이벤트 설정
+    // 유튜브 api 재생 클릭시 이벤트 설정
 	var tag = document.createElement('script');
 
     tag.src = "https://www.youtube.com/iframe_api";
@@ -57,16 +51,9 @@
 
     var player;
 
-    // if ($(window).width() < 1040)
-    // {
-        var yt_width = $(".video-area").width();
-        var yt_height = Math.round((yt_width / 16) * 9);
-    // }else{
-    //     var yt_width = '1040';
-    //     var yt_height = '582';
-    // }
-// console.log(yt_width);
-// console.log(yt_height);
+    var yt_width = $(".video-area").width();
+    var yt_height = Math.round((yt_width / 16) * 9);
+
     function onYouTubeIframeAPIReady() {
         player = new YT.Player('player_area', {
             height: yt_height,
@@ -91,11 +78,6 @@
 					$("#next_btn").find('img').attr('src', './images/sub_step1_btn.png');
                     $("#next_btn").attr("onclick","nextPage(2)");
                 }, 3000);
-//                 setTimeout(() => {
-//                     // $("#next_btn").show();
-// //                    $("#next_btn").css("background","url(./images/sub_step1_btn.png)");
-// //                    $("#next_btn").css("background","url(./images/sub_step1_btn.png)");
-//                 }, 15000);
             }
         }else if (event.data == 2){
             play_flag = 1;

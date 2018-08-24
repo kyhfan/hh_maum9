@@ -77,6 +77,10 @@ switch ($_REQUEST['exec'])
 
         $serial         = $mnv_f->create_serial();
         // $serial         = "test";
+        // if ($gubun == "PC")
+        //     $dot_str    = ".";
+        // else
+        //     $dot_str    = "..";
 
         $im1 = imagecreatefromjpeg("./images/bg_image/1125_2436/1125_2436_0".$BgImageType.".jpg");
         $im2 = imagecreatefromjpeg("./images/bg_image/1440_2560/1440_2560_0".$BgImageType.".jpg");
