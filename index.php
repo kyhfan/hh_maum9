@@ -190,7 +190,7 @@
                             <div>
                                 <img src="./images/section4_list1.png" alt="">
                             </div>
-                            <div class="button">
+                            <div class="button" onclick="window.open('http://event4.hi-maumbot.co.kr', 'event4','width=#, height=#'); return false">
                                 <button type="button"></button>
                             </div>
                         </li>
