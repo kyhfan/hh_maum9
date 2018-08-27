@@ -125,7 +125,7 @@
 				<div class="text">
 					<img src="./images/popup_agree2_text.png" alt="">
 				</div>
-				<button type="button" class="btn" onclick="check_agree('terms2','#popup-agree2')">
+				<button type="button" class="btn" onclick="check_agree('terms1','#popup-agree2')">
 					<img src="./images/popup_agree_btn.jpg" alt="">
 				</button>
 			</div>
@@ -139,7 +139,7 @@
 				<div class="text">
 					<img src="./images/popup_agree1_text.png" alt="">
 				</div>
-				<button type="button" class="btn" onclick="check_agree('terms1','#popup-agree1')">
+				<button type="button" class="btn" onclick="check_agree('terms2','#popup-agree1')">
 					<img src="./images/popup_agree_btn.jpg" alt="">
 				</button>
 			</div>
