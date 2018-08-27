@@ -101,7 +101,7 @@
 					<div class="text">
 						<img src="./images/main_sec1_2_text.png" alt="">
 					</div>
-					<button type="button">
+					<button type="button" onclick="alert('당첨자는 10월 1일에 발표 될 예정입니다.')">
 						<img src="./images/main_sec1_2_btn.png" alt="">
 					</button>
 				</div>
@@ -183,15 +183,15 @@
 						</div>
 						<div class="info-box">
 							<img src="./images/main_sec3_infobox.jpg" alt="">
-							<button type="button">
+							<button type="button" onclick="alert('당첨자는 11월 2일에 발표 될 예정입니다.')">
 								<img src="./images/main_sec3_infobox_btn.jpg" alt="">
 							</button>
 						</div>
-						<button type="button" class="btn-verify">
+						<button type="button" class="btn-verify" onclick="alert('인증이벤트는 9월 3일부터 시작 될 예정입니다.')">
 							<img src="./images/main_sec3_verify.jpg" alt="">
 						</button>
 						<div class="list-container">
-							<div class="col indent">
+							<!-- <div class="col indent">
 								<div class="box">
 									<div class="img">
 										<img src="./images/main_sec3_box_sample1.jpg" alt="">
@@ -247,11 +247,11 @@
 										<span>#우리가족튼튼메신저</span>
 									</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
-						<button type="button" class="btn-more">
+						<!-- <button type="button" class="btn-more">
 							<img src="./images/main_sec3_more.png" alt="">
-						</button>
+						</button> -->
 					</div>
 				</div>
 			</div>
@@ -266,19 +266,19 @@
 					<div class="list-campaign">
 						<div class="memory">
 							<img src="./images/main_sec4_memory1.png" alt="">
-							<a href="#" class="btn"></a>
+							<a href="http://event4.hi-maumbot.co.kr" target="_blank" class="btn"></a>
 						</div>
 						<div class="memory">
 							<img src="./images/main_sec4_memory2.png" alt="">
-							<a href="#" class="btn"></a>
+							<a href="http://event3.hi-maumbot.co.kr" target="_blank" class="btn"></a>
 						</div>
 						<div class="memory">
 							<img src="./images/main_sec4_memory3.png" alt="">
-							<a href="#" class="btn"></a>
+							<a href="http://event2.hi-maumbot.co.kr" target="_blank" class="btn"></a>
 						</div>
 						<div class="memory">
 							<img src="./images/main_sec4_memory4.png" alt="">
-							<a href="#" class="btn"></a>
+							<a href="http://event1.hi-maumbot.co.kr" target="_blank" class="btn"></a>
 						</div>
 					</div>
 					<div class="footer">

@@ -271,6 +271,14 @@
             // $('.slider-area').on('setPosition', function(slick){
             //     $(".slick-slide").width(285);
             // });
+<?
+    if ($_REQUEST["g"])
+    {
+?>  
+            go_section('<?=$_REQUEST["g"]?>');
+<?
+    }
+?>         
 		});
 		
 		$(window).on('resize', function() {
@@ -294,29 +302,44 @@
 			e.preventDefault();
             // console.log($(this).attr("class"));
             var this_class  = $(this).attr("class");
-            var last_str	= this_class.substr(this_class.length - 1);
+            // var last_str	= this_class.substr(this_class.length - 1);
 
             switch (this_class)
             {
                 case "_1" :
-//                    $('html, body').animate({scrollTop : 0}, 1000);
                     $('html, body').animate({scrollTop : 0}, 1000);
                 break;
                 case "_2" :
-//                    $('html, body').animate({scrollTop :  $('.section'+last_str+'-wrap').offset().top - 92}, 1000);
 					$('html, body').animate({scrollTop :  sectionOffsetArray[1]-92}, 1000);
                 break;
                 case "_3" :
-//                    $('html, body').animate({scrollTop :  $('.section'+last_str+'-wrap').offset().top - 530}, 1000);
 					$('html, body').animate({scrollTop :  sectionOffsetArray[2]-530}, 1000);
                 break;
                 case "_4" :
-//                    $('html, body').animate({scrollTop :  $('.section'+last_str+'-wrap').offset().top - 92}, 1000);
 					$('html, body').animate({scrollTop :  sectionOffsetArray[3]-92}, 1000);
                 break;
             }
         });
-		
+        
+        function go_section(param)
+        {
+            switch (param)
+            {
+                case "1" :
+                    $('html, body').animate({scrollTop : 0}, 1000);
+                break;
+                case "2" :
+					$('html, body').animate({scrollTop :  sectionOffsetArray[1]-92}, 1000);
+                break;
+                case "3" :
+					$('html, body').animate({scrollTop :  sectionOffsetArray[2]-530}, 1000);
+                break;
+                case "4" :
+					$('html, body').animate({scrollTop :  sectionOffsetArray[3]-92}, 1000);
+                break;
+            }
+        }
+
 		function scrolled(currentScroll, transitionFlag) {
 			if(transitionFlag) {
 				var transition = 'background 0.46s ease-out';
