@@ -301,7 +301,7 @@ $(function(){
 
 function go_link(param)
 {
-	if (confirm("현재 이벤트 참여가 완료 되지 않았습니다. 이동하시겠습니까?"))
+	if (confirm("이벤트 참여가 완료 되지 않았습니다. 이동하시겠습니까?"))
 	{
 		location.href = "index.php?g=" + param;
 	}

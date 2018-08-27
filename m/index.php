@@ -315,6 +315,14 @@
 					sectionOffsetArray.push($(el).offset().top);
 				});
 				// scrolled($(window).scrollTop());
+<?
+    if ($_REQUEST["g"])
+    {
+?>  
+            go_section('<?=$_REQUEST["g"]?>');
+<?
+    }
+?>
 			});
 //
 //			$(window).on('resize', function() {
@@ -393,6 +401,25 @@
 					break;
 				}
 			});
+
+			function go_section(param)
+			{
+				switch (param)
+				{
+					case "1" :
+						$('html, body').animate({scrollTop : 0}, 1000);
+					break;
+					case "2" :
+						$('html, body').animate({scrollTop :  sectionOffsetArray[2]-37}, 1000);
+					break;
+					case "3" :
+						$('html, body').animate({scrollTop :  sectionOffsetArray[3]-185}, 1000);
+					break;
+					case "4" :
+						$('html, body').animate({scrollTop :  sectionOffsetArray[4]-37}, 1000);
+					break;
+				}
+			}
 
 		</script>
 	</body>

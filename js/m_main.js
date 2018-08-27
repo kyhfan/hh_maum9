@@ -335,6 +335,14 @@ function initLayerPosition(){
 	element_layer.style.top = (((window.innerHeight || document.documentElement.clientHeight) - height)/2 - borderWidth) + 60 + 'px';
 }
 
+function go_link(param)
+{
+	if (confirm("이벤트 참여가 완료 되지 않았습니다. 이동하시겠습니까?"))
+	{
+		location.href = "index.php?g=" + param;
+	}
+}
+
 function only_num(obj)
 {
 	var inText = obj.value;
