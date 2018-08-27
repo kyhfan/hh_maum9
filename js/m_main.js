@@ -18,7 +18,7 @@ $(function(){
 				var $this = $(this),
 					$html = $('html'),
 					val = $this.attr('data-popup');
-
+				
 				if (val.match('@close')){
 					hh_maum9.popup.close($this.closest('.popup'));
 				} else {
