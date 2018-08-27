@@ -249,7 +249,7 @@ $(function(){
 				"mb_serial"			: localStorage.serial,
 				"mb_type"			: localStorage.type
 			},
-			url: "./main_exec.php",
+			url: "../main_exec.php",
 			success: function(response){
 				console.log(response);
 				// localStorage.clear();
@@ -451,7 +451,7 @@ function saveImageInfo()
 			var resArr = response.split("||");
 			localStorage.setItem('serial', resArr[0]);
 			localStorage.setItem('type', resArr[1]);
-			// nextPage(3);
+			nextPage(3);
 		}
 	});
 }
