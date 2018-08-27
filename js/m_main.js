@@ -292,10 +292,11 @@ $(function(){
 	
 				zipcode	= data.zonecode;
 				addr1		= fullAddr;
-				// document.getElementById('mb_zipcode').value = zipcode; //5자리 새우편번호 사용
+				document.getElementById('mb_zipcode').value = data.zonecode; //5자리 새우편번호 사용
 				// document.getElementById('mb_addr1').value = "("+zipcode+") "+addr1;
 				// document.getElementById('mb_addr1').value = addr1;
-				document.getElementById('mb_addr1').value 	= "(" + data.zonecode + ") " + addr1;
+				// document.getElementById('mb_addr1').value 	= "(" + data.zonecode + ") " + addr1;
+				document.getElementById('mb_addr1').value 	= addr1;
 	
 				// iframe을 넣은 element를 안보이게 한다.
 				// (autoClose:false 기능을 이용한다면, 아래 코드를 제거해야 화면에서 사라지지 않는다.)
