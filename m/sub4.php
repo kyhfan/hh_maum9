@@ -167,6 +167,20 @@
 			});
 //			$('#popup_opener').on('click', function() {
 //			});
+			
+			function lengthCheck(obj, ln) {
+				var $obj = $(obj);
+				var regExp = /^[0-9]+$/;
+				
+				if(!regExp.test($obj.val())) {
+					$obj.val($obj.val().replace(/[^0-9]/g, ""));
+				} else {
+					if($obj.val().length>=ln) {
+						$obj.is('input:last-child') ? $obj.blur() : $obj.next().focus();
+					}
+				}
+			}
+
 		</script>
 	</body>
 </html>
