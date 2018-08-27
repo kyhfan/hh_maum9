@@ -174,10 +174,10 @@
                 </div>
                 <div class="info">
                     <div class="button">
-                        <button type="button"></button>
+                        <button type="button" onclick="alert('당첨자는 11월 2일에 발표 될 예정입니다.')"></button>
                     </div>
                 </div>
-                <button class="btn-verify">
+                <button class="btn-verify" onclick="alert('인증이벤트는 9월 3일부터 시작 될 예정입니다.')">
                 	<img src="./images/section3_verify_btn.jpg" alt="">
                 </button>
             </div>
