@@ -66,7 +66,7 @@
                 <div class="info">
                     <div class="txt"></div>
                     <div class="button">
-                        <button type="button"></button>
+                        <button type="button" onclick="alert('10월 1일에 당첨자가 발표 됩니다.')"></button>
                     </div>
                 </div>
                 <div class="village">
