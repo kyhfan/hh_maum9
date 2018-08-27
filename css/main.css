@@ -41,6 +41,7 @@ body {
 .header-wrap .inner .menu a {
 	display: inline-block;
 	margin-right: 40px;
+	transition: background 0.1s ease;
 }
 .header-wrap .inner .menu ._1 {
 	background: url(../images/head_txt1.png);
@@ -48,11 +49,17 @@ body {
 	height: 17px;
 /*	margin-right: 37px;*/
 }
+.header-wrap .inner .menu ._1.is-active {
+	background: url(../images/head_txt1_active.png);
+}
 .header-wrap .inner .menu ._2 {
 	background: url(../images/head_txt2.png);
 	width: 140px;
 	height: 17px;
 /*	margin-right: 41px;*/
+}
+.header-wrap .inner .menu ._2.is-active {
+	background: url(../images/head_txt2_active.png);
 }
 .header-wrap .inner .menu ._3 {
 	background: url(../images/head_txt3.png);
@@ -60,10 +67,16 @@ body {
 	height: 16px;
 /*	margin-right: 39px;*/
 }
+.header-wrap .inner .menu ._3.is-active {
+	background: url(../images/head_txt3_active.png);
+}
 .header-wrap .inner .menu ._4 {
 	background: url(../images/head_txt4.png);
 	width: 75px;
 	height: 16px;
+}
+.header-wrap .inner .menu ._4.is-active {
+	background: url(../images/head_txt4_active.png);
 }
 .header-wrap .inner .pointer {
 	position: absolute;

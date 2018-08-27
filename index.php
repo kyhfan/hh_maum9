@@ -43,10 +43,10 @@
                     <img src="./images/logo.png" alt="현대해상 로고">
                 </div>
                 <div class="menu">
-                    <a href="#" class="_1"></a>
-                    <a href="#" class="_2"></a>
-                    <a href="#" class="_3"></a>
-                    <a href="#" class="_4"></a>
+                    <a href="javascript:void(0)" class="_1"></a>
+                    <a href="javascript:void(0)" class="_2"></a>
+                    <a href="javascript:void(0)" class="_3"></a>
+                    <a href="javascript:void(0)" class="_4"></a>
                 </div>
 <!--
                 <div class="pointer">
@@ -291,6 +291,7 @@
 		});
 		
 		$(".menu a").on('click', function(e) {
+			e.preventDefault();
             // console.log($(this).attr("class"));
             var this_class  = $(this).attr("class");
             var last_str	= this_class.substr(this_class.length - 1);
@@ -298,16 +299,20 @@
             switch (this_class)
             {
                 case "_1" :
+//                    $('html, body').animate({scrollTop : 0}, 1000);
                     $('html, body').animate({scrollTop : 0}, 1000);
                 break;
                 case "_2" :
-                    $('html, body').animate({scrollTop :  $('.section'+last_str+'-wrap').offset().top - 92}, 1000);
+//                    $('html, body').animate({scrollTop :  $('.section'+last_str+'-wrap').offset().top - 92}, 1000);
+					$('html, body').animate({scrollTop :  sectionOffsetArray[1]-92}, 1000);
                 break;
                 case "_3" :
-                    $('html, body').animate({scrollTop :  $('.section'+last_str+'-wrap').offset().top - 530}, 1000);
+//                    $('html, body').animate({scrollTop :  $('.section'+last_str+'-wrap').offset().top - 530}, 1000);
+					$('html, body').animate({scrollTop :  sectionOffsetArray[2]-530}, 1000);
                 break;
                 case "_4" :
-                    $('html, body').animate({scrollTop :  $('.section'+last_str+'-wrap').offset().top - 92}, 1000);
+//                    $('html, body').animate({scrollTop :  $('.section'+last_str+'-wrap').offset().top - 92}, 1000);
+					$('html, body').animate({scrollTop :  sectionOffsetArray[3]-92}, 1000);
                 break;
             }
         });
@@ -318,27 +323,33 @@
 			} else {
 				var transition = '';
 			}
-			if (currentScroll > sectionOffsetArray[1] && currentScroll < sectionOffsetArray[2]) {
+			if (currentScroll > sectionOffsetArray[1] && currentScroll < sectionOffsetArray[2]-540) {
 				//				현재 섹션 2번
 				targetX = menuOffsetArray[1];
+				activeIndex = 2;
 //				console.log("2");
-			} else if (currentScroll > sectionOffsetArray[2] && currentScroll < sectionOffsetArray[3]) {
+			} else if (currentScroll > sectionOffsetArray[2]-540 && currentScroll < sectionOffsetArray[3]) {
 				//				현재 섹션 3번
 				targetX = menuOffsetArray[2]-20;
 //				console.log("3");
+				activeIndex = 3;
 			} else if (currentScroll > sectionOffsetArray[3]) {
 				//				현재 섹션 4번
 				targetX = menuOffsetArray[3]-35;
 //				console.log("4");
+				activeIndex = 4;
 			} else {
 				//				현재 섹션 1번
 				targetX = menuOffsetArray[0];
 //				console.log("1");
+				activeIndex = 1;
 			}
 			$('.header-wrap').css({
 				backgroundPositionX: targetX-1360+'px',
 				transition: transition
 			});
+			$('.header-wrap .menu a').removeClass('is-active');
+			$('.header-wrap .menu ._'+activeIndex).addClass('is-active');
 		}
 //		console.log(menuOffsetArray);
 //		console.log(sectionOffsetArray);
