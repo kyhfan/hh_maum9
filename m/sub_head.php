@@ -9,7 +9,8 @@
 		<link rel="stylesheet" href="./css/common.css">
 		<link rel="stylesheet" href="./css/sub.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/css/swiper.min.css">
-		<script src="../js/jquery-1.11.2.min.js"></script>
+        <link type="image/icon" rel="shortcut icon" href="http://minivertest.hi-maumbot.co.kr/images/maum_favi.ico" />
+	 	<script src="../js/jquery-1.11.2.min.js"></script>
 		<script src="../js/m_main.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/js/swiper.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
