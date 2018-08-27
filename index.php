@@ -177,6 +177,9 @@
                         <button type="button"></button>
                     </div>
                 </div>
+                <button class="btn-verify">
+                	<img src="./images/section3_verify_btn.jpg" alt="">
+                </button>
             </div>
         </div>
 		<div class="section4-wrap section">

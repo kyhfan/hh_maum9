@@ -519,26 +519,29 @@ body {
 	position: relative;
 	background: url(../images/section3_bg.png) no-repeat center 0;
 	/* width: 1920px; */
-	height: 1952px;
+/*	height: 1952px;*/
 	background-size: cover;
+	margin-bottom: -343px;
 }
 .section3-wrap .inner {
-	position: absolute;
+/*	position: absolute;*/
+	position: relative;
 	width: 1230px;
-	height: 2295px;
+/*	height: 2295px;*/
 	margin: 0 auto;
 	background: #fff;
-	left: 50%;
-	margin-left: -615px;
+/*	left: 50%;*/
+/*	margin-left: -615px;*/
 	top: -343px;
+	padding: 154px 0 144px;
 }
 .section3-wrap .inner .maumbot-insta {
-	position: relative;
+	position: absolute;
 	background: url(../images/maumbot_insta.png);
 	width: 232px;
 	height: 212px;
 	left: 50%;
-	margin-top: -75px;
+	top: -75px;
 	margin-left: -82px;
 }
 .section3-wrap .inner .title {
@@ -561,6 +564,10 @@ body {
 	top: 55px;
 	right: 102px;
 
+}
+.section3-wrap .inner .btn-verify {
+	display: block;
+	margin: 57px auto 0;
 }
 .section3-wrap .inner .info .button button {
 	background: url(../images/btn_winner.png);
