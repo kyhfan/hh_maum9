@@ -538,4 +538,9 @@ input[type="checkbox"]:focus {
 	.content.sub4 .input-area .input-group.addr .input button {
 		width: 40%;
 	}
+	.content.sub3 .btn .balloon {
+		width: 100px;
+		top: -70px;
+		right: -45px;
+	}
 }
