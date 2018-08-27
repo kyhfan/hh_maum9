@@ -173,6 +173,10 @@
 			<a href="javascript:void(0)" class="popup-close" data-popup="@close"></a>
 		</div>
 		<!-- 개인정보 수집 및 이용에 관한 약관 팝업 -->
+		<div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:9999;-webkit-overflow-scrolling:touch;">
+			<img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnCloseLayer" style="width:7%;cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
+		</div>
+
 		<!-- <button id="popup_opener" data-popup="#popup-agree2">asdasdasdasd</button> -->
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
