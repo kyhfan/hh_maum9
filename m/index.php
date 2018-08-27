@@ -39,10 +39,10 @@
 				<div class="inner">
 					<button type="button" class="menu-close"></button>
 					<ul class="menu-list">
-						<li><a href="javascript:void(0)"><img src="./images/menu_1.png" alt="" style="width: 144px;"></a></li>
-						<li><a href="javascript:void(0)"><img src="./images/menu_2.png" alt="" style="width: 144px;"></a></li>
-						<li><a href="javascript:void(0)"><img src="./images/menu_3.png" alt="" style="width: 110px;"></a></li>
-						<li><a href="javascript:void(0)"><img src="./images/menu_4.png" alt="" style="width: 77px;"></a></li>
+						<li><a href="javascript:void(0)" data-value="1"><img src="./images/menu_1.png" alt="" style="width: 144px;"></a></li>
+						<li><a href="javascript:void(0)" data-value="2"><img src="./images/menu_2.png" alt="" style="width: 144px;"></a></li>
+						<li><a href="javascript:void(0)" data-value="3"><img src="./images/menu_3.png" alt="" style="width: 110px;"></a></li>
+						<li><a href="javascript:void(0)" data-value="4"><img src="./images/menu_4.png" alt="" style="width: 77px;"></a></li>
 					</ul>
 					<ul class="share-list">
 						<li><button type="button" class="kt"></button></li>
@@ -59,9 +59,11 @@
 						<img src="./images/logo.png" alt="현대해상 로고">
 					</div>
 					<div class="burger">
-						<span class="line top"></span>
-						<span class="line mid"></span>
-						<span class="line bot"></span>
+						<!-- <a href="javascript:void(0)" class="burger_link"> -->
+							<span class="line top"></span>
+							<span class="line mid"></span>
+							<span class="line bot"></span>
+						<!-- </a> -->
 					</div>
 				</div>
 			</div>
@@ -302,18 +304,18 @@
 				}
 			})
 //			var menuOffsetArray = [];
-//			var sectionOffsetArray = [];
+			var sectionOffsetArray = [];
 //			var menuWrapOffset = 0;
 //			var targetX = 0;
-//			$(window).on('load', function() {
-//				$('.header-wrap .menu a').each(function(idx, el) {
-//					menuOffsetArray.push($(el).offset().left);
-//				});
-//				$('.section').each(function(idx, el) {
-//					sectionOffsetArray.push($(el).offset().top);
-//				});
-//				scrolled($(window).scrollTop());
-//			});
+			$(window).on('load', function() {
+				// $('.header-wrap .menu a').each(function(idx, el) {
+				// 	menuOffsetArray.push($(el).offset().left);
+				// });
+				$('.section').each(function(idx, el) {
+					sectionOffsetArray.push($(el).offset().top);
+				});
+				// scrolled($(window).scrollTop());
+			});
 //
 //			$(window).on('resize', function() {
 //				$('.header-wrap .menu a').each(function(idx, el) {
@@ -363,9 +365,35 @@
 			$('.burger').on('click', function() {
 				$('html').toggleClass('menu-opened');
 			});
+			// $('.burger_link').on('click', function() {
+				// $('html').toggleClass('menu-opened');
+				// return false;
+			// });
 			$('.menu-layer .menu-close').on('click', function() {
 				$('html').removeClass('menu-opened');
 			});
+			$('.menu-list a').on('click', function() {
+				$('html').removeClass('menu-opened');
+
+				var this_class = $(this).data("value");
+				console.log(this_class);
+				switch (this_class)
+				{
+					case 1 :
+						$('html, body').animate({scrollTop : 0}, 1000);
+					break;
+					case 2 :
+						$('html, body').animate({scrollTop :  sectionOffsetArray[2]-37}, 1000);
+					break;
+					case 3 :
+						$('html, body').animate({scrollTop :  sectionOffsetArray[3]-185}, 1000);
+					break;
+					case 4 :
+						$('html, body').animate({scrollTop :  sectionOffsetArray[4]-37}, 1000);
+					break;
+				}
+			});
+
 		</script>
 	</body>
 </html>

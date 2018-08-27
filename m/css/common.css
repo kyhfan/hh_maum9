@@ -224,7 +224,7 @@ iframe {
 
 html.menu-opened,
 html.popup-opened {
-	overflow: hidden;
+	/* overflow: hidden; */
 }
 .popup-wrap {
 	position: fixed;
