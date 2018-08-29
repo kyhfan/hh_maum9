@@ -321,8 +321,15 @@ html.popup-opened {
 }
 .popup.kitlist .kit-slide-area .visual {
 	width: 210px;
+/*	height: 210px;*/
 	margin: 0 auto;
 	overflow: hidden;
+}
+.popup.kitlist .kit-slide {
+	width: 210px;
+}
+.popup.kitlist .kit-slide-area .visual img {
+	width: 100%;
 }
 .popup.kitlist .kit-slide-area .btn {
 	position: absolute;

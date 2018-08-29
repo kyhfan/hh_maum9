@@ -32,12 +32,14 @@
 		<link rel="stylesheet" href="./css/common.css">
 		<link rel="stylesheet" href="./css/main.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/css/swiper.min.css">
+		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 		<link type="image/icon" rel="shortcut icon" href="http://minivertest.hi-maumbot.co.kr/images/maum_favi.ico" />
 		<script src="../js/jquery-1.11.2.min.js"></script>
 		<script src="../js/m_main.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/js/swiper.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
 		<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+		<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 	</head>
 	<body>
 	<script type="text/javascript"> 
@@ -317,18 +319,18 @@
 				<div class="title">
 					<img src="./images/popup_kitlist_title.png" alt="">
 				</div>
-				<div class="kit-slide-area swiper-container">
-					<div class="kit-slider swiper-wrapper visual">
-						<div class="kit-slide swiper-slide">
+				<div class="kit-slide-area">
+					<div class="kit-slider visual">
+						<div class="kit-slide">
 							<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
 						</div>
-						<div class="kit-slide swiper-slide">
+						<div class="kit-slide">
 							<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
 						</div>
-						<div class="kit-slide swiper-slide">
+						<div class="kit-slide">
 							<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
 						</div>
-						<div class="kit-slide swiper-slide">
+						<div class="kit-slide">
 							<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
 						</div>
 					</div>
@@ -363,18 +365,11 @@
 				$('#popup-open-btn').trigger('click');
 			});
 			
-			var kitSwiper = new Swiper('.kit-slider', {
-				// Optional parameters
-				direction: 'horizontal',
-//				loop: true,
-				slidesPerView: 1,
-				// loopFillGroupWithBlank: true,
-				spaceBetween: 35,
-				// touchAngle: 75,
-				navigation: {
-					nextEl: '.button-next',
-					prevEl: '.button-prev',
-				}
+			$('.kit-slider').slick({
+				variableWidth: true,
+				arrows: true,
+				prevArrow: $('.slick-prev'),
+				nextArrow: $('.slick-next')
 			})
 			
 			var swiper = new Swiper('.slide-area', {
