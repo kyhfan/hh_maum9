@@ -649,6 +649,30 @@ input[type="checkbox"]:focus {
 	margin: 0 auto;
 }
 
+.sub-wrap .inner .kt-message-area {
+	width: 17.65%;
+	margin: 0 auto;
+}
+.sub-wrap .inner .kt-title-area {
+	width: 25.83%;
+	margin: 0 auto;
+	margin-top: 1.72%;
+	margin-bottom: 1.93%;
+}
+.sub-wrap .inner .kt-card-result {
+	width: 12.2%;
+	margin: 0 auto;
+	-webkit-box-shadow: 2px 7px 26px 2px rgba(190, 178, 161, 0.6);
+	box-shadow: 2px 7px 26px 2px rgba(190, 178, 161, 0.6);
+}
+.sub-wrap .inner .kt-btn-area {
+	position: relative;
+	width: 17%;
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 1.7%;
+}
+
 @media all and (max-height: 900px) {
 	html, body {
 /*		height: auto;*/
