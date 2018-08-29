@@ -37,6 +37,7 @@
 		<script src="../js/m_main.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/js/swiper.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+		<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 	</head>
 	<body>
 	<script type="text/javascript"> 

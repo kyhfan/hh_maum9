@@ -39,6 +39,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/js/swiper.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
 <body>
 <!--NSmart Track Tag Script-->
