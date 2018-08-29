@@ -92,7 +92,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
                 </div>
                 <div class="maumbot">
                     <!-- <button type="button"></button> -->
-                    <button type="button"   onclick="NTrackObj.callTrackTag('34097', callbackFn, 13294);">
+                    <button type="button"   onclick="NTrackObj.callTrackTag('34097', callbackFn, 13294);"  data-popup="#popup-kitlist">
                         <img src="./images/more_plus.png" class="plus" alt="">
                         <img src="./images/more_txt.png" class="txt" alt="">
                     </button>
@@ -259,7 +259,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
             </div>
         </div>
     </div>
-	<button id="popup-open-btn" data-popup="#popup-kitlist"></button>
+	<!-- <button id="popup-open-btn" data-popup="#popup-kitlist"></button> -->
 	<!-- 개인정보 취급 위탁 약관 팝업 -->
 	<div class="popup kitlist" id="popup-kitlist">
 		<div class="inner">
@@ -268,6 +268,21 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 			</div>
 			<div class="kit-slide-area">
 				<div class="kit-slider visual">
+					<div class="kit-slide">
+						<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+					</div>
+					<div class="kit-slide">
+						<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+					</div>
+					<div class="kit-slide">
+						<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+					</div>
+					<div class="kit-slide">
+						<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+					</div>
+					<div class="kit-slide">
+						<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+					</div>
 					<div class="kit-slide">
 						<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
 					</div>
@@ -293,15 +308,15 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 				</div>
 			</div>
 			<ul class="slide-list">
-				<li class="is-active"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-				<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-				<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-				<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-				<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-				<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-				<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-				<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-				<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+				<li class="thumb is-active" id="slide0"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+				<li class="thumb" id="slide1"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+				<li class="thumb" id="slide2"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+				<li class="thumb" id="slide3"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+				<li class="thumb" id="slide4"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+				<li class="thumb" id="slide5"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+				<li class="thumb" id="slide6"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+				<li class="thumb" id="slide7"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+				<li class="thumb" id="slide8"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
 			</ul>
 		</div>
 		<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>
@@ -322,9 +337,9 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 		// 		prevEl: '.button-prev',
 		// 	}
 		// })
-		$(window).on('load', function() {
-			$('#popup-open-btn').trigger('click');
-		});
+		// $(window).on('load', function() {
+		// 	$('#popup-open-btn').trigger('click');
+		// });
 		
 		var menuOffsetArray = [];
 		var sectionOffsetArray = [];
@@ -354,9 +369,11 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 				prevArrow: $('.slick-prev'),
 				nextArrow: $('.slick-next')
 			});
-            // $('.slider-area').on('setPosition', function(slick){
-            //     $(".slick-slide").width(285);
-            // });
+            $('.kit-slider').on('afterChange', function(slick, currentSlide){
+                console.log(currentSlide.currentSlide);
+                $(".thumb").removeClass("is-active");
+                $("#slide"+currentSlide.currentSlide).addClass("is-active");
+            });
 <?
     if ($_REQUEST["g"])
     {
