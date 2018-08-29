@@ -574,7 +574,7 @@ function sns_share(media, flag)
 			content: {
 				title: '[현대해상] 우리 가족 튼튼 메신저',
 				description: '당신의 건강을 위한 메시지가 도착했어요 답장 보내고 마음봇 건강세트를 받아보세요!',
-				imageUrl: "http://minivertest.hi-maumbot.co.kr/images/share_image.jpg",
+				imageUrl: "http://minivertest.hi-maumbot.co.kr/images/maum_share.jpg",
 				link: {
 					mobileWebUrl: 'http://minivertest.hi-maumbot.co.kr/m/index.php?media=share_kt',
 					webUrl: 'http://minivertest.hi-maumbot.co.kr/?media=share_kt'
