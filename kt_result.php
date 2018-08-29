@@ -5,20 +5,20 @@
 
     if ($type == "1")
     {
-		$rs_img     = "http://minivertest.hi-maumbot.co.kr/files/".$serial."/maumbot_takecare".$size.".jpg";
-        $view_img   = "http://minivertest.hi-maumbot.co.kr/files/".$serial."/maumbot_takecare2.jpg";
+		$rs_img     = "./files/".$serial."/maumbot_takecare".$size.".jpg";
+        $view_img   = "./files/".$serial."/maumbot_takecare2.jpg";
     }else if ($type == "2"){
-        $rs_img     = "http://minivertest.hi-maumbot.co.kr/files/".$serial."/maumbot_loveyou".$size.".jpg";
-        $view_img   = "http://minivertest.hi-maumbot.co.kr/files/".$serial."/maumbot_loveyou2.jpg";
+        $rs_img     = "./files/".$serial."/maumbot_loveyou".$size.".jpg";
+        $view_img   = "./files/".$serial."/maumbot_loveyou2.jpg";
 	}else if ($type == "3"){
-        $rs_img     = "http://minivertest.hi-maumbot.co.kr/files/".$serial."/maumbot_thanks".$size.".jpg";
-        $view_img   = "http://minivertest.hi-maumbot.co.kr/files/".$serial."/maumbot_thanks2.jpg";
+        $rs_img     = "./files/".$serial."/maumbot_thanks".$size.".jpg";
+        $view_img   = "./files/".$serial."/maumbot_thanks2.jpg";
 	}else if ($type == "4"){
-        $rs_img     = "http://minivertest.hi-maumbot.co.kr/files/".$serial."/maumbot_cheerup".$size.".jpg";
-        $view_img   = "http://minivertest.hi-maumbot.co.kr/files/".$serial."/maumbot_cheerup2.jpg";
+        $rs_img     = "./files/".$serial."/maumbot_cheerup".$size.".jpg";
+        $view_img   = "./files/".$serial."/maumbot_cheerup2.jpg";
 	}else if ($type == "5"){
-        $rs_img     = "http://minivertest.hi-maumbot.co.kr/files/".$serial."/maumbot_dontworry".$size.".jpg";
-        $view_img   = "http://minivertest.hi-maumbot.co.kr/files/".$serial."/maumbot_dontworry2.jpg";
+        $rs_img     = "./files/".$serial."/maumbot_dontworry".$size.".jpg";
+        $view_img   = "./files/".$serial."/maumbot_dontworry2.jpg";
     }
 
 ?>
