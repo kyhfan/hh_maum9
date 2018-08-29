@@ -195,7 +195,8 @@
 							<img src="./images/main_sec3_title.png" alt="">
 						</div>
 						<div class="info-box">
-							<img src="./images/main_sec3_infobox.jpg" alt="">
+							<!-- <img src="./images/main_sec3_infobox.jpg" alt=""> -->
+							<img src="./images/main_sec3_infobox.png" alt="">
 							<button type="button" onclick="_nto.callTrack('6468', callback());alert('당첨자는 11월 2일에 발표 될 예정입니다.')">
 								<img src="./images/main_sec3_infobox_btn.jpg" alt="">
 							</button>
