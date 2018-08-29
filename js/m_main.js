@@ -323,7 +323,7 @@ function closeDaumPostcode() {
 
 function initLayerPosition(){
 	// var width = 300; //우편번호서비스가 들어갈 element의 width
-	var width = $(window).width()*0.94; //우편번호서비스가 들어갈 element의 width
+	var width = $(document).width()*0.94; //우편번호서비스가 들어갈 element의 width
 	var height = 360; //우편번호서비스가 들어갈 element의 height
 	var borderWidth = 5; //샘플에서 사용하는 border의 두께
 
