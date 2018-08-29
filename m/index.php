@@ -34,20 +34,29 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
 	</head>
 	<body>
+	<script type="text/javascript"> 
+  var _ntp = {}; 
+  _ntp.host = (('https:' == document.location.protocol) ? 'https://' : 'http://') 
+  _ntp.dID = 978; 
+  document.write(unescape("%3Cscript src='" + _ntp.host + "nmt.nsmartad.com/content?cid=1' type='text/javascript'%3E%3C/script%3E")); 
+</script> 
+<script>
+ callback = function(){}
+</script>	
 		<div class="page-wrap">
 			<div class="menu-layer">
 				<div class="inner">
 					<button type="button" class="menu-close"></button>
 					<ul class="menu-list">
-						<li><a href="javascript:void(0)"><img src="./images/menu_1.png" alt="" style="width: 144px;"></a></li>
-						<li><a href="javascript:void(0)"><img src="./images/menu_2.png" alt="" style="width: 144px;"></a></li>
-						<li><a href="javascript:void(0)"><img src="./images/menu_3.png" alt="" style="width: 110px;"></a></li>
-						<li><a href="javascript:void(0)"><img src="./images/menu_4.png" alt="" style="width: 77px;"></a></li>
+						<li><a href="javascript:void(0)" data-value="1" onclick="_nto.callTrack('6463', callback());"><img src="./images/menu_1.png" alt="" style="width: 144px;"></a></li>
+						<li><a href="javascript:void(0)" data-value="2" onclick="_nto.callTrack('6464', callback());"><img src="./images/menu_2.png" alt="" style="width: 144px;"></a></li>
+						<li><a href="javascript:void(0)" data-value="3" onclick="_nto.callTrack('6465', callback());"><img src="./images/menu_3.png" alt="" style="width: 110px;"></a></li>
+						<li><a href="javascript:void(0)" data-value="4" onclick="_nto.callTrack('6466', callback());"><img src="./images/menu_4.png" alt="" style="width: 77px;"></a></li>
 					</ul>
 					<ul class="share-list">
-						<li><button type="button" class="kt"></button></li>
-						<li><button type="button" class="ks"></button></li>
-						<li><button type="button" class="fb"></button></li>
+						<li><button type="button" class="kt" onclick="_nto.callTrack('6447', callback());"></button></li>
+						<li><button type="button" class="ks" onclick="_nto.callTrack('6448', callback());"></button></li>
+						<li><button type="button" class="fb" onclick="_nto.callTrack('6449', callback());"></button></li>
 					</ul>
 					<img src="./images/share_guide.png" alt="" class="share-guide">
 					<div class="box-point"></div>
@@ -56,12 +65,16 @@
 			<div class="header-wrap">
 				<div class="inner">
 					<div class="logo">
-						<img src="./images/logo.png" alt="현대해상 로고">
+						<a href="index.php" onclick="_nto.callTrack('6462', callback());">
+							<img src="./images/logo.png" alt="현대해상 로고">
+						</a>
 					</div>
 					<div class="burger">
-						<span class="line top"></span>
-						<span class="line mid"></span>
-						<span class="line bot"></span>
+						<!-- <a href="javascript:void(0)" class="burger_link"> -->
+							<span class="line top"></span>
+							<span class="line mid"></span>
+							<span class="line bot"></span>
+						<!-- </a> -->
 					</div>
 				</div>
 			</div>
@@ -71,20 +84,20 @@
 						<img src="./images/main_sec1_title.png" alt="">
 					</div>
 					<div class="button">
-						<button type="button" class="btn-message" onclick="nextPage(1)">
+						<button type="button" class="btn-message" onclick="_nto.callTrack('6450', callback());nextPage(1)">
 							<img src="./images/main_sec1_btn_bg.png" alt="">
 							<img src="./images/main_sec1_btn_pencile.png" class="pencil" alt="">
 						</button>
 					</div>
-					<div class="info">
+					<!-- <div class="info">
 						<div class="txt"></div>
 						<div class="button">
 							<button type="button"></button>
 						</div>
-					</div>
+					</div> -->
 					<div class="objs">
 						<img src="./images/main_sec1_obj.png" alt="">
-						<div class="info-group">
+						<div class="info-group" onclick="_nto.callTrack('6446', callback());">
 							<img src="./images/main_sec1_info_group.png" alt="">
 						</div>
 						<div class="plus-icon">
@@ -101,7 +114,7 @@
 					<div class="text">
 						<img src="./images/main_sec1_2_text.png" alt="">
 					</div>
-					<button type="button">
+					<button type="button" onclick="alert('당첨자는 10월 1일에 발표 될 예정입니다.')">
 						<img src="./images/main_sec1_2_btn.png" alt="">
 					</button>
 				</div>
@@ -183,15 +196,15 @@
 						</div>
 						<div class="info-box">
 							<img src="./images/main_sec3_infobox.jpg" alt="">
-							<button type="button">
+							<button type="button" onclick="alert('당첨자는 11월 2일에 발표 될 예정입니다.')">
 								<img src="./images/main_sec3_infobox_btn.jpg" alt="">
 							</button>
 						</div>
-						<button type="button" class="btn-verify">
+						<button type="button" class="btn-verify" onclick="alert('인증이벤트는 9월 3일부터 시작 될 예정입니다.')">
 							<img src="./images/main_sec3_verify.jpg" alt="">
 						</button>
 						<div class="list-container">
-							<div class="col indent">
+							<!-- <div class="col indent">
 								<div class="box">
 									<div class="img">
 										<img src="./images/main_sec3_box_sample1.jpg" alt="">
@@ -247,11 +260,11 @@
 										<span>#우리가족튼튼메신저</span>
 									</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
-						<button type="button" class="btn-more">
+						<!-- <button type="button" class="btn-more">
 							<img src="./images/main_sec3_more.png" alt="">
-						</button>
+						</button> -->
 					</div>
 				</div>
 			</div>
@@ -266,19 +279,19 @@
 					<div class="list-campaign">
 						<div class="memory">
 							<img src="./images/main_sec4_memory1.png" alt="">
-							<a href="#" class="btn"></a>
+							<a href="http://event4.hi-maumbot.co.kr" target="_blank" class="btn" onclick="_nto.callTrack('6458', callback());"></a>
 						</div>
 						<div class="memory">
 							<img src="./images/main_sec4_memory2.png" alt="">
-							<a href="#" class="btn"></a>
+							<a href="http://event3.hi-maumbot.co.kr" target="_blank" class="btn" onclick="_nto.callTrack('6459', callback());"></a>
 						</div>
 						<div class="memory">
 							<img src="./images/main_sec4_memory3.png" alt="">
-							<a href="#" class="btn"></a>
+							<a href="http://event2.hi-maumbot.co.kr" target="_blank" class="btn" onclick="_nto.callTrack('6460', callback());"></a>
 						</div>
 						<div class="memory">
 							<img src="./images/main_sec4_memory4.png" alt="">
-							<a href="#" class="btn"></a>
+							<a href="http://event1.hi-maumbot.co.kr" target="_blank" class="btn" onclick="_nto.callTrack('6461', callback());"></a>
 						</div>
 					</div>
 					<div class="footer">
@@ -302,18 +315,26 @@
 				}
 			})
 //			var menuOffsetArray = [];
-//			var sectionOffsetArray = [];
+			var sectionOffsetArray = [];
 //			var menuWrapOffset = 0;
 //			var targetX = 0;
-//			$(window).on('load', function() {
-//				$('.header-wrap .menu a').each(function(idx, el) {
-//					menuOffsetArray.push($(el).offset().left);
-//				});
-//				$('.section').each(function(idx, el) {
-//					sectionOffsetArray.push($(el).offset().top);
-//				});
-//				scrolled($(window).scrollTop());
-//			});
+			$(window).on('load', function() {
+				// $('.header-wrap .menu a').each(function(idx, el) {
+				// 	menuOffsetArray.push($(el).offset().left);
+				// });
+				$('.section').each(function(idx, el) {
+					sectionOffsetArray.push($(el).offset().top);
+				});
+				// scrolled($(window).scrollTop());
+<?
+    if ($_REQUEST["g"])
+    {
+?>  
+            go_section('<?=$_REQUEST["g"]?>');
+<?
+    }
+?>
+			});
 //
 //			$(window).on('resize', function() {
 //				$('.header-wrap .menu a').each(function(idx, el) {
@@ -363,9 +384,54 @@
 			$('.burger').on('click', function() {
 				$('html').toggleClass('menu-opened');
 			});
+			// $('.burger_link').on('click', function() {
+				// $('html').toggleClass('menu-opened');
+				// return false;
+			// });
 			$('.menu-layer .menu-close').on('click', function() {
 				$('html').removeClass('menu-opened');
 			});
+			$('.menu-list a').on('click', function() {
+				$('html').removeClass('menu-opened');
+
+				var this_class = $(this).data("value");
+				console.log(this_class);
+				switch (this_class)
+				{
+					case 1 :
+						$('html, body').animate({scrollTop : 0}, 1000);
+					break;
+					case 2 :
+						$('html, body').animate({scrollTop :  sectionOffsetArray[2]-37}, 1000);
+					break;
+					case 3 :
+						$('html, body').animate({scrollTop :  sectionOffsetArray[3]-185}, 1000);
+					break;
+					case 4 :
+						$('html, body').animate({scrollTop :  sectionOffsetArray[4]-37}, 1000);
+					break;
+				}
+			});
+
+			function go_section(param)
+			{
+				switch (param)
+				{
+					case "1" :
+						$('html, body').animate({scrollTop : 0}, 1000);
+					break;
+					case "2" :
+						$('html, body').animate({scrollTop :  sectionOffsetArray[2]-37}, 1000);
+					break;
+					case "3" :
+						$('html, body').animate({scrollTop :  sectionOffsetArray[3]-185}, 1000);
+					break;
+					case "4" :
+						$('html, body').animate({scrollTop :  sectionOffsetArray[4]-37}, 1000);
+					break;
+				}
+			}
+
 		</script>
 	</body>
 </html>

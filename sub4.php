@@ -2,6 +2,15 @@
     include_once "sub_head.php";
 ?>
 	<body>
+<!--NSmart Track Tag Script-->
+<script type='text/javascript'>
+callbackFn = function() {};
+var _nsmart = _nsmart || [];
+_nsmart.host = _nsmart.host || (('https:' == document.location.protocol) ? 'https://' : 'http://');
+_nsmart.push([13294, 34102]); /*1808_현대해상_마음봇3차-사랑의 메시지 남기기 페이지*/
+document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc?id=10' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<!--NSmart Track Tag Script End..-->	
 		<div class="page-wrap">
 <?
     include_once "sub_header.php";
@@ -81,7 +90,7 @@
 							</div>
 						</div>
 						<div class="btn-area _4">
-							<button type="button" id="submit-info">
+							<button type="button" id="submit-info" onclick="NTrackObj.callTrackTag('34106', callbackFn, 13294);">
 								<img src="./images/sub_step4_btn.jpg" alt="">
 							</button>
 						</div>

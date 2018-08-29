@@ -2,37 +2,19 @@
     include_once "sub_head.php";
 ?>
 	<body>
+	<script type="text/javascript"> 
+  var _ntp = {}; 
+  _ntp.host = (('https:' == document.location.protocol) ? 'https://' : 'http://') 
+  _ntp.dID = 978; 
+  document.write(unescape("%3Cscript src='" + _ntp.host + "nmt.nsmartad.com/content?cid=1' type='text/javascript'%3E%3C/script%3E")); 
+</script> 
+<script>
+ callback = function(){}
+</script>
 		<div class="page-wrap sub">
-			<div class="menu-layer">
-				<div class="inner">
-					<button type="button" class="menu-close"></button>
-					<ul class="menu-list">
-						<li><a href="javascript:void(0)"><img src="./images/menu_1.png" alt="" style="width: 144px;"></a></li>
-						<li><a href="javascript:void(0)"><img src="./images/menu_2.png" alt="" style="width: 144px;"></a></li>
-						<li><a href="javascript:void(0)"><img src="./images/menu_3.png" alt="" style="width: 110px;"></a></li>
-						<li><a href="javascript:void(0)"><img src="./images/menu_4.png" alt="" style="width: 77px;"></a></li>
-					</ul>
-					<ul class="share-list">
-						<li><button type="button" class="kt"></button></li>
-						<li><button type="button" class="ks"></button></li>
-						<li><button type="button" class="fb"></button></li>
-					</ul>
-					<img src="./images/share_guide.png" alt="" class="share-guide">
-					<div class="box-point"></div>
-				</div>
-			</div>
-			<div class="header-wrap">
-				<div class="inner">
-					<div class="logo">
-						<img src="./images/logo.png" alt="현대해상 로고">
-					</div>
-					<div class="burger">
-						<span class="line top"></span>
-						<span class="line mid"></span>
-						<span class="line bot"></span>
-					</div>
-				</div>
-			</div>
+<?
+	include_once "sub_header.php";
+?>			
 			<div class="content sub1 sub">
 				<div class="step">
 					<img src="./images/sub1_step.png" alt="">
@@ -105,7 +87,7 @@
 						$(".msg").fadeOut("fast");
 						setTimeout(function(){
 							$("#sub1_btn").attr('src', './images/sub1_btn_after.jpg');
-							$(".btn-wrap button").attr("onclick","nextPage(2)");
+							$(".btn-wrap button").attr("onclick","_nto.callTrack('6452', callback());nextPage(2)");
 						}, 3000);
 					}
 				}else if (event.data == 2){

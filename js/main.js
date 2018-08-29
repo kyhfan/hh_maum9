@@ -299,6 +299,14 @@ $(function(){
 	});
 });
 
+function go_link(param)
+{
+	if (confirm("이벤트 참여가 완료 되지 않았습니다. 이동하시겠습니까?"))
+	{
+		location.href = "index.php?g=" + param;
+	}
+}
+
 
 function only_num(obj)
 {
@@ -512,16 +520,16 @@ function kakao_send()
 			// imageUrl: "http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".jpg",
 			imageUrl: "http://minivertest.hi-maumbot.co.kr/images/kt_message_share.jpg",
 			link: {
-				mobileWebUrl: rs_img,
-				webUrl: rs_img
+				mobileWebUrl: "http://minivertest.hi-maumbot.co.kr/m/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type,
+				webUrl: "http://minivertest.hi-maumbot.co.kr/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type
 			}
 		},
 		buttons: [
 			{
 				title: '웹으로 보기',
 				link: {
-					mobileWebUrl: rs_img,
-					webUrl: rs_img
+					mobileWebUrl: "http://minivertest.hi-maumbot.co.kr/m/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type,
+					webUrl: "http://minivertest.hi-maumbot.co.kr/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type
 				}
 			}
 		],

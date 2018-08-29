@@ -429,13 +429,14 @@ input[type="checkbox"]:focus {
 	display: inline-block;
 }
 .content.sub4 .terms-area .check .checkbox {
-	width: 12px;
-	height: 12px;
+	width: 14px;
+	height: 14px;
+	/* 체크박스 크기는 수정 했음 */
 }
 .content.sub4 .terms-area .check .checkbox-visual {
 	display: inline-block;
-	width: 12px;
-	height: 12px;
+	width: 14px;
+	height: 14px;
 	vertical-align: top;
 }
 .content.sub4 .check input[type="checkbox"]:checked + .checkbox-visual {

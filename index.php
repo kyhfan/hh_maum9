@@ -10,7 +10,7 @@
     // print_r($_SERVER["HTTP_USER_AGENT"]);
     if ($mobileYN == "MOBILE")
     {
-        // echo "<script>location.href='m/index.php?media=".$_REQUEST["media"]."&r=".$_REQUEST["r"]."&ref=".$_REQUEST["ref"]."&w=".$_REQUEST["w"]."';</script>";
+        echo "<script>location.href='m/index.php?media=".$_REQUEST["media"]."';</script>";
     }else{
         $saveMedia     = $mnv_f->SaveMedia();
         $rs_tracking   = $mnv_f->InsertTrackingInfo($mobileYN);
@@ -36,17 +36,28 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
 </head>
 <body>
+<!--NSmart Track Tag Script-->
+<script type='text/javascript'>
+callbackFn = function() {};
+var _nsmart = _nsmart || [];
+_nsmart.host = _nsmart.host || (('https:' == document.location.protocol) ? 'https://' : 'http://');
+_nsmart.push([13294, 34096]); /*1808_현대해상_마음봇3차-메인*/
+document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc?id=10' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<!--NSmart Track Tag Script End..-->
     <div class="page-wrap">
 		<div class="header-wrap">
             <div class="inner">
                 <div class="logo">
-                    <img src="./images/logo.png" alt="현대해상 로고">
+                    <a href="index.php" onclick="NTrackObj.callTrackTag('34116', callbackFn, 13294);">
+                        <img src="./images/logo.png" alt="현대해상 로고">
+                    </a>
                 </div>
                 <div class="menu">
-                    <a href="javascript:void(0)" class="_1"></a>
-                    <a href="javascript:void(0)" class="_2"></a>
-                    <a href="javascript:void(0)" class="_3"></a>
-                    <a href="javascript:void(0)" class="_4"></a>
+                    <a href="javascript:void(0)" class="_1" onclick="NTrackObj.callTrackTag('34117', callbackFn, 13294);"></a>
+                    <a href="javascript:void(0)" class="_2" onclick="NTrackObj.callTrackTag('34118', callbackFn, 13294);"></a>
+                    <a href="javascript:void(0)" class="_3" onclick="NTrackObj.callTrackTag('34119', callbackFn, 13294);"></a>
+                    <a href="javascript:void(0)" class="_4" onclick="NTrackObj.callTrackTag('34120', callbackFn, 13294);"></a>
                 </div>
 <!--
                 <div class="pointer">
@@ -59,7 +70,7 @@
                 <div class="title">
                 </div>
                 <div class="button">
-                    <button type="button" class="btn-message" onclick="nextPage(1)">
+                    <button type="button" class="btn-message" onclick="NTrackObj.callTrackTag('34101', callbackFn, 13294);nextPage(1)">
                         <img src="./images/btn_message2.png" alt="">
                         <img src="./images/pencil.png" class="pencil" alt="">
                     </button>
@@ -75,7 +86,7 @@
                 </div>
                 <div class="maumbot">
                     <!-- <button type="button"></button> -->
-                    <button type="button">
+                    <button type="button"   onclick="NTrackObj.callTrackTag('34097', callbackFn, 13294);">
                         <img src="./images/more_plus.png" class="plus" alt="">
                         <img src="./images/more_txt.png" class="txt" alt="">
                     </button>
@@ -93,9 +104,9 @@
                     <div class="_6"></div>
                 </div>
                 <div class="share">
-                    <button class="kakao"></button>
-                    <button class="story"></button>
-                    <button class="facebook"></button>
+                    <button class="kakao" onclick="NTrackObj.callTrackTag('34098', callbackFn, 13294);"></button>
+                    <button class="story" onclick="NTrackObj.callTrackTag('34099', callbackFn, 13294);"></button>
+                    <button class="facebook"onclick="NTrackObj.callTrackTag('34100', callbackFn, 13294);"></button>
                     <div class="share-txt"></div>
                 </div>
             </div>
@@ -174,10 +185,10 @@
                 </div>
                 <div class="info">
                     <div class="button">
-                        <button type="button"></button>
+                        <button type="button" onclick="alert('당첨자는 11월 2일에 발표 될 예정입니다.')"></button>
                     </div>
                 </div>
-                <button class="btn-verify">
+                <button class="btn-verify" onclick="alert('인증이벤트는 9월 3일부터 시작 될 예정입니다.')">
                 	<img src="./images/section3_verify_btn.jpg" alt="">
                 </button>
             </div>
@@ -194,7 +205,7 @@
                             <div>
                                 <img src="./images/section4_list1.png" alt="">
                             </div>
-                            <div class="button" onclick="window.open('http://event4.hi-maumbot.co.kr', 'event4','width=#, height=#'); return false">
+                            <div class="button" onclick="NTrackObj.callTrackTag('34112', callbackFn, 13294);window.open('http://event4.hi-maumbot.co.kr', 'event4','width=#, height=#'); return false">
                                 <button type="button"></button>
                             </div>
                         </li>
@@ -202,7 +213,7 @@
                             <div>
                                 <img src="./images/section4_list2.png" alt="">
                             </div>
-                            <div class="button" onclick="window.open('http://event3.hi-maumbot.co.kr', 'event3','width=#, height=#'); return false">
+                            <div class="button" onclick="NTrackObj.callTrackTag('34113', callbackFn, 13294);window.open('http://event3.hi-maumbot.co.kr', 'event3','width=#, height=#'); return false">
                                 <button type="button"></button>
                             </div>
                         </li>
@@ -210,7 +221,7 @@
                             <div>
                                 <img src="./images/section4_list3.png" alt="">
                             </div>
-                            <div class="button" onclick="window.open('http://event2.hi-maumbot.co.kr', 'event2','width=#, height=#'); return false">
+                            <div class="button" onclick="NTrackObj.callTrackTag('34114', callbackFn, 13294);window.open('http://event2.hi-maumbot.co.kr', 'event2','width=#, height=#'); return false">
                                 <button type="button"></button>
                             </div>
                         </li>
@@ -218,7 +229,7 @@
                             <div>
                                 <img src="./images/section4_list4.png" alt="">
                             </div>
-                            <div class="button" onclick="window.open('http://event1.hi-maumbot.co.kr', 'event1','width=#, height=#'); return false">
+                            <div class="button" onclick="NTrackObj.callTrackTag('34115', callbackFn, 13294);window.open('http://event1.hi-maumbot.co.kr', 'event1','width=#, height=#'); return false">
                                 <button type="button"></button>
                             </div>
                         </li>
@@ -271,6 +282,14 @@
             // $('.slider-area').on('setPosition', function(slick){
             //     $(".slick-slide").width(285);
             // });
+<?
+    if ($_REQUEST["g"])
+    {
+?>  
+            go_section('<?=$_REQUEST["g"]?>');
+<?
+    }
+?>         
 		});
 		
 		$(window).on('resize', function() {
@@ -294,29 +313,44 @@
 			e.preventDefault();
             // console.log($(this).attr("class"));
             var this_class  = $(this).attr("class");
-            var last_str	= this_class.substr(this_class.length - 1);
+            // var last_str	= this_class.substr(this_class.length - 1);
 
             switch (this_class)
             {
                 case "_1" :
-//                    $('html, body').animate({scrollTop : 0}, 1000);
                     $('html, body').animate({scrollTop : 0}, 1000);
                 break;
                 case "_2" :
-//                    $('html, body').animate({scrollTop :  $('.section'+last_str+'-wrap').offset().top - 92}, 1000);
 					$('html, body').animate({scrollTop :  sectionOffsetArray[1]-92}, 1000);
                 break;
                 case "_3" :
-//                    $('html, body').animate({scrollTop :  $('.section'+last_str+'-wrap').offset().top - 530}, 1000);
 					$('html, body').animate({scrollTop :  sectionOffsetArray[2]-530}, 1000);
                 break;
                 case "_4" :
-//                    $('html, body').animate({scrollTop :  $('.section'+last_str+'-wrap').offset().top - 92}, 1000);
 					$('html, body').animate({scrollTop :  sectionOffsetArray[3]-92}, 1000);
                 break;
             }
         });
-		
+        
+        function go_section(param)
+        {
+            switch (param)
+            {
+                case "1" :
+                    $('html, body').animate({scrollTop : 0}, 1000);
+                break;
+                case "2" :
+					$('html, body').animate({scrollTop :  sectionOffsetArray[1]-92}, 1000);
+                break;
+                case "3" :
+					$('html, body').animate({scrollTop :  sectionOffsetArray[2]-530}, 1000);
+                break;
+                case "4" :
+					$('html, body').animate({scrollTop :  sectionOffsetArray[3]-92}, 1000);
+                break;
+            }
+        }
+
 		function scrolled(currentScroll, transitionFlag) {
 			if(transitionFlag) {
 				var transition = 'background 0.46s ease-out';

@@ -2,37 +2,20 @@
     include_once "sub_head.php";
 ?>
 	<body>
+	<script type="text/javascript"> 
+  var _ntp = {}; 
+  _ntp.host = (('https:' == document.location.protocol) ? 'https://' : 'http://') 
+  _ntp.dID = 978; 
+  document.write(unescape("%3Cscript src='" + _ntp.host + "nmt.nsmartad.com/content?cid=1' type='text/javascript'%3E%3C/script%3E")); 
+</script> 
+<script>
+ callback = function(){}
+</script>
+
 		<div class="page-wrap sub">
-			<div class="menu-layer">
-				<div class="inner">
-					<button type="button" class="menu-close"></button>
-					<ul class="menu-list">
-						<li><a href="javascript:void(0)"><img src="./images/menu_1.png" alt="" style="width: 144px;"></a></li>
-						<li><a href="javascript:void(0)"><img src="./images/menu_2.png" alt="" style="width: 144px;"></a></li>
-						<li><a href="javascript:void(0)"><img src="./images/menu_3.png" alt="" style="width: 110px;"></a></li>
-						<li><a href="javascript:void(0)"><img src="./images/menu_4.png" alt="" style="width: 77px;"></a></li>
-					</ul>
-					<ul class="share-list">
-						<li><button type="button" class="kt"></button></li>
-						<li><button type="button" class="ks"></button></li>
-						<li><button type="button" class="fb"></button></li>
-					</ul>
-					<img src="./images/share_guide.png" alt="" class="share-guide">
-					<div class="box-point"></div>
-				</div>
-			</div>
-			<div class="header-wrap">
-				<div class="inner">
-					<div class="logo">
-						<img src="./images/logo.png" alt="현대해상 로고">
-					</div>
-					<div class="burger">
-						<span class="line top"></span>
-						<span class="line mid"></span>
-						<span class="line bot"></span>
-					</div>
-				</div>
-			</div>
+<?
+	include_once "sub_header.php";
+?>			
 			<div class="content sub4 sub">
 				<div class="step">
 					<img src="./images/sub4_step.png" alt="">
@@ -105,7 +88,7 @@
 						</div>
 					</div>
 				</div>
-				<button type="button" class="btn" id="submit-info">
+				<button type="button" class="btn" id="submit-info" onclick="_nto.callTrack('6455', callback());">
 					<img src="./images/sub4_btn.jpg" alt="">
 				</button>
 				<div class="copyright">
@@ -133,10 +116,10 @@
 					<img src="./images/popup_thanks_title.png" alt="">
 				</div>
 				<div class="btn-group">
-					<button type="button" class="btn" onclick="kakao_send()">
+					<button type="button" class="btn" onclick="_nto.callTrack('6456', callback());kakao_send()">
 						<img src="./images/popup_thanks_btn1.png" alt="">
 					</button>
-					<button type="button" class="btn" onclick="location.href='index.php'">
+					<button type="button" class="btn" onclick="_nto.callTrack('6457', callback());location.href='index.php'">
 						<img src="./images/popup_thanks_btn2.png" alt="">
 					</button>
 				</div>
@@ -152,7 +135,7 @@
 				<div class="text">
 					<img src="./images/popup_agree2_text.png" alt="">
 				</div>
-				<button type="button" class="btn">
+				<button type="button" class="btn" onclick="check_agree('terms1','#popup-agree2')">
 					<img src="./images/popup_agree_btn.jpg" alt="">
 				</button>
 			</div>
@@ -166,13 +149,17 @@
 				<div class="text">
 					<img src="./images/popup_agree1_text.png" alt="">
 				</div>
-				<button type="button" class="btn">
+				<button type="button" class="btn" onclick="check_agree('terms2','#popup-agree1')">
 					<img src="./images/popup_agree_btn.jpg" alt="">
 				</button>
 			</div>
 			<a href="javascript:void(0)" class="popup-close" data-popup="@close"></a>
 		</div>
 		<!-- 개인정보 수집 및 이용에 관한 약관 팝업 -->
+		<div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:9999;-webkit-overflow-scrolling:touch;">
+			<img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnCloseLayer" style="width:7%;cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
+		</div>
+
 		<!-- <button id="popup_opener" data-popup="#popup-agree2">asdasdasdasd</button> -->
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
@@ -190,6 +177,20 @@
 			});
 //			$('#popup_opener').on('click', function() {
 //			});
+			
+			function lengthCheck(obj, ln) {
+				var $obj = $(obj);
+				var regExp = /^[0-9]+$/;
+				
+				if(!regExp.test($obj.val())) {
+					$obj.val($obj.val().replace(/[^0-9]/g, ""));
+				} else {
+					if($obj.val().length>=ln) {
+						$obj.is('input:last-child') ? $obj.blur() : $obj.next().focus();
+					}
+				}
+			}
+
 		</script>
 	</body>
 </html>

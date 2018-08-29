@@ -1,38 +1,27 @@
 <?
-    include_once "sub_head.php";
+    include_once "../include/autoload.php";
+
+    $mnv_f 			= new mnv_function();
+    $my_db         = $mnv_f->Connect_MySQL();
+    $IphoneYN      = $mnv_f->IPhoneCheck();
+
+	include_once "sub_head.php";
 ?>
 	<body>
+	<script type="text/javascript"> 
+  var _ntp = {}; 
+  _ntp.host = (('https:' == document.location.protocol) ? 'https://' : 'http://') 
+  _ntp.dID = 978; 
+  document.write(unescape("%3Cscript src='" + _ntp.host + "nmt.nsmartad.com/content?cid=1' type='text/javascript'%3E%3C/script%3E")); 
+</script> 
+<script>
+ callback = function(){}
+</script>
+
 		<div class="page-wrap sub">
-			<div class="menu-layer">
-				<div class="inner">
-					<button type="button" class="menu-close"></button>
-					<ul class="menu-list">
-						<li><a href="javascript:void(0)"><img src="./images/menu_1.png" alt="" style="width: 144px;"></a></li>
-						<li><a href="javascript:void(0)"><img src="./images/menu_2.png" alt="" style="width: 144px;"></a></li>
-						<li><a href="javascript:void(0)"><img src="./images/menu_3.png" alt="" style="width: 110px;"></a></li>
-						<li><a href="javascript:void(0)"><img src="./images/menu_4.png" alt="" style="width: 77px;"></a></li>
-					</ul>
-					<ul class="share-list">
-						<li><button type="button" class="kt"></button></li>
-						<li><button type="button" class="ks"></button></li>
-						<li><button type="button" class="fb"></button></li>
-					</ul>
-					<img src="./images/share_guide.png" alt="" class="share-guide">
-					<div class="box-point"></div>
-				</div>
-			</div>
-			<div class="header-wrap">
-				<div class="inner">
-					<div class="logo">
-						<img src="./images/logo.png" alt="현대해상 로고">
-					</div>
-					<div class="burger">
-						<span class="line top"></span>
-						<span class="line mid"></span>
-						<span class="line bot"></span>
-					</div>
-				</div>
-			</div>
+<?
+	include_once "sub_header.php";
+?>			
 			<div class="content sub3 sub">
 				<div class="step">
 					<img src="./images/sub3_step.png" alt="">
@@ -93,7 +82,7 @@
 					<img src="./images/sub3_img_sample.jpg" alt="">
 				</div>
 				<button type="button" class="btn">
-					<a href="javascript:void(0)" onclick="go_next();">
+					<a href="javascript:void(0)" onclick="_nto.callTrack('6454', callback());go_next();">
 						<img src="./images/sub3_btn.jpg" alt="">
 					</a>
 					<img src="./images/sub3_balloon.png" alt="" class="balloon">
@@ -142,15 +131,15 @@
 
 				localStorage.setItem("size",that.val());
 				if (localStorage.type == 1)
-					change_rs_img = "./files/" + localStorage.serial + "/maumbot_takecare" + that.val() + ".jpg";
+					change_rs_img = "../files/" + localStorage.serial + "/maumbot_takecare" + that.val() + ".jpg";
 				else if (localStorage.type == 2)
-					change_rs_img = "./files/" + localStorage.serial + "/maumbot_loveyou" + that.val() + ".jpg";
+					change_rs_img = "../files/" + localStorage.serial + "/maumbot_loveyou" + that.val() + ".jpg";
 				else if (localStorage.type == 3)
-					change_rs_img = "./files/" + localStorage.serial + "/maumbot_thanks" + that.val() + ".jpg";
+					change_rs_img = "../files/" + localStorage.serial + "/maumbot_thanks" + that.val() + ".jpg";
 				else if (localStorage.type == 4)
-					change_rs_img = "./files/" + localStorage.serial + "/maumbot_cheerup" + that.val() + ".jpg";
+					change_rs_img = "../files/" + localStorage.serial + "/maumbot_cheerup" + that.val() + ".jpg";
 				else if (localStorage.type == 5)
-					change_rs_img = "./files/" + localStorage.serial + "/maumbot_dontworry" + that.val() + ".jpg";
+					change_rs_img = "../files/" + localStorage.serial + "/maumbot_dontworry" + that.val() + ".jpg";
 
 				if ($("#"+that.attr('id')).is(":checked") === true)
 				{
@@ -163,7 +152,20 @@
 
 			function downloadImg(url)
 			{
+<?
+	if ($IphoneYN == "Y")
+	{	
+?>				
+				alert("새창으로 뜬 이미지를 눌러 저장 해 주시고, 현재 페이지로 오시면 계속 이벤트 참여가 가능합니다");
+				var iosUrl = url.replace("..","http://minivertest.hi-maumbot.co.kr");	
+				window.open(iosUrl, 'event1','width=#, height=#');
+<?
+	}else{
+?>				
 				location.href = "ajax_download.php?rs="+url;
+<?
+	}
+?>				
 				setTimeout(function(){
 					nextPage(4);
 				},1000);
