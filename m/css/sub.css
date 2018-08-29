@@ -434,6 +434,9 @@ input[type="checkbox"]:focus {
 .content.sub4 .terms-area .view {
 	display: inline-block;
 }
+.content.sub4 .terms-area .view.last {
+	margin-left: 11px;
+}
 .content.sub4 .terms-area .check .checkbox {
 	width: 14px;
 	height: 14px;
