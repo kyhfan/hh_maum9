@@ -301,11 +301,77 @@
 				</div>
 			</div>
 		</div>
+		<button id="popup-open-btn" data-popup="#popup-kitlist"></button>
+		<!-- 개인정보 취급 위탁 약관 팝업 -->
+		<div class="popup kitlist" id="popup-kitlist">
+			<div class="inner">
+				<div class="title">
+					<img src="./images/popup_kitlist_title.png" alt="">
+				</div>
+				<div class="kit-slide-area swiper-container">
+					<div class="kit-slider swiper-wrapper visual">
+						<div class="kit-slide swiper-slide">
+							<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+						</div>
+						<div class="kit-slide swiper-slide">
+							<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+						</div>
+						<div class="kit-slide swiper-slide">
+							<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+						</div>
+						<div class="kit-slide swiper-slide">
+							<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+						</div>
+					</div>
+					<div class="prev-button btn">
+						<button type="button" class="button-prev slick-prev">
+							<img src="./images/popup_kitlist_prev.png" alt="">
+						</button>
+					</div>
+					<div class="next-button btn">
+						<button type="button" class="button-next slick-next">
+							<img src="./images/popup_kitlist_next.png" alt="">
+						</button>
+					</div>
+				</div>
+				<ul class="slide-list">
+					<li class="is-active"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+				</ul>
+			</div>
+			<a href="javascript:void(0)" class="popup-close" data-popup="@close"></a>
+		</div>
+		<!-- 개인정보 취급 위탁 약관 팝업 -->
 		<script>
-			var swiper = new Swiper ('.slide-area', {
+			$(window).on('load', function() {
+				$('#popup-open-btn').trigger('click');
+			});
+			
+			var kitSwiper = new Swiper('.kit-slider', {
 				// Optional parameters
 				direction: 'horizontal',
-				loop: true,
+//				loop: true,
+				slidesPerView: 1,
+				// loopFillGroupWithBlank: true,
+				spaceBetween: 35,
+				// touchAngle: 75,
+				navigation: {
+					nextEl: '.button-next',
+					prevEl: '.button-prev',
+				}
+			})
+			
+			var swiper = new Swiper('.slide-area', {
+				// Optional parameters
+				direction: 'horizontal',
+//				loop: true,
 				slidesPerView: 'auto',
 				// loopFillGroupWithBlank: true,
 				spaceBetween: 22,
@@ -315,6 +381,7 @@
 					prevEl: '.button-prev',
 				}
 			})
+			
 //			var menuOffsetArray = [];
 			var sectionOffsetArray = [];
 //			var menuWrapOffset = 0;
