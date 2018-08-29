@@ -273,7 +273,8 @@ body {
 }
 .section3-wrap .info-box button {
 	position: absolute;
-	top: 7.2%;
+	/* top: 7.2%; */
+	top: 12%;
 	left: 66.4%;
 	width: 23%;
 /*	padding: 5px;*/
