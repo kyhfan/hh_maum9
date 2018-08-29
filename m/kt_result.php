@@ -64,7 +64,7 @@
 				<div class="title">
 					<img src="./images/popup_ios_guide_title.png" alt="">
 				</div>
-				<button type="button" class="btn">
+				<button type="button" class="btn" onclick="open_window('<?=$rs_img?>')">
 					<img src="./images/popup_ios_guide_btn.jpg" alt="">
 				</button>
 			</div>
@@ -78,32 +78,35 @@
 				$('html').removeClass('menu-opened');
 			});
 
-			function downloadImg(url)
+			function downloadImg()
 			{
 <?
 	if ($IphoneYN == "Y")
 	{	
 ?>				
 				// alert("새창으로 뜬 이미지를 눌러 저장 해 주시고, 현재 페이지로 오시면 계속 이벤트 참여가 가능합니다");
-				var iosUrl = url.replace("..","http://minivertest.hi-maumbot.co.kr");	
-				window.open(iosUrl, 'event1','width=#, height=#');
+				// var iosUrl = url.replace("..","http://minivertest.hi-maumbot.co.kr");	
+				// window.open(iosUrl, 'event1','width=#, height=#');
+				hh_maum9.popup.show($("#popup-ios-guide"));
 <?
 	}else{
 ?>				
-				location.href = "ajax_download.php?rs="+url;
+				location.href = "ajax_download.php?rs=<?=$rs_img?>";
 <?
 	}
 ?>				
-				// setTimeout(function(){
-				// 	nextPage(4);
-				// },1000);
 			}
 
 			function go_next()
 			{
-				$('#download_img').attr("onclick","downloadImg('<?=$rs_img?>')");
+				$('#download_img').attr("onclick","downloadImg()");
 			}
 
+			function open_window(url)
+			{
+				var iosUrl = url.replace("..","http://minivertest.hi-maumbot.co.kr");	
+				window.open(iosUrl, 'event1','width=#, height=#');
+			}
 		</script>
 	</body>
 </html>
