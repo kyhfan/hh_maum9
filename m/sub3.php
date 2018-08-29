@@ -151,7 +151,9 @@
 <?
 	}else{
 ?>				
-				location.href = "ajax_download.php?rs="+url;
+				// location.href = "ajax_download.php?rs="+url;
+				var iosUrl = url.replace("..","http://www.atodermcare.com");	
+				window.open(iosUrl, 'event1','width=#, height=#');
 <?
 	}
 ?>				
