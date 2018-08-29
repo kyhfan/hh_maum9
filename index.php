@@ -370,7 +370,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 				nextArrow: $('.slick-next')
 			});
             $('.kit-slider').on('afterChange', function(slick, currentSlide){
-                console.log(currentSlide.currentSlide);
+                // console.log(currentSlide.currentSlide);
                 $(".thumb").removeClass("is-active");
                 $("#slide"+currentSlide.currentSlide).addClass("is-active");
             });

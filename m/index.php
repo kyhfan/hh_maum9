@@ -105,10 +105,10 @@
 					</div> -->
 					<div class="objs">
 						<img src="./images/main_sec1_obj.png" alt="">
-						<div class="info-group" onclick="_nto.callTrack('6446', callback());">
+						<div class="info-group" onclick="_nto.callTrack('6446', callback());" data-popup="#popup-kitlist">
 							<img src="./images/main_sec1_info_group.png" alt="">
 						</div>
-						<div class="plus-icon">
+						<div class="plus-icon" data-popup="#popup-kitlist">
 							<img src="./images/main_sec1_plus.png" alt="">
 						</div>
 					</div>
@@ -312,7 +312,7 @@
 				</div>
 			</div>
 		</div>
-		<button id="popup-open-btn" data-popup="#popup-kitlist"></button>
+		<!-- <button id="popup-open-btn" data-popup="#popup-kitlist"></button> -->
 		<!-- 개인정보 취급 위탁 약관 팝업 -->
 		<div class="popup kitlist" id="popup-kitlist">
 			<div class="inner">
@@ -321,6 +321,21 @@
 				</div>
 				<div class="kit-slide-area">
 					<div class="kit-slider visual">
+						<div class="kit-slide">
+							<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+						</div>
+						<div class="kit-slide">
+							<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+						</div>
+						<div class="kit-slide">
+							<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+						</div>
+						<div class="kit-slide">
+							<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+						</div>
+						<div class="kit-slide">
+							<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+						</div>
 						<div class="kit-slide">
 							<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
 						</div>
@@ -346,24 +361,24 @@
 					</div>
 				</div>
 				<ul class="slide-list">
-					<li class="is-active"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-					<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-					<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-					<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-					<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-					<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-					<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-					<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-					<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+					<li class="thumb is-active" id="slide0"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+					<li class="thumb" id="slide1"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+					<li class="thumb" id="slide2"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+					<li class="thumb" id="slide3"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+					<li class="thumb" id="slide4"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+					<li class="thumb" id="slide5"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+					<li class="thumb" id="slide6"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+					<li class="thumb" id="slide7"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+					<li class="thumb" id="slide8"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
 				</ul>
 			</div>
 			<a href="javascript:void(0)" class="popup-close" data-popup="@close"></a>
 		</div>
 		<!-- 개인정보 취급 위탁 약관 팝업 -->
 		<script>
-			$(window).on('load', function() {
-				$('#popup-open-btn').trigger('click');
-			});
+			// $(window).on('load', function() {
+			// 	$('#popup-open-btn').trigger('click');
+			// });
 			
 			$('.kit-slider').slick({
 				variableWidth: true,
@@ -371,6 +386,11 @@
 				prevArrow: $('.slick-prev'),
 				nextArrow: $('.slick-next')
 			})
+            $('.kit-slider').on('afterChange', function(slick, currentSlide){
+                // console.log(currentSlide.currentSlide);
+                $(".thumb").removeClass("is-active");
+                $("#slide"+currentSlide.currentSlide).addClass("is-active");
+            });
 			
 			var swiper = new Swiper('.slide-area', {
 				// Optional parameters
