@@ -322,31 +322,31 @@
 				<div class="kit-slide-area">
 					<div class="kit-slider visual">
 						<div class="kit-slide">
-							<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+							<img src="./images/kit_thumb2.png" alt="">
 						</div>
 						<div class="kit-slide">
-							<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+							<img src="./images/kit_thumb3.png" alt="">
 						</div>
 						<div class="kit-slide">
-							<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+							<img src="./images/kit_thumb4.png" alt="">
 						</div>
 						<div class="kit-slide">
-							<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+							<img src="./images/kit_thumb5.png" alt="">
 						</div>
 						<div class="kit-slide">
-							<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+							<img src="./images/kit_thumb6.png" alt="">
 						</div>
 						<div class="kit-slide">
-							<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+							<img src="./images/kit_thumb7.png" alt="">
 						</div>
 						<div class="kit-slide">
-							<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+							<img src="./images/kit_thumb8.png" alt="">
 						</div>
 						<div class="kit-slide">
-							<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+							<img src="./images/kit_thumb9.png" alt="">
 						</div>
 						<div class="kit-slide">
-							<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+							<img src="./images/kit_thumb1.png" alt="">
 						</div>
 					</div>
 					<div class="prev-button btn">
@@ -361,15 +361,15 @@
 					</div>
 				</div>
 				<ul class="slide-list">
-					<li class="thumb is-active" id="slide0"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-					<li class="thumb" id="slide1"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-					<li class="thumb" id="slide2"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-					<li class="thumb" id="slide3"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-					<li class="thumb" id="slide4"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-					<li class="thumb" id="slide5"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-					<li class="thumb" id="slide6"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-					<li class="thumb" id="slide7"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-					<li class="thumb" id="slide8"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+					<li class="thumb is-active" id="slide0"><a href="javascript:void(0)"><img src="./images/kit_thumb1.png" alt=""></a></li>
+					<li class="thumb" id="slide1"><a href="javascript:void(0)"><img src="./images/kit_thumb2.png" alt=""></a></li>
+					<li class="thumb" id="slide2"><a href="javascript:void(0)"><img src="./images/kit_thumb3.png" alt=""></a></li>
+					<li class="thumb" id="slide3"><a href="javascript:void(0)"><img src="./images/kit_thumb4.png" alt=""></a></li>
+					<li class="thumb" id="slide4"><a href="javascript:void(0)"><img src="./images/kit_thumb5.png" alt=""></a></li>
+					<li class="thumb" id="slide5"><a href="javascript:void(0)"><img src="./images/kit_thumb6.png" alt=""></a></li>
+					<li class="thumb" id="slide6"><a href="javascript:void(0)"><img src="./images/kit_thumb7.png" alt=""></a></li>
+					<li class="thumb" id="slide7"><a href="javascript:void(0)"><img src="./images/kit_thumb8.png" alt=""></a></li>
+					<li class="thumb" id="slide8"><a href="javascript:void(0)"><img src="./images/kit_thumb9.png" alt=""></a></li>
 				</ul>
 			</div>
 			<a href="javascript:void(0)" class="popup-close" data-popup="@close"></a>
@@ -383,6 +383,7 @@
 			$('.kit-slider').slick({
 				variableWidth: true,
 				arrows: true,
+                infinite: false,
 				prevArrow: $('.slick-prev'),
 				nextArrow: $('.slick-next')
 			})
