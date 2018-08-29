@@ -167,7 +167,6 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
 		<script>
-		Kakao.init('c8173523ff789743a4d69e357b3d55a1');
 
 //			$(window).on('load', function() {
 //				$('#popup-open-btn').trigger('click');

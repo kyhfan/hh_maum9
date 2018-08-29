@@ -22,7 +22,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="[현대해상] 우리 가족 튼튼 메신저" />
+    <meta property="og:url" content="http://minivertest.hi-maumbot.co.kr" />
+    <meta property="og:image" content="http://minivertest.hi-maumbot.co.kr/images/share_image.jpg" />
+    <meta property="og:description" content="당신의 건강을 위한 메시지가 도착했어요 답장 보내고 마음봇 건강세트를 받아보세요!" />
+    <title>현대해상</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/main.css">
@@ -104,9 +109,9 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
                     <div class="_6"></div>
                 </div>
                 <div class="share">
-                    <button class="kakao" onclick="NTrackObj.callTrackTag('34098', callbackFn, 13294);"></button>
-                    <button class="story" onclick="NTrackObj.callTrackTag('34099', callbackFn, 13294);"></button>
-                    <button class="facebook"onclick="NTrackObj.callTrackTag('34100', callbackFn, 13294);"></button>
+                    <button class="kakao" onclick="NTrackObj.callTrackTag('34098', callbackFn, 13294);sns_share('kt', 'main')"></button>
+                    <button class="story" onclick="NTrackObj.callTrackTag('34099', callbackFn, 13294);sns_share('ks', 'main')"></button>
+                    <button class="facebook"onclick="NTrackObj.callTrackTag('34100', callbackFn, 13294);sns_share('fb', 'main')"></button>
                     <div class="share-txt"></div>
                 </div>
             </div>
