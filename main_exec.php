@@ -48,9 +48,10 @@ switch ($_REQUEST['exec'])
         $mb_addr2		=	$_REQUEST["mb_addr2"];
         $mb_serial		=	$_REQUEST["mb_serial"];
         $mb_type		=	$_REQUEST["mb_type"];
+        $mb_size		=	$_REQUEST["mb_size"];
 
 
-		$query 		= "INSERT INTO member_info_9(mb_ipaddr, mb_name, mb_phone, mb_type, mb_zipcode, mb_addr1, mb_addr2, mb_serial, mb_gubun, mb_media, mb_regdate) values('".$_SERVER['REMOTE_ADDR']."','".$mb_name."','".$mb_phone."','".$mb_type."','".$mb_zipcode."','".$mb_addr1."','".$mb_addr2."','".$mb_serial."','".$gubun."','".$_SESSION['ss_media']."','".date("Y-m-d H:i:s")."')";
+		$query 		= "INSERT INTO member_info_9(mb_ipaddr, mb_name, mb_phone, mb_type, mb_size, mb_zipcode, mb_addr1, mb_addr2, mb_serial, mb_gubun, mb_media, mb_regdate) values('".$_SERVER['REMOTE_ADDR']."','".$mb_name."','".$mb_phone."','".$mb_type."','".$mb_size."','".$mb_zipcode."','".$mb_addr1."','".$mb_addr2."','".$mb_serial."','".$gubun."','".$_SESSION['ss_media']."','".date("Y-m-d H:i:s")."')";
 		$result 	= mysqli_query($my_db, $query);
 
 		if ($result)

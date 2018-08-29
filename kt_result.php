@@ -1,3 +1,27 @@
+<?
+    $serial = $_REQUEST["serial"];
+    $type   = $_REQUEST["type"];
+    $size   = $_REQUEST["size"];
+
+    if ($type == "1")
+    {
+		$rs_img     = "http://minivertest.hi-maumbot.co.kr/files/".$serial."/maumbot_takecare".$size.".jpg";
+        $view_img   = "http://minivertest.hi-maumbot.co.kr/files/".$serial."/maumbot_takecare2.jpg";
+    }else if ($type == "2"){
+        $rs_img     = "http://minivertest.hi-maumbot.co.kr/files/".$serial."/maumbot_loveyou".$size.".jpg";
+        $view_img   = "http://minivertest.hi-maumbot.co.kr/files/".$serial."/maumbot_loveyou2.jpg";
+	}else if ($type == "3"){
+        $rs_img     = "http://minivertest.hi-maumbot.co.kr/files/".$serial."/maumbot_thanks".$size.".jpg";
+        $view_img   = "http://minivertest.hi-maumbot.co.kr/files/".$serial."/maumbot_thanks2.jpg";
+	}else if ($type == "4"){
+        $rs_img     = "http://minivertest.hi-maumbot.co.kr/files/".$serial."/maumbot_cheerup".$size.".jpg";
+        $view_img   = "http://minivertest.hi-maumbot.co.kr/files/".$serial."/maumbot_cheerup2.jpg";
+	}else if ($type == "5"){
+        $rs_img     = "http://minivertest.hi-maumbot.co.kr/files/".$serial."/maumbot_dontworry".$size.".jpg";
+        $view_img   = "http://minivertest.hi-maumbot.co.kr/files/".$serial."/maumbot_dontworry2.jpg";
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -29,7 +53,7 @@
 						</div>
 						<div class="kt-card-result">
 							<!-- <img src="./images/sub_step3_card_result.jpg" alt=""> -->
-							<img src="<?=$_REQUEST["url"]?>" alt="">
+							<img src="<?=$view_img?>" alt="">
 						</div>
 						<div class="kt-btn-area">
                             <button type="button" onclick="go_next();">
@@ -48,36 +72,17 @@
 		<script>
 			var rs_img = "";
 			var change_rs_img = "";
-			$(window).on('load', function() {
-				// if (localStorage.type == 1)
-					rs_img	= "./files/" + localStorage.serial + "/maumbot_takecare2.jpg";
-				// else if (localStorage.type == 2)
-				// 	rs_img	= "./files/" + localStorage.serial + "/maumbot_loveyou2.jpg";
-				// else if (localStorage.type == 3)
-				// 	rs_img	= "./files/" + localStorage.serial + "/maumbot_thanks2.jpg";
-				// else if (localStorage.type == 4)
-				// 	rs_img	= "./files/" + localStorage.serial + "/maumbot_cheerup2.jpg";
-				// else if (localStorage.type == 5)
-				// 	rs_img	= "./files/" + localStorage.serial + "/maumbot_dontworry2.jpg";
-				// $('.card-result img').attr("src",rs_img);
-				// $('.btn-area._3 a').attr("href",rs_img);
-				// $('.btn-area._3 button').attr("onclick","downloadImg('"+rs_img+"')");
-			});
-
 			function downloadImg(url)
 			{
 				location.href = "ajax_download.php?rs="+url;
-				setTimeout(function(){
-					nextPage(4);
-				},1000);
-				// setTimeout(() => {
+				// setTimeout(function(){
 				// 	nextPage(4);
-				// }, 1000);
+				// },1000);
 			}
 
 			function go_next()
 			{
-                $('.btn-area._3 button').attr("onclick","downloadImg('"+change_rs_img+"')");
+                $('.btn-area._3 button').attr("onclick","downloadImg('<?=$rs_img?>')");
 			}
 		</script>
 	</body>
