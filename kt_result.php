@@ -28,7 +28,8 @@
 							<img src="./images/kt_result_title.png" alt="">
 						</div>
 						<div class="kt-card-result">
-							<img src="./images/sub_step3_card_result.jpg" alt="">
+							<!-- <img src="./images/sub_step3_card_result.jpg" alt=""> -->
+							<img src="<?=$_REQUEST["url"]?>" alt="">
 						</div>
 						<div class="kt-btn-area">
                             <button type="button" onclick="go_next();">
@@ -49,7 +50,7 @@
 			var change_rs_img = "";
 			$(window).on('load', function() {
 				// if (localStorage.type == 1)
-				// 	rs_img	= "./files/" + localStorage.serial + "/maumbot_takecare2.jpg";
+					rs_img	= "./files/" + localStorage.serial + "/maumbot_takecare2.jpg";
 				// else if (localStorage.type == 2)
 				// 	rs_img	= "./files/" + localStorage.serial + "/maumbot_loveyou2.jpg";
 				// else if (localStorage.type == 3)
