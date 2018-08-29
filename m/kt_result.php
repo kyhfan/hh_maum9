@@ -1,5 +1,33 @@
 <?
-include_once "sub_head.php";
+    include_once "../include/autoload.php";
+
+    $mnv_f 			= new mnv_function();
+    $my_db         = $mnv_f->Connect_MySQL();
+    $IphoneYN      = $mnv_f->IPhoneCheck();
+
+	$serial = $_REQUEST["serial"];
+    $type   = $_REQUEST["type"];
+    $size   = $_REQUEST["size"];
+
+    if ($type == "1")
+    {
+		$rs_img     = "../files/".$serial."/maumbot_takecare".$size.".jpg";
+        $view_img   = "../files/".$serial."/maumbot_takecare2.jpg";
+    }else if ($type == "2"){
+        $rs_img     = "../files/".$serial."/maumbot_loveyou".$size.".jpg";
+        $view_img   = "../files/".$serial."/maumbot_loveyou2.jpg";
+	}else if ($type == "3"){
+        $rs_img     = "../files/".$serial."/maumbot_thanks".$size.".jpg";
+        $view_img   = "../files/".$serial."/maumbot_thanks2.jpg";
+	}else if ($type == "4"){
+        $rs_img     = "../files/".$serial."/maumbot_cheerup".$size.".jpg";
+        $view_img   = "../files/".$serial."/maumbot_cheerup2.jpg";
+	}else if ($type == "5"){
+        $rs_img     = "../files/".$serial."/maumbot_dontworry".$size.".jpg";
+        $view_img   = "../files/".$serial."/maumbot_dontworry2.jpg";
+    }
+
+	include_once "sub_head.php";
 ?>
 	<body>
 		<div class="page-wrap sub kt-result">
@@ -15,7 +43,11 @@ include_once "sub_head.php";
 						<div class="result-img">
 							<img src="./images/sub3_img_sample.jpg" alt="">
 						</div>
-						<button type="button" class="btn" data-popup="#popup-ios-guide">
+<?
+	// if ($IphoneYN == "Y")
+	// 	$iphonePopup = 'data-popup="#popup-ios-guide"';
+?>						
+						<button type="button" class="btn" id="download_img">
 							<img src="./images/sub_kt_result_btn.jpg" alt="">
 						</button>
 					</div>
@@ -45,6 +77,33 @@ include_once "sub_head.php";
 			$('.menu-layer .menu-close').on('click', function() {
 				$('html').removeClass('menu-opened');
 			});
+
+			function downloadImg(url)
+			{
+<?
+	if ($IphoneYN == "Y")
+	{	
+?>				
+				// alert("새창으로 뜬 이미지를 눌러 저장 해 주시고, 현재 페이지로 오시면 계속 이벤트 참여가 가능합니다");
+				var iosUrl = url.replace("..","http://minivertest.hi-maumbot.co.kr");	
+				window.open(iosUrl, 'event1','width=#, height=#');
+<?
+	}else{
+?>				
+				location.href = "ajax_download.php?rs="+url;
+<?
+	}
+?>				
+				// setTimeout(function(){
+				// 	nextPage(4);
+				// },1000);
+			}
+
+			function go_next()
+			{
+				$('#download_img').attr("onclick","downloadImg('<?=$rs_img?>')");
+			}
+
 		</script>
 	</body>
 </html>

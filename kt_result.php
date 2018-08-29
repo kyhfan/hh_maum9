@@ -70,8 +70,6 @@
 			</div>
 		</div>
 		<script>
-			var rs_img = "";
-			var change_rs_img = "";
 			function downloadImg(url)
 			{
 				location.href = "ajax_download.php?rs="+url;
