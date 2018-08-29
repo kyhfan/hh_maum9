@@ -475,6 +475,15 @@ body {
 	top: -7px;
 	/* display: inline-block; */
 }
+.section2-wrap .inner .maumbot span {
+	position: absolute;
+	font-size: 30px;
+	color: #f68a1f;
+	font-weight: bold;
+	text-align: right;
+	right: 55px;
+	top: 61px;
+}
 .section2-wrap .inner .slider {
 	position: relative;
 	text-align: center;

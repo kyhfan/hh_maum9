@@ -119,10 +119,16 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
                 </div>
                 <div class="title">
                 </div>
+<?
+    $total_query 	= "SELECT * FROM member_info_9 WHERE mb_serial <> ''";
+	$total_result 	= mysqli_query($my_db, $total_query);
+	$total_count	= mysqli_num_rows($total_result);
+?>                
                 <div class="maumbot">
                     <div class="chat1"></div>
                     <div class="bot"></div>
                     <div class="chat2"></div>
+                    <span><?=number_format($total_count)?></span>
                 </div>
                 <div class="slider">
                     <div class="slder-area">
