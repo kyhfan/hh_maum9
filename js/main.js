@@ -247,7 +247,8 @@ $(function(){
 				"mb_addr1"			: mb_addr1,
 				"mb_addr2"			: mb_addr2,
 				"mb_serial"			: localStorage.serial,
-				"mb_type"			: localStorage.type
+				"mb_type"			: localStorage.type,
+				"mb_size"			: localStorage.size
 			},
 			url: "./main_exec.php",
 			success: function(response){
@@ -501,16 +502,16 @@ function check_agree(param, id)
 
 function kakao_send()
 {
-	if (localStorage.type == 1)
-		var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_takecare" + localStorage.type + ".jpg";
-	else if (localStorage.type == 2)
-		var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_loveyou" + localStorage.type + ".jpg";
-	else if (localStorage.type == 3)
-		var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_thanks" + localStorage.type + ".jpg";
-	else if (localStorage.type == 4)
-		var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_cheerup" + localStorage.type + ".jpg";
-	else if (localStorage.type == 5)
-		var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_dontworry" + localStorage.type + ".jpg";
+	// if (localStorage.type == 1)
+	// 	var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_takecare" + localStorage.type + ".jpg";
+	// else if (localStorage.type == 2)
+	// 	var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_loveyou" + localStorage.type + ".jpg";
+	// else if (localStorage.type == 3)
+	// 	var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_thanks" + localStorage.type + ".jpg";
+	// else if (localStorage.type == 4)
+	// 	var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_cheerup" + localStorage.type + ".jpg";
+	// else if (localStorage.type == 5)
+	// 	var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_dontworry" + localStorage.type + ".jpg";
 
 	Kakao.Link.sendDefault({
 		objectType: 'feed',
@@ -520,16 +521,16 @@ function kakao_send()
 			// imageUrl: "http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".jpg",
 			imageUrl: "http://minivertest.hi-maumbot.co.kr/images/kt_message_share.jpg",
 			link: {
-				mobileWebUrl: "http://minivertest.hi-maumbot.co.kr/m/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type,
-				webUrl: "http://minivertest.hi-maumbot.co.kr/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type
+				mobileWebUrl: "http://minivertest.hi-maumbot.co.kr/m/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type+"&size="+localStorage.size,
+				webUrl: "http://minivertest.hi-maumbot.co.kr/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type+"&size="+localStorage.size
 			}
 		},
 		buttons: [
 			{
 				title: '웹으로 보기',
 				link: {
-					mobileWebUrl: "http://minivertest.hi-maumbot.co.kr/m/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type,
-					webUrl: "http://minivertest.hi-maumbot.co.kr/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type
+					mobileWebUrl: "http://minivertest.hi-maumbot.co.kr/m/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type+"&size="+localStorage.size,
+					webUrl: "http://minivertest.hi-maumbot.co.kr/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type+"&size="+localStorage.size
 				}
 			}
 		],

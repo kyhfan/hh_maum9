@@ -247,7 +247,8 @@ $(function(){
 				"mb_addr1"			: mb_addr1,
 				"mb_addr2"			: mb_addr2,
 				"mb_serial"			: localStorage.serial,
-				"mb_type"			: localStorage.type
+				"mb_type"			: localStorage.type,
+				"mb_size"			: localStorage.size
 			},
 			url: "../main_exec.php",
 			success: function(response){

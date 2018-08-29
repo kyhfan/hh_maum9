@@ -114,7 +114,7 @@
 					<div class="text">
 						<img src="./images/main_sec1_2_text.png" alt="">
 					</div>
-					<button type="button" onclick="alert('당첨자는 10월 1일에 발표 될 예정입니다.')">
+					<button type="button" onclick="_nto.callTrack('6467', callback());alert('당첨자는 10월 1일에 발표 될 예정입니다.')">
 						<img src="./images/main_sec1_2_btn.png" alt="">
 					</button>
 				</div>
@@ -196,11 +196,11 @@
 						</div>
 						<div class="info-box">
 							<img src="./images/main_sec3_infobox.jpg" alt="">
-							<button type="button" onclick="alert('당첨자는 11월 2일에 발표 될 예정입니다.')">
+							<button type="button" onclick="_nto.callTrack('6468', callback());alert('당첨자는 11월 2일에 발표 될 예정입니다.')">
 								<img src="./images/main_sec3_infobox_btn.jpg" alt="">
 							</button>
 						</div>
-						<button type="button" class="btn-verify" onclick="alert('인증이벤트는 9월 3일부터 시작 될 예정입니다.')">
+						<button type="button" class="btn-verify" onclick="_nto.callTrack('6469', callback());alert('인증이벤트는 9월 3일부터 시작 될 예정입니다.')">
 							<img src="./images/main_sec3_verify.jpg" alt="">
 						</button>
 						<div class="list-container">
