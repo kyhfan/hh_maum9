@@ -11,7 +11,7 @@
 <script>
  callback = function(){}
 </script>
-		<div class="page-wrap sub">
+		<div class="page-wrap sub" style="height: 100%">
 <?
 	include_once "sub_header.php";
 ?>			
