@@ -684,6 +684,17 @@ function sns_share(media, flag)
 			}
 		});
 	}else{
-
+		Kakao.Story.share({
+			url: 'http://minivertest.hi-maumbot.co.kr/?media=share_ks'
+		});
+		$.ajax({
+			type   : "POST",
+			async  : false,
+			url    : "./main_exec.php",
+			data:{
+				"exec" : "insert_share_info",
+				"sns_media" : target.data("share-target")
+			}
+		});
 	}
 }
