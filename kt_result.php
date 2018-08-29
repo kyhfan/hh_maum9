@@ -82,7 +82,7 @@
 
 			function go_next()
 			{
-                $('.btn-area._3 button').attr("onclick","downloadImg('<?=$rs_img?>')");
+                $('.kt-btn-area button').attr("onclick","downloadImg('<?=$rs_img?>')");
 			}
 		</script>
 	</body>
