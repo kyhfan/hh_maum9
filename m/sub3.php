@@ -146,14 +146,12 @@
 	if ($IphoneYN == "Y")
 	{	
 ?>				
-				var iosUrl = url.replace("..","http://www.atodermcare.com");	
+				var iosUrl = url.replace("..","http://minivertest.hi-maumbot.co.kr");	
 				window.open(iosUrl, 'event1','width=#, height=#');
 <?
 	}else{
 ?>				
-				// location.href = "ajax_download.php?rs="+url;
-				var iosUrl = url.replace("..","http://www.atodermcare.com");	
-				window.open(iosUrl, 'event1','width=#, height=#');
+				location.href = "ajax_download.php?rs="+url;
 <?
 	}
 ?>				
