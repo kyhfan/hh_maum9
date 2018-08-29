@@ -49,13 +49,15 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 		<div class="header-wrap">
             <div class="inner">
                 <div class="logo">
-                    <img src="./images/logo.png" alt="현대해상 로고">
+                    <a href="index.php" onclick="NTrackObj.callTrackTag('34116', callbackFn, 13294);">
+                        <img src="./images/logo.png" alt="현대해상 로고">
+                    </a>
                 </div>
                 <div class="menu">
-                    <a href="javascript:void(0)" class="_1"></a>
-                    <a href="javascript:void(0)" class="_2"></a>
-                    <a href="javascript:void(0)" class="_3"></a>
-                    <a href="javascript:void(0)" class="_4"></a>
+                    <a href="javascript:void(0)" class="_1" onclick="NTrackObj.callTrackTag('34117', callbackFn, 13294);"></a>
+                    <a href="javascript:void(0)" class="_2" onclick="NTrackObj.callTrackTag('34118', callbackFn, 13294);"></a>
+                    <a href="javascript:void(0)" class="_3" onclick="NTrackObj.callTrackTag('34119', callbackFn, 13294);"></a>
+                    <a href="javascript:void(0)" class="_4" onclick="NTrackObj.callTrackTag('34120', callbackFn, 13294);"></a>
                 </div>
 <!--
                 <div class="pointer">
@@ -203,7 +205,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
                             <div>
                                 <img src="./images/section4_list1.png" alt="">
                             </div>
-                            <div class="button" onclick="window.open('http://event4.hi-maumbot.co.kr', 'event4','width=#, height=#'); return false">
+                            <div class="button" onclick="NTrackObj.callTrackTag('34112', callbackFn, 13294);window.open('http://event4.hi-maumbot.co.kr', 'event4','width=#, height=#'); return false">
                                 <button type="button"></button>
                             </div>
                         </li>
@@ -211,7 +213,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
                             <div>
                                 <img src="./images/section4_list2.png" alt="">
                             </div>
-                            <div class="button" onclick="window.open('http://event3.hi-maumbot.co.kr', 'event3','width=#, height=#'); return false">
+                            <div class="button" onclick="NTrackObj.callTrackTag('34113', callbackFn, 13294);window.open('http://event3.hi-maumbot.co.kr', 'event3','width=#, height=#'); return false">
                                 <button type="button"></button>
                             </div>
                         </li>
@@ -219,7 +221,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
                             <div>
                                 <img src="./images/section4_list3.png" alt="">
                             </div>
-                            <div class="button" onclick="window.open('http://event2.hi-maumbot.co.kr', 'event2','width=#, height=#'); return false">
+                            <div class="button" onclick="NTrackObj.callTrackTag('34114', callbackFn, 13294);window.open('http://event2.hi-maumbot.co.kr', 'event2','width=#, height=#'); return false">
                                 <button type="button"></button>
                             </div>
                         </li>
@@ -227,7 +229,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
                             <div>
                                 <img src="./images/section4_list4.png" alt="">
                             </div>
-                            <div class="button" onclick="window.open('http://event1.hi-maumbot.co.kr', 'event1','width=#, height=#'); return false">
+                            <div class="button" onclick="NTrackObj.callTrackTag('34115', callbackFn, 13294);window.open('http://event1.hi-maumbot.co.kr', 'event1','width=#, height=#'); return false">
                                 <button type="button"></button>
                             </div>
                         </li>

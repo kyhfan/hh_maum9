@@ -2,6 +2,15 @@
     include_once "sub_head.php";
 ?>
 <body>
+<!--NSmart Track Tag Script-->
+<script type='text/javascript'>
+callbackFn = function() {};
+var _nsmart = _nsmart || [];
+_nsmart.host = _nsmart.host || (('https:' == document.location.protocol) ? 'https://' : 'http://');
+_nsmart.push([13294, 34102]); /*1808_현대해상_마음봇3차-사랑의 메시지 남기기 페이지*/
+document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc?id=10' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<!--NSmart Track Tag Script End..-->
     <div class="page-wrap">
 <?
     include_once "sub_header.php";
@@ -56,143 +65,18 @@
 							<div class="swiper-wrapper">
 								<div class="swiper-slide slide _1">
 									<img src="./images/sub_step2_card1_new.png" alt="">
-									<!-- <div class="text-area">
-										<div class="text-line text-group">
-											<span>To.</span>
-											<div class="input"><input type="text" id="msg_to_1" placeholder="받으시는 분"></div>
-										</div>
-										<div class="text-line2 text-group first">
-											<div class="input"><input type="text" id="msg_conntent1_1" placeholder="내용을 입력해 주세요"></div>
-										</div>
-										<div class="text-line2 text-group">
-											<div class="input"><input type="text" id="msg_conntent2_1" placeholder=""></div>
-										</div>
-										<div class="text-line2 text-group">
-											<div class="input"><input type="text" id="msg_conntent3_1" placeholder=""></div>
-										</div>
-										<div class="text-line2 text-group">
-											<div class="input"><input type="text" id="msg_conntent4_1" placeholder=""></div>
-										</div>
-										<div class="text-line2 text-group">
-											<div class="input"><input type="text" id="msg_conntent5_1" placeholder=""></div>
-										</div>
-										<div class="text-line bottom text-group">
-											<span>From.</span>
-											<div class="input"><input type="text" id="msg_from_1" placeholder="보내시는 분"></div>
-										</div>
-									</div> -->
 								</div>
 								<div class="swiper-slide slide _2">
 									<img src="./images/sub_step2_card2_new.png" alt="">
-									<!-- <div class="text-area">
-										<div class="text-line text-group">
-											<span>To.</span>
-											<div class="input"><input type="text" id="msg_to_2" placeholder="받으시는 분"></div>
-										</div>
-										<div class="text-line2 text-group first">
-											<div class="input"><input type="text" id="msg_conntent1_2" placeholder="내용을 입력해 주세요"></div>
-										</div>
-										<div class="text-line2 text-group">
-											<div class="input"><input type="text" id="msg_conntent2_2" placeholder=""></div>
-										</div>
-										<div class="text-line2 text-group">
-											<div class="input"><input type="text" id="msg_conntent3_2" placeholder=""></div>
-										</div>
-										<div class="text-line2 text-group">
-											<div class="input"><input type="text" id="msg_conntent4_2" placeholder=""></div>
-										</div>
-										<div class="text-line2 text-group">
-											<div class="input"><input type="text" id="msg_conntent5_2" placeholder=""></div>
-										</div>
-										<div class="text-line bottom text-group">
-											<span>From.</span>
-											<div class="input"><input type="text" id="msg_from_2" placeholder="보내시는 분"></div>
-										</div>
-									</div> -->
 								</div>
 								<div class="swiper-slide slide _3">
 									<img src="./images/sub_step2_card3_new.png" alt="">
-									<!-- <div class="text-area">
-										<div class="text-line text-group">
-											<span>To.</span>
-											<div class="input"><input type="text" id="msg_to_3" placeholder="받으시는 분"></div>
-										</div>
-										<div class="text-line2 text-group first">
-											<div class="input"><input type="text" id="msg_conntent1_3" placeholder="내용을 입력해 주세요"></div>
-										</div>
-										<div class="text-line2 text-group">
-											<div class="input"><input type="text" id="msg_conntent2_3" placeholder=""></div>
-										</div>
-										<div class="text-line2 text-group">
-											<div class="input"><input type="text" id="msg_conntent3_3" placeholder=""></div>
-										</div>
-										<div class="text-line2 text-group">
-											<div class="input"><input type="text" id="msg_conntent4_3" placeholder=""></div>
-										</div>
-										<div class="text-line2 text-group">
-											<div class="input"><input type="text" id="msg_conntent5_3" placeholder=""></div>
-										</div>
-										<div class="text-line bottom text-group">
-											<span>From.</span>
-											<div class="input"><input type="text" id="msg_from_3" placeholder="보내시는 분"></div>
-										</div>
-									</div> -->
 								</div>
 								<div class="swiper-slide slide _4">
 									<img src="./images/sub_step2_card4_new.png" alt="">
-									<!-- <div class="text-area">
-										<div class="text-line text-group">
-											<span>To.</span>
-											<div class="input"><input type="text" id="msg_to_4" placeholder="받으시는 분"></div>
-										</div>
-										<div class="text-line2 text-group first">
-											<div class="input"><input type="text" id="msg_conntent1_4" placeholder="내용을 입력해 주세요"></div>
-										</div>
-										<div class="text-line2 text-group">
-											<div class="input"><input type="text" id="msg_conntent2_4" placeholder=""></div>
-										</div>
-										<div class="text-line2 text-group">
-											<div class="input"><input type="text" id="msg_conntent3_4" placeholder=""></div>
-										</div>
-										<div class="text-line2 text-group">
-											<div class="input"><input type="text" id="msg_conntent4_4" placeholder=""></div>
-										</div>
-										<div class="text-line2 text-group">
-											<div class="input"><input type="text" id="msg_conntent5_4" placeholder=""></div>
-										</div>
-										<div class="text-line bottom text-group">
-											<span>From.</span>
-											<div class="input"><input type="text" id="msg_from_4" placeholder="보내시는 분"></div>
-										</div>
-									</div> -->
 								</div>
 								<div class="swiper-slide slide _5">
 									<img src="./images/sub_step2_card5_new.png" alt="">
-									<!-- <div class="text-area">
-										<div class="text-line text-group">
-											<span>To.</span>
-											<div class="input"><input type="text" id="msg_to_5" placeholder="받으시는 분"></div>
-										</div>
-										<div class="text-line2 text-group first">
-											<div class="input"><input type="text" id="msg_conntent1_5" placeholder="내용을 입력해 주세요"></div>
-										</div>
-										<div class="text-line2 text-group">
-											<div class="input"><input type="text" id="msg_conntent2_5"></div>
-										</div>
-										<div class="text-line2 text-group">
-											<div class="input"><input type="text" id="msg_conntent3_5"></div>
-										</div>
-										<div class="text-line2 text-group">
-											<div class="input"><input type="text" id="msg_conntent4_5"></div>
-										</div>
-										<div class="text-line2 text-group">
-											<div class="input"><input type="text" id="msg_conntent5_5"></div>
-										</div>
-										<div class="text-line bottom text-group">
-											<span>From.</span>
-											<div class="input"><input type="text" id="msg_from_5" placeholder="보내시는 분"></div>
-										</div>
-									</div> -->
 								</div>
 							</div>
 						</div>
@@ -209,7 +93,7 @@
 					</div>
 					<div class="num-area"></div>
 					<div class="btn-area _2">
-						<button type="button" onclick="saveImageInfo()">
+						<button type="button" onclick="NTrackObj.callTrackTag('34104', callbackFn, 13294);saveImageInfo()">
 							<img src="./images/sub_step2_btn.png" alt="">
 						</button>
 					</div>

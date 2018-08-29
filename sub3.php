@@ -2,6 +2,15 @@
     include_once "sub_head.php";
 ?>
 	<body>
+<!--NSmart Track Tag Script-->
+<script type='text/javascript'>
+callbackFn = function() {};
+var _nsmart = _nsmart || [];
+_nsmart.host = _nsmart.host || (('https:' == document.location.protocol) ? 'https://' : 'http://');
+_nsmart.push([13294, 34102]); /*1808_현대해상_마음봇3차-사랑의 메시지 남기기 페이지*/
+document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc?id=10' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<!--NSmart Track Tag Script End..-->	
 		<div class="page-wrap">
 <?
     include_once "sub_header.php";
@@ -131,7 +140,7 @@
 				if ($("#"+that.attr('id')).is(":checked") === true)
 				{
 					$(".select-box img").attr("src","./images/sub_step3_select" + that.val() + ".png");
-					$('.btn-area._3 button').attr("onclick","downloadImg('"+change_rs_img+"')");
+					$('.btn-area._3 button').attr("onclick","NTrackObj.callTrackTag('34105', callbackFn, 13294);downloadImg('"+change_rs_img+"')");
 				}
 
 
@@ -160,7 +169,7 @@
 				{
 					alert("화면 비율을 선택해 주세요.");
 				}else{
-					$('.btn-area._3 button').attr("onclick","downloadImg('"+change_rs_img+"')");
+					$('.btn-area._3 button').attr("onclick","NTrackObj.callTrackTag('34105', callbackFn, 13294);downloadImg('"+change_rs_img+"')");
 					nextPage(4);
 				}
 			}

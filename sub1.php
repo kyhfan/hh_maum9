@@ -2,6 +2,15 @@
     include_once "sub_head.php";
 ?>
 <body>
+<!--NSmart Track Tag Script-->
+<script type='text/javascript'>
+callbackFn = function() {};
+var _nsmart = _nsmart || [];
+_nsmart.host = _nsmart.host || (('https:' == document.location.protocol) ? 'https://' : 'http://');
+_nsmart.push([13294, 34102]); /*1808_현대해상_마음봇3차-사랑의 메시지 남기기 페이지*/
+document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc?id=10' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<!--NSmart Track Tag Script End..-->
     <div class="page-wrap">
 <?
     include_once "sub_header.php";
@@ -76,7 +85,7 @@
                 $(".balloon").fadeOut("fast");
                 setTimeout(function(){
 					$("#next_btn").find('img').attr('src', './images/sub_step1_btn.png');
-                    $("#next_btn").attr("onclick","nextPage(2)");
+                    $("#next_btn").attr("onclick","NTrackObj.callTrackTag('34103', callbackFn, 13294);nextPage(2)");
                 }, 3000);
             }
         }else if (event.data == 2){
