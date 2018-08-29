@@ -2,6 +2,16 @@
     include_once "sub_head.php";
 ?>
 	<body>
+	<script type="text/javascript"> 
+  var _ntp = {}; 
+  _ntp.host = (('https:' == document.location.protocol) ? 'https://' : 'http://') 
+  _ntp.dID = 978; 
+  document.write(unescape("%3Cscript src='" + _ntp.host + "nmt.nsmartad.com/content?cid=1' type='text/javascript'%3E%3C/script%3E")); 
+</script> 
+<script>
+ callback = function(){}
+</script>
+
 		<div class="page-wrap sub">
 <?
 	include_once "sub_header.php";
@@ -71,7 +81,7 @@
 						</div>
 					</div>
 				</div>
-				<button type="button" class="btn" onclick="saveImageInfo()">
+				<button type="button" class="btn" onclick="_nto.callTrack('6453', callback());saveImageInfo()">
 					<img src="./images/sub2_btn.jpg" alt="">
 				</button>
 				<div class="copyright">

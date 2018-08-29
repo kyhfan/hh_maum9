@@ -2,6 +2,16 @@
     include_once "sub_head.php";
 ?>
 	<body>
+	<script type="text/javascript"> 
+  var _ntp = {}; 
+  _ntp.host = (('https:' == document.location.protocol) ? 'https://' : 'http://') 
+  _ntp.dID = 978; 
+  document.write(unescape("%3Cscript src='" + _ntp.host + "nmt.nsmartad.com/content?cid=1' type='text/javascript'%3E%3C/script%3E")); 
+</script> 
+<script>
+ callback = function(){}
+</script>
+
 		<div class="page-wrap sub">
 <?
 	include_once "sub_header.php";
@@ -78,7 +88,7 @@
 						</div>
 					</div>
 				</div>
-				<button type="button" class="btn" id="submit-info">
+				<button type="button" class="btn" id="submit-info" onclick="_nto.callTrack('6455', callback());">
 					<img src="./images/sub4_btn.jpg" alt="">
 				</button>
 				<div class="copyright">
@@ -106,10 +116,10 @@
 					<img src="./images/popup_thanks_title.png" alt="">
 				</div>
 				<div class="btn-group">
-					<button type="button" class="btn" onclick="kakao_send()">
+					<button type="button" class="btn" onclick="_nto.callTrack('6456', callback());kakao_send()">
 						<img src="./images/popup_thanks_btn1.png" alt="">
 					</button>
-					<button type="button" class="btn" onclick="location.href='index.php'">
+					<button type="button" class="btn" onclick="_nto.callTrack('6457', callback());location.href='index.php'">
 						<img src="./images/popup_thanks_btn2.png" alt="">
 					</button>
 				</div>

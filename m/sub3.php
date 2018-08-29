@@ -8,6 +8,16 @@
 	include_once "sub_head.php";
 ?>
 	<body>
+	<script type="text/javascript"> 
+  var _ntp = {}; 
+  _ntp.host = (('https:' == document.location.protocol) ? 'https://' : 'http://') 
+  _ntp.dID = 978; 
+  document.write(unescape("%3Cscript src='" + _ntp.host + "nmt.nsmartad.com/content?cid=1' type='text/javascript'%3E%3C/script%3E")); 
+</script> 
+<script>
+ callback = function(){}
+</script>
+
 		<div class="page-wrap sub">
 <?
 	include_once "sub_header.php";
@@ -72,7 +82,7 @@
 					<img src="./images/sub3_img_sample.jpg" alt="">
 				</div>
 				<button type="button" class="btn">
-					<a href="javascript:void(0)" onclick="go_next();">
+					<a href="javascript:void(0)" onclick="_nto.callTrack('6454', callback());go_next();">
 						<img src="./images/sub3_btn.jpg" alt="">
 					</a>
 					<img src="./images/sub3_balloon.png" alt="" class="balloon">
@@ -146,6 +156,7 @@
 	if ($IphoneYN == "Y")
 	{	
 ?>				
+				alert("새창으로 뜬 이미지를 눌러 저장 해 주시고, 현재 페이지로 오시면 계속 이벤트 참여가 가능합니다");
 				var iosUrl = url.replace("..","http://minivertest.hi-maumbot.co.kr");	
 				window.open(iosUrl, 'event1','width=#, height=#');
 <?

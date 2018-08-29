@@ -34,20 +34,29 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
 	</head>
 	<body>
+	<script type="text/javascript"> 
+  var _ntp = {}; 
+  _ntp.host = (('https:' == document.location.protocol) ? 'https://' : 'http://') 
+  _ntp.dID = 978; 
+  document.write(unescape("%3Cscript src='" + _ntp.host + "nmt.nsmartad.com/content?cid=1' type='text/javascript'%3E%3C/script%3E")); 
+</script> 
+<script>
+ callback = function(){}
+</script>	
 		<div class="page-wrap">
 			<div class="menu-layer">
 				<div class="inner">
 					<button type="button" class="menu-close"></button>
 					<ul class="menu-list">
-						<li><a href="javascript:void(0)" data-value="1"><img src="./images/menu_1.png" alt="" style="width: 144px;"></a></li>
-						<li><a href="javascript:void(0)" data-value="2"><img src="./images/menu_2.png" alt="" style="width: 144px;"></a></li>
-						<li><a href="javascript:void(0)" data-value="3"><img src="./images/menu_3.png" alt="" style="width: 110px;"></a></li>
-						<li><a href="javascript:void(0)" data-value="4"><img src="./images/menu_4.png" alt="" style="width: 77px;"></a></li>
+						<li><a href="javascript:void(0)" data-value="1" onclick="_nto.callTrack('6463', callback());"><img src="./images/menu_1.png" alt="" style="width: 144px;"></a></li>
+						<li><a href="javascript:void(0)" data-value="2" onclick="_nto.callTrack('6464', callback());"><img src="./images/menu_2.png" alt="" style="width: 144px;"></a></li>
+						<li><a href="javascript:void(0)" data-value="3" onclick="_nto.callTrack('6465', callback());"><img src="./images/menu_3.png" alt="" style="width: 110px;"></a></li>
+						<li><a href="javascript:void(0)" data-value="4" onclick="_nto.callTrack('6466', callback());"><img src="./images/menu_4.png" alt="" style="width: 77px;"></a></li>
 					</ul>
 					<ul class="share-list">
-						<li><button type="button" class="kt"></button></li>
-						<li><button type="button" class="ks"></button></li>
-						<li><button type="button" class="fb"></button></li>
+						<li><button type="button" class="kt" onclick="_nto.callTrack('6447', callback());"></button></li>
+						<li><button type="button" class="ks" onclick="_nto.callTrack('6448', callback());"></button></li>
+						<li><button type="button" class="fb" onclick="_nto.callTrack('6449', callback());"></button></li>
 					</ul>
 					<img src="./images/share_guide.png" alt="" class="share-guide">
 					<div class="box-point"></div>
@@ -56,7 +65,9 @@
 			<div class="header-wrap">
 				<div class="inner">
 					<div class="logo">
-						<img src="./images/logo.png" alt="현대해상 로고">
+						<a href="index.php" onclick="_nto.callTrack('6462', callback());">
+							<img src="./images/logo.png" alt="현대해상 로고">
+						</a>
 					</div>
 					<div class="burger">
 						<!-- <a href="javascript:void(0)" class="burger_link"> -->
@@ -73,20 +84,20 @@
 						<img src="./images/main_sec1_title.png" alt="">
 					</div>
 					<div class="button">
-						<button type="button" class="btn-message" onclick="nextPage(1)">
+						<button type="button" class="btn-message" onclick="_nto.callTrack('6450', callback());nextPage(1)">
 							<img src="./images/main_sec1_btn_bg.png" alt="">
 							<img src="./images/main_sec1_btn_pencile.png" class="pencil" alt="">
 						</button>
 					</div>
-					<div class="info">
+					<!-- <div class="info">
 						<div class="txt"></div>
 						<div class="button">
 							<button type="button"></button>
 						</div>
-					</div>
+					</div> -->
 					<div class="objs">
 						<img src="./images/main_sec1_obj.png" alt="">
-						<div class="info-group">
+						<div class="info-group" onclick="_nto.callTrack('6446', callback());">
 							<img src="./images/main_sec1_info_group.png" alt="">
 						</div>
 						<div class="plus-icon">
@@ -268,19 +279,19 @@
 					<div class="list-campaign">
 						<div class="memory">
 							<img src="./images/main_sec4_memory1.png" alt="">
-							<a href="http://event4.hi-maumbot.co.kr" target="_blank" class="btn"></a>
+							<a href="http://event4.hi-maumbot.co.kr" target="_blank" class="btn" onclick="_nto.callTrack('6458', callback());"></a>
 						</div>
 						<div class="memory">
 							<img src="./images/main_sec4_memory2.png" alt="">
-							<a href="http://event3.hi-maumbot.co.kr" target="_blank" class="btn"></a>
+							<a href="http://event3.hi-maumbot.co.kr" target="_blank" class="btn" onclick="_nto.callTrack('6459', callback());"></a>
 						</div>
 						<div class="memory">
 							<img src="./images/main_sec4_memory3.png" alt="">
-							<a href="http://event2.hi-maumbot.co.kr" target="_blank" class="btn"></a>
+							<a href="http://event2.hi-maumbot.co.kr" target="_blank" class="btn" onclick="_nto.callTrack('6460', callback());"></a>
 						</div>
 						<div class="memory">
 							<img src="./images/main_sec4_memory4.png" alt="">
-							<a href="http://event1.hi-maumbot.co.kr" target="_blank" class="btn"></a>
+							<a href="http://event1.hi-maumbot.co.kr" target="_blank" class="btn" onclick="_nto.callTrack('6461', callback());"></a>
 						</div>
 					</div>
 					<div class="footer">
