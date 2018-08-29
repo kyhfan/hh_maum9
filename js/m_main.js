@@ -620,3 +620,70 @@ function kakao_send()
 		}
 	});
 }
+
+function sns_share(media, flag)
+{
+	if (media == "fb")
+	{
+        var newWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent('http://minivertest.hi-maumbot.co.kr/?media=share_fb'),'sharer','toolbar=0,status=0,width=600,height=325');
+
+		$.ajax({
+			type   : "POST",
+			async  : false,
+			url    : "../main_exec.php",
+			data:{
+				"exec"          : "insert_share_info",
+				"sns_media"     : media,
+				"sns_flag"		: flag
+			}
+		});
+	}else if (media == "kt"){
+		Kakao.init('c8173523ff789743a4d69e357b3d55a1');
+
+		Kakao.Link.sendDefault({
+			objectType: 'feed',
+			content: {
+				title: '[현대해상] 우리 가족 튼튼 메신저',
+				description: '당신의 건강을 위한 메시지가 도착했어요 답장 보내고 마음봇 건강세트를 받아보세요!',
+				imageUrl: "http://minivertest.hi-maumbot.co.kr/images/share_image.jpg",
+				link: {
+					mobileWebUrl: 'http://minivertest.hi-maumbot.co.kr/m/index.php?media=share_kt',
+					webUrl: 'http://minivertest.hi-maumbot.co.kr/?media=share_kt'
+				}
+			},
+			buttons: [
+				{
+					title: '웹으로 보기',
+					link: {
+						mobileWebUrl: 'http://minivertest.hi-maumbot.co.kr/m/index.php?media=share_kt',
+						webUrl: 'http://minivertest.hi-maumbot.co.kr/?media=share_kt'
+					}
+				}
+			],
+			success: function(res) {
+				console.log("success");
+				console.log(res);
+			},
+			fail: function(res) {
+				console.log("fail");
+				console.log(res);
+			},
+			callback: function() {
+	//					console.log("callback:"+res);
+				// shareEnd();
+			}
+		});
+		$.ajax({
+			type   : "POST",
+			async  : false,
+			url    : "../main_exec.php",
+			data:{
+				"exec" : "insert_share_info",
+				"sns_media" : media,
+				"sns_flag"		: flag
+			}
+		});
+	}else{
+
+	}
+}
