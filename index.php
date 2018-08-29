@@ -200,9 +200,14 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
                         <button type="button" onclick="NTrackObj.callTrackTag('34125', callbackFn, 13294);alert('당첨자는 11월 2일에 발표 될 예정입니다.')"></button>
                     </div>
                 </div>
-                <button class="btn-verify" onclick="NTrackObj.callTrackTag('34126', callbackFn, 13294);alert('인증이벤트는 9월 3일부터 시작 될 예정입니다.')">
+                <button class="btn-verify" onclick="NTrackObj.callTrackTag('34126', callbackFn, 13294);alert('인증이벤트는 10월 8일부터 시작 될 예정입니다.')">
                 	<img src="./images/section3_verify_btn.jpg" alt="">
                 </button>
+                <!-- <div class="not-open">
+                    <div class="inner-wrap">
+                        <img src="./images/event_not open.png" alt="">
+                    </div>
+                </div> -->
             </div>
         </div>
 		<div class="section4-wrap section">

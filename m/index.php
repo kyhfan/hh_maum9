@@ -207,9 +207,12 @@
 								<img src="./images/main_sec3_infobox_btn.jpg" alt="">
 							</button>
 						</div>
-						<button type="button" class="btn-verify" onclick="_nto.callTrack('6469', callback());alert('인증이벤트는 9월 3일부터 시작 될 예정입니다.')">
+						<button type="button" class="btn-verify" onclick="_nto.callTrack('6469', callback());alert('인증이벤트는 10월 8일부터 시작 될 예정입니다.')">
 							<img src="./images/main_sec3_verify.jpg" alt="">
 						</button>
+						<!-- <div class="not-open">
+							<img src="./images/event_not open.png" alt="">
+						</div> -->
 						<div class="list-container">
 							<!-- <div class="col indent">
 								<div class="box">
