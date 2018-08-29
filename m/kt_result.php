@@ -47,7 +47,7 @@
 	// if ($IphoneYN == "Y")
 	// 	$iphonePopup = 'data-popup="#popup-ios-guide"';
 ?>						
-						<button type="button" class="btn" id="download_img">
+						<button type="button" class="btn" id="download_img" onclick="go_next()">
 							<img src="./images/sub_kt_result_btn.jpg" alt="">
 						</button>
 					</div>
