@@ -322,6 +322,9 @@
 				<div class="kit-slide-area">
 					<div class="kit-slider visual">
 						<div class="kit-slide">
+							<img src="./images/kit_thumb1.png" alt="">
+						</div>
+						<div class="kit-slide">
 							<img src="./images/kit_thumb2.png" alt="">
 						</div>
 						<div class="kit-slide">
@@ -344,9 +347,6 @@
 						</div>
 						<div class="kit-slide">
 							<img src="./images/kit_thumb9.png" alt="">
-						</div>
-						<div class="kit-slide">
-							<img src="./images/kit_thumb1.png" alt="">
 						</div>
 					</div>
 					<div class="prev-button btn">
