@@ -93,7 +93,7 @@
 			var prev_bot_idx = 4;
 			var realIdx = 1;
 		// $('.text-area input').on('keypress', function(e) {
-			$('.text-area input').on('keydown', function(e) {
+			$('.text-area input').on('keydown keypress', function(e) {
 				var this_val 	= $(this).val();
 				$("#"+$(this).attr("id")+"_span").text(this_val);
 				console.log($("#"+$(this).attr("id")+"_span").outerWidth());

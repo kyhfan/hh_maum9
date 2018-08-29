@@ -22,7 +22,12 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>Document</title>
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="[현대해상] 우리 가족 튼튼 메신저" />
+		<meta property="og:url" content="http://minivertest.hi-maumbot.co.kr" />
+		<meta property="og:image" content="http://minivertest.hi-maumbot.co.kr/images/share_image.jpg" />
+		<meta property="og:description" content="당신의 건강을 위한 메시지가 도착했어요 답장 보내고 마음봇 건강세트를 받아보세요!" />
+		<title>현대해상</title>
 		<link rel="stylesheet" href="./css/reset.css">
 		<link rel="stylesheet" href="./css/common.css">
 		<link rel="stylesheet" href="./css/main.css">
@@ -32,6 +37,7 @@
 		<script src="../js/m_main.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/js/swiper.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+		<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 	</head>
 	<body>
 	<script type="text/javascript"> 
@@ -54,9 +60,9 @@
 						<li><a href="javascript:void(0)" data-value="4" onclick="_nto.callTrack('6466', callback());"><img src="./images/menu_4.png" alt="" style="width: 77px;"></a></li>
 					</ul>
 					<ul class="share-list">
-						<li><button type="button" class="kt" onclick="_nto.callTrack('6447', callback());"></button></li>
-						<li><button type="button" class="ks" onclick="_nto.callTrack('6448', callback());"></button></li>
-						<li><button type="button" class="fb" onclick="_nto.callTrack('6449', callback());"></button></li>
+						<li><button type="button" class="kt" onclick="_nto.callTrack('6447', callback());sns_share('kt', 'main')"></button></li>
+						<li><button type="button" class="ks" onclick="_nto.callTrack('6448', callback());sns_share('ks', 'main')"></button></li>
+						<li><button type="button" class="fb" onclick="_nto.callTrack('6449', callback());sns_share('fb', 'main')"></button></li>
 					</ul>
 					<img src="./images/share_guide.png" alt="" class="share-guide">
 					<div class="box-point"></div>
@@ -201,9 +207,12 @@
 								<img src="./images/main_sec3_infobox_btn.jpg" alt="">
 							</button>
 						</div>
-						<button type="button" class="btn-verify" onclick="_nto.callTrack('6469', callback());alert('인증이벤트는 9월 3일부터 시작 될 예정입니다.')">
+						<button type="button" class="btn-verify" onclick="_nto.callTrack('6469', callback());alert('인증이벤트는 10월 8일부터 시작 될 예정입니다.')">
 							<img src="./images/main_sec3_verify.jpg" alt="">
 						</button>
+						<!-- <div class="not-open">
+							<img src="./images/event_not open.png" alt="">
+						</div> -->
 						<div class="list-container">
 							<!-- <div class="col indent">
 								<div class="box">

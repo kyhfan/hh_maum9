@@ -596,6 +596,13 @@ body {
 	width: 126px;
 	height: 33px;
 }
+.section3-wrap .inner .not-open {
+	margin: 209px 0 -73px 0;
+}
+.section3-wrap .inner .not-open .inner-wrap {
+	width: 349px;
+	margin-left: 406px;
+}
 .section4-wrap {
 	position: relative;
 	background: url(../images/section4_bg.png) no-repeat center 0;

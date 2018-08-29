@@ -8,9 +8,9 @@
 						<li><a href="javascript:void(0)" data-value="4" onclick="_nto.callTrack('6466', callback());"><img src="./images/menu_4.png" alt="" style="width: 77px;"></a></li>
 					</ul>
 					<ul class="share-list">
-						<li><button type="button" class="kt" onclick="_nto.callTrack('6447', callback());"></button></li>
-						<li><button type="button" class="ks" onclick="_nto.callTrack('6448', callback());"></button></li>
-						<li><button type="button" class="fb" onclick="_nto.callTrack('6449', callback());"></button></li>
+						<li><button type="button" class="kt" onclick="_nto.callTrack('6447', callback());sns_share('kt', 'main')"></button></li>
+						<li><button type="button" class="ks" onclick="_nto.callTrack('6448', callback());sns_share('ks', 'main')"></button></li>
+						<li><button type="button" class="fb" onclick="_nto.callTrack('6449', callback());sns_share('fb', 'main')"></button></li>
 					</ul>
 					<img src="./images/share_guide.png" alt="" class="share-guide">
 					<div class="box-point"></div>

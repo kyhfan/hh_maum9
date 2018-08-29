@@ -285,6 +285,11 @@ body {
 	width: 77.3%;
 	margin: 0 auto 9.4%;
 }
+.section3-wrap .not-open {
+	display: block;
+	width: 52.93%;
+	margin: 0 auto 9.4%;
+}
 .section3-wrap .list-container {
 	margin-bottom: 18.6%;
 	padding: 0 22px;

@@ -41,7 +41,8 @@
 							<img src="./images/sub_kt_result_title.png" alt="">
 						</div>
 						<div class="result-img">
-							<img src="./images/sub3_img_sample.jpg" alt="">
+							<!-- <img src="./images/sub3_img_sample.jpg" alt=""> -->
+							<img src="<?=$view_img?>" alt="">
 						</div>
 <?
 	// if ($IphoneYN == "Y")

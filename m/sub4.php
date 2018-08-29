@@ -69,7 +69,7 @@
 				<div class="terms-area">
 					<div class="row">
 						<div class="check">
-							<input type="checkbox" class="checkbox" id="terms1">
+							<input type="checkbox" class="checkbox" id="terms1"  disabled>
 							<div class="checkbox-visual"></div>
 							<label for="terms1"><img src="./images/terms_label1.png" alt=""></label>
 						</div>
@@ -79,7 +79,7 @@
 					</div>
 					<div class="row _2">
 						<div class="check">
-							<input type="checkbox" class="checkbox" id="terms2">
+							<input type="checkbox" class="checkbox" id="terms2" disabled>
 							<div class="checkbox-visual"></div>
 							<label for="terms2"><img src="./images/terms_label2.png" alt=""></label>
 						</div>

@@ -22,7 +22,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="[현대해상] 우리 가족 튼튼 메신저" />
+    <meta property="og:url" content="http://minivertest.hi-maumbot.co.kr" />
+    <meta property="og:image" content="http://minivertest.hi-maumbot.co.kr/images/share_image.jpg" />
+    <meta property="og:description" content="당신의 건강을 위한 메시지가 도착했어요 답장 보내고 마음봇 건강세트를 받아보세요!" />
+    <title>현대해상</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/main.css">
@@ -34,6 +39,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/js/swiper.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
 <body>
 <!--NSmart Track Tag Script-->
@@ -86,7 +92,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
                 </div>
                 <div class="maumbot">
                     <!-- <button type="button"></button> -->
-                    <button type="button"   onclick="NTrackObj.callTrackTag('34097', callbackFn, 13294);">
+                    <button type="button"   onclick="NTrackObj.callTrackTag('34097', callbackFn, 13294);"  data-popup="#popup-kitlist">
                         <img src="./images/more_plus.png" class="plus" alt="">
                         <img src="./images/more_txt.png" class="txt" alt="">
                     </button>
@@ -104,9 +110,9 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
                     <div class="_6"></div>
                 </div>
                 <div class="share">
-                    <button class="kakao" onclick="NTrackObj.callTrackTag('34098', callbackFn, 13294);"></button>
-                    <button class="story" onclick="NTrackObj.callTrackTag('34099', callbackFn, 13294);"></button>
-                    <button class="facebook"onclick="NTrackObj.callTrackTag('34100', callbackFn, 13294);"></button>
+                    <button class="kakao" onclick="NTrackObj.callTrackTag('34098', callbackFn, 13294);sns_share('kt', 'main')"></button>
+                    <button class="story" onclick="NTrackObj.callTrackTag('34099', callbackFn, 13294);sns_share('ks', 'main')"></button>
+                    <button class="facebook"onclick="NTrackObj.callTrackTag('34100', callbackFn, 13294);sns_share('fb', 'main')"></button>
                     <div class="share-txt"></div>
                 </div>
             </div>
@@ -194,9 +200,14 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
                         <button type="button" onclick="NTrackObj.callTrackTag('34125', callbackFn, 13294);alert('당첨자는 11월 2일에 발표 될 예정입니다.')"></button>
                     </div>
                 </div>
-                <button class="btn-verify" onclick="NTrackObj.callTrackTag('34126', callbackFn, 13294);alert('인증이벤트는 9월 3일부터 시작 될 예정입니다.')">
+                <button class="btn-verify" onclick="NTrackObj.callTrackTag('34126', callbackFn, 13294);alert('인증이벤트는 10월 8일부터 시작 될 예정입니다.')">
                 	<img src="./images/section3_verify_btn.jpg" alt="">
                 </button>
+                <!-- <div class="not-open">
+                    <div class="inner-wrap">
+                        <img src="./images/event_not open.png" alt="">
+                    </div>
+                </div> -->
             </div>
         </div>
 		<div class="section4-wrap section">
@@ -248,7 +259,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
             </div>
         </div>
     </div>
-	<button id="popup-open-btn" data-popup="#popup-kitlist"></button>
+	<!-- <button id="popup-open-btn" data-popup="#popup-kitlist"></button> -->
 	<!-- 개인정보 취급 위탁 약관 팝업 -->
 	<div class="popup kitlist" id="popup-kitlist">
 		<div class="inner">
@@ -257,6 +268,21 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 			</div>
 			<div class="kit-slide-area">
 				<div class="kit-slider visual">
+					<div class="kit-slide">
+						<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+					</div>
+					<div class="kit-slide">
+						<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+					</div>
+					<div class="kit-slide">
+						<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+					</div>
+					<div class="kit-slide">
+						<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+					</div>
+					<div class="kit-slide">
+						<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
+					</div>
 					<div class="kit-slide">
 						<img src="./images/popup_kitlist_visual_sample.jpg" alt="">
 					</div>
@@ -282,15 +308,15 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 				</div>
 			</div>
 			<ul class="slide-list">
-				<li class="is-active"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-				<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-				<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-				<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-				<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-				<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-				<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-				<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
-				<li><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+				<li class="thumb is-active" id="slide0"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+				<li class="thumb" id="slide1"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+				<li class="thumb" id="slide2"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+				<li class="thumb" id="slide3"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+				<li class="thumb" id="slide4"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+				<li class="thumb" id="slide5"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+				<li class="thumb" id="slide6"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+				<li class="thumb" id="slide7"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
+				<li class="thumb" id="slide8"><a href="javascript:void(0)"><img src="./images/popup_kitlist_thumb_sample.jpg" alt=""></a></li>
 			</ul>
 		</div>
 		<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>
@@ -311,9 +337,9 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 		// 		prevEl: '.button-prev',
 		// 	}
 		// })
-		$(window).on('load', function() {
-			$('#popup-open-btn').trigger('click');
-		});
+		// $(window).on('load', function() {
+		// 	$('#popup-open-btn').trigger('click');
+		// });
 		
 		var menuOffsetArray = [];
 		var sectionOffsetArray = [];
@@ -343,9 +369,11 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 				prevArrow: $('.slick-prev'),
 				nextArrow: $('.slick-next')
 			});
-            // $('.slider-area').on('setPosition', function(slick){
-            //     $(".slick-slide").width(285);
-            // });
+            $('.kit-slider').on('afterChange', function(slick, currentSlide){
+                console.log(currentSlide.currentSlide);
+                $(".thumb").removeClass("is-active");
+                $("#slide"+currentSlide.currentSlide).addClass("is-active");
+            });
 <?
     if ($_REQUEST["g"])
     {
