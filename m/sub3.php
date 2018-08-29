@@ -1,5 +1,11 @@
 <?
-    include_once "sub_head.php";
+    include_once "../include/autoload.php";
+
+    $mnv_f 			= new mnv_function();
+    $my_db         = $mnv_f->Connect_MySQL();
+    $IphoneYN      = $mnv_f->IPhoneCheck();
+
+	include_once "sub_head.php";
 ?>
 	<body>
 		<div class="page-wrap sub">
@@ -136,7 +142,19 @@
 
 			function downloadImg(url)
 			{
+<?
+	if ($IphoneYN == "Y")
+	{	
+?>				
+				var iosUrl = url.replace("..","http://www.atodermcare.com");	
+				window.open(iosUrl, 'event1','width=#, height=#');
+<?
+	}else{
+?>				
 				location.href = "ajax_download.php?rs="+url;
+<?
+	}
+?>				
 				setTimeout(function(){
 					nextPage(4);
 				},1000);

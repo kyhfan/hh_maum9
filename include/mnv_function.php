@@ -37,7 +37,7 @@ class mnv_function extends mnv_dbi
 	public function IPhoneCheck()
 	{
 		if(stripos( $_SERVER['HTTP_USER_AGENT'], "iPhone" ))
-			$iPhone	    = "Y";
+			$iPhone	= "Y";
 		else
 			$iPhone	= "N";
 		return $iPhone;

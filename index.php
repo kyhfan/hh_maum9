@@ -36,6 +36,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
 </head>
 <body>
+<!--NSmart Track Tag Script-->
+<script type='text/javascript'>
+callbackFn = function() {};
+var _nsmart = _nsmart || [];
+_nsmart.host = _nsmart.host || (('https:' == document.location.protocol) ? 'https://' : 'http://');
+_nsmart.push([13294, 34096]); /*1808_현대해상_마음봇3차-메인*/
+document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc?id=10' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<!--NSmart Track Tag Script End..-->
     <div class="page-wrap">
 		<div class="header-wrap">
             <div class="inner">
@@ -59,7 +68,7 @@
                 <div class="title">
                 </div>
                 <div class="button">
-                    <button type="button" class="btn-message" onclick="nextPage(1)">
+                    <button type="button" class="btn-message" onclick="NTrackObj.callTrackTag('34101', callbackFn, 13294);nextPage(1)">
                         <img src="./images/btn_message2.png" alt="">
                         <img src="./images/pencil.png" class="pencil" alt="">
                     </button>
@@ -75,7 +84,7 @@
                 </div>
                 <div class="maumbot">
                     <!-- <button type="button"></button> -->
-                    <button type="button">
+                    <button type="button"   onclick="NTrackObj.callTrackTag('34097', callbackFn, 13294);">
                         <img src="./images/more_plus.png" class="plus" alt="">
                         <img src="./images/more_txt.png" class="txt" alt="">
                     </button>
@@ -93,9 +102,9 @@
                     <div class="_6"></div>
                 </div>
                 <div class="share">
-                    <button class="kakao"></button>
-                    <button class="story"></button>
-                    <button class="facebook"></button>
+                    <button class="kakao" onclick="NTrackObj.callTrackTag('34098', callbackFn, 13294);"></button>
+                    <button class="story" onclick="NTrackObj.callTrackTag('34099', callbackFn, 13294);"></button>
+                    <button class="facebook"onclick="NTrackObj.callTrackTag('34100', callbackFn, 13294);"></button>
                     <div class="share-txt"></div>
                 </div>
             </div>
