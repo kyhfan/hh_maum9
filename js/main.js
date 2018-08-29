@@ -520,16 +520,16 @@ function kakao_send()
 			// imageUrl: "http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".jpg",
 			imageUrl: "http://minivertest.hi-maumbot.co.kr/images/kt_message_share.jpg",
 			link: {
-				mobileWebUrl: "http://minivertest.hi-maumbot.co.kr/m/kt_result.php?url="+rs_img,
-				webUrl: "http://minivertest.hi-maumbot.co.kr/kt_result.php?url="+rs_img
+				mobileWebUrl: "http://minivertest.hi-maumbot.co.kr/m/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type,
+				webUrl: "http://minivertest.hi-maumbot.co.kr/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type
 			}
 		},
 		buttons: [
 			{
 				title: '웹으로 보기',
 				link: {
-					mobileWebUrl: "http://minivertest.hi-maumbot.co.kr/m/kt_result.php?url="+rs_img,
-					webUrl: "http://minivertest.hi-maumbot.co.kr/kt_result.php?url="+rs_img
+					mobileWebUrl: "http://minivertest.hi-maumbot.co.kr/m/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type,
+					webUrl: "http://minivertest.hi-maumbot.co.kr/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type
 				}
 			}
 		],
