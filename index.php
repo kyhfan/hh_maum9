@@ -305,12 +305,12 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 					</div>
 				</div>
 				<div class="prev-button btn">
-					<button type="button" class="button-prev slick-prev">
+					<button type="button" class="button-prev slick-prev2">
 						<img src="./images/popup_kitlist_prev.png" alt="">
 					</button>
 				</div>
 				<div class="next-button btn">
-					<button type="button" class="button-next slick-next">
+					<button type="button" class="button-next slick-next2">
 						<img src="./images/popup_kitlist_next.png" alt="">
 					</button>
 				</div>
@@ -375,8 +375,8 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 				variableWidth: true,
                 arrows: true,
                 infinite: false,
-				prevArrow: $('.slick-prev'),
-				nextArrow: $('.slick-next')
+				prevArrow: $('.slick-prev2'),
+				nextArrow: $('.slick-next2')
 			});
             $('.kit-slider').on('afterChange', function(slick, currentSlide){
                 console.log(currentSlide.currentSlide);
