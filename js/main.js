@@ -544,7 +544,7 @@ function kakao_send()
 		},
 		buttons: [
 			{
-				title: '웹으로 보기',
+				title: '우리가족 튼튼메신저',
 				link: {
 					mobileWebUrl: "http://minivertest.hi-maumbot.co.kr/m/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type+"&size="+localStorage.size,
 					webUrl: "http://minivertest.hi-maumbot.co.kr/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type+"&size="+localStorage.size
@@ -598,7 +598,7 @@ function sns_share(media, flag)
 			},
 			buttons: [
 				{
-					title: '웹으로 보기',
+					title: '우리가족 튼튼메신저',
 					link: {
 						mobileWebUrl: 'http://minivertest.hi-maumbot.co.kr/m/index.php?media=share_kt',
 						webUrl: 'http://minivertest.hi-maumbot.co.kr/?media=share_kt'
