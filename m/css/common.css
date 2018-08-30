@@ -193,6 +193,7 @@ iframe {
 	display: inline-block;
 	padding: 20px 0;
 }
+/*.menu-layer .menu-list li._1.is-active {background: url(../images/head_txt1_active.png);}*/
 .menu-layer .share-list {
 	font-size: 0;
 }
