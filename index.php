@@ -232,25 +232,31 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
                             <div>
                                 <img src="./images/section4_list2.png" alt="">
                             </div>
-                            <div class="button" onclick="NTrackObj.callTrackTag('34113', callbackFn, 13294);window.open('http://event3.hi-maumbot.co.kr', 'event3','width=#, height=#'); return false">
-                                <button type="button"></button>
-                            </div>
+                            <a href="http://event3.hi-maumbot.co.kr" target="_blank">
+                                <div class="button" onclick="NTrackObj.callTrackTag('34113', callbackFn, 13294);">
+                                    <button type="button"></button>
+                                </div>
+                            </a>
                         </li>
                         <li class="no-margin">
                             <div>
                                 <img src="./images/section4_list3.png" alt="">
                             </div>
-                            <div class="button" onclick="NTrackObj.callTrackTag('34114', callbackFn, 13294);window.open('http://event2.hi-maumbot.co.kr', 'event2','width=#, height=#'); return false">
-                                <button type="button"></button>
-                            </div>
+                            <a href="http://event2.hi-maumbot.co.kr" target="_blank">
+                                <div class="button" onclick="NTrackObj.callTrackTag('34114', callbackFn, 13294);">
+                                    <button type="button"></button>
+                                </div>
+                            </a>
                         </li>
                         <li>
                             <div>
                                 <img src="./images/section4_list4.png" alt="">
                             </div>
-                            <div class="button" onclick="NTrackObj.callTrackTag('34115', callbackFn, 13294);window.open('http://event1.hi-maumbot.co.kr', 'event1','width=#, height=#'); return false">
-                                <button type="button"></button>
-                            </div>
+                            <a href="http://event1.hi-maumbot.co.kr" target="_blank">
+                                <div class="button" onclick="NTrackObj.callTrackTag('34115', callbackFn, 13294);">
+                                    <button type="button"></button>
+                                </div>
+                            </a>
                         </li>
                     </ul>
                 </div>      
