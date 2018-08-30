@@ -1,7 +1,9 @@
         <div class="header-wrap">
             <div class="inner">
                 <div class="logo">
-                    <img src="./images/logo.png" alt="현대해상 로고">
+                    <a href="index.php">
+                        <img src="./images/logo.png" alt="현대해상 로고">
+                    </a>
                 </div>
                 <div class="menu">
                     <a href="javascript:void(0)" onclick="go_link(1)" class="_1"></a>
