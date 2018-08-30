@@ -52,7 +52,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 									</li>
 									<li>
 										<div class="desc _3">
-											<img src="./images/sub_step3_desc_3.jpg" alt="">
+											<img src="./images/sub_step3_desc_3.png" alt="">
 										</div>
 										<div class="check">
 											<label for="check3"></label>
@@ -79,7 +79,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 						<div class="btn-area _3">
 							<!-- <a href="" download> -->
 								<button type="button" onclick="go_next();">
-									<img src="./images/sub_step3_btn.jpg" alt="">
+									<img src="./images/sub_step3_btn.png" alt="">
 								</button>
 								<!-- <div class="balloon">
 									<img src="./images/sub3_message_balloon.png" alt="">
@@ -97,7 +97,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 		</div>
 		<script>
 			var rs_img = "";
-			var change_rs_img = "";
+			// var change_rs_img = "";
 			$(window).on('load', function() {
 				if (localStorage.type == 1)
 					rs_img	= "./files/" + localStorage.serial + "/maumbot_takecare2.jpg";
