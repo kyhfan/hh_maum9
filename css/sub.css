@@ -231,6 +231,17 @@ input[type="checkbox"]:focus {
 .sub-wrap .inner .text-area .text-line .input input::-webkit-input-placeholder {
 	color: #b6ad9e;
 }
+.sub-wrap .inner .text-area .text-group .input {
+	position: relative;
+}
+.sub-wrap .inner .text-area .text-group .input .placeholder {
+	position: absolute;
+	color: #b6ad9e;
+	left: 0;
+	top: 0;
+	margin: 4px 0 0 2px;
+	pointer-events: none;
+}
 .sub-wrap .inner .text-area .text-line .input input:-ms-input-placeholder {
 	color: #b6ad9e;
 }
@@ -255,6 +266,13 @@ input[type="checkbox"]:focus {
 	text-align: center;
 	/* color: #b6ad9e; */
 	color: #47371f;
+}
+.sub-wrap .inner .text-area .text-line2 .input .placeholder {
+	display: block;
+	width: 100%;
+	color: #b6ad9e;
+	font-size: 15px;
+	text-align: center;
 }
 .sub-wrap .inner .text-area .text-line2 .input input::-webkit-input-placeholder {
 	color: #b6ad9e;

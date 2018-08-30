@@ -1,26 +1,26 @@
 <?
-    include_once "sub_head.php";
+include_once "sub_head.php";
 ?>
 <body>
-<!--NSmart Track Tag Script-->
-<script type='text/javascript'>
-callbackFn = function() {};
-var _nsmart = _nsmart || [];
-_nsmart.host = _nsmart.host || (('https:' == document.location.protocol) ? 'https://' : 'http://');
-_nsmart.push([13294, 34102]); /*1808_현대해상_마음봇3차-사랑의 메시지 남기기 페이지*/
-document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc?id=10' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<!--NSmart Track Tag Script End..-->
-    <div class="page-wrap">
-<?
-    include_once "sub_header.php";
-?>        
-        <div class="content sub">
+	<!--NSmart Track Tag Script-->
+	<script type='text/javascript'>
+		callbackFn = function() {};
+		var _nsmart = _nsmart || [];
+		_nsmart.host = _nsmart.host || (('https:' == document.location.protocol) ? 'https://' : 'http://');
+		_nsmart.push([13294, 34102]); /*1808_현대해상_마음봇3차-사랑의 메시지 남기기 페이지*/
+		document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc?id=10' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<!--NSmart Track Tag Script End..-->
+	<div class="page-wrap">
+		<?
+		include_once "sub_header.php";
+		?>        
+		<div class="content sub">
 			<div class="sub-wrap">
 				<div class="inner">
 					<div class="step-area _2">
 						<!-- <div class="step-num _1"> -->
-							<img src="./images/sub_step2_icon.png" alt="">
+						<img src="./images/sub_step2_icon.png" alt="">
 						<!-- </div> -->
 						<!-- <div class="step-rail"></div> -->
 					</div>
@@ -33,10 +33,10 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 							<div class="text-area">
 								<div class="text-line text-group">
 									<span>To.</span>
-									<div class="input"><input type="text" id="msg_to" placeholder="받으시는 분"></div>
+									<div class="input"><input type="text" id="msg_to" class="placeholder-own"><span class="placeholder">받으시는 분</span></div>
 								</div>
 								<div class="text-line2 text-group first">
-									<div class="input"><input type="text" id="msg_conntent1" placeholder="내용을 입력해 주세요"></div>
+									<div class="input"><input type="text" id="msg_conntent1" class="placeholder-own"><span class="placeholder">내용을 입력해 주세요</span></div>
 									<span id="msg_conntent1_span" style="visibility:hidden; position:absolute; top:-10000px; font-size:15px;"></span>
 								</div>
 								<div class="text-line2 text-group">
@@ -51,23 +51,23 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 									<div class="input"><input type="text" id="msg_conntent4"></div>
 									<span id="msg_conntent4_span" style="visibility:hidden; position:absolute; top:-10000px; font-size:15px;"></span>
 								</div>
-<!--
-								<div class="text-line2 text-group">
-									<div class="input"><input type="text" id="msg_conntent5"></div>
-								</div>
+								<!--
+<div class="text-line2 text-group">
+<div class="input"><input type="text" id="msg_conntent5"></div>
+</div>
 -->
 								<div class="text-line bottom text-group">
 									<span>From.</span>
-									<div class="input"><input type="text" id="msg_from" placeholder="보내시는 분"></div>
+									<div class="input"><input type="text" id="msg_from" class="placeholder-own"><span class="placeholder">보내시는 분</span></div>
 								</div>
 							</div>
 							<div class="bot"><span></span></div>
 							<div class="swiper-wrapper">
-<?
-	$i = 1;
-	$num_arr	= [1,2,3,4,5];
-	shuffle($num_arr);
-?>								
+								<?
+								$i = 1;
+								$num_arr	= [1,2,3,4,5];
+								shuffle($num_arr);
+								?>								
 								<div class="swiper-slide slide _<?=$num_arr[0]?>" id="<?=$num_arr[0]?>">
 									<img src="./images/sub_step2_card<?=$num_arr[0]?>_new.png" alt="">
 								</div>
@@ -92,7 +92,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 						</div>
 						<div class="next-button">
 							<button type="button" class="button-next">
-									<img src="./images/sub_next_btn.png" alt="">
+								<img src="./images/sub_next_btn.png" alt="">
 							</button>
 						</div>
 					</div>
@@ -109,14 +109,15 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 					<img src="./images/sub_copyright.png" alt="">
 				</div>
 			</div>
-        </div>
-    </div>
-    <script>
+		</div>
+	</div>
+	<script>
 		var prev_bot_idx = 4;
 
 		// $('.text-area input').on('keypress', function(e) {
 		$('.text-area input').on('keydown', function(e) {
 			var this_val 	= $(this).val();
+			$(this).siblings('.placeholder').hide();
 			$("#"+$(this).attr("id")+"_span").text(this_val);
 			console.log($("#"+$(this).attr("id")+"_span").outerWidth());
 			if ($("#"+$(this).attr("id")+"_span").outerWidth() > 150)
@@ -131,16 +132,30 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 
 			if(e.keyCode == 13) {
 				if($(this).closest('.text-group').hasClass('bottom')) {
-//					console.log("if");
+					//					console.log("if");
 					$(this).closest('.text-area').find('.text-group:first-child').find('input').focus();
 				} else {
-//					console.log("asd");
+					//					console.log("asd");
 					$(this).closest('.text-group').next().find('input').focus();
 				}
 			}
 		})
+		$('.text-area .placeholder-own').on('focus', function() {
+			if($(this).val().length<=0) {
+				$(this).siblings('.placeholder').show();
+			} else {
+				$(this).siblings('.placeholder').hide();
+			}
+		})
+		$('.text-area .placeholder-own').on('blur', function() {
+			if($(this).val().length<=0) {
+				$(this).siblings('.placeholder').show();
+			} else {
+				$(this).siblings('.placeholder').hide();
+			}
+		})
 		var headlineColorArr = ['#fa5266', '#d55143', '#376639', '#1b4375', '#dd7722'];
-        var swiper = new Swiper ('.slide-wrap', {
+		var swiper = new Swiper ('.slide-wrap', {
 			// Optional parameters
 			allowTouchMove: false,
 			direction: 'horizontal',
@@ -215,6 +230,6 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 		// 	$('.slide-wrap .bot').removeClass('_'+this.previousIndex).addClass('_'+(this.realIndex));
 		// });
 
-    </script>
+	</script>
 </body>
 </html>
