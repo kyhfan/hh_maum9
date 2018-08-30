@@ -33,10 +33,10 @@ include_once "sub_head.php";
 							<div class="text-area">
 								<div class="text-line text-group">
 									<span>To.</span>
-									<div class="input"><input type="text" id="msg_to" class="placeholder-own"><span class="placeholder">받으시는 분</span></div>
+									<div class="input"><input type="text" id="msg_to" class="placeholder-own"><label for="msg_to" class="placeholder">받으시는 분</label></div>
 								</div>
 								<div class="text-line2 text-group first">
-									<div class="input"><input type="text" id="msg_conntent1" class="placeholder-own"><span class="placeholder">내용을 입력해 주세요</span></div>
+									<div class="input"><input type="text" id="msg_conntent1" class="placeholder-own"><label for="msg_conntent1" class="placeholder">내용을 입력해 주세요</label></div>
 									<span id="msg_conntent1_span" style="visibility:hidden; position:absolute; top:-10000px; font-size:15px;"></span>
 								</div>
 								<div class="text-line2 text-group">
@@ -58,7 +58,7 @@ include_once "sub_head.php";
 -->
 								<div class="text-line bottom text-group">
 									<span>From.</span>
-									<div class="input"><input type="text" id="msg_from" class="placeholder-own"><span class="placeholder">보내시는 분</span></div>
+									<div class="input"><input type="text" id="msg_from" class="placeholder-own"><label for="msg_from" class="placeholder">보내시는 분</label></div>
 								</div>
 							</div>
 							<div class="bot"><span></span></div>
@@ -116,6 +116,7 @@ include_once "sub_head.php";
 
 		// $('.text-area input').on('keypress', function(e) {
 		$('.text-area input').on('keydown', function(e) {
+			e.stopPropagation();
 			var this_val 	= $(this).val();
 			$(this).siblings('.placeholder').hide();
 			$("#"+$(this).attr("id")+"_span").text(this_val);
@@ -140,14 +141,16 @@ include_once "sub_head.php";
 				}
 			}
 		})
-		$('.text-area .placeholder-own').on('focus', function() {
+		$('.text-area .placeholder-own').on('focus', function(e) {
+			e.stopPropagation();
 			if($(this).val().length<=0) {
 				$(this).siblings('.placeholder').show();
 			} else {
 				$(this).siblings('.placeholder').hide();
 			}
 		})
-		$('.text-area .placeholder-own').on('blur', function() {
+		$('.text-area .placeholder-own').on('blur', function(e) {
+			e.stopPropagation();
 			if($(this).val().length<=0) {
 				$(this).siblings('.placeholder').show();
 			} else {
