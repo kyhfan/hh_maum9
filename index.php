@@ -84,7 +84,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
                 <div class="info">
                     <div class="txt"></div>
                     <div class="button">
-                        <button type="button" onclick="NTrackObj.callTrackTag('34124', callbackFn, 13294);alert('10월 1일에 당첨자가 발표 됩니다.')"></button>
+                        <button type="button" onclick="NTrackObj.callTrackTag('34124', callbackFn, 13294);alert('10월 10일에 당첨자가 발표 됩니다.')"></button>
                     </div>
                 </div>
                 <div class="village">
@@ -200,7 +200,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
                         <button type="button" onclick="NTrackObj.callTrackTag('34125', callbackFn, 13294);alert('당첨자는 11월 2일에 발표 될 예정입니다.')"></button>
                     </div>
                 </div>
-                <button class="btn-verify" onclick="NTrackObj.callTrackTag('34126', callbackFn, 13294);alert('인증이벤트는 10월 8일부터 시작 될 예정입니다.')">
+                <button class="btn-verify" onclick="NTrackObj.callTrackTag('34126', callbackFn, 13294);alert('인증이벤트는 10월 15일부터 시작 될 예정입니다.')">
                 	<img src="./images/section3_verify_btn.jpg" alt="">
                 </button>
                 <!-- <div class="not-open">
