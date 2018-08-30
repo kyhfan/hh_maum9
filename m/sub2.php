@@ -59,24 +59,30 @@
 								<input type="text" id="msg_from" placeholder="보내시는 분">
 							</div>
 						</div>
-						<div class="bot _0">
+						<!-- <div class="bot _0"> -->
+						<div class="bot">
 							<span></span>
 						</div>
 						<div class="slider">
-							<div class="slide">
-								<img src="./images/sub2_letter_bg1.jpg" alt="">
+<?
+	$i = 1;
+	$num_arr	= [1,2,3,4,5];
+	shuffle($num_arr);
+?>
+							<div class="slide" id="<?=$num_arr[0]?>">
+								<img src="./images/sub2_letter_bg<?=$num_arr[0]?>.jpg" alt="">
 							</div>
-							<div class="slide">
-								<img src="./images/sub2_letter_bg2.jpg" alt="">
+							<div class="slide" id="<?=$num_arr[1]?>">
+								<img src="./images/sub2_letter_bg<?=$num_arr[1]?>.jpg" alt="">
 							</div>
-							<div class="slide">
-								<img src="./images/sub2_letter_bg3.jpg" alt="">
+							<div class="slide" id="<?=$num_arr[2]?>">
+								<img src="./images/sub2_letter_bg<?=$num_arr[2]?>.jpg" alt="">
 							</div>
-							<div class="slide">
-								<img src="./images/sub2_letter_bg4.jpg" alt="">
+							<div class="slide" id="<?=$num_arr[3]?>">
+								<img src="./images/sub2_letter_bg<?=$num_arr[3]?>.jpg" alt="">
 							</div>
-							<div class="slide">
-								<img src="./images/sub2_letter_bg5.jpg" alt="">
+							<div class="slide" id="<?=$num_arr[4]?>">
+								<img src="./images/sub2_letter_bg<?=$num_arr[4]?>.jpg" alt="">
 							</div>
 						</div>
 					</div>
@@ -147,38 +153,51 @@
 				$('.text-area .headline > span').css({
 					color: headlineColorArr[currentSlide]
 				});
-				realIdx = currentSlide + 1;
-console.log(realIdx);
+				// realIdx = currentSlide + 1;
+				realIdx		= $("div.slick-current").prop("id");
+				// console.log($("div.slick-current").prop("id"));
 
-				if (currentSlide == 0)
-				{
-					if (prev_bot_idx > currentSlide)
-					{
-						if (prev_bot_idx == 4)
-							var prevIdx = 4;
-						else
-							var prevIdx = 1;
-					}else{
-						var prevIdx = 4;
-					}
-				}
-				else if (currentSlide == 4)
-				{
-					if (prev_bot_idx == 0)
-						var prevIdx = 0;
-					else
-						var prevIdx = 3;
-				}else{
-					if (prev_bot_idx > currentSlide)
-						var  prevIdx = currentSlide +1;
-					else
-						var  prevIdx = currentSlide -1;
-				}
+				// if (currentSlide == 0)
+				// {
+				// 	if (prev_bot_idx > currentSlide)
+				// 	{
+				// 		if (prev_bot_idx == 4)
+				// 			var prevIdx = 4;
+				// 		else
+				// 			var prevIdx = 1;
+				// 	}else{
+				// 		var prevIdx = 4;
+				// 	}
+				// }
+				// else if (currentSlide == 4)
+				// {
+				// 	if (prev_bot_idx == 0)
+				// 		var prevIdx = 0;
+				// 	else
+				// 		var prevIdx = 3;
+				// }else{
+				// 	if (prev_bot_idx > currentSlide)
+				// 		var  prevIdx = currentSlide +1;
+				// 	else
+				// 		var  prevIdx = currentSlide -1;
+				// }
 
-				prev_bot_idx = currentSlide;
-				$('.slide-wrap .bot').removeClass('_'+prevIdx).addClass('_'+(currentSlide));
+				// prev_bot_idx = currentSlide;
+				$('.slide-wrap .bot').removeClass('_1');
+				$('.slide-wrap .bot').removeClass('_2');
+				$('.slide-wrap .bot').removeClass('_3');
+				$('.slide-wrap .bot').removeClass('_4');
+				$('.slide-wrap .bot').removeClass('_5');
+				$('.slide-wrap .bot').addClass('_'+realIdx);
+				// $('.slide-wrap .bot').removeClass('_'+prevIdx).addClass('_'+(currentSlide));
 
-			})
+			});
+			$('.slider').on('init', function(slick) {
+				realIdx = <?=$num_arr[0]?>;
+
+				$('.slide-wrap .bot').addClass('_'+realIdx);
+
+			});
 			$('.burger').on('click', function() {
 				$('html').toggleClass('menu-opened');
 			});
