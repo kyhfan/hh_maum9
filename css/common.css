@@ -237,15 +237,22 @@ html.popup-opened {
 .popup.thanks .thanks-wrap .thanks-area .confirm-btn{
 	display: inline-block;
 	background: url(../images/popup_thanks_confirm.png) center no-repeat;
-	width: 219px;
-	height: 58px;
+	width: 153px;
+	height: 56px;
 	margin-left: 8px;
 }
 .popup.thanks .thanks-wrap .thanks-area .kakao-btn{
 	display: inline-block;
 	background: url(../images/popup_thanks_kakao.png) center no-repeat;
-	width: 219px;
-	height: 58px;
+	width: 153px;
+	height: 56px;
+}
+.popup.thanks .thanks-wrap .thanks-area .download-btn{
+	display: inline-block;
+	background: url(../images/popup_thanks_download.png) center no-repeat;
+	width: 153px;
+	height: 56px;
+	margin-left: 8px;
 }
 .popup.agree1 {
 /*	height: 556px;*/

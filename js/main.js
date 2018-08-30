@@ -499,6 +499,22 @@ function check_agree(param, id)
 // 		}
 // 	}
 // }
+function download_img()
+{
+	if (localStorage.type == 1)
+		var change_rs_img = "./files/" + localStorage.serial + "/maumbot_takecare" + localStorage.size + ".jpg";
+	else if (localStorage.type == 2)
+		var change_rs_img = "./files/" + localStorage.serial + "/maumbot_loveyou" + localStorage.size + ".jpg";
+	else if (localStorage.type == 3)
+		var change_rs_img = "./files/" + localStorage.serial + "/maumbot_thanks" + localStorage.size + ".jpg";
+	else if (localStorage.type == 4)
+		var change_rs_img = "./files/" + localStorage.serial + "/maumbot_cheerup" + localStorage.size + ".jpg";
+	else if (localStorage.type == 5)
+		var change_rs_img = "./files/" + localStorage.serial + "/maumbot_dontworry" + localStorage.size + ".jpg";
+
+	location.href = "./ajax_download.php?rs="+change_rs_img;
+
+}
 
 function kakao_send()
 {

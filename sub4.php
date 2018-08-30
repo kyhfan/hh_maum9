@@ -142,6 +142,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 					<div class="thanks-area">
 						<div class="button-area">
 							<button class="kakao-btn" onclick="kakao_send()"></button>
+							<button class="download-btn" onclick="download_img()"></button>
 							<button class="confirm-btn" onclick="location.href='index.php'"></button>
 						</div>
 						<img src="./images/popup_thanks_bg.jpg" alt="">
@@ -167,10 +168,9 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
 		<script>
-
-//			$(window).on('load', function() {
-//				$('#popup-open-btn').trigger('click');
-//			});
+			// $(window).on('load', function() {
+			// 	hh_maum9.popup.show($("#popup-thanks"));
+			// });
 			$('.checkbox').on('click', function(event) {
 				hh_maum9.popup.show($("#popup-thanks"));
 				event.stopPropagation();
