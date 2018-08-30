@@ -101,7 +101,7 @@
 			});
 			
 			var rs_img = "";
-			var change_rs_img = "";
+			// var change_rs_img = "";
 			$(window).on('load', function() {
 				if (localStorage.type == 1)
 					rs_img	= "../files/" + localStorage.serial + "/maumbot_takecare2.jpg";

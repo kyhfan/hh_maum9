@@ -119,7 +119,7 @@
 					<button type="button" class="btn" onclick="_nto.callTrack('6456', callback());kakao_send()">
 						<img src="./images/popup_thanks_btn1.png" alt="">
 					</button>
-					<button type="button" class="btn" onclick="">
+					<button type="button" class="btn" onclick="download_img()">
 						<img src="./images/popup_thanks_btn2.png" alt="">
 					</button>
 					<button type="button" class="btn" onclick="_nto.callTrack('6457', callback());location.href='index.php'">
@@ -175,9 +175,10 @@
 			$('.menu-layer .menu-close').on('click', function() {
 				$('html').removeClass('menu-opened');
 			});
-			$(window).on('load', function() {
+			// $(window).on('load', function() {
 //				$('#popup_opener').trigger('click');
-			});
+				// hh_maum9.popup.show($("#popup-thanks"));
+			// });
 			
 			function lengthCheck(obj, ln) {
 				var $obj = $(obj);
@@ -191,6 +192,36 @@
 					}
 				}
 			}
+
+			function download_img()
+			{
+				if (localStorage.type == 1)
+					var change_rs_img = "../files/" + localStorage.serial + "/maumbot_takecare" + localStorage.size + ".jpg";
+				else if (localStorage.type == 2)
+					var change_rs_img = "../files/" + localStorage.serial + "/maumbot_loveyou" + localStorage.size + ".jpg";
+				else if (localStorage.type == 3)
+					var change_rs_img = "../files/" + localStorage.serial + "/maumbot_thanks" + localStorage.size + ".jpg";
+				else if (localStorage.type == 4)
+					var change_rs_img = "../files/" + localStorage.serial + "/maumbot_cheerup" + localStorage.size + ".jpg";
+				else if (localStorage.type == 5)
+					var change_rs_img = "../files/" + localStorage.serial + "/maumbot_dontworry" + localStorage.size + ".jpg";
+
+<?
+	if ($IphoneYN == "Y")
+	{	
+?>				
+				alert("새창으로 뜬 이미지를 눌러 저장 해 주시고, 현재 페이지로 오시면 계속 이벤트 참여가 가능합니다");
+				var iosUrl = url.replace("..","http://minivertest.hi-maumbot.co.kr");	
+				window.open(iosUrl, 'event1','width=#, height=#');
+<?
+	}else{
+?>				
+				location.href = "./ajax_download.php?rs="+change_rs_img;
+<?
+	}
+?>				
+			}
+
 
 		</script>
 	</body>
