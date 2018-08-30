@@ -169,7 +169,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 				{
 					alert("화면 비율을 선택해 주세요.");
 				}else{
-					$('.btn-area._3 button').attr("onclick","NTrackObj.callTrackTag('34105', callbackFn, 13294);downloadImg('"+change_rs_img+"')");
+					$('.btn-area._3 button').attr("onclick","NTrackObj.callTrackTag('34105', callbackFn, 13294);");
 					nextPage(4);
 				}
 			}

@@ -81,10 +81,10 @@
 				<div class="result-img">
 					<img src="./images/sub3_img_sample.jpg" alt="">
 				</div>
-				<button type="button" class="btn">
-					<a href="javascript:void(0)" onclick="_nto.callTrack('6454', callback());go_next();">
+				<button type="button" class="btn" onclick="_nto.callTrack('6454', callback());go_next();">
+					<!-- <a href="javascript:void(0)"> -->
 						<img src="./images/sub3_btn.jpg" alt="">
-					</a>
+					<!-- </a> -->
 					<!-- <img src="./images/sub3_balloon.png" alt="" class="balloon"> -->
 				</button>
 				<div class="copyright">
