@@ -88,7 +88,7 @@
 						setTimeout(function(){
 							$("#sub1_btn").attr('src', './images/sub1_btn_after.jpg');
 							$(".btn-wrap button").attr("onclick","_nto.callTrack('6452', callback());nextPage(2)");
-						}, 3000);
+						}, 15000);
 					}
 				}else if (event.data == 2){
 					play_flag = 1;

@@ -86,7 +86,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
                 setTimeout(function(){
 					$("#next_btn").find('img').attr('src', './images/sub_step1_btn.png');
                     $("#next_btn").attr("onclick","NTrackObj.callTrackTag('34103', callbackFn, 13294);nextPage(2)");
-                }, 3000);
+                }, 15000);
             }
         }else if (event.data == 2){
             play_flag = 1;
