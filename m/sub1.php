@@ -28,7 +28,7 @@
 					</div>
 				</div>
 				<div class="btn-wrap">
-					<button type="button" class="btn" onclick="alert('영상 재생 후 15초 뒤에 다음단계로 넘어가실 수 있습니다.')">
+					<button type="button" class="btn" onclick="alert('영상 재생 후 5초 뒤에 다음단계로 넘어가실 수 있습니다.')">
 						<img src="./images/sub1_btn_before.jpg" alt="" id="sub1_btn">
 					</button>
 					<div class="msg"></div>

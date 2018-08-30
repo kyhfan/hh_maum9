@@ -34,7 +34,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 						</div>
 					</div>
 					<div class="btn-area _1">
-                        <button type="button" id="next_btn" onclick="alert('영상 재생 후 15초 뒤에 다음단계로 넘어가실 수 있습니다.')">
+                        <button type="button" id="next_btn" onclick="alert('영상 재생 후 5초 뒤에 다음단계로 넘어가실 수 있습니다.')">
 							<img src="./images/sub_step1_before_btn.png" alt="">
                         </button>
                         <div class="balloon">
