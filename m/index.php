@@ -108,7 +108,7 @@
 						<div class="info-group" onclick="_nto.callTrack('6446', callback());" data-popup="#popup-kitlist">
 							<img src="./images/main_sec1_info_group.png" alt="">
 						</div>
-						<div class="plus-icon" data-popup="#popup-kitlist">
+						<div class="plus-icon" onclick="_nto.callTrack('6446', callback());" data-popup="#popup-kitlist">
 							<img src="./images/main_sec1_plus.png" alt="">
 						</div>
 					</div>
