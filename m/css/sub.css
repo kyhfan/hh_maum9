@@ -75,7 +75,8 @@ input[type="checkbox"]:focus {
 	margin: 14px auto 18px;
 }
 .content.sub4 > .title {
-	width: 285px;
+/*	width: 285px;*/
+	max-width: 285px;
 	margin: 14px auto 25px;
 }
 .content.sub1 .video-area {
