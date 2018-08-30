@@ -69,7 +69,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 						</div>
 						<div class="terms-area">
 							<div class="row">
-								<div class="check">
+								<div class="check" data-popup="#popup-agree2">
 									<input type="checkbox" class="checkbox" id="terms1" disabled>
 									<div class="checkbox-visual"></div>
 									<label for="terms1"><img src="./images/terms_label1.png" alt=""></label>
@@ -79,7 +79,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 								</div>
 							</div>
 							<div class="row _2">
-								<div class="check">
+								<div class="check" data-popup="#popup-agree1">
 									<input type="checkbox" class="checkbox" id="terms2" disabled>
 									<div class="checkbox-visual"></div>
 									<label for="terms2"><img src="./images/terms_label2.png" alt=""></label>
@@ -171,14 +171,16 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 //			$(window).on('load', function() {
 //				$('#popup-open-btn').trigger('click');
 //			});
-//			$('.checkbox').on('click', function() {
-//				var that = $(this);
-//				$('.checkbox').each(function() {
-//					if($(this).attr('id') !== that.attr('id')) {
-//						$(this).context.checked = false;
-//					}
-//				});
-//			});
+			$('.checkbox').on('click', function(event) {
+				hh_maum9.popup.show($("#popup-thanks"));
+				event.stopPropagation();
+				// var that = $(this);
+				// $('.checkbox').each(function() {
+				// 	if($(this).attr('id') !== that.attr('id')) {
+				// 		$(this).context.checked = false;
+				// 	}
+				// });
+			});
 			function lengthCheck(obj, ln) {
 				var $obj = $(obj);
 				var regExp = /^[0-9]+$/;

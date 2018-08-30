@@ -571,6 +571,7 @@ input[type="checkbox"]:focus {
 .sub-wrap .inner .terms-area .check .checkbox {
 	width: 21px;
 	height: 21px;
+	pointer-events: none;
 /*	background: #ffffff;*/
 }
 .sub-wrap .inner .terms-area .check .checkbox-visual {
