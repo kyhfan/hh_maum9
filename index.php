@@ -460,7 +460,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 //				console.log("2");
 			} else if (currentScroll > sectionOffsetArray[2]-540 && currentScroll < sectionOffsetArray[3]) {
 				//				현재 섹션 3번
-				targetX = menuOffsetArray[2]-20;
+				targetX = menuOffsetArray[2];
 //				console.log("3");
 				activeIndex = 3;
 			} else if (currentScroll > sectionOffsetArray[3]) {

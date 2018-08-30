@@ -63,7 +63,7 @@ body {
 }
 .header-wrap .inner .menu ._3 {
 	background: url(../images/head_txt3.png);
-	width: 108px;
+	width: 136px;
 	height: 16px;
 /*	margin-right: 39px;*/
 }
@@ -105,8 +105,7 @@ body {
 	position: relative;
 	background: url(../images/section1_title.png) 0 0 no-repeat;
 	width: 779px;
-/*	height: 225px;*/
-	height: 160px;
+	height: 217px;
 	margin: 0 auto;
 	z-index: 2;
 	/* margin-top: 105px; */
