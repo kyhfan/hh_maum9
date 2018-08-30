@@ -127,8 +127,8 @@ include_once "sub_head.php";
 				$(this).val($(this).val().slice(0, -1));
 				// 다음 인풋에 마지막 문자 삽입
 				var last_str	= this_val.substr(this_val.length - 1);
-				$(this).closest('.text-group').next().find('input').val(last_str);
-				$(this).closest('.text-group').next().find('input').focus();
+//				$(this).closest('.text-group').next().find('input').val(last_str);
+				$(this).closest('.text-group').next().find('input').focus().val('');
 			}
 
 			if(e.keyCode == 13) {
