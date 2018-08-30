@@ -245,6 +245,9 @@ input[type="checkbox"]:focus {
 .sub-wrap .inner .text-area .text-line .input input:-ms-input-placeholder {
 	color: #b6ad9e;
 }
+.sub-wrap .inner .text-area .text-line .input input::-webkit-input-placeholder {
+	color: #b6ad9e;
+}
 .sub-wrap .inner .text-area .text-line .input input::placeholder {
 	color: #b6ad9e;
 }
@@ -526,7 +529,7 @@ input[type="checkbox"]:focus {
 }
 .sub-wrap .inner .input-area .input-group.name .guide img {width: 89px;}
 .sub-wrap .inner .input-area .input-group.phone .guide img {width: 91px;}
-.sub-wrap .inner .input-area .input-group.addr .guide img {width: 89px;transform: translateX(-50%);top: 17px}
+.sub-wrap .inner .input-area .input-group.addr .guide img {width: 89px;-webkit-transform: translateX(-50%);transform: translateX(-50%);top: 17px}
 
 .sub-wrap .inner .input-area .input-group .input {
 	display: inline-block;
