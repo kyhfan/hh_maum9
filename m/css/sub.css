@@ -441,6 +441,7 @@ input[type="checkbox"]:focus {
 .content.sub4 .terms-area .check .checkbox {
 	width: 14px;
 	height: 14px;
+	pointer-events: none;
 	/* 체크박스 크기는 수정 했음 */
 }
 .content.sub4 .terms-area .check .checkbox-visual {
