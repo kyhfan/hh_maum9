@@ -16,12 +16,12 @@ body {
 	padding: 23.4% 0 77.7%;
 }
 .section1-wrap .inner .title {
-	width: 89.2%;
+	width: 90.8%;
 	margin: 0 auto 2.6%;
 }
 .section1-wrap .inner .button {
 	position: relative;
-	width: 62.9%;
+	width: 74.1%;
 	margin: 0 auto;
 	z-index: 3;
 }
@@ -30,7 +30,7 @@ body {
 	width: 15.6%;
 	top: 10.3%;
 	left: 0;
-	margin-left: 77%;
+	margin-left: 80.5%;
 	-webkit-animation-name: move-icon;
 	animation-name: move-icon;
 	-webkit-animation-duration: 1300ms;
@@ -60,7 +60,7 @@ body {
 }
 .section1-wrap .inner .objs .info-group {
 	position: absolute;
-	width: 36.2%;
+	width: 38.2%;
 	top: 21.8%;
 	left: 5.3%;
 	cursor: pointer;
@@ -274,8 +274,8 @@ body {
 .section3-wrap .info-box button {
 	position: absolute;
 	/* top: 7.2%; */
-	top: 12%;
-	left: 66.4%;
+	top: 12.2%;
+	left: 67%;
 	width: 23%;
 /*	padding: 5px;*/
 	box-sizing: content-box;

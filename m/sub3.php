@@ -57,7 +57,7 @@
 							</li>
 							<li>
 								<div class="desc _3">
-									<img src="./images/sub_step3_desc_3.jpg" alt="" style="width: 142px;">
+									<img src="./images/sub_step3_desc_3.jpg" alt="" style="width: 149px;">
 								</div>
 								<div class="check">
 									<label for="check3"></label>

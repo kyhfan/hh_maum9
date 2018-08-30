@@ -119,8 +119,11 @@
 					<button type="button" class="btn" onclick="_nto.callTrack('6456', callback());kakao_send()">
 						<img src="./images/popup_thanks_btn1.png" alt="">
 					</button>
-					<button type="button" class="btn" onclick="_nto.callTrack('6457', callback());location.href='index.php'">
+					<button type="button" class="btn" onclick="">
 						<img src="./images/popup_thanks_btn2.png" alt="">
+					</button>
+					<button type="button" class="btn" onclick="_nto.callTrack('6457', callback());location.href='index.php'">
+						<img src="./images/popup_thanks_btn3.png" alt="">
 					</button>
 				</div>
 				<div class="guide-block">
@@ -160,7 +163,7 @@
 			<img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnCloseLayer" style="width:7%;cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
 		</div>
 
-		<!-- <button id="popup_opener" data-popup="#popup-agree2">asdasdasdasd</button> -->
+<!--		<button id="popup_opener" data-popup="#popup-thanks"></button> -->
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
 		<script>
@@ -173,10 +176,8 @@
 				$('html').removeClass('menu-opened');
 			});
 			$(window).on('load', function() {
-				$('#popup_opener').trigger('click');
+//				$('#popup_opener').trigger('click');
 			});
-//			$('#popup_opener').on('click', function() {
-//			});
 			
 			function lengthCheck(obj, ln) {
 				var $obj = $(obj);

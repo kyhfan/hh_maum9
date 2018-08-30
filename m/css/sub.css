@@ -67,7 +67,7 @@ input[type="checkbox"]:focus {
 	margin: 14px auto 25px;
 }
 .content.sub2 > .title {
-	width: 253px;
+	width: 297px;
 	margin: 14px auto 6px;
 }
 .content.sub3 > .title {
@@ -524,8 +524,8 @@ input[type="checkbox"]:focus {
 	margin: 15px 0 21px;
 }
 .popup.thanks .btn {
-	width: 121px;
-	margin-right: 4px;
+	width: 88px;
+	margin-right: 5px;
 }
 .popup.thanks .btn:last-child {
 	margin-right: 0;
