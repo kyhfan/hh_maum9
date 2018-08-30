@@ -225,7 +225,8 @@ input[type="checkbox"]:focus {
 	padding-left: 5px;
 	font-weight: bold;
 	font-size: 16px;
-	color: #b6ad9e;
+	/* color: #b6ad9e; */
+	color: #47371f;
 }
 .sub-wrap .inner .text-area .text-line .input input::-webkit-input-placeholder {
 	color: #b6ad9e;
@@ -252,7 +253,8 @@ input[type="checkbox"]:focus {
 	width: 100%;
 	font-size: 15px;
 	text-align: center;
-	color: #b6ad9e;
+	/* color: #b6ad9e; */
+	color: #47371f;
 }
 .sub-wrap .inner .text-area .text-line2 .input input::-webkit-input-placeholder {
 	color: #b6ad9e;
@@ -299,27 +301,27 @@ input[type="checkbox"]:focus {
 	display: block;
 	margin: 0 0 0 auto;
 }
-.sub-wrap .inner .slider-area .bot._0 span {
+.sub-wrap .inner .slider-area .bot._1 span {
 	background: url(../images/sub_step2_bot_1.png) center / 123px 105px no-repeat;
 	width: 123px;
 	height: 105px;
 }
-.sub-wrap .inner .slider-area .bot._1 span {
+.sub-wrap .inner .slider-area .bot._2 span {
 	background: url(../images/sub_step2_bot_2.png) center / 129px 104px no-repeat;
 	width: 129px;
 	height: 104px;
 }
-.sub-wrap .inner .slider-area .bot._2 span {
+.sub-wrap .inner .slider-area .bot._3 span {
 	background: url(../images/sub_step2_bot_3.png) center / 156px 110px no-repeat;
 	width: 156px;
 	height: 110px;
 }
-.sub-wrap .inner .slider-area .bot._3 span {
+.sub-wrap .inner .slider-area .bot._4 span {
 	background: url(../images/sub_step2_bot_4.png) center / 123px 105px no-repeat;
 	width: 123px;
 	height: 105px;
 }
-.sub-wrap .inner .slider-area .bot._4 span {
+.sub-wrap .inner .slider-area .bot._5 span {
 	background: url(../images/sub_step2_bot_5.png) center / 129px 110px no-repeat;
 	width: 129px;
 	height: 110px;

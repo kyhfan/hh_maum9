@@ -173,11 +173,11 @@ input[type="checkbox"]:focus {
 	display: block;
 	margin: 0 0 0 auto;
 }
-.content.sub2 .slide-wrap .bot._0 span {width: 118px;height: 99px; background: url(../images/sub2_bot1.png) 0 0 / 118px 99px no-repeat;}
-.content.sub2 .slide-wrap .bot._1 span {width: 124px;height: 98px; background: url(../images/sub2_bot2.png) 0 0 / 124px 98px no-repeat;}
-.content.sub2 .slide-wrap .bot._2 span {width: 150px;height: 104px; background: url(../images/sub2_bot3.png) 0 0 / 150px 104px no-repeat;}
-.content.sub2 .slide-wrap .bot._3 span {width: 118px;height: 99px; background: url(../images/sub2_bot4.png) 0 0 / 118px 99px no-repeat;}
-.content.sub2 .slide-wrap .bot._4 span {width: 124px;height: 105px; background: url(../images/sub2_bot5.png) 0 0 / 124px 105px no-repeat;}
+.content.sub2 .slide-wrap .bot._1 span {width: 118px;height: 99px; background: url(../images/sub2_bot1.png) 0 0 / 118px 99px no-repeat;}
+.content.sub2 .slide-wrap .bot._2 span {width: 124px;height: 98px; background: url(../images/sub2_bot2.png) 0 0 / 124px 98px no-repeat;}
+.content.sub2 .slide-wrap .bot._3 span {width: 150px;height: 104px; background: url(../images/sub2_bot3.png) 0 0 / 150px 104px no-repeat;}
+.content.sub2 .slide-wrap .bot._4 span {width: 118px;height: 99px; background: url(../images/sub2_bot4.png) 0 0 / 118px 99px no-repeat;}
+.content.sub2 .slide-wrap .bot._5 span {width: 124px;height: 105px; background: url(../images/sub2_bot5.png) 0 0 / 124px 105px no-repeat;}
 .content.sub2 .slide-wrap .text-area .text-line.headline {
 	text-align: center;
 	height: auto;
@@ -441,6 +441,7 @@ input[type="checkbox"]:focus {
 .content.sub4 .terms-area .check .checkbox {
 	width: 14px;
 	height: 14px;
+	pointer-events: none;
 	/* 체크박스 크기는 수정 했음 */
 }
 .content.sub4 .terms-area .check .checkbox-visual {

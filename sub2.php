@@ -61,22 +61,27 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 									<div class="input"><input type="text" id="msg_from" placeholder="보내시는 분"></div>
 								</div>
 							</div>
-							<div class="bot _0"><span></span></div>
+							<div class="bot"><span></span></div>
 							<div class="swiper-wrapper">
-								<div class="swiper-slide slide _1">
-									<img src="./images/sub_step2_card1_new.png" alt="">
+<?
+	$i = 1;
+	$num_arr	= [1,2,3,4,5];
+	shuffle($num_arr);
+?>								
+								<div class="swiper-slide slide _<?=$num_arr[0]?>" id="<?=$num_arr[0]?>">
+									<img src="./images/sub_step2_card<?=$num_arr[0]?>_new.png" alt="">
 								</div>
-								<div class="swiper-slide slide _2">
-									<img src="./images/sub_step2_card2_new.png" alt="">
+								<div class="swiper-slide slide _<?=$num_arr[1]?>" id="<?=$num_arr[1]?>">
+									<img src="./images/sub_step2_card<?=$num_arr[1]?>_new.png" alt="">
 								</div>
-								<div class="swiper-slide slide _3">
-									<img src="./images/sub_step2_card3_new.png" alt="">
+								<div class="swiper-slide slide _<?=$num_arr[2]?>" id="<?=$num_arr[2]?>">
+									<img src="./images/sub_step2_card<?=$num_arr[2]?>_new.png" alt="">
 								</div>
-								<div class="swiper-slide slide _4">
-									<img src="./images/sub_step2_card4_new.png" alt="">
+								<div class="swiper-slide slide _<?=$num_arr[3]?>" id="<?=$num_arr[3]?>">
+									<img src="./images/sub_step2_card<?=$num_arr[3]?>_new.png" alt="">
 								</div>
-								<div class="swiper-slide slide _5">
-									<img src="./images/sub_step2_card5_new.png" alt="">
+								<div class="swiper-slide slide _<?=$num_arr[4]?>" id="<?=$num_arr[4]?>">
+									<img src="./images/sub_step2_card<?=$num_arr[4]?>_new.png" alt="">
 								</div>
 							</div>
 						</div>
@@ -108,6 +113,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
     </div>
     <script>
 		var prev_bot_idx = 4;
+
 		// $('.text-area input').on('keypress', function(e) {
 		$('.text-area input').on('keydown', function(e) {
 			var this_val 	= $(this).val();
@@ -156,43 +162,52 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 				},
 			},
 			on: {
+				init: function() {
+					var realIdx = <?=$num_arr[0]?>;
+					console.log(realIdx);
+				},
 				slideChangeTransitionEnd: function() {
 					$('.text-area .text-line > span').css({
 						color: headlineColorArr[this.realIndex]
 					});
 					realIdx = this.realIndex + 1;
-					
+					realIdx = this.slides[realIdx].id;
+					// console.log(this.slides[realIdx].id);
+					// console.log(realIdx);
 
-					if (this.realIndex == 0)
-					{
-						if (prev_bot_idx > this.realIndex)
-						{
-							if (prev_bot_idx == 4)
-								var prevIdx = 4;
-							else
-								var prevIdx = 1;
-						}else{
-							var prevIdx = 4;
-						}
-					}
-					else if (this.realIndex == 4)
-					{
-						if (prev_bot_idx == 0)
-							var prevIdx = 0;
-						else
-							var prevIdx = 3;
-					}else{
-						if (prev_bot_idx > this.realIndex)
-							var  prevIdx = this.realIndex +1;
-						else
-							var  prevIdx = this.realIndex -1;
-					}
-					// console.log(prev_bot_idx);
-					// console.log(this.previousIndex+"||"+this.realIndex);
+					// if (this.realIndex == 0)
+					// {
+					// 	if (prev_bot_idx > this.realIndex)
+					// 	{
+					// 		if (prev_bot_idx == 4)
+					// 			var prevIdx = 4;
+					// 		else
+					// 			var prevIdx = 1;
+					// 	}else{
+					// 		var prevIdx = 4;
+					// 	}
+					// }
+					// else if (this.realIndex == 4)
+					// {
+					// 	if (prev_bot_idx == 0)
+					// 		var prevIdx = 0;
+					// 	else
+					// 		var prevIdx = 3;
+					// }else{
+					// 	if (prev_bot_idx > this.realIndex)
+					// 		var  prevIdx = this.realIndex +1;
+					// 	else
+					// 		var  prevIdx = this.realIndex -1;
+					// }
 
-					prev_bot_idx = this.realIndex;
-					$('.slide-wrap .bot').removeClass('_'+prevIdx).addClass('_'+(this.realIndex));
-					// console.log(prev_bot_idx);
+					// prev_bot_idx = this.realIndex;
+					// $('.slide-wrap .bot').removeClass('_'+prevIdx).addClass('_'+(this.realIndex));
+					$('.slide-wrap .bot').removeClass('_1');
+					$('.slide-wrap .bot').removeClass('_2');
+					$('.slide-wrap .bot').removeClass('_3');
+					$('.slide-wrap .bot').removeClass('_4');
+					$('.slide-wrap .bot').removeClass('_5');
+					$('.slide-wrap .bot').addClass('_'+realIdx);
 				},
 			}
 		});
