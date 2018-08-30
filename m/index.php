@@ -56,10 +56,10 @@
 				<div class="inner">
 					<button type="button" class="menu-close"></button>
 					<ul class="menu-list">
-						<li><a href="javascript:void(0)" data-value="1" onclick="_nto.callTrack('6463', callback());"><img src="./images/menu_1.png" alt="" style="width: 144px;"></a></li>
-						<li><a href="javascript:void(0)" data-value="2" onclick="_nto.callTrack('6464', callback());"><img src="./images/menu_2.png" alt="" style="width: 144px;"></a></li>
-						<li><a href="javascript:void(0)" data-value="3" onclick="_nto.callTrack('6465', callback());"><img src="./images/menu_3.png" alt="" style="width: 141px;"></a></li>
-						<li><a href="javascript:void(0)" data-value="4" onclick="_nto.callTrack('6466', callback());"><img src="./images/menu_4.png" alt="" style="width: 77px;"></a></li>
+						<li class="_1"><a href="javascript:void(0)" data-value="1" onclick="_nto.callTrack('6463', callback());"><img src="./images/menu_1.png" alt="" style="width: 144px;"></a></li>
+						<li class="_2"><a href="javascript:void(0)" data-value="2" onclick="_nto.callTrack('6464', callback());"><img src="./images/menu_2.png" alt="" style="width: 144px;"></a></li>
+						<li class="_3"><a href="javascript:void(0)" data-value="3" onclick="_nto.callTrack('6465', callback());"><img src="./images/menu_3.png" alt="" style="width: 141px;"></a></li>
+						<li class="_4"><a href="javascript:void(0)" data-value="4" onclick="_nto.callTrack('6466', callback());"><img src="./images/menu_4.png" alt="" style="width: 77px;"></a></li>
 					</ul>
 					<ul class="share-list">
 						<li><button type="button" class="kt" onclick="_nto.callTrack('6447', callback());sns_share('kt', 'main')"></button></li>
@@ -441,39 +441,41 @@
 //				scrolled($(window).scrollTop(), 'transition');
 //			});
 //
-//			$(window).on('scroll', function(e) {
-//				var currentScroll = $(this).scrollTop()+98;
-//				scrolled(currentScroll, 'transition');
-//			});
+			$(window).on('scroll', function(e) {
+				var currentScroll = $(this).scrollTop()+37;
+				scrolled(currentScroll);
+			});
 //
-//			function scrolled(currentScroll, transitionFlag) {
-//				if(transitionFlag) {
-//					var transition = 'background 0.46s ease-out';
-//				} else {
-//					var transition = '';
-//				}
-//				if (currentScroll > sectionOffsetArray[1] && currentScroll < sectionOffsetArray[2]) {
-//					//				현재 섹션 2번
-//					targetX = menuOffsetArray[1];
-//					//				console.log("2");
-//				} else if (currentScroll > sectionOffsetArray[2] && currentScroll < sectionOffsetArray[3]) {
-//					//				현재 섹션 3번
-//					targetX = menuOffsetArray[2]-20;
-//					//				console.log("3");
-//				} else if (currentScroll > sectionOffsetArray[3]) {
-//					//				현재 섹션 4번
-//					targetX = menuOffsetArray[3]-35;
-//					//				console.log("4");
-//				} else {
-//					//				현재 섹션 1번
-//					targetX = menuOffsetArray[0];
-//					//				console.log("1");
-//				}
-//				$('.header-wrap').css({
-//					backgroundPositionX: targetX-1360+'px',
-//					transition: transition
-//				});
-//			}
+			function scrolled(currentScroll) {
+				if (currentScroll > sectionOffsetArray[2] && currentScroll < sectionOffsetArray[3]) {
+					//				현재 섹션 2번
+					activeIndex = 2;
+//									console.log("2");
+				} else if (currentScroll > sectionOffsetArray[3] && currentScroll < sectionOffsetArray[4]) {
+					//				현재 섹션 3번
+					activeIndex = 3;
+//									console.log("3");
+				} else if (currentScroll > sectionOffsetArray[4]) {
+					//				현재 섹션 4번
+					activeIndex = 4;
+//									console.log("4");
+				} else {
+					//				현재 섹션 1번
+					activeIndex = 1;
+//									console.log("1");
+				}
+				setTimeout(function() {
+					$('.menu-layer .menu-list li').each(function() {
+						if($(this).hasClass('_'+activeIndex)) {
+							$(this).find('img').attr('src', './images/menu_'+activeIndex+'_active.png');
+						} else {
+							var originImagSrc = $(this).find('img').attr('src').split('.')[1].replace('_active', '');
+							$(this).find('img').attr('src', '.'+originImagSrc+'.png');
+						}
+					});
+				}, 500);
+				
+			}
 			$('.burger').on('click', function() {
 				$('html').toggleClass('menu-opened');
 			});

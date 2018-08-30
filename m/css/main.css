@@ -185,7 +185,7 @@ body {
 }
 
 .section2-wrap {
-	background: url(../images/main_sec2_bg.png) center 0 / cover no-repeat #fbc169;
+	background: url(../images/main_sec2_bg.png) center 0 / cover no-repeat;
 }
 .section2-wrap .inner {
 	position: relative;
