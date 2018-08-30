@@ -171,14 +171,16 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 //			$(window).on('load', function() {
 //				$('#popup-open-btn').trigger('click');
 //			});
-//			$('.checkbox').on('click', function() {
-//				var that = $(this);
-//				$('.checkbox').each(function() {
-//					if($(this).attr('id') !== that.attr('id')) {
-//						$(this).context.checked = false;
-//					}
-//				});
-//			});
+			$('.checkbox').on('click', function(event) {
+				hh_maum9.popup.show($("#popup-thanks"));
+				event.stopPropagation();
+				// var that = $(this);
+				// $('.checkbox').each(function() {
+				// 	if($(this).attr('id') !== that.attr('id')) {
+				// 		$(this).context.checked = false;
+				// 	}
+				// });
+			});
 			function lengthCheck(obj, ln) {
 				var $obj = $(obj);
 				var regExp = /^[0-9]+$/;
