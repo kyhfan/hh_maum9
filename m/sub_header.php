@@ -2,10 +2,10 @@
 				<div class="inner">
 					<button type="button" class="menu-close"></button>
 					<ul class="menu-list">
-						<li><a href="javascript:void(0)" data-value="1" onclick="_nto.callTrack('6463', callback());"><img src="./images/menu_1.png" alt="" style="width: 144px;"></a></li>
-						<li><a href="javascript:void(0)" data-value="2" onclick="_nto.callTrack('6464', callback());"><img src="./images/menu_2.png" alt="" style="width: 144px;"></a></li>
-						<li><a href="javascript:void(0)" data-value="3" onclick="_nto.callTrack('6465', callback());"><img src="./images/menu_3.png" alt="" style="width: 110px;"></a></li>
-						<li><a href="javascript:void(0)" data-value="4" onclick="_nto.callTrack('6466', callback());"><img src="./images/menu_4.png" alt="" style="width: 77px;"></a></li>
+						<li><a href="index.php?g=1" data-value="1" onclick="_nto.callTrack('6463', callback());"><img src="./images/menu_1.png" alt="" style="width: 144px;"></a></li>
+						<li><a href="index.php?g=2" data-value="2" onclick="_nto.callTrack('6464', callback());"><img src="./images/menu_2.png" alt="" style="width: 144px;"></a></li>
+						<li><a href="index.php?g=3" data-value="3" onclick="_nto.callTrack('6465', callback());"><img src="./images/menu_3.png" alt="" style="width: 110px;"></a></li>
+						<li><a href="index.php?g=4" data-value="4" onclick="_nto.callTrack('6466', callback());"><img src="./images/menu_4.png" alt="" style="width: 77px;"></a></li>
 					</ul>
 					<ul class="share-list">
 						<li><button type="button" class="kt" onclick="_nto.callTrack('6447', callback());sns_share('kt', 'main')"></button></li>

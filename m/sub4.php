@@ -83,7 +83,7 @@
 							<div class="checkbox-visual"></div>
 							<label for="terms2"><img src="./images/terms_label2.png" alt=""></label>
 						</div>
-						<div class="view">
+						<div class="view last">
 							<button type="button" data-popup="#popup-agree1"></button>
 						</div>
 					</div>
