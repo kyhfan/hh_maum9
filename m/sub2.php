@@ -39,19 +39,19 @@
 								<input type="text" id="msg_to" placeholder="받으시는 분">
 							</div>
 							<div class="text-line">
-								<input type="text" id="msg_conntent1" placeholder="내용을 입력해 주세요">
+								<input type="text" id="msg_conntent1" placeholder="내용을 입력해 주세요" onkeydown="changeLine(this)">
 								<span id="msg_conntent1_span" style="visibility:hidden; position:absolute; top:-10000px; font-size:15px;"></span>
 							</div>
 							<div class="text-line">
-								<input type="text" id="msg_conntent2">
+								<input type="text" id="msg_conntent2" onkeydown="changeLine(this)">
 								<span id="msg_conntent2_span" style="visibility:hidden; position:absolute; top:-10000px; font-size:15px;"></span>
 							</div>
 							<div class="text-line">
-								<input type="text" id="msg_conntent3">
+								<input type="text" id="msg_conntent3" onkeydown="changeLine(this)">
 								<span id="msg_conntent3_span" style="visibility:hidden; position:absolute; top:-10000px; font-size:15px;"></span>
 							</div>
 							<div class="text-line">
-								<input type="text" id="msg_conntent4">
+								<input type="text" id="msg_conntent4" onkeydown="changeLine(this)">
 								<span id="msg_conntent4_span" style="visibility:hidden; position:absolute; top:-10000px; font-size:15px;"></span>
 							</div>
 							<div class="text-line headline">
@@ -93,30 +93,36 @@
 			var prev_bot_idx = 4;
 			var realIdx = 1;
 		// $('.text-area input').on('keypress', function(e) {
-			$('.text-area input').on('keydown keypress', function(e) {
-				var this_val 	= $(this).val();
-				$("#"+$(this).attr("id")+"_span").text(this_val);
-				console.log($("#"+$(this).attr("id")+"_span").outerWidth());
-				if ($("#"+$(this).attr("id")+"_span").outerWidth() > 150)
+			// $('.text-area input').on('keydown keypress', function(e) {
+			// 	var this_val 	= $(this).val();
+			// 	$("#"+$(this).attr("id")+"_span").text(this_val);
+			// 	console.log($("#"+$(this).attr("id")+"_span").outerWidth());
+			// 	if ($("#"+$(this).attr("id")+"_span").outerWidth() > 150)
+			// 	{
+			// 		// 현재 인풋에서 마지막 문자 삭제
+			// 		$(this).val($(this).val().slice(0, -1));
+			// 		// 다음 인풋에 마지막 문자 삽입
+			// 		var last_str	= this_val.substr(this_val.length - 1);
+			// 		$(this).closest('.text-line').next().find('input').val(last_str);
+			// 		$(this).closest('.text-line').next().find('input').focus();
+			// 	}
+			// })
+
+			function changeLine(th)
+			{
+				var this_val 	= th.value;
+				$("#"+th.id+"_span").text(this_val);
+				console.log($("#"+th.id+"_span").outerWidth());
+				if ($("#"+th.id+"_span").outerWidth() > 150)
 				{
 					// 현재 인풋에서 마지막 문자 삭제
-					$(this).val($(this).val().slice(0, -1));
+					$("#"+th.id).val(th.value.slice(0, -1));
 					// 다음 인풋에 마지막 문자 삽입
 					var last_str	= this_val.substr(this_val.length - 1);
-					$(this).closest('.text-line').next().find('input').val(last_str);
-					$(this).closest('.text-line').next().find('input').focus();
+					$("#"+th.id).closest('.text-line').next().find('input').val(last_str);
+					$("#"+th.id).closest('.text-line').next().find('input').focus();
 				}
-
-	// 			if(e.keyCode == 13) {
-	// 				if($(this).closest('.text-group').hasClass('bottom')) {
-	// //					console.log("if");
-	// 					$(this).closest('.text-area').find('.text-group:first-child').find('input').focus();
-	// 				} else {
-	// //					console.log("asd");
-	// 					$(this).closest('.text-group').next().find('input').focus();
-	// 				}
-	// 			}
-			})
+			}
 
 			var headlineColorArr = ['#fa5266', '#d55143', '#376639', '#1b4375', '#dd7722'];
 //			var swiper = new Swiper ('.slide-area', {
