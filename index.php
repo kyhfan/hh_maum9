@@ -222,9 +222,11 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
                             <div>
                                 <img src="./images/section4_list1.png" alt="">
                             </div>
-                            <div class="button" onclick="NTrackObj.callTrackTag('34112', callbackFn, 13294);window.open('http://event4.hi-maumbot.co.kr', 'event4','width=#, height=#'); return false">
-                                <button type="button"></button>
-                            </div>
+                            <a href="http://event4.hi-maumbot.co.kr" target="_blank">
+                                <div class="button" onclick="NTrackObj.callTrackTag('34112', callbackFn, 13294);">
+                                    <button type="button"></button>
+                                </div>
+                            </a>
                         </li>
                         <li>
                             <div>
