@@ -1,5 +1,11 @@
 <?
-    include_once "sub_head.php";
+    include_once "../include/autoload.php";
+
+    $mnv_f 			= new mnv_function();
+    $my_db         = $mnv_f->Connect_MySQL();
+    $IphoneYN      = $mnv_f->IPhoneCheck();
+
+	include_once "sub_head.php";
 ?>
 	<body>
 	<script type="text/javascript"> 
@@ -208,7 +214,7 @@
 	if ($IphoneYN == "Y")
 	{	
 ?>				
-				alert("새창으로 뜬 이미지를 눌러 저장 해 주시고, 현재 페이지로 오시면 계속 이벤트 참여가 가능합니다");
+				alert("아래 버튼을 누른 후, 새 창으로 나오는 이미지를 2~3초간 꾹 눌러 저장해주세요!");
 				var iosUrl = url.replace("..","http://minivertest.hi-maumbot.co.kr");	
 				window.open(iosUrl, 'event1','width=#, height=#');
 <?
