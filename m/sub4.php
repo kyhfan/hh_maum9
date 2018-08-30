@@ -167,8 +167,6 @@
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
 		<script>
-			Kakao.init('c8173523ff789743a4d69e357b3d55a1');
-
 			$('.burger').on('click', function() {
 				$('html').toggleClass('menu-opened');
 			});

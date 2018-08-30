@@ -508,6 +508,7 @@ function kakao_send()
 	// 	var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_cheerup" + localStorage.type + ".jpg";
 	// else if (localStorage.type == 5)
 	// 	var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_dontworry" + localStorage.type + ".jpg";
+	Kakao.init('c8173523ff789743a4d69e357b3d55a1');
 
 	Kakao.Link.sendDefault({
 		objectType: 'feed',
@@ -608,6 +609,7 @@ function sns_share(media, flag)
 			}
 		});
 	}else{
+		Kakao.init('c8173523ff789743a4d69e357b3d55a1');
 		Kakao.Story.share({
 			url: 'http://minivertest.hi-maumbot.co.kr/?media=share_ks'
 		});
