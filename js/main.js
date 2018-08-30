@@ -533,7 +533,7 @@ function kakao_send()
 	Kakao.Link.sendDefault({
 		objectType: 'feed',
 		content: {
-			title: '마음봇이 따뜻한 메시지를 전합니다',
+			title: '우리가족 튼튼메신저',
 			// description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
 			// imageUrl: "http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".jpg",
 			imageUrl: "http://minivertest.hi-maumbot.co.kr/images/kt_message_share.jpg",
@@ -544,7 +544,7 @@ function kakao_send()
 		},
 		buttons: [
 			{
-				title: '우리가족 튼튼메신저',
+				title: '사랑의 메시지 확인',
 				link: {
 					mobileWebUrl: "http://minivertest.hi-maumbot.co.kr/m/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type+"&size="+localStorage.size,
 					webUrl: "http://minivertest.hi-maumbot.co.kr/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type+"&size="+localStorage.size
