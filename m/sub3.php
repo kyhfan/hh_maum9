@@ -180,7 +180,7 @@
 				{
 					alert("화면 비율을 선택해 주세요.");
 				}else{
-					$('.btn-area._3 button').attr("onclick","downloadImg('"+change_rs_img+"')");
+					// $('.btn-area._3 button').attr("onclick","downloadImg('"+change_rs_img+"')");
 					nextPage(4);
 				}
 			}
