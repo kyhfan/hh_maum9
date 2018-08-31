@@ -141,9 +141,9 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 				<div class="thanks-wrap">
 					<div class="thanks-area">
 						<div class="button-area">
-							<button class="kakao-btn" onclick="kakao_send()"></button>
-							<button class="download-btn" onclick="download_img()"></button>
-							<button class="confirm-btn" onclick="location.href='index.php'"></button>
+							<button class="kakao-btn" onclick="NTrackObj.callTrackTag('34107', callbackFn, 13294);kakao_send()"></button>
+							<button class="download-btn" onclick="NTrackObj.callTrackTag('34131', callbackFn, 13294);download_img()"></button>
+							<button class="confirm-btn" onclick="NTrackObj.callTrackTag('34108', callbackFn, 13294);location.href='index.php'"></button>
 						</div>
 						<img src="./images/popup_thanks_bg.jpg" alt="">
 					</div>

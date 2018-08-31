@@ -125,7 +125,7 @@
 					<button type="button" class="btn" onclick="_nto.callTrack('6456', callback());kakao_send()">
 						<img src="./images/popup_thanks_btn1.png" alt="">
 					</button>
-					<button type="button" class="btn" onclick="download_img()">
+					<button type="button" class="btn" onclick="_nto.callTrack('6474', callback());download_img()">
 						<img src="./images/popup_thanks_btn2.png" alt="">
 					</button>
 					<button type="button" class="btn" onclick="_nto.callTrack('6457', callback());location.href='index.php'">
