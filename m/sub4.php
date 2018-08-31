@@ -170,7 +170,7 @@
 		</div>
 
 <!--		<button id="popup_opener" data-popup="#popup-thanks"></button> -->
-		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+		<script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
 
 		<script>
 			$('.burger').on('click', function() {

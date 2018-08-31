@@ -165,7 +165,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 			<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>
 		</div>
 		<!-- 당첨자 발표 안내 팝업 -->
-		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+		<script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
 
 		<script>
 			// $(window).on('load', function() {
