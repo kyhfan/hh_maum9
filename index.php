@@ -1,4 +1,5 @@
 <?
+exit;
     include_once "./include/autoload.php";
 
     $mnv_f 			= new mnv_function();
