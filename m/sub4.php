@@ -215,7 +215,7 @@
 	{	
 ?>				
 				alert("아래 버튼을 누른 후, 새 창으로 나오는 이미지를 2~3초간 꾹 눌러 저장해주세요!");
-				var iosUrl = url.replace("..","http://minivertest.hi-maumbot.co.kr");	
+				var iosUrl = url.replace("..","https://www.hi-maumbot.co.kr");	
 				window.open(iosUrl, 'event1','width=#, height=#');
 <?
 	}else{

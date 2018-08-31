@@ -499,15 +499,15 @@ function check_agree(param, id)
 function kakao_send()
 {
 	// if (localStorage.type == 1)
-	// 	var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_takecare" + localStorage.type + ".jpg";
+	// 	var rs_img = "https://www.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_takecare" + localStorage.type + ".jpg";
 	// else if (localStorage.type == 2)
-	// 	var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_loveyou" + localStorage.type + ".jpg";
+	// 	var rs_img = "https://www.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_loveyou" + localStorage.type + ".jpg";
 	// else if (localStorage.type == 3)
-	// 	var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_thanks" + localStorage.type + ".jpg";
+	// 	var rs_img = "https://www.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_thanks" + localStorage.type + ".jpg";
 	// else if (localStorage.type == 4)
-	// 	var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_cheerup" + localStorage.type + ".jpg";
+	// 	var rs_img = "https://www.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_cheerup" + localStorage.type + ".jpg";
 	// else if (localStorage.type == 5)
-	// 	var rs_img = "http://minivertest.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_dontworry" + localStorage.type + ".jpg";
+	// 	var rs_img = "https://www.hi-maumbot.co.kr/files/" + localStorage.serial + "/maumbot_dontworry" + localStorage.type + ".jpg";
 	Kakao.init('c8173523ff789743a4d69e357b3d55a1');
 
 	Kakao.Link.sendDefault({
@@ -515,19 +515,19 @@ function kakao_send()
 		content: {
 			title: '우리가족 튼튼메신저',
 			// description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
-			// imageUrl: "http://minivertest.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".jpg",
-			imageUrl: "http://minivertest.hi-maumbot.co.kr/images/kt_message_share.jpg",
+			// imageUrl: "https://www.hi-maumbot.co.kr/files/"+localStorage.serial+"/"+localStorage.type+".jpg",
+			imageUrl: "https://www.hi-maumbot.co.kr/images/kt_message_share.jpg",
 			link: {
-				mobileWebUrl: "http://minivertest.hi-maumbot.co.kr/m/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type+"&size="+localStorage.size,
-				webUrl: "http://minivertest.hi-maumbot.co.kr/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type+"&size="+localStorage.size
+				mobileWebUrl: "https://www.hi-maumbot.co.kr/m/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type+"&size="+localStorage.size,
+				webUrl: "https://www.hi-maumbot.co.kr/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type+"&size="+localStorage.size
 			}
 		},
 		buttons: [
 			{
 				title: '사랑의 메시지 확인',
 				link: {
-					mobileWebUrl: "http://minivertest.hi-maumbot.co.kr/m/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type+"&size="+localStorage.size,
-					webUrl: "http://minivertest.hi-maumbot.co.kr/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type+"&size="+localStorage.size
+					mobileWebUrl: "https://www.hi-maumbot.co.kr/m/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type+"&size="+localStorage.size,
+					webUrl: "https://www.hi-maumbot.co.kr/kt_result.php?serial="+localStorage.serial+"&type="+localStorage.type+"&size="+localStorage.size
 				}
 			}
 		],
@@ -550,7 +550,7 @@ function sns_share(media, flag)
 {
 	if (media == "fb")
 	{
-        var newWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent('http://minivertest.hi-maumbot.co.kr/?media=share_fb'),'sharer','toolbar=0,status=0,width=600,height=325');
+        var newWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent('https://www.hi-maumbot.co.kr/?media=share_fb'),'sharer','toolbar=0,status=0,width=600,height=325');
 
 		$.ajax({
 			type   : "POST",
@@ -570,18 +570,18 @@ function sns_share(media, flag)
 			content: {
 				title: '[현대해상] 우리 가족 튼튼 메신저',
 				description: '당신의 건강을 위한 메시지가 도착했어요 답장 보내고 마음봇 건강세트를 받아보세요!',
-				imageUrl: "http://minivertest.hi-maumbot.co.kr/images/maum_share.jpg",
+				imageUrl: "https://www.hi-maumbot.co.kr/images/maum_share.jpg",
 				link: {
-					mobileWebUrl: 'http://minivertest.hi-maumbot.co.kr/m/index.php?media=share_kt',
-					webUrl: 'http://minivertest.hi-maumbot.co.kr/?media=share_kt'
+					mobileWebUrl: 'https://www.hi-maumbot.co.kr/m/index.php?media=share_kt',
+					webUrl: 'https://www.hi-maumbot.co.kr/?media=share_kt'
 				}
 			},
 			buttons: [
 				{
 					title: '우리가족 튼튼메신저',
 					link: {
-						mobileWebUrl: 'http://minivertest.hi-maumbot.co.kr/m/index.php?media=share_kt',
-						webUrl: 'http://minivertest.hi-maumbot.co.kr/?media=share_kt'
+						mobileWebUrl: 'https://www.hi-maumbot.co.kr/m/index.php?media=share_kt',
+						webUrl: 'https://www.hi-maumbot.co.kr/?media=share_kt'
 					}
 				}
 			],
@@ -611,7 +611,7 @@ function sns_share(media, flag)
 	}else{
 		Kakao.init('c8173523ff789743a4d69e357b3d55a1');
 		Kakao.Story.share({
-			url: 'http://minivertest.hi-maumbot.co.kr/?media=share_ks'
+			url: 'https://www.hi-maumbot.co.kr/?media=share_ks'
 		});
 		$.ajax({
 			type   : "POST",
