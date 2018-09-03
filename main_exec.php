@@ -73,7 +73,7 @@ switch ($_REQUEST['exec'])
 
         $url = 'http://api2.tnkfactory.com/tnk/ad.g.ad';
 		$param = array(
-			'appkey'   	=> "2fb0f2a8455971b5baafbeaf44c39265",
+			// 'appkey'   	=> "2fb0f2a8455971b5baafbeaf44c39265",
 			'adkey'   	=> $_SESSION['ss_adkey']
 		);
 	 
