@@ -13,7 +13,7 @@ if (isset($_SESSION['ss_mb_name']) == false)
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>바이오더마 - PT CLUB</title>
+    <title>현대해상 - 우리가족 특튼 메신저</title>
 	<!-- jQuery Version 1.11.0 -->
 	<script src="js/jquery-1.11.0.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
@@ -71,7 +71,7 @@ if (isset($_SESSION['ss_mb_name']) == false)
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="entry_list.php">바이오더마 - PT CLUB</a>
+          <a class="navbar-brand" href="entry_list.php">현대해상 - 우리가족 특튼 메신저</a>
         </div>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
