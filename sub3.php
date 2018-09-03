@@ -78,7 +78,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 						</div>
 						<div class="btn-area _3">
 							<!-- <a href="" download> -->
-								<button type="button" onclick="go_next();">
+								<button type="button" onclick="NTrackObj.callTrackTag('34105', callbackFn, 13294);click_tracking('STEP3-키트 받을 정보 입력하기');go_next();">
 									<img src="./images/sub_step3_btn.png" alt="">
 								</button>
 								<!-- <div class="balloon">
@@ -169,7 +169,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 				{
 					alert("화면 비율을 선택해 주세요.");
 				}else{
-					$('.btn-area._3 button').attr("onclick","NTrackObj.callTrackTag('34105', callbackFn, 13294);");
+					// $('.btn-area._3 button').attr("onclick","NTrackObj.callTrackTag('34105', callbackFn, 13294);");
 					nextPage(4);
 				}
 			}

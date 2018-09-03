@@ -94,7 +94,7 @@
 						</div>
 					</div>
 				</div>
-				<button type="button" class="btn" id="submit-info" onclick="_nto.callTrack('6455', callback());">
+				<button type="button" class="btn" id="submit-info" onclick="_nto.callTrack('6455', callback());click_tracking('STEP4-응모완료');">
 					<img src="./images/sub4_btn.jpg" alt="">
 				</button>
 				<div class="copyright">
@@ -122,13 +122,13 @@
 					<img src="./images/popup_thanks_title.png" alt="">
 				</div>
 				<div class="btn-group">
-					<button type="button" class="btn" onclick="_nto.callTrack('6456', callback());kakao_send()">
+					<button type="button" class="btn" onclick="_nto.callTrack('6456', callback());click_tracking('참여완료팝업-카카오톡전송');kakao_send()">
 						<img src="./images/popup_thanks_btn1.png" alt="">
 					</button>
-					<button type="button" class="btn" onclick="download_img()">
+					<button type="button" class="btn" onclick="_nto.callTrack('6474', callback());click_tracking('참여완료팝업-다운로드');download_img()">
 						<img src="./images/popup_thanks_btn2.png" alt="">
 					</button>
-					<button type="button" class="btn" onclick="_nto.callTrack('6457', callback());location.href='index.php'">
+					<button type="button" class="btn" onclick="_nto.callTrack('6457', callback());click_tracking('참여완료팝업-확인');location.href='index.php'">
 						<img src="./images/popup_thanks_btn3.png" alt="">
 					</button>
 				</div>
@@ -170,7 +170,7 @@
 		</div>
 
 <!--		<button id="popup_opener" data-popup="#popup-thanks"></button> -->
-		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+		<script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
 
 		<script>
 			$('.burger').on('click', function() {
@@ -215,7 +215,7 @@
 	{	
 ?>				
 				alert("아래 버튼을 누른 후, 새 창으로 나오는 이미지를 2~3초간 꾹 눌러 저장해주세요!");
-				var iosUrl = url.replace("..","http://minivertest.hi-maumbot.co.kr");	
+				var iosUrl = change_rs_img.replace("..","https://www.hi-maumbot.co.kr");	
 				window.open(iosUrl, 'event1','width=#, height=#');
 <?
 	}else{

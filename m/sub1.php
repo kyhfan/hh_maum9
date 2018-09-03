@@ -87,7 +87,7 @@
 						$(".msg").fadeOut("fast");
 						setTimeout(function(){
 							$("#sub1_btn").attr('src', './images/sub1_btn_after.jpg');
-							$(".btn-wrap button").attr("onclick","_nto.callTrack('6452', callback());nextPage(2)");
+							$(".btn-wrap button").attr("onclick","_nto.callTrack('6452', callback());click_tracking('STEP1-메시지작성하기');nextPage(2)");
 						}, 5000);
 					}
 				}else if (event.data == 2){

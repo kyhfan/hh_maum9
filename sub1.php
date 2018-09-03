@@ -85,7 +85,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
                 $(".balloon").fadeOut("fast");
                 setTimeout(function(){
 					$("#next_btn").find('img').attr('src', './images/sub_step1_btn.png');
-                    $("#next_btn").attr("onclick","NTrackObj.callTrackTag('34103', callbackFn, 13294);nextPage(2)");
+                    $("#next_btn").attr("onclick","NTrackObj.callTrackTag('34103', callbackFn, 13294);click_tracking('STEP1-메시지작성하기');nextPage(2)");
                 }, 5000);
             }
         }else if (event.data == 2){

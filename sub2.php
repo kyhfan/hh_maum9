@@ -98,7 +98,7 @@ include_once "sub_head.php";
 					</div>
 					<div class="num-area"></div>
 					<div class="btn-area _2">
-						<button type="button" onclick="NTrackObj.callTrackTag('34104', callbackFn, 13294);saveImageInfo()">
+						<button type="button" onclick="NTrackObj.callTrackTag('34104', callbackFn, 13294);click_tracking('STEP2-메세지 배경화면 확인하기');saveImageInfo()">
 							<img src="./images/sub_step2_btn.png" alt="">
 						</button>
 					</div>
@@ -139,6 +139,41 @@ include_once "sub_head.php";
 					//					console.log("asd");
 					$(this).closest('.text-group').next().find('input').focus();
 				}
+			}
+		})
+		$('.text-line input').on('keyup', function(e) {
+			e.stopPropagation();
+			var maxByte = 10; //최대 입력 바이트 수
+			var str = $(this).val();
+			var str_len = str.length;
+		
+			var rbyte = 0;
+			var rlen = 0;
+			var one_char = "";
+			var str2 = "";
+		
+			for (var i = 0; i < str_len; i++) {
+				one_char = str.charAt(i);
+		
+				// if (escape(one_char).length > 4) {
+					rbyte += 2; //한글2Byte
+				// } else {
+				// 	rbyte++; //영문 등 나머지 1Byte
+				// }
+		
+				if (rbyte <= maxByte) {
+					rlen = i + 1; //return할 문자열 갯수
+				}
+			}
+		
+			if (rbyte > maxByte) {
+				alert("5자 이내로 입력해 주세요.");
+				str2 = str.substr(0, rlen); //문자열 자르기
+				$(this).val(str2);
+				// fnChkByte(obj, maxByte);
+			} else {
+				// document.getElementById('byteInfo').innerText = rbyte;
+				$(this).html(rbyte);
 			}
 		})
 		$('.text-area .placeholder-own').on('focus', function(e) {

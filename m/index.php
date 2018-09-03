@@ -1,5 +1,5 @@
 <?
-    include_once "../include/autoload.php";
+	include_once "../include/autoload.php";
 
     $mnv_f 			= new mnv_function();
     $my_db         = $mnv_f->Connect_MySQL();
@@ -24,8 +24,8 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content="[현대해상] 우리 가족 튼튼 메신저" />
-		<meta property="og:url" content="http://minivertest.hi-maumbot.co.kr" />
-		<meta property="og:image" content="http://minivertest.hi-maumbot.co.kr/images/share_image.jpg" />
+		<meta property="og:url" content="https://www.hi-maumbot.co.kr" />
+		<meta property="og:image" content="https://www.hi-maumbot.co.kr/images/share_image.jpg" />
 		<meta property="og:description" content="당신의 건강을 위한 메시지가 도착했어요 답장 보내고 마음봇 건강세트를 받아보세요!" />
 		<title>현대해상</title>
 		<link rel="stylesheet" href="./css/reset.css">
@@ -33,13 +33,22 @@
 		<link rel="stylesheet" href="./css/main.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/css/swiper.min.css">
 		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-		<link type="image/icon" rel="shortcut icon" href="http://minivertest.hi-maumbot.co.kr/images/maum_favi.ico" />
+		<link type="image/icon" rel="shortcut icon" href="https://www.hi-maumbot.co.kr/images/maum_favi.ico" />
 		<script src="../js/jquery-1.11.2.min.js"></script>
 		<script src="../js/m_main.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/js/swiper.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
 		<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 		<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111799987-1"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-111799987-1');
+		</script>
 	</head>
 	<body>
 	<script type="text/javascript"> 
@@ -56,15 +65,15 @@
 				<div class="inner">
 					<button type="button" class="menu-close"></button>
 					<ul class="menu-list">
-						<li class="_1"><a href="javascript:void(0)" data-value="1" onclick="_nto.callTrack('6463', callback());"><img src="./images/menu_1.png" alt="" style="width: 144px;"></a></li>
-						<li class="_2"><a href="javascript:void(0)" data-value="2" onclick="_nto.callTrack('6464', callback());"><img src="./images/menu_2.png" alt="" style="width: 144px;"></a></li>
-						<li class="_3"><a href="javascript:void(0)" data-value="3" onclick="_nto.callTrack('6465', callback());"><img src="./images/menu_3.png" alt="" style="width: 141px;"></a></li>
-						<li class="_4"><a href="javascript:void(0)" data-value="4" onclick="_nto.callTrack('6466', callback());"><img src="./images/menu_4.png" alt="" style="width: 77px;"></a></li>
+						<li class="_1"><a href="javascript:void(0)" data-value="1" onclick="_nto.callTrack('6463', callback());click_tracking('상단 우리 가족 튼튼 메신저')"><img src="./images/menu_1.png" alt="" style="width: 144px;"></a></li>
+						<li class="_2"><a href="javascript:void(0)" data-value="2" onclick="_nto.callTrack('6464', callback());click_tracking('상단 전송 완료 메세지 보기')"><img src="./images/menu_2.png" alt="" style="width: 144px;"></a></li>
+						<li class="_3"><a href="javascript:void(0)" data-value="3" onclick="_nto.callTrack('6465', callback());click_tracking('상단 건강키트 인증 이벤트')"><img src="./images/menu_3.png" alt="" style="width: 141px;"></a></li>
+						<li class="_4"><a href="javascript:void(0)" data-value="4" onclick="_nto.callTrack('6466', callback());click_tracking('상단 지난 캠페인')"><img src="./images/menu_4.png" alt="" style="width: 77px;"></a></li>
 					</ul>
 					<ul class="share-list">
-						<li><button type="button" class="kt" onclick="_nto.callTrack('6447', callback());sns_share('kt', 'main')"></button></li>
-						<li><button type="button" class="ks" onclick="_nto.callTrack('6448', callback());sns_share('ks', 'main')"></button></li>
-						<li><button type="button" class="fb" onclick="_nto.callTrack('6449', callback());sns_share('fb', 'main')"></button></li>
+						<li><button type="button" class="kt" onclick="_nto.callTrack('6447', callback());click_tracking('카카오톡 공유');sns_share('kt', 'main')"></button></li>
+						<li><button type="button" class="ks" onclick="_nto.callTrack('6448', callback());click_tracking('스토리 공유');sns_share('ks', 'main')"></button></li>
+						<li><button type="button" class="fb" onclick="_nto.callTrack('6449', callback());click_tracking('페이스북 공유');sns_share('fb', 'main')"></button></li>
 					</ul>
 					<img src="./images/share_guide.png" alt="" class="share-guide">
 					<div class="box-point"></div>
@@ -73,7 +82,7 @@
 			<div class="header-wrap">
 				<div class="inner">
 					<div class="logo">
-						<a href="index.php" onclick="_nto.callTrack('6462', callback());">
+						<a href="index.php" onclick="_nto.callTrack('6462', callback());click_tracking('상단 현대해상 로고');">
 							<img src="./images/logo.png" alt="현대해상 로고">
 						</a>
 					</div>
@@ -92,7 +101,7 @@
 						<img src="./images/main_sec1_title.png" alt="">
 					</div>
 					<div class="button">
-						<button type="button" class="btn-message" onclick="_nto.callTrack('6450', callback());nextPage(1)">
+						<button type="button" class="btn-message" onclick="_nto.callTrack('6450', callback());click_tracking('사랑의 건강 기원 메시지 쓰기');nextPage(1)">
 							<img src="./images/main_sec1_btn_bg.png" alt="">
 							<img src="./images/main_sec1_btn_pencile.png" class="pencil" alt="">
 						</button>
@@ -105,10 +114,10 @@
 					</div> -->
 					<div class="objs">
 						<img src="./images/main_sec1_obj.png" alt="">
-						<div class="info-group" onclick="_nto.callTrack('6446', callback());" data-popup="#popup-kitlist">
+						<div class="info-group" onclick="_nto.callTrack('6446', callback());click_tracking('건강키트 자세히 보기')" data-popup="#popup-kitlist">
 							<img src="./images/main_sec1_info_group.png" alt="">
 						</div>
-						<div class="plus-icon" onclick="_nto.callTrack('6446', callback());" data-popup="#popup-kitlist">
+						<div class="plus-icon" onclick="_nto.callTrack('6446', callback());click_tracking('건강키트 자세히 보기')" data-popup="#popup-kitlist">
 							<img src="./images/main_sec1_plus.png" alt="">
 						</div>
 					</div>
@@ -122,7 +131,7 @@
 					<div class="text">
 						<img src="./images/main_sec1_2_text.png" alt="">
 					</div>
-					<button type="button" onclick="_nto.callTrack('6467', callback());alert('당첨자는 10월 10일에 발표 될 예정입니다.')">
+					<button type="button" onclick="_nto.callTrack('6467', callback());click_tracking('건강기원 메시지 당첨자 발표');alert('당첨자는 10월 10일에 발표 될 예정입니다.')">
 						<img src="./images/main_sec1_2_btn.png" alt="">
 					</button>
 				</div>
@@ -205,11 +214,11 @@
 						<div class="info-box">
 							<!-- <img src="./images/main_sec3_infobox.jpg" alt=""> -->
 							<img src="./images/main_sec3_infobox.png" alt="">
-							<button type="button" onclick="_nto.callTrack('6468', callback());alert('당첨자는 11월 2일에 발표 될 예정입니다.')">
+							<button type="button" onclick="_nto.callTrack('6468', callback());click_tracking('인증 이벤트 당첨자 발표');alert('당첨자는 11월 2일에 발표 될 예정입니다.')">
 								<img src="./images/main_sec3_infobox_btn.jpg" alt="">
 							</button>
 						</div>
-						<button type="button" class="btn-verify" onclick="_nto.callTrack('6469', callback());alert('인증이벤트는 10월 15일부터 시작 될 예정입니다.')">
+						<button type="button" class="btn-verify" onclick="_nto.callTrack('6469', callback());click_tracking('인증 이벤트 참여');alert('인증이벤트는 10월 15일부터 시작 될 예정입니다.')">
 							<img src="./images/main_sec3_verify.jpg" alt="">
 						</button>
 						<!-- <div class="not-open">
@@ -291,19 +300,19 @@
 					<div class="list-campaign">
 						<div class="memory">
 							<img src="./images/main_sec4_memory1.png" alt="">
-							<a href="http://event4.hi-maumbot.co.kr" target="_blank" class="btn" onclick="_nto.callTrack('6458', callback());"></a>
+							<a href="http://event4.hi-maumbot.co.kr" target="_blank" class="btn" onclick="_nto.callTrack('6458', callback());click_tracking('지난캠페인-어서와,마음봇');"></a>
 						</div>
 						<div class="memory">
 							<img src="./images/main_sec4_memory2.png" alt="">
-							<a href="http://event3.hi-maumbot.co.kr" target="_blank" class="btn" onclick="_nto.callTrack('6459', callback());"></a>
+							<a href="http://event3.hi-maumbot.co.kr" target="_blank" class="btn" onclick="_nto.callTrack('6459', callback());click_tracking('지난캠페인-잃어버린 마음을 찾아주세요');"></a>
 						</div>
 						<div class="memory">
 							<img src="./images/main_sec4_memory3.png" alt="">
-							<a href="http://event2.hi-maumbot.co.kr" target="_blank" class="btn" onclick="_nto.callTrack('6460', callback());"></a>
+							<a href="http://event2.hi-maumbot.co.kr" target="_blank" class="btn" onclick="_nto.callTrack('6460', callback());click_tracking('지난캠페인-마음친구찾기');"></a>
 						</div>
 						<div class="memory">
 							<img src="./images/main_sec4_memory4.png" alt="">
-							<a href="http://event1.hi-maumbot.co.kr" target="_blank" class="btn" onclick="_nto.callTrack('6461', callback());"></a>
+							<a href="http://event1.hi-maumbot.co.kr" target="_blank" class="btn" onclick="_nto.callTrack('6461', callback());click_tracking('지난캠페인-그래도,천천히 크렴');"></a>
 						</div>
 					</div>
 					<div class="footer">
