@@ -90,7 +90,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 							</div>
 						</div>
 						<div class="btn-area _4">
-							<button type="button" id="submit-info" onclick="NTrackObj.callTrackTag('34106', callbackFn, 13294);">
+							<button type="button" id="submit-info" onclick="NTrackObj.callTrackTag('34106', callbackFn, 13294);click_tracking('STEP4-응모완료');">
 								<img src="./images/sub_step4_btn.jpg" alt="">
 							</button>
 						</div>
@@ -141,9 +141,9 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 				<div class="thanks-wrap">
 					<div class="thanks-area">
 						<div class="button-area">
-							<button class="kakao-btn" onclick="NTrackObj.callTrackTag('34107', callbackFn, 13294);kakao_send()"></button>
-							<button class="download-btn" onclick="NTrackObj.callTrackTag('34131', callbackFn, 13294);download_img()"></button>
-							<button class="confirm-btn" onclick="NTrackObj.callTrackTag('34108', callbackFn, 13294);location.href='index.php'"></button>
+							<button class="kakao-btn" onclick="NTrackObj.callTrackTag('34107', callbackFn, 13294);click_tracking('참여완료팝업-카카오톡전송');kakao_send()"></button>
+							<button class="download-btn" onclick="NTrackObj.callTrackTag('34131', callbackFn, 13294);click_tracking('참여완료팝업-다운로드');download_img()"></button>
+							<button class="confirm-btn" onclick="NTrackObj.callTrackTag('34108', callbackFn, 13294);click_tracking('참여완료팝업-확인');location.href='index.php'"></button>
 						</div>
 						<img src="./images/popup_thanks_bg.jpg" alt="">
 					</div>

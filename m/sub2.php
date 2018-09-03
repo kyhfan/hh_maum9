@@ -87,7 +87,7 @@
 						</div>
 					</div>
 				</div>
-				<button type="button" class="btn" onclick="_nto.callTrack('6453', callback());saveImageInfo()">
+				<button type="button" class="btn" onclick="_nto.callTrack('6453', callback());click_tracking('STEP2-메세지 배경화면 확인하기');saveImageInfo()">
 					<img src="./images/sub2_btn.jpg" alt="">
 				</button>
 				<div class="copyright">

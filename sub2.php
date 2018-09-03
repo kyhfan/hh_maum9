@@ -98,7 +98,7 @@ include_once "sub_head.php";
 					</div>
 					<div class="num-area"></div>
 					<div class="btn-area _2">
-						<button type="button" onclick="NTrackObj.callTrackTag('34104', callbackFn, 13294);saveImageInfo()">
+						<button type="button" onclick="NTrackObj.callTrackTag('34104', callbackFn, 13294);click_tracking('STEP2-메세지 배경화면 확인하기');saveImageInfo()">
 							<img src="./images/sub_step2_btn.png" alt="">
 						</button>
 					</div>

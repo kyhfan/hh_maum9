@@ -516,6 +516,19 @@ function download_img()
 
 }
 
+function click_tracking(click_name)
+{
+	$.ajax({
+		type   : "POST",
+		async  : false,
+		url    : "./main_exec.php",
+		data:{
+			"exec" 			: "insert_click_info",
+			"click_name"	: click_name
+		}
+	});
+}
+
 function kakao_send()
 {
 	// if (localStorage.type == 1)

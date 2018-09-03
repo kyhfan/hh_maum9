@@ -9,7 +9,10 @@ use GDText\Color;
 switch ($_REQUEST['exec'])
 {
 	case "insert_tracking_info" :
-		$log_query		= "INSERT INTO ".$_gl['tracking_info_table']."(tracking_media, tracking_refferer, tracking_ipaddr, tracking_date, tracking_gubun) values('".$_SESSION['ss_media']."','".$_SERVER['HTTP_REFERER']."','".$_SERVER['REMOTE_ADDR']."',now(),'".$gubun."')";
+        $mnv_f          = new mnv_function();
+        $my_db          = $mnv_f->Connect_MySQL();
+
+        $log_query		= "INSERT INTO tracking_info_9(tracking_media, tracking_refferer, tracking_ipaddr, tracking_date, tracking_gubun) values('".$_SESSION['ss_media']."','".$_SERVER['HTTP_REFERER']."','".$_SERVER['REMOTE_ADDR']."',now(),'".$gubun."')";
 		$log_result		= mysqli_query($my_db, $log_query);
 
 		if ($log_result)
@@ -20,12 +23,26 @@ switch ($_REQUEST['exec'])
 		echo $flag;
 	break;
 
+    case "insert_click_info" :
+        $mnv_f          = new mnv_function();
+        $my_db          = $mnv_f->Connect_MySQL();
+
+        $click_name 	= $_REQUEST['click_name'];
+
+        $click_query	= "INSERT INTO click_info_9(click_name, click_refferer, click_ipaddr, click_gubun, click_date) values ('".$click_name."','".$_SERVER['HTTP_REFERER']."','".$_SERVER['REMOTE_ADDR']."','".$gubun."','".date("Y-m-d H:i:s")."')";
+        $result			= mysqli_query($my_db, $click_query);
+
+    break;
+
 	case "insert_share_info" :
-		$sns_media		= $_REQUEST['sns_media'];
+        $mnv_f          = new mnv_function();
+        $my_db          = $mnv_f->Connect_MySQL();
+
+        $sns_media		= $_REQUEST['sns_media'];
 		$sns_flag			= $_REQUEST['sns_flag'];
 
 
-		$query 		= "INSERT INTO ".$_gl['share_info_table']."(sns_media, sns_gubun,sns_ipaddr, inner_media, sns_regdate) values('".$sns_media."','".$gubun."','".$_SERVER['REMOTE_ADDR']."','".$_SESSION['ss_media']."','".date("Y-m-d H:i:s")."')";
+		$query 		= "INSERT INTO share_info_9(sns_media, sns_gubun,sns_ipaddr, inner_media, sns_regdate) values('".$sns_media."','".$gubun."','".$_SERVER['REMOTE_ADDR']."','".$_SESSION['ss_media']."','".date("Y-m-d H:i:s")."')";
 		$result 	= mysqli_query($my_db, $query);
 
 		if ($result)

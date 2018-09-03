@@ -438,6 +438,19 @@ function nextPage(page)
 	location.href = "sub"+page+".php";
 }
 
+function click_tracking(click_name)
+{
+	$.ajax({
+		type   : "POST",
+		async  : false,
+		url    : "../main_exec.php",
+		data:{
+			"exec" 			: "insert_click_info",
+			"click_name"	: click_name
+		}
+	});
+}
+
 function saveImageInfo()
 {
 	var BgImageType		= realIdx;

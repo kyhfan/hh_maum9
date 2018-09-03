@@ -94,7 +94,7 @@
 						</div>
 					</div>
 				</div>
-				<button type="button" class="btn" id="submit-info" onclick="_nto.callTrack('6455', callback());">
+				<button type="button" class="btn" id="submit-info" onclick="_nto.callTrack('6455', callback());click_tracking('STEP4-응모완료');">
 					<img src="./images/sub4_btn.jpg" alt="">
 				</button>
 				<div class="copyright">
@@ -122,13 +122,13 @@
 					<img src="./images/popup_thanks_title.png" alt="">
 				</div>
 				<div class="btn-group">
-					<button type="button" class="btn" onclick="_nto.callTrack('6456', callback());kakao_send()">
+					<button type="button" class="btn" onclick="_nto.callTrack('6456', callback());click_tracking('참여완료팝업-카카오톡전송');kakao_send()">
 						<img src="./images/popup_thanks_btn1.png" alt="">
 					</button>
-					<button type="button" class="btn" onclick="_nto.callTrack('6474', callback());download_img()">
+					<button type="button" class="btn" onclick="_nto.callTrack('6474', callback());click_tracking('참여완료팝업-다운로드');download_img()">
 						<img src="./images/popup_thanks_btn2.png" alt="">
 					</button>
-					<button type="button" class="btn" onclick="_nto.callTrack('6457', callback());location.href='index.php'">
+					<button type="button" class="btn" onclick="_nto.callTrack('6457', callback());click_tracking('참여완료팝업-확인');location.href='index.php'">
 						<img src="./images/popup_thanks_btn3.png" alt="">
 					</button>
 				</div>
