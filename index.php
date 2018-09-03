@@ -1,6 +1,4 @@
 <?
-    if ($_SERVER["REMOTE_ADDR"] != "61.40.46.41")
-        exit;
     include_once "./include/autoload.php";
 
     $mnv_f 			= new mnv_function();
