@@ -11,6 +11,7 @@ switch ($_REQUEST['exec'])
 	case "insert_tracking_info" :
         $mnv_f          = new mnv_function();
         $my_db          = $mnv_f->Connect_MySQL();
+        $gubun          = $mnv_f->MobileCheck();
 
         $log_query		= "INSERT INTO tracking_info_9(tracking_media, tracking_refferer, tracking_ipaddr, tracking_date, tracking_gubun) values('".$_SESSION['ss_media']."','".$_SERVER['HTTP_REFERER']."','".$_SERVER['REMOTE_ADDR']."',now(),'".$gubun."')";
 		$log_result		= mysqli_query($my_db, $log_query);
@@ -26,6 +27,7 @@ switch ($_REQUEST['exec'])
     case "insert_click_info" :
         $mnv_f          = new mnv_function();
         $my_db          = $mnv_f->Connect_MySQL();
+        $gubun          = $mnv_f->MobileCheck();
 
         $click_name 	= $_REQUEST['click_name'];
 
@@ -37,6 +39,7 @@ switch ($_REQUEST['exec'])
 	case "insert_share_info" :
         $mnv_f          = new mnv_function();
         $my_db          = $mnv_f->Connect_MySQL();
+        $gubun          = $mnv_f->MobileCheck();
 
         $sns_media		= $_REQUEST['sns_media'];
 		$sns_flag			= $_REQUEST['sns_flag'];
@@ -57,6 +60,7 @@ switch ($_REQUEST['exec'])
 	case "insert_member_info" :
         $mnv_f          = new mnv_function();
         $my_db          = $mnv_f->Connect_MySQL();
+        $gubun          = $mnv_f->MobileCheck();
 
         $mb_name		=	$_REQUEST["mb_name"];
         $mb_phone		=	$_REQUEST["mb_phone"];
