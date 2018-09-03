@@ -71,16 +71,17 @@ switch ($_REQUEST['exec'])
         $mb_type		=	$_REQUEST["mb_type"];
         $mb_size		=	$_REQUEST["mb_size"];
 
-        $url = 'http://api2.tnkfactory.com/tnk/ad.g.ad';
-		$param = array(
-			// 'appkey'   	=> "2fb0f2a8455971b5baafbeaf44c39265",
-			'adkey'   	=> $_SESSION['ss_adkey']
-		);
+        // $url = 'http://api2.tnkfactory.com/tnk/ad.g.ad';
+        $url = 'http://api2.tnkfactory.com/tnk/api/postback/v2/'.$_SESSION['ss_adkey'].'?event=action_complete';
+		// $param = array(
+		// 	// 'appkey'   	=> "2fb0f2a8455971b5baafbeaf44c39265",
+		// 	'adkey'   	=> $_SESSION['ss_adkey']
+		// );
 	 
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_POST, 1);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($param));
+		// curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($param));
 		 
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
