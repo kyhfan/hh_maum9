@@ -183,7 +183,8 @@ $(function(){
 //	}
 //	share.bind();
 	
-	$("#submit-info").on("click", function(){
+	$("#submit-info").one("click", function(event){
+		$(this).off(event);
 		var mb_name 	= $("#mb_name").val();
 		var mb_phone1 	= $("#mb_phone1").val();
 		var mb_phone2 	= $("#mb_phone2").val();
