@@ -42,23 +42,42 @@
 		unset($pc_cnt);
 		unset($mobile_cnt);
 		unset($total_cnt);
-
+		// unset($pc_unique_cnt);
+		// unset($mobile_unique_cnt);
+		// unset($media_unique_cnt);
+		// unset($daily_unique_tracking_count);
+		// unset($total_unique_media_cnt);
 		$total_media_cnt = 0;
 		$total_mobile_cnt = 0;
 		$total_pc_cnt = 0;
-
+		// $total_unique_media_cnt = 0;
+		// $total_unique_mobile_cnt = 0;
+		// $total_unique_pc_cnt = 0;
+		// $daily_unique_tracking_query = "SELECT * FROM ".$_gl['tracking_info_table']." WHERE 1 AND tracking_date LIKE '%".$daily_date."%' GROUP BY tracking_ipaddr";
+		// $daily_unique_tracking_res = mysqli_query($my_db, $daily_unique_tracking_query);
+		// $daily_unique_tracking_count = mysqli_num_rows($daily_unique_tracking_res);
 		while ($media_daily_data = mysqli_fetch_array($media_res))
 		{
 			$media_name[]	= $media_daily_data['tracking_media'];
 			$media_cnt[]	= $media_daily_data['media_cnt'];
-			$pc_query		= "SELECT * FROM tracking_info_9 WHERE 1 AND tracking_date LIKE  '%".$daily_date."%' AND tracking_media='".$media_daily_data['tracking_media']."' AND tracking_gubun='PC' ";
+//			$pc_query		= "SELECT * FROM tracking_info WHERE 1 AND tracking_date LIKE  '%".$daily_date."%' AND tracking_media='".$media_daily_data['tracking_media']."' AND tracking_gubun='PC' AND tracking_refferer NOT LIKE '%game.php%' AND tracking_refferer NOT LIKE '%index.php%'";
+			$pc_query		= "SELECT * FROM tracking_info WHERE 1 AND tracking_date LIKE  '%".$daily_date."%' AND tracking_media='".$media_daily_data['tracking_media']."' AND tracking_gubun='PC' ";
 			$pc_count		= mysqli_num_rows(mysqli_query($my_db, $pc_query));
-			$mobile_query	= "SELECT * FROM tracking_info_9 WHERE 1 AND tracking_date LIKE  '%".$daily_date."%' AND tracking_media='".$media_daily_data['tracking_media']."' AND tracking_gubun='MOBILE'";
+//			$mobile_query	= "SELECT * FROM tracking_info WHERE 1 AND tracking_date LIKE  '%".$daily_date."%' AND tracking_media='".$media_daily_data['tracking_media']."' AND tracking_gubun='MOBILE' AND tracking_refferer NOT LIKE '%game.php%' AND tracking_refferer NOT LIKE '%index.php%'";
+			$mobile_query	= "SELECT * FROM tracking_info WHERE 1 AND tracking_date LIKE  '%".$daily_date."%' AND tracking_media='".$media_daily_data['tracking_media']."' AND tracking_gubun='MOBILE'";
 			$mobile_count	= mysqli_num_rows(mysqli_query($my_db, $mobile_query));
-
+			// $pc_unique_query		= "SELECT * FROM ".$_gl['tracking_info_table']." WHERE 1 AND tracking_date LIKE  '%".$daily_date."%' AND tracking_media='".$media_daily_data['tracking_media']."' AND tracking_gubun='PC' GROUP BY tracking_ipaddr";
+			// $pc_unique_count		= mysqli_num_rows(mysqli_query($my_db, $pc_unique_query));
+			// $mobile_unique_query	= "SELECT * FROM ".$_gl['tracking_info_table']." WHERE 1 AND tracking_date LIKE  '%".$daily_date."%' AND tracking_media='".$media_daily_data['tracking_media']."' AND tracking_gubun='MOBILE' GROUP BY tracking_ipaddr";
+			// $mobile_unique_count	= mysqli_num_rows(mysqli_query($my_db, $mobile_unique_query));
 			$pc_cnt[]		= $pc_count;
 			$mobile_cnt[]	= $mobile_count;
 			$total_cnt[]	= $pc_count + $mobile_count;
+			// $pc_unique_cnt[]		= $pc_unique_count;
+			// $mobile_unique_cnt[]	= $mobile_unique_count;
+			// $media_unique_cnt[]	= $pc_unique_count + $mobile_unique_count;
+
+
 		}
 
 		$rowspan_cnt =  count($media_name);
