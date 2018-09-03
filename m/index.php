@@ -153,7 +153,7 @@
 	$total_result 	= mysqli_query($my_db, $total_query);
 	$total_count	= mysqli_num_rows($total_result);
 	
-	$query 		= "SELECT * FROM member_info_9 WHERE mb_serial <> '' ORDER BY idx DESC LIMIT 100";
+    $query 		= "SELECT * FROM member_info_9 WHERE mb_serial <> '' GROUP BY mb_serial ORDER BY idx DESC LIMIT 100";
     $result 	= mysqli_query($my_db, $query);
 
     while ($data = mysqli_fetch_array($result))
