@@ -34,27 +34,27 @@
 					<div class="slide-wrap">
 						<div class="letter-paper"></div>
 						<div class="text-area">
-							<div class="text-line headline">
+							<div class="text-line text-group headline keydownTarget">
 								<span>To.</span>
 								<input type="text" id="msg_to" placeholder="받으시는 분">
 							</div>
-							<div class="text-line">
+							<div class="text-line text-group">
 								<input type="text" class="keydownTarget" id="msg_conntent1" placeholder="내용을 입력해 주세요">
 								<span id="msg_conntent1_span" style="display: block; visibility:hidden; position:absolute; top:-10000px; font-size:15px;"></span>
 							</div>
-							<div class="text-line">
+							<div class="text-line text-group">
 								<input type="text" class="keydownTarget" id="msg_conntent2">
 								<span id="msg_conntent2_span" style="display: block; visibility:hidden; position:absolute; top:-10000px; font-size:15px;"></span>
 							</div>
-							<div class="text-line">
+							<div class="text-line text-group">
 								<input type="text" class="keydownTarget" id="msg_conntent3">
 								<span id="msg_conntent3_span" style="display: block; visibility:hidden; position:absolute; top:-10000px; font-size:15px;"></span>
 							</div>
-							<div class="text-line">
+							<div class="text-line text-group">
 								<input type="text" class="keydownTarget" id="msg_conntent4">
 								<span id="msg_conntent4_span" style="display: block; visibility:hidden; position:absolute; top:-10000px; font-size:15px;"></span>
 							</div>
-							<div class="text-line headline">
+							<div class="text-line text-group headline bottom keydownTarget">
 								<span>From.</span>
 								<input type="text" id="msg_from" placeholder="보내시는 분">
 							</div>
@@ -117,7 +117,7 @@
 			$('.keydownTarget').off().on('keydown', function(e) {
 				var this_val 	= $(this).val();
 				$("#"+$(this).attr("id")+"_span").text(this_val);
-				console.log($("#"+$(this).attr("id")+"_span").outerWidth());
+//				console.log($("#"+$(this).attr("id")+"_span").outerWidth());
 				if ($("#"+$(this).attr("id")+"_span").outerWidth() > 150) {
 					// 현재 인풋에서 마지막 문자 삭제
 					$(this).val($(this).val().slice(0, -1));
@@ -126,6 +126,24 @@
 //					console.log(chr_byte(last_str));
 //					$(this).closest('.text-line').next().find('input').val(last_str);
 					$(this).closest('.text-line').next().find('input').focus().val('');
+				}
+				
+				if(e.keyCode == 13) {
+					if($(this).closest('.text-group').hasClass('bottom')) {
+						//					console.log("if");
+						$(this).closest('.text-area').find('.text-group:first-child').find('input').focus();
+					} else {
+						//					console.log("asd");
+						$(this).closest('.text-group').next().find('input').focus();
+					}
+				}
+				
+				if(e.keyCode == 8) {
+					if(!$(this).is('.text-group:first-child')) {
+						if($(this).val().length<=0) {
+							$(this).closest('.text-group').prev().find('input').focus();
+						}
+					}
 				}
 			});
 			

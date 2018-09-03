@@ -140,6 +140,13 @@ include_once "sub_head.php";
 					$(this).closest('.text-group').next().find('input').focus();
 				}
 			}
+			if(e.keyCode == 8) {
+				if(!$(this).is('.text-group:first-child')) {
+					if($(this).val().length<=0) {
+						$(this).closest('.text-group').prev().find('input').focus();
+					}
+				}
+			}
 		})
 		$('.text-line input').on('keyup', function(e) {
 			e.stopPropagation();
