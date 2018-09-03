@@ -71,6 +71,24 @@ switch ($_REQUEST['exec'])
         $mb_type		=	$_REQUEST["mb_type"];
         $mb_size		=	$_REQUEST["mb_size"];
 
+        $url = 'http://api2.tnkfactory.com/tnk/ad.g.ad';
+		$param = array(
+			'appkey'   	=> "2fb0f2a8455971b5baafbeaf44c39265",
+			'adkey'   	=> $_SESSION['ss_adkey']
+		);
+	 
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($param));
+		 
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+		 
+		$contents = curl_exec($ch);
+		curl_close($ch);
+
 
 		$query 		= "INSERT INTO member_info_9(mb_ipaddr, mb_name, mb_phone, mb_type, mb_size, mb_zipcode, mb_addr1, mb_addr2, mb_serial, mb_gubun, mb_media, mb_regdate) values('".$_SERVER['REMOTE_ADDR']."','".$mb_name."','".$mb_phone."','".$mb_type."','".$mb_size."','".$mb_zipcode."','".$mb_addr1."','".$mb_addr2."','".$mb_serial."','".$gubun."','".$_SESSION['ss_media']."','".date("Y-m-d H:i:s")."')";
 		$result 	= mysqli_query($my_db, $query);
