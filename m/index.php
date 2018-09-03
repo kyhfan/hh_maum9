@@ -7,7 +7,11 @@
     // $obYN          = $mnv_f->BrowserCheck();
     $IEYN          = $mnv_f->IECheck();
     $SafariYN          = $mnv_f->SafariCheck();
-    // print_r($_SERVER["HTTP_USER_AGENT"]);
+	// print_r($_SERVER["HTTP_USER_AGENT"]);
+	
+	$adkey					= $_REQUEST['adkey'];
+    $_SESSION['ss_adkey']	= $adkey;
+
     if ($mobileYN == "PC")
     {
         echo "<script>location.href='../index.php?media=".$_REQUEST["media"]."';</script>";
