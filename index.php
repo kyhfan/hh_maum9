@@ -14,7 +14,7 @@
 
     if ($mobileYN == "MOBILE")
     {
-        echo "<script>location.href='m/index.php?media=".$_REQUEST["media"]."';</script>";
+        echo "<script>location.href='m/index.php?media=".$_REQUEST["media"]."&adkey=".$adkey."';</script>";
     }else{
         $saveMedia     = $mnv_f->SaveMedia();
         $rs_tracking   = $mnv_f->InsertTrackingInfo($mobileYN);
@@ -31,11 +31,7 @@
     <meta property="og:url" content="https://www.hi-maumbot.co.kr" />
     <meta property="og:image" content="https://www.hi-maumbot.co.kr/images/share_image.jpg" />
     <meta property="og:description" content="당신의 건강을 위한 메시지가 도착했어요 답장 보내고 마음봇 건강세트를 받아보세요!" />
-<<<<<<< HEAD
-	<title>[현대해상] 우리가족 튼튼 메신저</title>
-=======
     <title>[현대해상] 우리가족 튼튼 메신저</title>
->>>>>>> 55fa1c1738f3a7601c5c2a748ca2a0427943ab4f
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/main.css">
