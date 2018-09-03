@@ -1,5 +1,9 @@
 <?php
-include_once "../config.php";
+	// 설정파일
+	include_once "../include/autoload.php";
+
+	$mnv_f = new mnv_function();
+	$my_db         = $mnv_f->Connect_MySQL();
 /**
  * PHPExcel
  *
@@ -40,7 +44,7 @@ if (PHP_SAPI == 'cli')
 require_once '../lib/PHPExcel-1.8/Classes/PHPExcel.php';
 
 $todayDate =  $_REQUEST['date'];
-$click_query	= "SELECT click_name, COUNT( click_name ) click_name_cnt FROM ".$_gl['click_info_table']." WHERE 1 AND click_date LIKE '%".$todayDate."%' GROUP BY click_name";
+$click_query	= "SELECT click_name, COUNT( click_name ) click_name_cnt FROM click_info_9 WHERE 1 AND click_date LIKE '%".$todayDate."%' GROUP BY click_name";
 $click_res		= mysqli_query($my_db, $click_query);
 // Create new PHPExcel object
 $objPHPExcel = new PHPExcel();
@@ -67,9 +71,9 @@ while ($click_daily_data = mysqli_fetch_array($click_res))
 {
     $click_name[]	= $click_daily_data['click_name'];
     $click_cnt[]	= $click_daily_data['click_name_cnt'];
-    $pc_query		= "SELECT * FROM ".$_gl['click_info_table']." WHERE 1 AND click_date LIKE  '%".$todayDate."%' AND click_name='".$click_daily_data['click_name']."' AND click_gubun='PC'";
+    $pc_query		= "SELECT * FROM click_info_9 WHERE 1 AND click_date LIKE  '%".$todayDate."%' AND click_name='".$click_daily_data['click_name']."' AND click_gubun='PC'";
     $pc_count		= mysqli_num_rows(mysqli_query($my_db, $pc_query));
-    $mobile_query	= "SELECT * FROM ".$_gl['click_info_table']." WHERE 1 AND click_date LIKE  '%".$todayDate."%' AND click_name='".$click_daily_data['click_name']."' AND click_gubun='MOBILE'";
+    $mobile_query	= "SELECT * FROM click_info_9 WHERE 1 AND click_date LIKE  '%".$todayDate."%' AND click_name='".$click_daily_data['click_name']."' AND click_gubun='MOBILE'";
     $mobile_count	= mysqli_num_rows(mysqli_query($my_db, $mobile_query));
     $pc_cnt[]		= $pc_count;
     $mobile_cnt[]	= $mobile_count;

@@ -4,14 +4,7 @@
 
 	$mnv_f = new mnv_function();
 	$my_db         = $mnv_f->Connect_MySQL();
-/*
-	if (isset($_SESSION['ss_mb_id']) == false)
-	{
-		//header('Location: index.php');
-		echo "<script>location.href='index.php'</script>";
-		exit;
-	}
-*/
+
 	include "./head.php";
 
 ?>
