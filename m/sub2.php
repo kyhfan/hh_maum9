@@ -123,10 +123,20 @@
 					$(this).val($(this).val().slice(0, -1));
 					// 다음 인풋에 마지막 문자 삽입
 					var last_str	= this_val.substr(this_val.length - 1);
+//					console.log(chr_byte(last_str));
 //					$(this).closest('.text-line').next().find('input').val(last_str);
 					$(this).closest('.text-line').next().find('input').focus().val('');
 				}
 			});
+			
+//			function chr_byte(chr){
+//				console.log(escape(chr).length);
+//				if(escape(chr).length > 4) 
+//					return 2;  
+//				else  
+//					return 1;  
+//			}  
+
 
 //			function changeLine(th)
 //			{
