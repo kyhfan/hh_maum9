@@ -54,7 +54,7 @@
 								<input type="text" class="keydownTarget" id="msg_conntent4">
 								<span id="msg_conntent4_span" style="display: block; visibility:hidden; position:absolute; top:-10000px; font-size:15px;"></span>
 							</div>
-							<div class="text-line text-group headline bottom keydownTarget">
+							<div class="text-line text-group headline bottom">
 								<span>From.</span>
 								<input type="text" id="msg_from" placeholder="보내시는 분">
 							</div>
