@@ -121,10 +121,7 @@
 				// console.log($(this).val());
 				$(this).val(Hangul.a(Hangul.d(this_val)));
 				if (this_val != changeTxt)
-				{
-					$(this).blur();
-					$(this).focus();
-				}
+					$(this).blur().focus();
 
 				$("#"+$(this).attr("id")+"_span").text($(this).val());
 				// console.log($("#"+$(this).attr("id")+"_span").outerWidth());

@@ -122,10 +122,7 @@ include_once "sub_head.php";
 
 			$(this).val(Hangul.a(Hangul.d(this_val)));
 			if (this_val != changeTxt)
-			{
-				$(this).blur();
-				$(this).focus();
-			}
+				$(this).blur().focus();
 
 			$(this).siblings('.placeholder').hide();
 			$("#"+$(this).attr("id")+"_span").text(this_val);
