@@ -68,6 +68,17 @@ switch ($_REQUEST['exec'])
 		$result 	= mysqli_query($my_db, $query);
 	break;
 
+	case "insert_download" :
+        $mnv_f          = new mnv_function();
+        $my_db          = $mnv_f->Connect_MySQL();
+        $gubun          = $mnv_f->MobileCheck();
+
+        $mb_serial		= $_REQUEST['mb_serial'];
+
+		$query 		= "UPDATE member_info_9 SET mb_download='Y' WHERE mb_serial='".$mb_serial."'";
+		$result 	= mysqli_query($my_db, $query);
+	break;
+
 	case "insert_member_info" :
         $mnv_f          = new mnv_function();
         $my_db          = $mnv_f->Connect_MySQL();
