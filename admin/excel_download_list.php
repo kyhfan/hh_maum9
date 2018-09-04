@@ -83,13 +83,14 @@ $dataIdx = 2;
 foreach($buyer_info as $key => $val)
 {       
 	$address = $buyer_info[$key]['mb_addr1'].' '.$buyer_info[$key]['mb_addr2'];
+	$message = str_replace('<br>', "\n", $buyer_info[$key]['mb_message']);
     $objPHPExcel->setActiveSheetIndex(0)
                 ->setCellValue('A'.$dataIdx, $buyer_info[$key]['mb_name'])
                 ->setCellValue('B'.$dataIdx, $buyer_info[$key]['mb_phone'])
                 ->setCellValue('C'.$dataIdx, $buyer_info[$key]['mb_type'])
                 ->setCellValue('D'.$dataIdx, $buyer_info[$key]['mb_size'])
                 ->setCellValue('E'.$dataIdx, $address)
-                ->setCellValue('F'.$dataIdx, $buyer_info[$key]['mb_message'])
+                ->setCellValue('F'.$dataIdx, $message)
                 ->setCellValue('G'.$dataIdx, $buyer_info[$key]['mb_gubun'])
                 ->setCellValue('H'.$dataIdx, $buyer_info[$key]['mb_media'])
                 ->setCellValue('I'.$dataIdx, $buyer_info[$key]['mb_regdate']);

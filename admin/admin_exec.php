@@ -156,5 +156,23 @@
 
 			echo $flag;
 		break;
+			
+		case "image_display_edit" :
+			$mnv_f          = new mnv_function();
+			$my_db          = $mnv_f->Connect_MySQL();
+			
+			$idx			= $_REQUEST['mb_idx'];
+			$show_val		= $_REQUEST['mb_show'];
+				
+			$query	= "UPDATE member_info_9 SET mb_show='".$show_val."' WHERE idx='".$idx."'";
+			$result		= mysqli_query($my_db, $query);
+			
+			if($result)
+				$flag = "Y";
+			else 
+				$flag = "N";
+			
+			echo $flag;
+		break;
 	}
 ?>
