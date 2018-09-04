@@ -193,6 +193,7 @@ $(function(){
 		var mb_addr1 	= $("#mb_addr1").val();
 		var mb_addr2 	= $("#mb_addr2").val();
 		var mb_phone 	= mb_phone1 + mb_phone2 + mb_phone3;
+		var mb_message	= localStorage.BgTo+"<br>"+localStorage.BgMsg1+"<br>"+localStorage.BgMsg2+"<br>"+localStorage.BgMsg3+"<br>"+localStorage.BgMsg4+"<br>"+localStorage.BgFrom;
 
 		if (mb_name == "") {
 			alert("이름을 입력해 주세요.");
@@ -249,7 +250,8 @@ $(function(){
 				"mb_addr2"			: mb_addr2,
 				"mb_serial"			: localStorage.serial,
 				"mb_type"			: localStorage.type,
-				"mb_size"			: localStorage.size
+				"mb_size"			: localStorage.size,
+				"mb_message"		: mb_message
 			},
 			url: "../main_exec.php",
 			success: function(response){
@@ -463,6 +465,15 @@ function saveImageInfo()
 	var BgMsg4			= $("#msg_conntent4").val();
 	// var BgMsg5			= $("#msg_conntent5").val();
 
+	// localStorage.setItem('BgImageType', BgImageType);
+	localStorage.setItem('BgTo', BgTo);
+	localStorage.setItem('BgFrom', BgFrom);
+	localStorage.setItem('BgMsg1', BgMsg1);
+	localStorage.setItem('BgMsg2', BgMsg2);
+	localStorage.setItem('BgMsg3', BgMsg3);
+	localStorage.setItem('BgMsg4', BgMsg4);
+	// localStorage.setItem('BgMsg5', BgMsg5);
+	
 	if (BgTo == "")
 	{
 		alert("받으시는 분을 5글자 이내로 입력해 주세요.");
@@ -556,6 +567,16 @@ function kakao_send()
 		callback: function() {
 //					console.log("callback:"+res);
 			// shareEnd();
+		}
+	});
+
+	$.ajax({
+		type   : "POST",
+		async  : false,
+		url    : "../main_exec.php",
+		data:{
+			"exec"          : "insert_kakao_share",
+			"mb_serial"     : localStorage.serial
 		}
 	});
 }

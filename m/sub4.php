@@ -223,7 +223,17 @@
 				location.href = "./ajax_download.php?rs="+change_rs_img;
 <?
 	}
-?>				
+?>	
+				$.ajax({
+					type   : "POST",
+					async  : false,
+					url    : "../main_exec.php",
+					data:{
+						"exec"          : "insert_download",
+						"mb_serial"     : localStorage.serial
+					}
+				});
+
 			}
 
 
