@@ -120,7 +120,7 @@ include_once "sub_head.php";
 			var this_val 	= $(this).val();
 			$(this).siblings('.placeholder').hide();
 			$("#"+$(this).attr("id")+"_span").text(this_val);
-			console.log($("#"+$(this).attr("id")+"_span").outerWidth());
+//			console.log($("#"+$(this).attr("id")+"_span").outerWidth());
 			if ($("#"+$(this).attr("id")+"_span").outerWidth() > 150)
 			{
 				// 현재 인풋에서 마지막 문자 삭제
