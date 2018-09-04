@@ -113,19 +113,34 @@
 			// 		$(this).closest('.text-line').next().find('input').focus();
 			// 	}
 			// })
-			
-			$('.keydownTarget').off().on('keydown', function(e) {
+			var backKey	= 0;
+			$('.keydownTarget').on('keyup', function(e) {
 				var this_val 	= $(this).val();
-				$("#"+$(this).attr("id")+"_span").text(this_val);
-//				console.log($("#"+$(this).attr("id")+"_span").outerWidth());
+				var changeTxt	= Hangul.a(Hangul.d(this_val));
+				// console.log(Hangul.a(Hangul.d(this_val)));
+				// console.log($(this).val());
+				$(this).val(Hangul.a(Hangul.d(this_val)));
+				if (this_val != changeTxt)
+				{
+					$(this).blur();
+					$(this).focus();
+				}
+
+				$("#"+$(this).attr("id")+"_span").text($(this).val());
+				// console.log($("#"+$(this).attr("id")+"_span").outerWidth());
 				if ($("#"+$(this).attr("id")+"_span").outerWidth() > 150) {
+					backKey = 0;
 					// 현재 인풋에서 마지막 문자 삭제
 					$(this).val($(this).val().slice(0, -1));
 					// 다음 인풋에 마지막 문자 삽입
 					var last_str	= this_val.substr(this_val.length - 1);
-//					console.log(chr_byte(last_str));
-//					$(this).closest('.text-line').next().find('input').val(last_str);
-					$(this).closest('.text-line').next().find('input').focus().val('');
+					console.log(last_str);
+					$(this).closest('.text-line').next().find('input').focus().val(last_str);
+					// $(this).closest('.text-line').next().find('input').focus().val("");
+					// setCaretToPos($(this).closest('.text-line').next().find('input'), 1);
+					// $(this).closest('.text-line').next().find('input').val(last_str);
+					// $(this).closest('.text-line').next().find('input').focusend();
+					// $(this).closest('.text-line').next().find('input').focus().setCursorPosition(2);
 				}
 				
 				if(e.keyCode == 13) {
@@ -138,15 +153,54 @@
 					}
 				}
 				
+				// if(e.keyCode == 8) {
+				// 	if(!$(this).is('.text-group:first-child')) {
+				// 		if($(this).val().length<=0) {
+				// 			$(this).closest('.text-group').prev().find('input').focus();
+				// 		}
+				// 	}
+				// }
+				console.log(backKey);
 				if(e.keyCode == 8) {
 					if(!$(this).is('.text-group:first-child')) {
 						if($(this).val().length<=0) {
-							$(this).closest('.text-group').prev().find('input').focus();
+							if (backKey	== 1) {
+								$(this).closest('.text-group').prev().find('input').focus();
+								backKey = 0;
+							}
+							backKey	= 1;
 						}
 					}
 				}
+
 			});
 			
+			$.fn.focusend = function() {
+				var that = $(this);  // setTimeout 안에서 this는 window이기 때문에..
+				// ie에서 focus메서드가 정상적으로 실행되게 하기 위해 setTimeout함수 사용
+				window.setTimeout(function() {
+					//input 커서 마지막에 맞추기
+					var input = that;
+					var v = input.val();
+					input.focus().val('').val(v);
+				}, 50);	
+				return this; // 메서드 체이닝을 위해 this를 반환				
+			}
+
+			$.fn.setCursorPosition = function(pos) {
+				this.each(function(index, elem) {
+					if (elem.setSelectionRange) {
+					elem.setSelectionRange(pos, pos);
+					} else if (elem.createTextRange) {
+					var range = elem.createTextRange();
+					range.collapse(true);
+					range.moveEnd('character', pos);
+					range.moveStart('character', pos);
+					range.select();
+					}
+				});
+				return this;
+			};
 //			function chr_byte(chr){
 //				console.log(escape(chr).length);
 //				if(escape(chr).length > 4) 

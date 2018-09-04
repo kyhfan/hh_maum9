@@ -115,20 +115,29 @@ include_once "sub_head.php";
 		var prev_bot_idx = 4;
 
 		// $('.text-area input').on('keypress', function(e) {
-		$('.text-area input').on('keydown', function(e) {
+		$('.text-area input').on('keyup', function(e) {
 			e.stopPropagation();
 			var this_val 	= $(this).val();
+			var changeTxt	= Hangul.a(Hangul.d(this_val));
+
+			$(this).val(Hangul.a(Hangul.d(this_val)));
+			if (this_val != changeTxt)
+			{
+				$(this).blur();
+				$(this).focus();
+			}
+
 			$(this).siblings('.placeholder').hide();
 			$("#"+$(this).attr("id")+"_span").text(this_val);
-//			console.log($("#"+$(this).attr("id")+"_span").outerWidth());
+			console.log($("#"+$(this).attr("id")+"_span").outerWidth());
 			if ($("#"+$(this).attr("id")+"_span").outerWidth() > 150)
 			{
 				// 현재 인풋에서 마지막 문자 삭제
 				$(this).val($(this).val().slice(0, -1));
 				// 다음 인풋에 마지막 문자 삽입
 				var last_str	= this_val.substr(this_val.length - 1);
-//				$(this).closest('.text-group').next().find('input').val(last_str);
-				$(this).closest('.text-group').next().find('input').focus().val('');
+				$(this).closest('.text-group').next().find('input').focus().val(last_str);
+				// $(this).closest('.text-group').next().find('input').focus().val('');
 			}
 
 			if(e.keyCode == 13) {
