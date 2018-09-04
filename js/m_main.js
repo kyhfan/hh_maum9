@@ -558,6 +558,16 @@ function kakao_send()
 			// shareEnd();
 		}
 	});
+
+	$.ajax({
+		type   : "POST",
+		async  : false,
+		url    : "../main_exec.php",
+		data:{
+			"exec"          : "insert_kakao_share",
+			"mb_serial"     : localStorage.serial
+		}
+	});
 }
 
 function sns_share(media, flag)
