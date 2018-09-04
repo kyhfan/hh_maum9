@@ -1,5 +1,9 @@
 <?php
-include_once "../config.php";
+	// 설정파일
+	include_once "../include/autoload.php";
+
+	$mnv_f = new mnv_function();
+	$my_db         = $mnv_f->Connect_MySQL();
 /**
  * PHPExcel
  *
@@ -40,7 +44,7 @@ if (PHP_SAPI == 'cli')
 require_once '../lib/PHPExcel-1.8/Classes/PHPExcel.php';
 
 $todayDate =  $_REQUEST['date'];
-$media_query	= "SELECT tracking_media, COUNT( tracking_media ) media_cnt FROM ".$_gl['tracking_info_table']." WHERE 1 AND tracking_date LIKE '%".$todayDate."%' GROUP BY tracking_media";
+$media_query	= "SELECT tracking_media, COUNT( tracking_media ) media_cnt FROM tracking_info_9 WHERE 1 AND tracking_date LIKE '%".$todayDate."%' GROUP BY tracking_media";
 $media_res		= mysqli_query($my_db, $media_query);
 // Create new PHPExcel object
 $objPHPExcel = new PHPExcel();
@@ -65,12 +69,12 @@ $objPHPExcel->setActiveSheetIndex(0)
 
 while ($media_daily_data = mysqli_fetch_array($media_res))
 {
-    $media_name[]	= $media_daily_data['tracking_media'];
-    $media_cnt[]	= $media_daily_data['media_cnt'];
-    $pc_query		= "SELECT * FROM ".$_gl['tracking_info_table']." WHERE 1 AND tracking_date LIKE  '%".$todayDate."%' AND tracking_media='".$media_daily_data['tracking_media']."' AND tracking_gubun='PC' AND tracking_refferer NOT LIKE  '%media=%' ";
-    $pc_count		= mysqli_num_rows(mysqli_query($my_db, $pc_query));
-    $mobile_query	= "SELECT * FROM ".$_gl['tracking_info_table']." WHERE 1 AND tracking_date LIKE  '%".$todayDate."%' AND tracking_media='".$media_daily_data['tracking_media']."' AND tracking_gubun='MOBILE' AND tracking_refferer NOT LIKE  '%media=%'";
-    $mobile_count	= mysqli_num_rows(mysqli_query($my_db, $mobile_query));
+	$media_name[]	= $media_daily_data['tracking_media'];
+	$media_cnt[]	= $media_daily_data['media_cnt'];
+	$pc_query		= "SELECT * FROM tracking_info_9 WHERE 1 AND tracking_date LIKE  '%".$daily_date."%' AND tracking_media='".$media_daily_data['tracking_media']."' AND tracking_gubun='PC' ";
+	$pc_count		= mysqli_num_rows(mysqli_query($my_db, $pc_query));
+	$mobile_query	= "SELECT * FROM tracking_info_9 WHERE 1 AND tracking_date LIKE  '%".$daily_date."%' AND tracking_media='".$media_daily_data['tracking_media']."' AND tracking_gubun='MOBILE'";
+	$mobile_count	= mysqli_num_rows(mysqli_query($my_db, $mobile_query));
     $pc_cnt[]		= $pc_count;
     $mobile_cnt[]	= $mobile_count;
     $total_cnt[]	= $pc_count + $mobile_count;
@@ -111,7 +115,7 @@ $objPHPExcel->setActiveSheetIndex(0)
 
 $objPHPExcel->getActiveSheet()->getStyle('A2')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
 // Rename worksheet
-$objPHPExcel->getActiveSheet()->setTitle('이브자리_유입데이터_'.$todayDate);
+$objPHPExcel->getActiveSheet()->setTitle('현대해상마음봇_유입데이터_'.$todayDate);
 
 
 // Set active sheet index to the first sheet, so Excel opens this as the first sheet
@@ -120,7 +124,7 @@ $objPHPExcel->setActiveSheetIndex(0);
 
 // Redirect output to a client’s web browser (Excel5)
 header('Content-Type: application/vnd.ms-excel');
-header('Content-Disposition: attachment;filename="이브자리_유입데이터_'.$todayDate.'.xls"');
+header('Content-Disposition: attachment;filename="현대해상마음봇_유입데이터_'.$todayDate.'.xls"');
 header('Cache-Control: max-age=0');
 // If you're serving to IE 9, then the following may be needed
 header('Cache-Control: max-age=1');

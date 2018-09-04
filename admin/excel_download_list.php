@@ -1,5 +1,9 @@
 <?php
-include_once "../config.php";
+	// 설정파일
+	include_once "../include/autoload.php";
+
+	$mnv_f = new mnv_function();
+	$my_db         = $mnv_f->Connect_MySQL();
 /**
  * PHPExcel
  *
@@ -43,9 +47,9 @@ $startDate =  $_REQUEST['sDate'];
 $endDate =  $_REQUEST['eDate'];
 $where = "";
 if($startDate != "" && $endDate != "") {
-    $where = "AND design_regdate >= '".$startDate."' AND design_regdate <= '".$endDate." 23:59:59'";
+    $where = "AND mb_regdate >= '".$startDate."' AND mb_regdate <= '".$endDate." 23:59:59'";
 }
-$list_query = "SELECT * FROM ".$_gl['design_info_table']." WHERE 1 ".$where."";
+$list_query = "SELECT * FROM member_info_9 WHERE 1 ".$where."";
 $list_res		= mysqli_query($my_db, $list_query);
 // Create new PHPExcel object
 $objPHPExcel = new PHPExcel();
@@ -64,11 +68,13 @@ $objPHPExcel->getProperties()->setCreator("minivertising")
 $objPHPExcel->setActiveSheetIndex(0)
             ->setCellValue('A1', '이름')
             ->setCellValue('B1', '전화번호')
-            ->setCellValue('C1', '선택한 테마')
-            ->setCellValue('D1', '선택한 제품')
-            ->setCellValue('E1', '유입매체')
-            ->setCellValue('F1', '유입구분')
-            ->setCellValue('G1', '참여일자');
+            ->setCellValue('C1', '선택배경이미지')
+            ->setCellValue('D1', '선택사이즈')
+            ->setCellValue('E1', '주소')
+            ->setCellValue('F1', '메시지내용')
+            ->setCellValue('G1', '유입구분')
+			->setCellValue('H1', '유입매체')
+			->setCellValue('I1', '참여일자');
 
 while ($buyer_data = @mysqli_fetch_array($list_res)) {
     $buyer_info[] = $buyer_data;
@@ -76,14 +82,17 @@ while ($buyer_data = @mysqli_fetch_array($list_res)) {
 $dataIdx = 2;
 foreach($buyer_info as $key => $val)
 {       
+	$address = $buyer_info[$key]['mb_addr1'].' '.$buyer_info[$key]['mb_addr2'];
     $objPHPExcel->setActiveSheetIndex(0)
-                ->setCellValue('A'.$dataIdx, $buyer_info[$key]['design_name'])
-                ->setCellValue('B'.$dataIdx, $buyer_info[$key]['design_phone'])
-                ->setCellValue('C'.$dataIdx, $buyer_info[$key]['design_cate'])
-                ->setCellValue('D'.$dataIdx, $buyer_info[$key]['design_goods'])
-                ->setCellValue('E'.$dataIdx, $buyer_info[$key]['design_media'])
-                ->setCellValue('F'.$dataIdx, $buyer_info[$key]['design_gubun'])
-                ->setCellValue('G'.$dataIdx, $buyer_info[$key]['design_regdate']);
+                ->setCellValue('A'.$dataIdx, $buyer_info[$key]['mb_name'])
+                ->setCellValue('B'.$dataIdx, $buyer_info[$key]['mb_phone'])
+                ->setCellValue('C'.$dataIdx, $buyer_info[$key]['mb_type'])
+                ->setCellValue('D'.$dataIdx, $buyer_info[$key]['mb_size'])
+                ->setCellValue('E'.$dataIdx, $address)
+                ->setCellValue('F'.$dataIdx, $buyer_info[$key]['mb_message'])
+                ->setCellValue('G'.$dataIdx, $buyer_info[$key]['mb_gubun'])
+                ->setCellValue('H'.$dataIdx, $buyer_info[$key]['mb_media'])
+                ->setCellValue('I'.$dataIdx, $buyer_info[$key]['mb_regdate']);
 
     $dataIdx++;
 }
@@ -94,7 +103,7 @@ foreach($buyer_info as $key => $val)
 
 // $objPHPExcel->getActiveSheet()->getStyle('A2')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
 // Rename worksheet
-$objPHPExcel->getActiveSheet()->setTitle('이브자리_디자인투표참여자목록_'.date("Ymd"));
+$objPHPExcel->getActiveSheet()->setTitle('현대해상마음봇_참여자리스트데이터'.date("Ymd"));
 
 
 // Set active sheet index to the first sheet, so Excel opens this as the first sheet
@@ -103,7 +112,7 @@ $objPHPExcel->setActiveSheetIndex(0);
 
 // Redirect output to a client’s web browser (Excel5)
 header('Content-Type: application/vnd.ms-excel');
-header('Content-Disposition: attachment;filename="이브자리_디자인투표참여자목록_'.date("Ymd").'.xls"');
+header('Content-Disposition: attachment;filename="현대해상마음봇_참여자리스트데이터'.date("Ymd").'.xls"');
 header('Cache-Control: max-age=0');
 // If you're serving to IE 9, then the following may be needed
 header('Cache-Control: max-age=1');

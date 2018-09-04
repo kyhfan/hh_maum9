@@ -82,9 +82,9 @@
 ?>
 										<td rowspan="<?=$rowspan_cnt?>">
 											<?php echo $daily_date?>
-											<!-- <a id="excelDown" href="excel_download_member.php?date=<?=$daily_date?>">
+											 <a id="excelDown" href="excel_download_member.php?date=<?=$daily_date?>">
 												<span>엑셀 다운로드</span>
-											</a> -->
+											</a> 
 										</td>
 <?
 			}

@@ -76,17 +76,17 @@
                 <option value="mb_phone" <?php if($search_type == "mb_phone"){?>selected<?php }?>>전화번호</option>
               </select>
               <input type="text" name="search_txt" value="<?php echo $search_txt?>">
-              <input type="text" id="sDate" name="sDate" value="<?=$sDate?>"> - <input type="text" id="eDate" name="eDate" value="<?=$eDate?>">
+				<input type="text" id="sDate" class="date-input" name="sDate" value="<?=$sDate?>"> - <input type="text" id="eDate" class="date-input" name="eDate" value="<?=$eDate?>">
 							<input type="submit" value="검색">
-							<!-- <a href="javascript:void(0)" id="excel_download_list">
+							 <a href="javascript:void(0)" id="excel_download_list">
 								<span>엑셀 다운로드</span>
-							</a> -->
+							</a> 
 			  <li align="right";>
 			  <?
-					$member = "SELECT count(idx) FROM member_info WHERE 1";
+					$member = "SELECT count(idx) FROM member_info_9 WHERE 1";
 					$res3 = mysqli_query($my_db, $member);
 					list($total_count)	= @mysqli_fetch_array($res3);
-					$uniqueMember = "SELECT count(*) FROM member_info WHERE 1 GROUP BY mb_phone";
+					$uniqueMember = "SELECT count(*) FROM member_info_9 WHERE 1 GROUP BY mb_phone";
 					$resUnique = mysqli_query($my_db, $uniqueMember);
 					$unique_total_count	= mysqli_num_rows($resUnique);
 					echo  "전체 참여자수 : $total_count / 유니크 : $unique_total_count";
@@ -103,6 +103,7 @@
                 <th>타입</th>
                 <th>사이즈</th>
                 <th>주소</th>
+                <th>메시지내용</th>
                 <th>유입구분</th>
                 <th>유입매체</th>
                 <th>참여일자</th>
@@ -138,12 +139,13 @@
 		$address = $buyer_info[$key]['mb_addr1'].' '.$buyer_info[$key]['mb_addr2'];
 ?>
               <tr>
-                <td><?php echo $PAGE_UNCOUNT--?></td>
+                <td><?php echo $PAGE_UNCOUNT-- ?></td>
                 <td><?php echo $buyer_info[$key]['mb_name']?></td>
                 <td><?php echo $buyer_info[$key]['mb_phone']?></td>
                 <td><?php echo $buyer_info[$key]['mb_type']?></td>
                 <td><?php echo $buyer_info[$key]['mb_size']?></td>
                 <td><?php echo $address?></td>
+                <td style="text-align: center"><?php echo $buyer_info[$key]['mb_message']?></td>
                 <td><?php echo $buyer_info[$key]['mb_gubun']?></td>
                 <td><?php echo $buyer_info[$key]['mb_media']?></td>
                 <td><?php echo $buyer_info[$key]['mb_regdate']?></td>
@@ -177,7 +179,24 @@
 		f.pg.value = num;
 		f.submit();
 	}
+	$('.date-input').on('click', function() {
+		$(this).css({
+			boxShadow: 'none'
+		})
+	})
 	$('#excel_download_list').on('click', function() {
+		if($('#sDate').val() == '' || $('#eDate').val() == '') {
+			alert('추출할 날짜를 입력해주세요!');
+			$('#sDate').css({
+				boxShadow: '0px 0px 5px 1px rgba(255, 0, 0, 0.3)',
+				border: 0
+			})
+			$('#eDate').css({
+				boxShadow: '0px 0px 5px 1px rgba(255, 0, 0, 0.3)',
+				border: 0
+			})
+			return false;
+		}
 		var $sDate = $('#sDate').val();
 		var $eDate = $('#eDate').val();
 		location.href="excel_download_list.php?sDate="+$sDate+"&eDate="+$eDate;

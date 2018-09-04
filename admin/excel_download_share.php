@@ -1,9 +1,9 @@
 <?php
-	// 설정파일
-	include_once "../include/autoload.php";
+// 설정파일
+include_once "../include/autoload.php";
 
-	$mnv_f = new mnv_function();
-	$my_db         = $mnv_f->Connect_MySQL();
+$mnv_f = new mnv_function();
+$my_db         = $mnv_f->Connect_MySQL();
 /**
  * PHPExcel
  *
@@ -44,45 +44,40 @@ if (PHP_SAPI == 'cli')
 require_once '../lib/PHPExcel-1.8/Classes/PHPExcel.php';
 
 $todayDate =  $_REQUEST['date'];
-$media_query	= "SELECT mb_media, COUNT( mb_media ) media_cnt FROM member_info_9 WHERE 1 AND mb_regdate LIKE  '%".$todayDate."%' GROUP BY mb_media";
+$media_query	= "SELECT sns_media, COUNT( sns_media ) media_cnt FROM share_info_9 WHERE sns_regdate LIKE  '%".$daily_date."%' GROUP BY sns_media";
 $media_res		= mysqli_query($my_db, $media_query);
-
-$unique_query	= "SELECT * FROM member_info_9 WHERE 1 AND mb_regdate LIKE '%".$todayDate."%' GROUP BY mb_ipaddr";
-$unique_count	= mysqli_num_rows(mysqli_query($my_db, $unique_query));
-
 // Create new PHPExcel object
 $objPHPExcel = new PHPExcel();
 
 // Set document properties
 $objPHPExcel->getProperties()->setCreator("minivertising")
-							 ->setLastModifiedBy("minivertising")
-							 ->setTitle("Office 2007 XLSX Member Data")
-							 ->setSubject("Office 2007 XLSX Member Data")
-							 ->setDescription("Report for Office 2007 XLSX, generated using PHP classes.")
-							 ->setKeywords("office 2007 openxml php")
-							 ->setCategory("data result file");
+	->setLastModifiedBy("minivertising")
+	->setTitle("Office 2007 XLSX Click Data")
+	->setSubject("Office 2007 XLSX Click Data")
+	->setDescription("Report for Office 2007 XLSX, generated using PHP classes.")
+	->setKeywords("office 2007 openxml php")
+	->setCategory("data result file");
 
 
 // Add some data
 $objPHPExcel->setActiveSheetIndex(0)
-            ->setCellValue('A1', '날짜')
-            ->setCellValue('B1', '유입매체')
-            ->setCellValue('C1', 'PC')
-            ->setCellValue('D1', 'Mobile')
-            ->setCellValue('E1', 'Unique')
-            ->setCellValue('F1', 'Total');
+	->setCellValue('A1', '날짜')
+	->setCellValue('B1', '공유매체')
+	->setCellValue('C1', 'PC')
+	->setCellValue('D1', 'Mobile')
+	->setCellValue('E1', 'Total');
 
 while ($media_daily_data = mysqli_fetch_array($media_res))
 {
-	$media_name[]	= $media_daily_data['mb_media'];
+	$media_name[]	= $media_daily_data['sns_media'];
 	$media_cnt[]	= $media_daily_data['media_cnt'];
-	$pc_query		= "SELECT * FROM member_info_9 WHERE 1 AND mb_regdate LIKE '%".$todayDate."%' AND mb_media='".$media_daily_data['mb_media']."' AND mb_gubun='PC'";
+	$pc_query		= "SELECT * FROM share_info_9 WHERE sns_regdate LIKE  '%".$daily_date."%' AND sns_media='".$media_daily_data['sns_media']."' AND sns_gubun='PC'";
 	$pc_count		= mysqli_num_rows(mysqli_query($my_db, $pc_query));
-	print_r($pc_count);
-	$mobile_query	= "SELECT * FROM member_info_9 WHERE 1 AND mb_regdate LIKE '%".$todayDate."%' AND mb_media='".$media_daily_data['mb_media']."' AND mb_gubun='MOBILE'";
+	$mobile_query	= "SELECT * FROM share_info_9 WHERE sns_regdate LIKE  '%".$daily_date."%' AND sns_media='".$media_daily_data['sns_media']."' AND sns_gubun='MOBILE'";
 	$mobile_count	= mysqli_num_rows(mysqli_query($my_db, $mobile_query));
 	$pc_cnt[]		= $pc_count;
 	$mobile_cnt[]	= $mobile_count;
+	$total_cnt[]	= $pc_count + $mobile_count;
 }
 $rowspan_cnt =  count($media_name)+1;
 $i = 0;
@@ -90,38 +85,37 @@ $dataIdx = 2;
 
 foreach($media_name as $key => $val)
 {
-    if($dataIdx == 2) {
-        $objPHPExcel->setActiveSheetIndex(0)
-                    ->setCellValue('A2', $todayDate)
-                    ->mergeCells('A2:A'.$rowspan_cnt)
-                    ->getColumnDimension('A')->setWidth(15);
-    }
+	if($dataIdx == 2) {
+		$objPHPExcel->setActiveSheetIndex(0)
+			->setCellValue('A2', $todayDate)
+			->mergeCells('A2:A'.$rowspan_cnt)
+			->getColumnDimension('A')->setWidth(15);
+	}
 
-    $objPHPExcel->setActiveSheetIndex(0)
-                ->setCellValue('B'.$dataIdx, $val)
-                ->setCellValue('C'.$dataIdx, number_format($pc_cnt[$i]))
-                ->setCellValue('D'.$dataIdx, number_format($mobile_cnt[$i]))
-                ->setCellValue('E'.$dataIdx, "-")
-                ->setCellValue('F'.$dataIdx, number_format($media_cnt[$i]));
+	$objPHPExcel->setActiveSheetIndex(0)
+		->setCellValue('B'.$dataIdx, $val)
+		->setCellValue('C'.$dataIdx, number_format($pc_cnt[$i]))
+		->setCellValue('D'.$dataIdx, number_format($mobile_cnt[$i]))
+		->setCellValue('E'.$dataIdx, number_format($click_cnt[$i]));
 
-    $total_media_cnt += $media_cnt[$i];
-    $total_mobile_cnt += $mobile_cnt[$i];
-    $total_pc_cnt += $pc_cnt[$i];
-    $i++;
-    $dataIdx++;
+	$total_media_cnt += $media_cnt[$i];
+	$total_mobile_cnt += $mobile_cnt[$i];
+	$total_pc_cnt += $pc_cnt[$i];
+	$i++;
+	$dataIdx++;
 }
 
 $objPHPExcel->setActiveSheetIndex(0)
-            ->setCellValue('A'.$dataIdx, '합계')
-            ->setCellValue('C'.$dataIdx, number_format($total_pc_cnt))
-            ->setCellValue('D'.$dataIdx, number_format($total_mobile_cnt))
-            ->setCellValue('E'.$dataIdx, number_format($unique_count))
-            ->setCellValue('F'.$dataIdx, number_format($total_media_cnt));
+	->setCellValue('A'.$dataIdx, '합계')
+	->setCellValue('C'.$dataIdx, number_format($total_pc_cnt))
+	->setCellValue('D'.$dataIdx, number_format($total_mobile_cnt))
+	->setCellValue('E'.$dataIdx, number_format($total_media_cnt));
 
 
 $objPHPExcel->getActiveSheet()->getStyle('A2')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
+$objPHPExcel->getActiveSheet()->getColumnDimension('B')->setWidth(20);
 // Rename worksheet
-$objPHPExcel->getActiveSheet()->setTitle('현대해상마음봇_참여자데이터_'.$todayDate);
+$objPHPExcel->getActiveSheet()->setTitle('현대해상어서와마음봇_공유데이터_'.$todayDate);
 
 
 // Set active sheet index to the first sheet, so Excel opens this as the first sheet
@@ -129,8 +123,8 @@ $objPHPExcel->setActiveSheetIndex(0);
 
 
 // Redirect output to a client’s web browser (Excel5)
-header('Content-Type: application/vnd.ms-excel');
-header('Content-Disposition: attachment;filename="현대해상마음봇_참여자데이터_'.$todayDate.'.xls"');
+header('Content-Type: application/vnd.ms-excel;');
+header('Content-Disposition: attachment;filename="현대해상어서와마음봇_공유데이터_'.$todayDate.'.xls"');
 header('Cache-Control: max-age=0');
 // If you're serving to IE 9, then the following may be needed
 header('Cache-Control: max-age=1');
