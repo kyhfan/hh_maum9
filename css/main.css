@@ -604,6 +604,57 @@ body {
 	width: 349px;
 	margin-left: 406px;
 }
+.section3-wrap .list-container {
+	width: 906px;
+	margin: 110px auto 0;
+	font-size: 0;
+}
+.section3-wrap .list-container .col {
+	width: 293px;
+	margin-right: 13px;
+	display: inline-block;
+	vertical-align: top;
+}
+.section3-wrap .list-container .col:last-child {
+	margin-right: 0;
+}
+.section3-wrap .list-container .col.indent {
+	padding-top: 26px;
+}
+.section3-wrap .list-container .col .box {
+	margin-bottom: 40px;
+	cursor: pointer;
+}
+.section3-wrap .list-container .col .box:last-child {
+	margin-bottom: 0;
+}
+.section3-wrap .list-container .col .box .img {
+	margin-bottom: 10px;
+	border-radius: 5px;
+	overflow: hidden;
+}
+.section3-wrap .list-container .col .box .hashtag {
+	font-size: 0;
+	text-align: center;
+}
+.section3-wrap .list-container .col .box .hashtag span {
+	display: inline-block;
+	line-height: 22px;
+	margin-right: 13px;
+	font-size: 17px;
+	color: #3e301d;
+	font-weight: 800;
+	letter-spacing: -0.4px;
+}
+.section3-wrap .list-container .col .box .hashtag span:last-child {
+	margin-right: 0;
+}
+.section3-wrap .btn-more {
+	display: block;
+	margin: 80px auto 0;
+}
+
+
 .section4-wrap {
 	position: relative;
 	background: url(../images/section4_bg.png) no-repeat center 0;

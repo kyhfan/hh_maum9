@@ -1,0 +1,161 @@
+<?
+include_once "./config.php";
+
+//$block_num 	= 12;
+//$page_num 	= $_REQUEST["page_num"];
+//$limit_num	= $page_num * $block_num;
+//$query 		= "SELECT * FROM verify_info9 WHERE verify_show='Y' ORDER BY idx DESC Limit ".$limit_num.", ".$block_num."";
+//// print_r($query);
+//$result 	= mysqli_query($my_db, $query);
+//
+//while ($data = mysqli_fetch_array($result))
+//{
+//	$verify_data[]	= $data;
+//}
+//
+//$i = 0;
+//$section1   = "";
+//$section2   = "";
+//$section3   = "";
+//foreach($verify_data as $key => $val)
+//{
+//	if ($i == 4)
+//		break;        
+//
+//	$htag_arr 	= explode(",",str_replace("#","",$val["verify_hashtag"]));
+//	if (!$htag_arr[0])
+//		$htag_arr[0] = "현대해상";
+//
+//	if (!$htag_arr[1])
+//		$htag_arr[1] = "마음봇건강키트";			
+//
+//	$val['verify_desc'] = str_replace('"','',$val['verify_desc']);
+//
+//	$section1   .= "<figure><div class='img'><a href='javascript:void(0)'><img src='./uploads/".$val["verify_directory"]."/".$val["verify_src"]."'></div>";
+//	// $section1   .= "<figure><div class='img'><a href='javascript:void(0)' onclick=open_detail('".$val["idx"]."');click_tracking('팝업-사진자세히보기');><img src='./uploads/".$val["verify_directory"]."/".$val["verify_src"]."'></div>";
+//	$section1   .= "<figcaption><span>#".$htag_arr[0]."</span><span>#".$htag_arr[1]."</span></figcaption></figure>";
+//
+//	$i++;
+//}
+
+//$k = 0;
+//foreach($verify_data as $key => $val)
+//{
+//	if ($k == 8) {
+//		break;
+//	}
+//	if ($k < $i) {
+//		$k++;
+//		continue;
+//	}
+//
+//	$htag_arr 	= explode(",",str_replace("#","",$val["verify_hashtag"]));
+//	if (!$htag_arr[0])
+//		$htag_arr[0] = "현대해상";
+//
+//	if (!$htag_arr[1])
+//		$htag_arr[1] = "마음봇건강키트";	
+//
+//	$val['verify_desc'] = str_replace('"','',$val['verify_desc']);
+//
+//	$section2   .= "<figure><div class='img'><a href='javascript:void(0)'><img src='./uploads/".$val["verify_directory"]."/".$val["verify_src"]."'></div>";
+//	// $section3   .= "<figure><div class='img'><a href='javascript:void(0)' onclick=open_detail('".$val["idx"]."');click_tracking('팝업-사진자세히보기')><img src='./uploads/".$val["verify_directory"]."/".$val["verify_src"]."'></div>";
+//	$section2   .= "<figcaption><span>#".$htag_arr[0]."</span><span>#".$htag_arr[1]."</span></figcaption></figure>";
+//
+//	$k++;
+//}
+//    $section2   .= "<figure><div class='img'><a href='javascript:void(0)'><img src='./images/intro_img_sample_4.jpg' style='display:none;'></a></div>";
+//    $section2   .= "<figcaption><span>#어서와마음봇</span><span>#마음봇</span></figcaption></figure>";
+//    $section2   .= "<figure><div class='img'><a href='javascript:void(0)'><img src='./images/intro_img_sample_4.jpg' style='display:none;'></a></div>";
+//    $section2   .= "<figcaption><span>#어서와마음봇</span><span>#마음봇</span></figcaption></figure>";
+//    $section2   .= "<figure><div class='img'><a href='javascript:void(0)'><img src='./images/intro_img_sample_4.jpg' style='display:none;'></a></div>";
+//    $section2   .= "<figcaption><span>#어서와마음봇</span><span>#마음봇</span></figcaption></figure>";
+//    $section2   .= "<figure><div class='img'><a href='javascript:void(0)'><img src='./images/intro_img_sample_4.jpg' style='display:none;'></a></div>";
+//    $section2   .= "<figcaption><span>#어서와마음봇</span><span>#마음봇</span></figcaption></figure>";
+
+//$j = 0;
+//foreach($verify_data as $key => $val)
+//{
+//	if ($j < $k)
+//	{
+//		$j++;
+//		continue;
+//	}
+//
+//	$htag_arr 	= explode(",",str_replace("#","",$val["verify_hashtag"]));
+//	if (!$htag_arr[0])
+//		$htag_arr[0] = "현대해상";
+//
+//	if (!$htag_arr[1])
+//		$htag_arr[1] = "마음봇건강키트";	
+//
+//	$val['verify_desc'] = str_replace('"','',$val['verify_desc']);
+//
+//	$section3   .= "<figure><div class='img'><a href='javascript:void(0)'><img src='./uploads/".$val["verify_directory"]."/".$val["verify_src"]."'></div>";
+//	// $section3   .= "<figure><div class='img'><a href='javascript:void(0)' onclick=open_detail('".$val["idx"]."');click_tracking('팝업-사진자세히보기')><img src='./uploads/".$val["verify_directory"]."/".$val["verify_src"]."'></div>";
+//	$section3   .= "<figcaption><span>#".$htag_arr[0]."</span><span>#".$htag_arr[1]."</span></figcaption></figure>";
+//
+//	$j++;
+//}
+
+for($i=1; $i<=3; $i++) {
+	for($j=0; $j<3; $j++) {
+		${'section'.$i} .=
+			"<div class='box'>
+				<div class='img'>
+					<img src='./images/main_sec3_box_sample1.jpg' alt=''>
+				</div>
+				<div class='hashtag'>
+					<span>#마음봇건강키트</span>
+					<span>#우리가족튼튼메신저</span>
+				</div>
+			</div>";
+	}
+}
+
+	
+	
+
+echo $section1."||".$section2."||".$section3;
+?>										
+<?php
+// $loadCount = $_REQUEST['loadCount'];
+
+// // DB
+// $content_user = "";
+// $content_insta = "";
+
+// for($i=0; $i<$loadCount; $i++)  {
+//     $content_user1 .= "<figure>
+//                         <div class='img'>
+//                             <img src>
+//                         </div>
+//                         <figcaption>
+//                             <span></span>
+//                             <span></span>
+//                         </figcaption>
+//                     </figure>";
+
+//     $content_insta .= "<figure>
+//                         <div class='img'>
+//                             <img src>
+//                         </div>
+//                         <figcaption>
+//                             <span></span>
+//                             <span></span>
+//                         </figcaption>
+//                     </figure>";
+
+//     $content_user3 .= "<figure>
+//                         <div class='img'>
+//                             <img src>
+//                         </div>
+//                         <figcaption>
+//                             <span></span>
+//                             <span></span>
+//                         </figcaption>
+//                     </figure>";
+// }
+// $contentArray = $content_user1.",".$content_insta.",".$content_user3;
+// echo $contentArray;
+?>
