@@ -35,22 +35,25 @@ include_once "sub_head.php";
 									<span>To.</span>
 									<div class="input"><input type="text" id="msg_to" class="placeholder-own"><label for="msg_to" class="placeholder">받으시는 분</label></div>
 								</div>
-								<div class="text-line2 text-group first">
-									<div class="input"><input type="text" id="msg_conntent1" class="placeholder-own"><label for="msg_conntent1" class="placeholder">내용을 입력해 주세요</label></div>
-									<span id="msg_conntent1_span" style="visibility:hidden; position:absolute; top:-10000px; font-size:15px;"></span>
-								</div>
-								<div class="text-line2 text-group">
-									<div class="input"><input type="text" id="msg_conntent2"></div>
-									<span id="msg_conntent2_span" style="visibility:hidden; position:absolute; top:-10000px; font-size:15px;"></span>
-								</div>
-								<div class="text-line2 text-group">
-									<div class="input"><input type="text" id="msg_conntent3"></div>
-									<span id="msg_conntent3_span" style="visibility:hidden; position:absolute; top:-10000px; font-size:15px;"></span>
-								</div>
-								<div class="text-line2 text-group">
-									<div class="input"><input type="text" id="msg_conntent4"></div>
-									<span id="msg_conntent4_span" style="visibility:hidden; position:absolute; top:-10000px; font-size:15px;"></span>
-								</div>
+								<!--
+<div class="text-line2 text-group first">
+<div class="input"><input type="text" id="msg_conntent1" class="placeholder-own"><label for="msg_conntent1" class="placeholder">내용을 입력해 주세요</label></div>
+<span id="msg_conntent1_span" style="visibility:hidden; position:absolute; top:-10000px; font-size:15px;"></span>
+</div>
+<div class="text-line2 text-group">
+<div class="input"><input type="text" id="msg_conntent2"></div>
+<span id="msg_conntent2_span" style="visibility:hidden; position:absolute; top:-10000px; font-size:15px;"></span>
+</div>
+<div class="text-line2 text-group">
+<div class="input"><input type="text" id="msg_conntent3"></div>
+<span id="msg_conntent3_span" style="visibility:hidden; position:absolute; top:-10000px; font-size:15px;"></span>
+</div>
+<div class="text-line2 text-group">
+<div class="input"><input type="text" id="msg_conntent4"></div>
+<span id="msg_conntent4_span" style="visibility:hidden; position:absolute; top:-10000px; font-size:15px;"></span>
+</div>
+-->
+								<textarea name="message" id="message-box"></textarea>
 								<!--
 <div class="text-line2 text-group">
 <div class="input"><input type="text" id="msg_conntent5"></div>
@@ -96,6 +99,7 @@ include_once "sub_head.php";
 							</button>
 						</div>
 					</div>
+					<textarea name="message" id="message-box"></textarea>
 					<div class="num-area"></div>
 					<div class="btn-area _2">
 						<button type="button" onclick="NTrackObj.callTrackTag('34104', callbackFn, 13294);click_tracking('STEP2-메세지 배경화면 확인하기');saveImageInfo()">
@@ -112,27 +116,61 @@ include_once "sub_head.php";
 		</div>
 	</div>
 	<script>
+		$('#message-box').on('keyup', function(e) {
+			e.stopPropagation();
+			e.preventDefault();
+			//			console.log($(this).val());
+			var messageLength = $(this).val().length;
+			var lineBreak = ($(this).val().match(/\n/g)||[]).length;
+
+			if(messageLength>0 && lineBreak<3 && messageLength%12 == 0 ) {
+				// 강제 개행
+				//				console.log("linebreak");
+				//				var lastStr = $(this).val().substr(messageLength - 1);
+				//				var sumText = '';
+				//				sumText += lastStr;
+				//				console.log(sumText);
+				//				console.log(messageLength);
+				//				console.log("asd");
+				$(this).val($(this).val() + '\r\n');
+			}
+			if(lineBreak > 3) {
+				$(this).val($(this).val().slice(0, -1));
+			} else {
+				//				console.log("line break else");
+			}
+			console.log($(this));
+			//			console.log(messageLength);
+		})
+
+
 		var prev_bot_idx = 4;
+		//		var last_str;
 		// $('.text-area input').on('keypress', function(e) {
 		$('.text-area input').on('keyup', function(e) {
 			e.stopPropagation();
 			var this_val 	= $(this).val();
-			var changeTxt	= Hangul.a(Hangul.d(this_val));
-			$(this).val(Hangul.a(Hangul.d(this_val)));
-			if (this_val != changeTxt)
-				$(this).blur().focus();
+			//			$(this).val(Hangul.assemble(this_val));
 			$(this).siblings('.placeholder').hide();
 			$("#"+$(this).attr("id")+"_span").text(this_val);
-			console.log($("#"+$(this).attr("id")+"_span").outerWidth());
+			//			console.log($("#"+$(this).attr("id")+"_span").outerWidth());
 			if ($("#"+$(this).attr("id")+"_span").outerWidth() > 150)
 			{
 				// 현재 인풋에서 마지막 문자 삭제
+				var last_str	= this_val.substr(this_val.length - 1);
 				$(this).val($(this).val().slice(0, -1));
 				// 다음 인풋에 마지막 문자 삽입
-				var last_str	= this_val.substr(this_val.length - 1);
-				$(this).closest('.text-group').next().find('input').focus().val(last_str);
-				// $(this).closest('.text-group').next().find('input').focus().val('');
+				//				$(this).closest('.text-group').next().find('input').val(last_str);
+				var nextInput = $(this).closest('.text-group').next().find('input');
+				//				console.log(last_str);
+				//				nextInput.focus().val(last_str);
+				nextInput.focus();
+				//				nextInput.focus().val(Hangul.assemble(nextInput.val()));
+
+			} else {
+				console.log(this_val);
 			}
+
 			if(e.keyCode == 13) {
 				if($(this).closest('.text-group').hasClass('bottom')) {
 					//					console.log("if");
@@ -150,6 +188,9 @@ include_once "sub_head.php";
 				}
 			}
 		})
+		$('.text-area input').on('focus', function() {
+			$(this).val(Hangul.assemble($(this).val()));
+		});
 		$('.text-line input').on('keyup', function(e) {
 			e.stopPropagation();
 			var maxByte = 10; //최대 입력 바이트 수
@@ -236,6 +277,7 @@ include_once "sub_head.php";
 					realIdx = this.slides[realIdx].id;
 					// console.log(this.slides[realIdx].id);
 					// console.log(realIdx);
+
 					// if (this.realIndex == 0)
 					// {
 					// 	if (prev_bot_idx > this.realIndex)
@@ -260,6 +302,7 @@ include_once "sub_head.php";
 					// 	else
 					// 		var  prevIdx = this.realIndex -1;
 					// }
+
 					// prev_bot_idx = this.realIndex;
 					// $('.slide-wrap .bot').removeClass('_'+prevIdx).addClass('_'+(this.realIndex));
 					$('.slide-wrap .bot').removeClass('_1');
@@ -274,6 +317,26 @@ include_once "sub_head.php";
 		// swiper.on('slideChangeTransitionEnd', function() {
 		// 	$('.slide-wrap .bot').removeClass('_'+this.previousIndex).addClass('_'+(this.realIndex));
 		// });
+
 	</script>
 </body>
 </html>
+
+
+
+
+<!--
+#message-box {
+display: block;
+margin: 5px auto 0;
+resize: none;
+width: 156px;
+/*	height: 103px;*/
+height: 105px;
+font-size: 15px;
+text-align: center;
+color: #47371f;
+line-height: 26px;
+overflow: hidden;
+word-break: break-all;
+}-->
