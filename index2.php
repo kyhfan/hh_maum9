@@ -762,7 +762,7 @@ $folder_name = mnv_phprandom::getString(16);
 				
 				var url = './upload.php?fid='+$("#folder_name").val();
 				var preview_width 	= $(".preview-zone").width();
-				var preview_height 	= $(".preview-zone").height();
+//				var preview_height 	= $(".preview-zone").height();
 				$('#file-upload, #re-upload').fileupload({
 					url: url,
 					dataType: 'json',
@@ -772,7 +772,7 @@ $folder_name = mnv_phprandom::getString(16);
 					disableImageResize: /Android(?!.*Chrome)|Opera/
 					.test(window.navigator.userAgent),
 					previewMaxWidth: preview_width,
-					previewMaxHeight: preview_height,
+//					previewMaxHeight: preview_height,
 					previewThumbnail: false,
 					previewCrop: false,
 					// disableImagePreview: true
@@ -790,13 +790,13 @@ $folder_name = mnv_phprandom::getString(16);
 						file = data.files[index],
 						node = $(data.context.children()[index]);
 					console.log(file);
-//					console.log(file.preview.width);
-//					console.log(file.preview.height);
+					console.log(file.preview.width);
+					console.log(file.preview.height);
 					var div_left 	= file.preview.width / 2;
 					var div_top 	= file.preview.height / 2;
 
-					$('#prev_thum').attr("style","position:absolute;top:50%;left:50%;margin-top:-"+div_top+"px;margin-left:-"+div_left+"px");
-//					$('#prev_thum').attr("style","position:absolute;top:16px;left:16px;bottom:16px;right:16px;");
+//					$('#prev_thum').attr("style","position:absolute;top:50%;left:50%;margin-top:-"+div_top+"px;margin-left:-"+div_left+"px");
+//					$('#prev_thum').attr("style","position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)");
 					$(".preview-zone #sample-image").hide();
 					$(".preview-zone label").hide();
 
@@ -824,7 +824,8 @@ $folder_name = mnv_phprandom::getString(16);
 						if (file.url) {
 							$("#file_url").val(file.url);
 							$("#prev_thum p").hide();
-							$("#prev_thum").append("<img id='img_set' src='"+file.mediumUrl+"' crossorigin>");
+//							$("#prev_thum").append("<img id='img_set' src='"+file.mediumUrl+"' crossorigin>");
+							$("#prev_thum").append("<img id='img_set' src='"+file.url+"' style='max-height:300px;opacity:0' crossorigin>");
 
 							setTimeout(function(){
 								$('#img_set').cropper({

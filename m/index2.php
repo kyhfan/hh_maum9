@@ -796,7 +796,7 @@ if ($mobileYN == "PC")
 						if (file.url) {
 							$("#file_url").val(file.url);
 							$("#prev_thum p").hide();
-							$("#prev_thum").append("<img id='img_set' src='"+file.url+"'>");
+							$("#prev_thum").append("<img id='img_set' src='"+file.url+"' style='max-height:350px;opacity:0;'>");
 							// $('#prev_thum').attr("style","position:absolute;top:50%;left:50%;margin-top:-"+div_top+"px;margin-left:-"+div_left+"px");
 
 							// setTimeout(function(){

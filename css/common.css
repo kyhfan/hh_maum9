@@ -400,7 +400,7 @@ html.popup-opened {
 .popup.picture .pic-frame {
 	position: relative;
 	width: 408px;
-	height: 230px;
+	min-height: 230px;
 	margin: 35px auto 17px;
 	background: url(../images/frame_tl.png) 0 0 / 13px 14px no-repeat,
 				url(../images/frame_tr.png) 100% 0 / 13px 14px no-repeat,
