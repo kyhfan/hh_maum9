@@ -103,7 +103,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 				</div>
 			</div>
 		</div>
-		<button id="popup-open-btn" data-popup="#popup-winner"></button>
+<!--		<button id="popup-open-btn" data-popup="#popup-winner"></button>-->
 		<!-- 개인정보 취급 위탁 약관 팝업 -->
 		<div class="popup agree1" id="popup-agree1">
 			<div class="inner">

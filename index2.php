@@ -19,6 +19,9 @@ if ($mobileYN == "MOBILE")
 	$saveMedia     = $mnv_f->SaveMedia();
 	$rs_tracking   = $mnv_f->InsertTrackingInfo($mobileYN);
 }
+
+// 파일 저장 폴더 생성용 난수 번호
+$folder_name = mnv_phprandom::getString(16);
 ?>
 	<!DOCTYPE html>
 	<html lang="en">
@@ -37,9 +40,27 @@ if ($mobileYN == "MOBILE")
 		<link rel="stylesheet" href="./css/common.css">
 		<link rel="stylesheet" href="./css/main.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/css/swiper.min.css">
+		<link rel="stylesheet" href="./lib/cropper/cropper.css">
 		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 		<link type="image/icon" rel="shortcut icon" href="https://www.hi-maumbot.co.kr/images/maum_favi.ico" />
 		<script src="./js/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript" src="./lib/cropper/cropper.min.js"></script>
+		<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+		<script src="./lib/jQuery-File-Upload/js/vendor/jquery.ui.widget.js"></script>
+		<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+		<script src="//blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
+		<!-- The Canvas to Blob plugin is included for image resizing functionality -->
+		<script src="//blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+		<!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
+		<!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
+		<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+		<!-- <script src="./lib/jQuery-File-Upload/js/jquery.iframe-transport.js"></script> -->
+		<!-- The basic File Upload plugin -->
+		<script src="./lib/jQuery-File-Upload/js/jquery.fileupload.js"></script>
+		<!-- The File Upload processing plugin -->
+		<script src="./lib/jQuery-File-Upload/js/jquery.fileupload-process.js"></script>
+		<!-- The File Upload image preview & resize plugin -->
+		<script src="./lib/jQuery-File-Upload/js/jquery.fileupload-image.js"></script>
 		<script src="./js/main.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/js/swiper.min.js"></script>
 		<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -216,7 +237,7 @@ if ($mobileYN == "MOBILE")
 							<button type="button" onclick="NTrackObj.callTrackTag('34125', callbackFn, 13294);click_tracking('인증 이벤트 당첨자 발표');alert('당첨자는 11월 2일에 발표 될 예정입니다.')"></button>
 						</div>
 					</div>
-					<button class="btn-verify" onclick="NTrackObj.callTrackTag('34126', callbackFn, 13294);click_tracking('인증 이벤트 참여');alert('인증이벤트는 10월 15일부터 시작 될 예정입니다.')">
+					<button class="btn-verify" onclick="NTrackObj.callTrackTag('34126', callbackFn, 13294);click_tracking('인증 이벤트 참여');alert('인증이벤트는 10월 15일부터 시작 될 예정입니다.')" data-popup="#popup-picture">
 						<img src="./images/section3_verify_btn.jpg" alt="">
 					</button>
 					<div class="list-container">
@@ -369,8 +390,6 @@ if ($mobileYN == "MOBILE")
 				</div>
 			</div>
 		</div>
-		<!-- <button id="popup-open-btn" data-popup="#popup-kitlist"></button> -->
-		<!-- 개인정보 취급 위탁 약관 팝업 -->
 		<div class="popup kitlist" id="popup-kitlist">
 			<div class="inner">
 				<div class="title">
@@ -431,26 +450,134 @@ if ($mobileYN == "MOBILE")
 			</div>
 			<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>
 		</div>
+		<input type="hidden" id="folder_name" value="<?=$folder_name?>">
+		<input type="hidden" id="file_url" value="">
+		<div class="popup picture" id="popup-picture">
+			<div class="inner">
+				<div class="title">
+					<img src="./images/popup_picture_title.png" alt="">
+				</div>
+				<div class="pic-frame preview-zone">
+					<div class="inner">
+						<label for="file-upload"></label>
+						<input type="file" id="file-upload" name="files[]" accept="image/*;capture=camera">
+						<img src="./images/popup_picture_sample.jpg" alt="" id="sample-image">
+					</div>
+				</div>
+				<div class="re-upload-btn">
+					<label for="re-upload"></label>
+					<input type="file" id="re-upload">
+					<img src="./images/popup_picture_reupload.png" alt="">
+				</div>
+				<button class="btn" onclick="getCropImage()">
+					<img src="./images/popup_picture_btn.jpg" alt="">
+				</button>
+			</div>
+			<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>
+		</div>
+		<div class="popup picture-input" id="popup-picture-input">
+			<div class="inner">
+				<div class="title">
+					<img src="./images/popup_picinput_title.png" alt="">
+				</div>
+				<div class="input-area">
+					<form method="post" id="picture-user-info">
+						<div class="input-group name">
+							<div class="guide">
+								<img src="./images/sub_step4_input_name.png" alt="">
+							</div>
+							<div class="input">
+								<input type="text" id="mb_name">
+							</div>
+						</div>
+						<div class="input-group phone">
+							<div class="guide">
+								<img src="./images/sub_step4_input_phone.png" alt="">
+							</div>
+							<div class="input">
+								<input type="tel" id="mb_phone1" onkeyup="lengthCheck(this, 3)">
+								<input type="tel" id="mb_phone2" onkeyup="lengthCheck(this, 4)">
+								<input type="tel" id="mb_phone3" onkeyup="lengthCheck(this, 4)">
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="terms-area">
+					<div class="row">
+						<div class="check" data-popup="#popup-agree2">
+							<input type="checkbox" class="checkbox" id="terms1" disabled>
+							<div class="checkbox-visual"></div>
+							<label for="terms1"><img src="./images/terms_label1.png" alt=""></label>
+						</div>
+						<div class="view">
+							<button type="button" data-popup="#popup-agree2"></button>
+						</div>
+					</div>
+					<div class="row _2">
+						<div class="check" data-popup="#popup-agree1">
+							<input type="checkbox" class="checkbox" id="terms2" disabled>
+							<div class="checkbox-visual"></div>
+							<label for="terms2"><img src="./images/terms_label2.png" alt=""></label>
+						</div>
+						<div class="view">
+							<button type="button" data-popup="#popup-agree1"></button>
+						</div>
+					</div>
+				</div>
+				<button class="btn" id="picture-input-btn">
+					<img src="./images/popup_picture_btn.jpg" alt="">
+				</button>
+			</div>
+			<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>
+		</div>
+		<div class="popup picture-result" id="popup-picture-result">
+			<div class="inner">
+				<img src="./images/popup_picresult_bg.jpg" alt="">
+				<button class="btn" data-popup="@close">
+					<img src="./images/popup_winner_confirm.png" alt="">
+				</button>
+			</div>
+			<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>
+		</div>
 		<!-- 개인정보 취급 위탁 약관 팝업 -->
-		<script>
-			// var swiper = new Swiper ('.slder-area', {
-			// 	// Optional parameters
-			// 	direction: 'horizontal',
-			// 	loop: true,
-			// 	slidesPerView: 'auto',
-			// 	slidesPerGroup: 5,
-			// 	// loopFillGroupWithBlank: true,
-			// 	spaceBetween: 22,
-			// 	// touchAngle: 75,
-			// 	navigation: {
-			// 		nextEl: '.button-next',
-			// 		prevEl: '.button-prev',
-			// 	}
-			// })
-			// $(window).on('load', function() {
-			// 	$('#popup-open-btn').trigger('click');
-			// });
+		<div class="popup agree1" id="popup-agree1">
+			<div class="inner">
+				<div class="agree1-wrap">
+					<div class="agree1-area">
+						<div class="button-area">
+							<button class="confirm-btn" onclick="check_agree('terms2','#popup-agree1')"></button>
+						</div>
+						<img src="./images/popup_agree1_bg.jpg" alt="">
+					</div>
+				</div>
+			</div>
+			<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>
+		</div>
+		<!-- 개인정보 취급 위탁 약관 팝업 -->
 
+		<!-- 개인정보 수집 및 이용에 관한 약관 팝업 -->
+		<div class="popup agree2" id="popup-agree2">
+			<div class="inner">
+				<div class="agree2-wrap">
+					<div class="agree2-area">
+						<div class="button-area">
+							<button class="confirm-btn" onclick="check_agree('terms1','#popup-agree2')"></button>
+						</div>
+						<img src="./images/popup_agree2_bg.jpg" alt="">
+					</div>
+				</div>
+			</div>
+			<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>
+		</div>
+		<!-- 개인정보 수집 및 이용에 관한 약관 팝업 -->
+<!--		<button id="popup-open-btn" data-popup="#popup-picture-input"></button> -->
+		<script>
+		
+//			팝업 오픈 샘플코드
+//			$(window).on('load', function() {
+//				$('#popup-open-btn').trigger('click');
+//			});
+			
 			var menuOffsetArray = [];
 			var sectionOffsetArray = [];
 			var menuWrapOffset = 0;
@@ -630,6 +757,182 @@ if ($mobileYN == "MOBILE")
 					}
 				});
 			});
+			$(function () {
+				'use strict';
+				
+				var url = './upload.php?fid='+$("#folder_name").val();
+				var preview_width 	= $(".preview-zone").width();
+				var preview_height 	= $(".preview-zone").height();
+				$('#file-upload, #re-upload').fileupload({
+					url: url,
+					dataType: 'json',
+					autoUpload: true,
+					acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+					maxFileSize: 10000000,
+					disableImageResize: /Android(?!.*Chrome)|Opera/
+					.test(window.navigator.userAgent),
+					previewMaxWidth: preview_width,
+					previewMaxHeight: preview_height,
+					previewThumbnail: false,
+					previewCrop: false,
+					// disableImagePreview: true
+					// imageCrop: true
+				}).on('fileuploadadd', function (e, data) {
+					$(".preview-zone .inner #prev_thum").remove();
+					data.context = $('<div id="prev_thum"/>').appendTo('.preview-zone .inner');
+					TweenMax.to($('.re-upload'), 0.3, {css:{autoAlpha: 1}});
+					$.each(data.files, function (index, file) {
+						var node = $('<p style="margin:0" />');
+						node.appendTo(data.context);
+					});
+				}).on('fileuploadprocessalways', function (e, data) {
+					var index = data.index,
+						file = data.files[index],
+						node = $(data.context.children()[index]);
+					console.log(file);
+//					console.log(file.preview.width);
+//					console.log(file.preview.height);
+					var div_left 	= file.preview.width / 2;
+					var div_top 	= file.preview.height / 2;
+
+					$('#prev_thum').attr("style","position:absolute;top:50%;left:50%;margin-top:-"+div_top+"px;margin-left:-"+div_left+"px");
+//					$('#prev_thum').attr("style","position:absolute;top:16px;left:16px;bottom:16px;right:16px;");
+					$(".preview-zone #sample-image").hide();
+					$(".preview-zone label").hide();
+
+					if (file.preview) {
+						node
+							.prepend('<br>')
+							.prepend(file.preview);
+						
+					}
+					if (file.error) {
+						node
+							.append('<br>')
+							.append($('<span class="text-danger"/>').text(file.error));
+					}
+				}).on('fileuploadprogressall', function (e, data) {
+					var progress = parseInt(data.loaded / data.total * 100, 10);
+					$('#progress .progress-bar').css(
+						'width',
+						progress + '%'
+					);
+				}).on('fileuploaddone', function (e, data) {
+					console.log("done");
+					$.each(data.result.files, function (index, file) {
+						console.log(file);
+						if (file.url) {
+							$("#file_url").val(file.url);
+							$("#prev_thum p").hide();
+							$("#prev_thum").append("<img id='img_set' src='"+file.mediumUrl+"' crossorigin>");
+
+							setTimeout(function(){
+								$('#img_set').cropper({
+									aspectRatio: 1 / 1,
+									// minCanvasWidth: 293,
+									viewMode: 0,
+									dragMode: 'move',
+									autoCropArea: 0.8,
+									// aspectRatio: 1200/630,
+									responsive: true,
+									restore: true,
+									guides: false,
+									highlight: true,
+									background: false,
+									cropBoxMovable: true,
+									cropBoxResizable: true,
+									// preview: '.preview',
+									center:true,
+									zoomOnWheel:false,
+									toggleDragModeOnDblclick:false
+								});
+
+							},1000);
+						} else if (file.error) {
+							var error = $('<span class="text-danger"/>').text(file.error);
+							$(data.context.children()[index])
+								.append('<br>')
+								.append(error);
+						}
+					});
+				}).on('fileuploadfail', function (e, data) {
+					console.log(data.errorThrown);
+					console.log(data.textStatus);
+					$.each(data.files, function (index) {
+						var error = $('<span class="text-danger"/>').text('File upload failed.');
+						$(data.context.children()[index])
+							.append('<br>')
+							.append(error);
+					});
+				}).prop('disabled', !$.support.fileInput)
+					.parent().addClass($.support.fileInput ? undefined : 'disabled');
+			});
+
+			function getCropImage()
+			{
+				var croppedCanvas = $('#img_set').cropper('getCroppedCanvas', 
+														  {
+					imageSmoothingEnabled: false,
+					imageSmoothingQuality: 'high'
+				});
+				var crop_image_url = croppedCanvas.toDataURL("image/jpeg");
+				console.log(crop_image_url);
+				$.ajax({
+					method: 'POST',
+					url: './main_exec.php',
+					data: {
+						exec            : "crop_save_image",
+						crop_image_url  : crop_image_url,
+						file_url 		: $("#file_url").val(),
+						folder_name		: $("#folder_name").val()
+					},
+					success: function(response){
+						console.log(response);
+						hh_maum9.popup.close($('#popup-picture'));
+						hh_maum9.popup.show($('#popup-picture-input'));
+//						wmbt.popupOpen('input_family_info_popup');
+					}
+				});
+			}
+			
+			$('#picture-input-btn').off().on('click', function() {
+				console.log("asd");
+				//				var data = $('#picture-user-info').serialize();
+				var verifyName = $('#picture-user-info #mb_name').val();
+				var verifyPhone = $('#picture-user-info #mb_phone1').val()+$('#picture-user-info #mb_phone2').val()+$('#picture-user-info #mb_phone3').val();
+
+				$.ajax({
+					method: 'POST',
+					url: './main_exec.php',
+					data: {
+						exec: 'input_verify_info',
+						verify_name: verifyName,
+						verify_phone: verifyPhone
+					},
+					success: function(response) {
+						if(response == "Y") {
+							hh_maum9.popup.close($('#popup-picture-input'));
+							hh_maum9.popup.show($('#popup-picture-result'));
+						} else {
+							alert("인서트 에러");
+						}
+					}
+				});
+			});
+			
+			function lengthCheck(obj, ln) {
+				var $obj = $(obj);
+				var regExp = /^[0-9]+$/;
+
+				if(!regExp.test($obj.val())) {
+					$obj.val($obj.val().replace(/[^0-9]/g, ""));
+				} else {
+					if($obj.val().length>=ln) {
+						$obj.is('input:last-child') ? $obj.blur() : $obj.next().focus();
+					}
+				}
+			}
+			
 		</script>
 	</body>
 
