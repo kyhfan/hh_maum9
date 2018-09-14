@@ -248,7 +248,7 @@ if ($mobileYN == "PC")
 								<img src="./images/main_sec3_infobox_btn.jpg" alt="">
 							</button>
 						</div>
-						<button type="button" class="btn-verify" onclick="_nto.callTrack('6469', callback());click_tracking('인증 이벤트 참여');alert('인증이벤트는 10월 15일부터 시작 될 예정입니다.')" data-popup="#popup-picture">
+						<button type="button" class="btn-verify" onclick="_nto.callTrack('6469', callback());click_tracking('인증 이벤트 참여');" data-popup="#popup-picture">
 							<img src="./images/main_sec3_verify.jpg" alt="">
 						</button>
 						<!-- <div class="not-open">
@@ -284,15 +284,46 @@ if ($mobileYN == "PC")
 								</div>
 							</div>
 							<div class="col">
+<?
+	$block_num 		= 3;
+	$page_num 		= 0;
+	$next_num		= 1;
+	$total_query 	= "SELECT * FROM verify_info_9 WHERE verify_show='Y'";
+	$total_result 	= mysqli_query($my_db, $total_query);
+	$total_num		= mysqli_num_rows($total_result);
+	$total_page		= $total_num / $block_num;
+	$limit_num		= $page_num * $block_num;
+	$query 			= "SELECT * FROM verify_info_9 WHERE verify_show='Y' ORDER BY idx DESC Limit ".$limit_num.", ".$block_num."";
+	$result 		= mysqli_query($my_db, $query);
+
+	while ($data = mysqli_fetch_array($result))
+	{
+		$verify_data[]	= $data;
+	}
+
+	$i = 0;
+	foreach($verify_data as $key => $val)
+	{
+		if ($i == 3)
+			break;
+
+		$htag_arr 	= explode(",",str_replace("#","",$val["verify_hashtag"]));
+		if (!$htag_arr[0])
+			$htag_arr[0] = "마음봇건강키트";
+
+		if (!$htag_arr[1])
+			$htag_arr[1] = "우리가족튼튼메신저";			
+?>
 								<div class="box">
 									<div class="img">
-										<img src="./images/main_sec3_box_sample2.jpg" alt="">
+										<img src="../uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" alt="">
 									</div>
 									<div class="hashtag">
-										<span>#좋아요</span>
-										<span>#마음봇</span>
+										<span>#<?=$htag_arr[0]?></span>
+										<span>#<?=$htag_arr[1]?></span>
 									</div>
 								</div>
+<!--
 								<div class="box">
 									<div class="img">
 										<img src="./images/main_sec3_box_sample1.jpg" alt="">
@@ -311,9 +342,15 @@ if ($mobileYN == "PC")
 										<span>#우리가족튼튼메신저</span>
 									</div>
 								</div>
+-->
+<?
+	$i++;
+}
+?>
+								<input type="hidden" id="total-page-num"value="<?=$total_page?>">
 							</div>
 						</div>
-						<button type="button" class="btn-more">
+						<button type="button" class="btn-more" onclick="loadMore();">
 							<img src="./images/main_sec3_more.png" alt="">
 						</button> 
 					</div>
@@ -537,6 +574,69 @@ if ($mobileYN == "PC")
 //			 $(window).on('load', function() {
 //			 	$('#popup-open-btn').trigger('click');
 //			 });
+			var instaLoadIdx = 0;
+			var instaData;
+			var currentLastIdx = 0;
+			var hashArray = ['마음봇건강키트', '우리가족튼튼메신저'];
+			var instaTotalCount 	= 0;
+			var instaTotalPage 		= 0;
+			//			<!-- Attractt 데이터 호출 코드 -->
+			$.ajax({
+				url : "https://www.attractt.com/api/posts",
+				data : { code : "QCzupctc0vyaB8a" },
+				dataType : "jsonp",
+				jsonp : "attracttCallback",
+				success : function(data) {
+					//					console.log(data);
+					instaData = data;
+					instaTotalCount = data.result.count;
+					instaTotalPage	= Math.floor(instaTotalCount / 4) - 1;
+					$('.list-container .indent .box').each(function(idx, el) {
+						$(this).find("img").attr("src", data.result.data[idx].standard_image);
+						$(this).find("img").css("display", "block");
+						$(this).find("a").attr("onclick","NTrackObj.callTrackTag('33285', callbackFn, 12902);click_tracking('<?=$_gl['POPUP']['EVENT']['FAMILY_DETAIL']?>');open_insta_detail('"+data.result.data[idx].standard_image+"','"+data.result.data[idx].user_name+"','"+encodeURIComponent(data.result.data[idx].text)+"','"+hashArray[0]+"','"+hashArray[1]+"');");
+						$(this).find(".hashtag span:first-child").text("#"+hashArray[0]);
+						$(this).find(".hashtag span:last-child").text("#"+hashArray[1]);
+						currentLastIdx = idx+1;
+						console.log(currentLastIdx);
+					});
+					//					renderingInsta(data, instaLoadIdx);
+					if (instaTotalPage > 1)
+						$(".section3-wrap .btn-more").show();
+
+				},
+				error : function(data) { console.log(data); }
+			});
+			//			<!-- Attractt 데이터 호출 코드 끝 -->
+
+
+
+			var pageNum = 0;
+			function loadMore() {
+				pageNum 	= pageNum + 1;
+				var passingData = instaData.result.data.slice(currentLastIdx, currentLastIdx+3);
+				$.ajax({
+					type: "POST",
+					url: "./ajax_picture.php",
+					data: {
+						"insta_data": passingData,
+						"page_num": pageNum
+					},
+					success: function(rs) {
+						currentLastIdx = currentLastIdx+3;
+//						console.log(rs);
+						console.log(currentLastIdx);
+						// $(".grid").append(rs);
+						rsArray = rs.split('||');
+						$(".list-container .col:last-child").append(rsArray[0]);
+						$(".list-container .indent").append(rsArray[1]);
+
+						if (pageNum >= parseFloat($('#total-page-num'))) {
+							$(".section3-wrap .btn-more").hide();
+						}
+					}
+				});
+			}
 
 			$('.kit-slider').slick({
 				variableWidth: true,
@@ -695,34 +795,6 @@ if ($mobileYN == "PC")
 						break;
 				}
 			}
-			var pageNum = 0;
-			$('.section3-wrap .btn-more').off().on('click', function() {
-				console.log("asd");
-				pageNum = pageNum + 1;
-				$.ajax({
-					type: "POST",
-					url: "./ajax_picture.php",
-					data: {
-						"page_num": pageNum
-					},
-					success: function(rs) {
-						console.log(rs);
-						rsArray = rs.split('||');
-						$(".list-container .col:first-child").append(rsArray[0].replace(/"/gi, ""));
-						$(".list-container .col:last-child").append(rsArray[1].replace(/"/gi, ""));
-						//
-						//						if (pageNum >= parseFloat($('#total-page-num')))
-						//							$(".section3-wrap .btn-more").hide();
-						// for(i=0; i<loadCount; i++) {
-						// 	$(".import-sns .col._1").append(rsArray[0]);
-						// 	$(".import-sns .insta").append(rsArray[1]);
-						// 	$(".import-sns .col._3").append(rsArray[0]);
-						// }
-						//			renderingInsta(instaData, instaLoadIdx);
-						// var hashTagList = data.result.data[idx].hashtags.split(' ');
-					}
-				});
-			});
 			
 			div_left = 0;
 			div_top  = 0;

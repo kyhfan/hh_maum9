@@ -315,6 +315,9 @@ body {
 	border-radius: 5px;
 	overflow: hidden;
 }
+.section3-wrap .list-container .col .box .img img {
+	max-width: 100%;
+}
 .section3-wrap .list-container .col .box .hashtag {
 	font-size: 0;
 	text-align: center;

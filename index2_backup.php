@@ -23,8 +23,8 @@ if ($mobileYN == "MOBILE")
 // 파일 저장 폴더 생성용 난수 번호
 $folder_name = mnv_phprandom::getString(16);
 ?>
-	<!DOCTYPE html>
-	<html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 	<head>
 		<meta charset="UTF-8">
@@ -169,18 +169,18 @@ $folder_name = mnv_phprandom::getString(16);
 					$total_result 	= mysqli_query($my_db, $total_query);
 					$total_count	= mysqli_num_rows($total_result);
 					?>
-						<div class="maumbot">
-							<div class="chat1"></div>
-							<div class="bot"></div>
-							<div class="chat2"></div>
-							<span><?=number_format($total_count)?></span>
-						</div>
-						<div class="slider">
-							<div class="slder-area">
-								<!-- <div class="swiper-container slder-area"> -->
-								<!-- <div class="swiper-wrapper"> -->
-<!--
-								<?
+					<div class="maumbot">
+						<div class="chat1"></div>
+						<div class="bot"></div>
+						<div class="chat2"></div>
+						<span><?=number_format($total_count)?></span>
+					</div>
+					<div class="slider">
+						<div class="slder-area">
+							<!-- <div class="swiper-container slder-area"> -->
+							<!-- <div class="swiper-wrapper"> -->
+							<!--
+<?
 	$query 		= "SELECT * FROM member_info_9 WHERE mb_serial <> '' AND mb_show='Y' GROUP BY mb_serial ORDER BY idx DESC LIMIT 100";
 							$result 	= mysqli_query($my_db, $query);
 
@@ -196,24 +196,24 @@ $folder_name = mnv_phprandom::getString(16);
 									$file_name = "/maumbot_cheerup2.jpg";
 								else if ($data['mb_type'] == "5")
 									$file_name = "/maumbot_dontworry2.jpg";
-							?>
-									<div class="slide">
-										<img src="./files/<?=$data['mb_serial']?>/<?=$file_name?>" alt="">
-									</div>
-									<?
+?>
+<div class="slide">
+<img src="./files/<?=$data['mb_serial']?>/<?=$file_name?>" alt="">
+</div>
+<?
 							}
-							?>
+?>
 -->
-							</div>
-							<div class="prev-button">
-								<button type="button" class="button-prev slick-prev"></button>
-							</div>
-							<div class="next-button">
-								<button type="button" class="button-next slick-next"></button>
-							</div>
 						</div>
-						<div class="swipe-message">
+						<div class="prev-button">
+							<button type="button" class="button-prev slick-prev"></button>
 						</div>
+						<div class="next-button">
+							<button type="button" class="button-next slick-next"></button>
+						</div>
+					</div>
+					<div class="swipe-message">
+					</div>
 				</div>
 			</div>
 			<div class="section3-wrap section">
@@ -230,36 +230,36 @@ $folder_name = mnv_phprandom::getString(16);
 					</button>
 					<div class="list-container">
 						<div class="col">
-<?
-	$block_num 		= 8;
-	$page_num 		= 0;
-	$next_num		= 1;
-	$total_query 	= "SELECT * FROM verify_info_9 WHERE verify_show='Y'";
-	$total_result 	= mysqli_query($my_db, $total_query);
-	$total_num		= mysqli_num_rows($total_result);
-	$total_page		= $total_num / $block_num;
-	$limit_num		= $page_num * $block_num;
-	$query 			= "SELECT * FROM verify_info_9 WHERE verify_show='Y' ORDER BY idx DESC Limit ".$limit_num.", ".$block_num."";
-	$result 		= mysqli_query($my_db, $query);
+							<?
+							$block_num 		= 8;
+							$page_num 		= 0;
+							$next_num		= 1;
+							$total_query 	= "SELECT * FROM verify_info_9 WHERE verify_show='Y'";
+							$total_result 	= mysqli_query($my_db, $total_query);
+							$total_num		= mysqli_num_rows($total_result);
+							$total_page		= $total_num / $block_num;
+							$limit_num		= $page_num * $block_num;
+							$query 			= "SELECT * FROM verify_info_9 WHERE verify_show='Y' ORDER BY idx DESC Limit ".$limit_num.", ".$block_num."";
+							$result 		= mysqli_query($my_db, $query);
 
-	while ($data = mysqli_fetch_array($result))
-	{
-		$verify_data[]	= $data;
-	}
+							while ($data = mysqli_fetch_array($result))
+							{
+								$verify_data[]	= $data;
+							}
 
-	$i = 0;
-	foreach($verify_data as $key => $val)
-	{
-		if ($i == 4)
-			break;
+							$i = 0;
+							foreach($verify_data as $key => $val)
+							{
+								if ($i == 4)
+									break;
 
-	$htag_arr 	= explode(",",str_replace("#","",$val["verify_hashtag"]));
-	if (!$htag_arr[0])
-		$htag_arr[0] = "마음봇건강키트";
+								$htag_arr 	= explode(",",str_replace("#","",$val["verify_hashtag"]));
+								if (!$htag_arr[0])
+									$htag_arr[0] = "마음봇건강키트";
 
-	if (!$htag_arr[1])
-		$htag_arr[1] = "우리가족튼튼메신저";			
-?>
+								if (!$htag_arr[1])
+									$htag_arr[1] = "우리가족튼튼메신저";			
+							?>
 							<div class="box">
 								<div class="img">
 									<img src="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" alt="">
@@ -269,43 +269,44 @@ $folder_name = mnv_phprandom::getString(16);
 									<span>#<?=$htag_arr[1]?></span>
 								</div>
 							</div>
-<?
-		$i++;
-	}
-?>
+							<?
+								$i++;
+							}
+							?>
 							<input type="hidden" id="total-page-num"value="<?=$total_page?>">
-<!--
-							<div class="box">
-								<div class="img">
-									<img src="./images/main_sec3_box_sample1.jpg" alt="">
-								</div>
-								<div class="hashtag">
-									<span>#마음봇건강키트</span>
-									<span>#우리가족튼튼메신저</span>
-								</div>
-							</div>
-							<div class="box">
-								<div class="img">
-									<img src="./images/main_sec3_box_sample2.jpg" alt="">
-								</div>
-								<div class="hashtag">
-									<span>#마음봇건강키트</span>
-									<span>#우리가족튼튼메신저</span>
-								</div>
-							</div>
+							<!--
+<div class="box">
+<div class="img">
+<img src="./images/main_sec3_box_sample1.jpg" alt="">
+</div>
+<div class="hashtag">
+<span>#마음봇건강키트</span>
+<span>#우리가족튼튼메신저</span>
+</div>
+</div>
+<div class="box">
+<div class="img">
+<img src="./images/main_sec3_box_sample2.jpg" alt="">
+</div>
+<div class="hashtag">
+<span>#마음봇건강키트</span>
+<span>#우리가족튼튼메신저</span>
+</div>
+</div>
 -->
 						</div>
 						<div class="col indent">
 
 							<div class="box">
 								<div class="img">
-									<img src="./images/main_sec3_box_sample2.jpg" alt="">
+									<img src="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" alt="">
 								</div>
 								<div class="hashtag">
-									<span>#마음봇건강키트</span>
-									<span>#우리가족튼튼메신저</span>
+									<span>#<?=$htag_arr[0]?></span>
+									<span>#<?=$htag_arr[1]?></span>
 								</div>
 							</div>
+
 							<div class="box">
 								<div class="img">
 									<img src="./images/main_sec3_box_sample2.jpg" alt="">
@@ -323,34 +324,25 @@ $folder_name = mnv_phprandom::getString(16);
 									<span>#우리가족튼튼메신저</span>
 								</div>
 							</div>
-							<div class="box">
-								<div class="img">
-									<img src="./images/main_sec3_box_sample1.jpg" alt="">
-								</div>
-								<div class="hashtag">
-									<span>#마음봇건강키트</span>
-									<span>#우리가족튼튼메신저</span>
-								</div>
-							</div>
 						</div>
 						<div class="col">
-<?
+							<?
 	$j = 0;
-	foreach($verify_data as $key => $val)
-	{
-		if ($j < $i)
-		{
-			$j++;
-			continue;
-		}
+								   foreach($verify_data as $key => $val)
+								   {
+									   if ($j < $i)
+									   {
+										   $j++;
+										   continue;
+									   }
 
-		$htag_arr 	= explode(",",str_replace("#","",$val["verify_hashtag"]));
-		if (!$htag_arr[0])
-			$htag_arr[0] = "마음봇건강키트";
+									   $htag_arr 	= explode(",",str_replace("#","",$val["verify_hashtag"]));
+									   if (!$htag_arr[0])
+										   $htag_arr[0] = "마음봇건강키트";
 
-		if (!$htag_arr[1])
-			$htag_arr[1] = "우리가족튼튼메신저";
-?>	
+									   if (!$htag_arr[1])
+										   $htag_arr[1] = "우리가족튼튼메신저";
+							?>	
 							<div class="box">
 								<div class="img">
 									<img src="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" alt="">
@@ -360,29 +352,29 @@ $folder_name = mnv_phprandom::getString(16);
 									<span>#<?=$htag_arr[1]?></span>
 								</div>
 							</div>
-<?
-		$j++;
-	}
-?>
-<!--
-							<div class="box">
-								<div class="img">
-									<img src="./images/main_sec3_box_sample1.jpg" alt="">
-								</div>
-								<div class="hashtag">
-									<span>#마음봇건강키트</span>
-									<span>#우리가족튼튼메신저</span>
-								</div>
-							</div>
-							<div class="box">
-								<div class="img">
-									<img src="./images/main_sec3_box_sample2.jpg" alt="">
-								</div>
-								<div class="hashtag">
-									<span>#마음봇건강키트</span>
-									<span>#우리가족튼튼메신저</span>
-								</div>
-							</div>
+							<?
+								$j++;
+								   }
+							?>
+							<!--
+<div class="box">
+<div class="img">
+<img src="./images/main_sec3_box_sample1.jpg" alt="">
+</div>
+<div class="hashtag">
+<span>#마음봇건강키트</span>
+<span>#우리가족튼튼메신저</span>
+</div>
+</div>
+<div class="box">
+<div class="img">
+<img src="./images/main_sec3_box_sample2.jpg" alt="">
+</div>
+<div class="hashtag">
+<span>#마음봇건강키트</span>
+<span>#우리가족튼튼메신저</span>
+</div>
+</div>
 -->
 						</div>
 					</div>
@@ -628,93 +620,134 @@ $folder_name = mnv_phprandom::getString(16);
 			<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>
 		</div>
 		<!-- 개인정보 수집 및 이용에 관한 약관 팝업 -->
-<!--
-		<script type="text/javascript">
-			(function(d, s) {
-				var j, e = d.getElementsByTagName(s)[0], h = "https://cdn.attractt.com/embed/js/dist/embed.min.js";
-				if (typeof AttracttTower === "function" || e.src === h) { return; }
-				j = d.createElement(s);
-				j.src = h;
-				j.async = true;
-				e.parentNode.insertBefore(j, e);
-			})(document, "script");
-		</script>
+		<!--
+<script type="text/javascript">
+(function(d, s) {
+var j, e = d.getElementsByTagName(s)[0], h = "https://cdn.attractt.com/embed/js/dist/embed.min.js";
+if (typeof AttracttTower === "function" || e.src === h) { return; }
+j = d.createElement(s);
+j.src = h;
+j.async = true;
+e.parentNode.insertBefore(j, e);
+})(document, "script");
+</script>
 -->
-		
+
 		<script type="text/javascript">
 			var instaLoadIdx = 0;
 			var instaData;
-			var currentLastIdx = 0;
 			var hashArray = ['마음봇건강키트', '우리가족튼튼메신저'];
 			var instaTotalCount 	= 0;
 			var instaTotalPage 		= 0;
-//			<!-- Attractt 데이터 호출 코드 -->
+			//			<!-- Attractt 데이터 호출 코드 -->
 			$.ajax({
 				url : "https://www.attractt.com/api/posts",
 				data : { code : "QCzupctc0vyaB8a" },
 				dataType : "jsonp",
 				jsonp : "attracttCallback",
 				success : function(data) {
-//					console.log(data);
+					console.log(data);
 					instaData = data;
 					instaTotalCount = data.result.count;
 					instaTotalPage	= Math.floor(instaTotalCount / 4) - 1;
-					$('.list-container .indent .box').each(function(idx, el) {
-						$(this).find("img").attr("src", data.result.data[idx].standard_image);
-						$(this).find("img").css("display", "block");
-						$(this).find("a").attr("onclick","NTrackObj.callTrackTag('33285', callbackFn, 12902);click_tracking('<?=$_gl['POPUP']['EVENT']['FAMILY_DETAIL']?>');open_insta_detail('"+data.result.data[idx].standard_image+"','"+data.result.data[idx].user_name+"','"+encodeURIComponent(data.result.data[idx].text)+"','"+hashArray[0]+"','"+hashArray[1]+"');");
-						$(this).find(".hashtag span:first-child").text("#"+hashArray[0]);
-						$(this).find(".hashtag span:last-child").text("#"+hashArray[1]);
-						currentLastIdx = idx+1;
-					});
-//					renderingInsta(data, instaLoadIdx);
+					renderingInsta(data, instaLoadIdx);
 					if (instaTotalPage > 1)
 						$(".section3-wrap .btn-more").show();
 
 				},
 				error : function(data) { console.log(data); }
 			});
-//			<!-- Attractt 데이터 호출 코드 끝 -->
-			
+			//			<!-- Attractt 데이터 호출 코드 끝 -->
 
+
+			function renderingInsta(data, instaLoadIdx) {
+				$(".list-container .indent .box").each(function(idx, el) {
+					if(idx < instaLoadIdx) {
+						return;
+					}
+					//					shuffle(hashArray);
+					$(this).find("img").attr("src", data.result.data[idx].standard_image);
+					$(this).find("img").css("display", "block");
+					$(this).find("a").attr("onclick","NTrackObj.callTrackTag('33285', callbackFn, 12902);click_tracking('<?=$_gl['POPUP']['EVENT']['FAMILY_DETAIL']?>');open_insta_detail('"+data.result.data[idx].standard_image+"','"+data.result.data[idx].user_name+"','"+encodeURIComponent(data.result.data[idx].text)+"','"+hashArray[0]+"','"+hashArray[1]+"');");
+					$(this).find(".hashtag span:first-child").text("#"+hashArray[0]);
+					$(this).find(".hashtag span:last-child").text("#"+hashArray[1]);
+					instaLoadIdx = idx+1;
+				});
+				setTimeout(function(){
+					//					console.log($(".col._1").height()+"||"+$(".col.insta").height()+"||"+$(".col._3").height());
+					var col1_h 		= $(".list-container .col:first-child").height();
+					var colInsta_h 	= $(".list-container .col.indent").height()+230;
+					var col3_h 		= $(".list-container .col:last-child").height();
+					if (colInsta_h < col1_h && colInsta_h < col3_h)
+					{
+						appendInsta(data,instaLoadIdx);
+					}
+				},1000);
+			}
+
+			function shuffle(a) {
+				var j, x, i;
+				for (i = a.length; i; i -= 1) {
+					j = Math.floor(Math.random() * i);
+					x = a[i - 1];
+					a[i - 1] = a[j];
+					a[j] = x;
+				}
+			}
+
+			function appendInsta(data,instaLoadIdx)
+			{
+				console.log("appendIdx:"+instaLoadIdx);
+				//				shuffle(hashArray);
+				//				var appendInstaData 	= "<figure><div class='img'><img src='"+data.result.data[instaLoadIdx].standard_image+"'></div>";
+				//				appendInstaData   		+= "<figcaption><span>#"+hashArray[0]+"</span><span>#"+hashArray[1]+"</span></figcaption></figure>";
+				var appendInstaData = "<div class='box'><div class='img'><img src='"+data.result.data[instaLoadIdx].standard_image+"'></div><div class='hashtag'><span>#"+hashArray[0]+"</span><span>#"+hashArray[1]+"</span></div></div>";
+				$(".list-container .indent").append(appendInstaData);
+
+			}
 
 			var pageNum = 0;
 			function loadMore() {
+				console.log(instaLoadIdx);
+				//				var loadCount = 3;
 				pageNum 	= pageNum + 1;
-				var passingData = instaData.result.data.slice(currentLastIdx, currentLastIdx+4);
 				$.ajax({
 					type: "POST",
 					url: "./ajax_picture.php",
 					data: {
-						"insta_data": passingData,
 						"page_num": pageNum
 					},
 					success: function(rs) {
-						currentLastIdx = currentLastIdx+4;
-//						console.log(rs);
-						console.log(currentLastIdx);
 						// $(".grid").append(rs);
 						rsArray = rs.split('||');
 						$(".list-container .col:first-child").append(rsArray[0]);
 						$(".list-container .indent").append(rsArray[1]);
 						$(".list-container .col:last-child").append(rsArray[2]);
 
+						//				if (pageNum >= instaTotalPage)
 						if (pageNum >= parseFloat($('#total-page-num'))) {
 							$(".section3-wrap .btn-more").hide();
 						}
+						// for(i=0; i<loadCount; i++) {
+						// 	$(".import-sns .col._1").append(rsArray[0]);
+						// 	$(".import-sns .insta").append(rsArray[1]);
+						// 	$(".import-sns .col._3").append(rsArray[0]);
+						// }
+						renderingInsta(instaData, instaLoadIdx);
+						// var hashTagList = data.result.data[idx].hashtags.split(' ');
 					}
 				});
 			}
 		</script>
-	
-<!--		<button id="popup-open-btn" data-popup="#popup-picture-input"></button> -->
+
+		<!--		<button id="popup-open-btn" data-popup="#popup-picture-input"></button> -->
 		<script>
-		
-//			팝업 오픈 샘플코드
-//			$(window).on('load', function() {
-//				$('#popup-open-btn').trigger('click');
-//			});
-			
+
+			//			팝업 오픈 샘플코드
+			//			$(window).on('load', function() {
+			//				$('#popup-open-btn').trigger('click');
+			//			});
+
 			var menuOffsetArray = [];
 			var sectionOffsetArray = [];
 			var menuWrapOffset = 0;
@@ -753,9 +786,9 @@ $folder_name = mnv_phprandom::getString(16);
 					console.log(slick);
 				});
 				<? if ($_REQUEST["g"]) { ?>
-					
-					go_section('<?=$_REQUEST["g"]?>');
-					
+
+				go_section('<?=$_REQUEST["g"]?>');
+
 				<? } ?>
 			});
 
@@ -865,41 +898,41 @@ $folder_name = mnv_phprandom::getString(16);
 				$('.header-wrap .menu a').removeClass('is-active');
 				$('.header-wrap .menu ._' + activeIndex).addClass('is-active');
 			}
-									 
-//			var pageNum = 0;
-//			$('.section3-wrap .btn-more').off().on('click', function() {
-//				pageNum 	= pageNum + 1;
-//				$.ajax({
-//					type: "POST",
-//					url: "./ajax_picture.php",
-//					data: {
-//						"page_num": pageNum
-//					},
-//					success: function(rs) {
-//						console.log(rs);
-//						rsArray = rs.split('||');
-//						$(".list-container .col:first-child").append(rsArray[0].replace(/"/gi, "") );
-//						$(".list-container .col:nth-child(2)").append(rsArray[1].replace(/"/gi, "") );
-//						$(".list-container .col:last-child").append(rsArray[2].replace(/"/gi, "") );
-////
-////						if (pageNum >= parseFloat($('#total-page-num')))
-////							$(".section3-wrap .btn-more").hide();
-//						// for(i=0; i<loadCount; i++) {
-//						// 	$(".import-sns .col._1").append(rsArray[0]);
-//						// 	$(".import-sns .insta").append(rsArray[1]);
-//						// 	$(".import-sns .col._3").append(rsArray[0]);
-//						// }
-//						//			renderingInsta(instaData, instaLoadIdx);
-//						// var hashTagList = data.result.data[idx].hashtags.split(' ');
-//					}
-//				});
-//			});
+
+			//			var pageNum = 0;
+			//			$('.section3-wrap .btn-more').off().on('click', function() {
+			//				pageNum 	= pageNum + 1;
+			//				$.ajax({
+			//					type: "POST",
+			//					url: "./ajax_picture.php",
+			//					data: {
+			//						"page_num": pageNum
+			//					},
+			//					success: function(rs) {
+			//						console.log(rs);
+			//						rsArray = rs.split('||');
+			//						$(".list-container .col:first-child").append(rsArray[0].replace(/"/gi, "") );
+			//						$(".list-container .col:nth-child(2)").append(rsArray[1].replace(/"/gi, "") );
+			//						$(".list-container .col:last-child").append(rsArray[2].replace(/"/gi, "") );
+			////
+			////						if (pageNum >= parseFloat($('#total-page-num')))
+			////							$(".section3-wrap .btn-more").hide();
+			//						// for(i=0; i<loadCount; i++) {
+			//						// 	$(".import-sns .col._1").append(rsArray[0]);
+			//						// 	$(".import-sns .insta").append(rsArray[1]);
+			//						// 	$(".import-sns .col._3").append(rsArray[0]);
+			//						// }
+			//						//			renderingInsta(instaData, instaLoadIdx);
+			//						// var hashTagList = data.result.data[idx].hashtags.split(' ');
+			//					}
+			//				});
+			//			});
 			$(function () {
 				'use strict';
-				
+
 				var url = './upload.php?fid='+$("#folder_name").val();
 				var preview_width 	= $(".preview-zone").width();
-//				var preview_height 	= $(".preview-zone").height();
+				//				var preview_height 	= $(".preview-zone").height();
 				$('#file-upload, #re-upload').fileupload({
 					url: url,
 					dataType: 'json',
@@ -909,7 +942,7 @@ $folder_name = mnv_phprandom::getString(16);
 					disableImageResize: /Android(?!.*Chrome)|Opera/
 					.test(window.navigator.userAgent),
 					previewMaxWidth: preview_width,
-//					previewMaxHeight: preview_height,
+					//					previewMaxHeight: preview_height,
 					previewThumbnail: false,
 					previewCrop: false,
 					// disableImagePreview: true
@@ -932,8 +965,8 @@ $folder_name = mnv_phprandom::getString(16);
 					var div_left 	= file.preview.width / 2;
 					var div_top 	= file.preview.height / 2;
 
-//					$('#prev_thum').attr("style","position:absolute;top:50%;left:50%;margin-top:-"+div_top+"px;margin-left:-"+div_left+"px");
-//					$('#prev_thum').attr("style","position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)");
+					//					$('#prev_thum').attr("style","position:absolute;top:50%;left:50%;margin-top:-"+div_top+"px;margin-left:-"+div_left+"px");
+					//					$('#prev_thum').attr("style","position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)");
 					$(".preview-zone #sample-image").hide();
 					$(".preview-zone label").hide();
 
@@ -941,7 +974,7 @@ $folder_name = mnv_phprandom::getString(16);
 						node
 							.prepend('<br>')
 							.prepend(file.preview);
-						
+
 					}
 					if (file.error) {
 						node
@@ -961,7 +994,7 @@ $folder_name = mnv_phprandom::getString(16);
 						if (file.url) {
 							$("#file_url").val(file.url);
 							$("#prev_thum p").hide();
-//							$("#prev_thum").append("<img id='img_set' src='"+file.mediumUrl+"' crossorigin>");
+							//							$("#prev_thum").append("<img id='img_set' src='"+file.mediumUrl+"' crossorigin>");
 							$("#prev_thum").append("<img id='img_set' src='"+file.url+"' style='max-height:300px;opacity:0' crossorigin>");
 
 							setTimeout(function(){
@@ -1028,11 +1061,11 @@ $folder_name = mnv_phprandom::getString(16);
 						console.log(response);
 						hh_maum9.popup.close($('#popup-picture'));
 						hh_maum9.popup.show($('#popup-picture-input'));
-//						wmbt.popupOpen('input_family_info_popup');
+						//						wmbt.popupOpen('input_family_info_popup');
 					}
 				});
 			}
-			
+
 			$('#picture-input-btn').off().on('click', function() {
 				console.log("asd");
 				//				var data = $('#picture-user-info').serialize();
@@ -1057,7 +1090,7 @@ $folder_name = mnv_phprandom::getString(16);
 					}
 				});
 			});
-			
+
 			function lengthCheck(obj, ln) {
 				var $obj = $(obj);
 				var regExp = /^[0-9]+$/;
@@ -1070,8 +1103,8 @@ $folder_name = mnv_phprandom::getString(16);
 					}
 				}
 			}
-			
+
 		</script>
 	</body>
 
-	</html>
+</html>
