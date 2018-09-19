@@ -191,6 +191,20 @@ input[type="checkbox"]:focus {
 	z-index: 9;
 	text-align: left;
 }
+.sub-wrap .inner #message-box {
+	display: block;
+	margin: 5px auto 0;
+	resize: none;
+	width: 156px;
+	/*	height: 103px;*/
+	height: 105px;
+	font-size: 15px;
+	text-align: center;
+	color: #47371f;
+	line-height: 26px;
+	overflow: hidden;
+	word-break: break-all;
+}
 .sub-wrap .inner .text-area .text-line {
 	position: relative;
 /*	width: 80%;*/

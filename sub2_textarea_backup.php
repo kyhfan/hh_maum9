@@ -53,7 +53,9 @@ include_once "sub_head.php";
 <span id="msg_conntent4_span" style="visibility:hidden; position:absolute; top:-10000px; font-size:15px;"></span>
 </div>
 -->
-								<textarea name="message" id="message-box"></textarea>
+								<form id="message-form" action="sample_action.php">
+									<textarea method="POST" name="message" id="message-box" rows="4" cols="12" maxlength="48" wrap="hard"></textarea>
+								</form>
 								<!--
 <div class="text-line2 text-group">
 <div class="input"><input type="text" id="msg_conntent5"></div>
@@ -99,10 +101,11 @@ include_once "sub_head.php";
 							</button>
 						</div>
 					</div>
-					<textarea name="message" id="message-box"></textarea>
+<!--						<textarea name="message" id="message-box"></textarea>-->
 					<div class="num-area"></div>
 					<div class="btn-area _2">
-						<button type="button" onclick="NTrackObj.callTrackTag('34104', callbackFn, 13294);click_tracking('STEP2-메세지 배경화면 확인하기');saveImageInfo()">
+<!--						<button type="button" onclick="NTrackObj.callTrackTag('34104', callbackFn, 13294);click_tracking('STEP2-메세지 배경화면 확인하기');saveImageInfo()">-->
+						<button type="button" onclick="actionFunc()">
 							<img src="./images/sub_step2_btn.png" alt="">
 						</button>
 					</div>
@@ -117,29 +120,32 @@ include_once "sub_head.php";
 	</div>
 	<script>
 		$('#message-box').on('keyup', function(e) {
+//			console.log(e);
 			e.stopPropagation();
 			e.preventDefault();
-			//			console.log($(this).val());
+//			console.log(JSON.stringify($(this).val()));
+//			console.log($(this).val());
 			var messageLength = $(this).val().length;
 			var lineBreak = ($(this).val().match(/\n/g)||[]).length;
 
 			if(messageLength>0 && lineBreak<3 && messageLength%12 == 0 ) {
 				// 강제 개행
-				//				console.log("linebreak");
+//				console.log("linebreak");
 				//				var lastStr = $(this).val().substr(messageLength - 1);
 				//				var sumText = '';
 				//				sumText += lastStr;
 				//				console.log(sumText);
 				//				console.log(messageLength);
 				//				console.log("asd");
-				$(this).val($(this).val() + '\r\n');
+//				$(this).val($(this).val() + '\n');
 			}
 			if(lineBreak > 3) {
-				$(this).val($(this).val().slice(0, -1));
+//				console.log("linebreak > 3");
+//				$(this).val($(this).val().slice(0, -1));
 			} else {
-				//				console.log("line break else");
+//				console.log("line break else");
 			}
-			console.log($(this));
+//			console.log($(this));
 			//			console.log(messageLength);
 		})
 
@@ -147,101 +153,7 @@ include_once "sub_head.php";
 		var prev_bot_idx = 4;
 		//		var last_str;
 		// $('.text-area input').on('keypress', function(e) {
-		$('.text-area input').on('keyup', function(e) {
-			e.stopPropagation();
-			var this_val 	= $(this).val();
-			//			$(this).val(Hangul.assemble(this_val));
-			$(this).siblings('.placeholder').hide();
-			$("#"+$(this).attr("id")+"_span").text(this_val);
-			//			console.log($("#"+$(this).attr("id")+"_span").outerWidth());
-			if ($("#"+$(this).attr("id")+"_span").outerWidth() > 150)
-			{
-				// 현재 인풋에서 마지막 문자 삭제
-				var last_str	= this_val.substr(this_val.length - 1);
-				$(this).val($(this).val().slice(0, -1));
-				// 다음 인풋에 마지막 문자 삽입
-				//				$(this).closest('.text-group').next().find('input').val(last_str);
-				var nextInput = $(this).closest('.text-group').next().find('input');
-				//				console.log(last_str);
-				//				nextInput.focus().val(last_str);
-				nextInput.focus();
-				//				nextInput.focus().val(Hangul.assemble(nextInput.val()));
-
-			} else {
-				console.log(this_val);
-			}
-
-			if(e.keyCode == 13) {
-				if($(this).closest('.text-group').hasClass('bottom')) {
-					//					console.log("if");
-					$(this).closest('.text-area').find('.text-group:first-child').find('input').focus();
-				} else {
-					//					console.log("asd");
-					$(this).closest('.text-group').next().find('input').focus();
-				}
-			}
-			if(e.keyCode == 8) {
-				if(!$(this).is('.text-group:first-child')) {
-					if($(this).val().length<=0) {
-						$(this).closest('.text-group').prev().find('input').focus();
-					}
-				}
-			}
-		})
-		$('.text-area input').on('focus', function() {
-			$(this).val(Hangul.assemble($(this).val()));
-		});
-		$('.text-line input').on('keyup', function(e) {
-			e.stopPropagation();
-			var maxByte = 10; //최대 입력 바이트 수
-			var str = $(this).val();
-			var str_len = str.length;
-
-			var rbyte = 0;
-			var rlen = 0;
-			var one_char = "";
-			var str2 = "";
-
-			for (var i = 0; i < str_len; i++) {
-				one_char = str.charAt(i);
-
-				// if (escape(one_char).length > 4) {
-				rbyte += 2; //한글2Byte
-				// } else {
-				// 	rbyte++; //영문 등 나머지 1Byte
-				// }
-
-				if (rbyte <= maxByte) {
-					rlen = i + 1; //return할 문자열 갯수
-				}
-			}
-
-			if (rbyte > maxByte) {
-				alert("5자 이내로 입력해 주세요.");
-				str2 = str.substr(0, rlen); //문자열 자르기
-				$(this).val(str2);
-				// fnChkByte(obj, maxByte);
-			} else {
-				// document.getElementById('byteInfo').innerText = rbyte;
-				$(this).html(rbyte);
-			}
-		})
-		$('.text-area .placeholder-own').on('focus', function(e) {
-			e.stopPropagation();
-			if($(this).val().length<=0) {
-				$(this).siblings('.placeholder').show();
-			} else {
-				$(this).siblings('.placeholder').hide();
-			}
-		})
-		$('.text-area .placeholder-own').on('blur', function(e) {
-			e.stopPropagation();
-			if($(this).val().length<=0) {
-				$(this).siblings('.placeholder').show();
-			} else {
-				$(this).siblings('.placeholder').hide();
-			}
-		})
+		
 		var headlineColorArr = ['#fa5266', '#d55143', '#376639', '#1b4375', '#dd7722'];
 		var swiper = new Swiper ('.slide-wrap', {
 			// Optional parameters
@@ -318,25 +230,13 @@ include_once "sub_head.php";
 		// 	$('.slide-wrap .bot').removeClass('_'+this.previousIndex).addClass('_'+(this.realIndex));
 		// });
 
+		function actionFunc() {
+//			console.log($('#message-box').val());
+			$('#message-form').submit();
+		}
 	</script>
 </body>
 </html>
 
 
 
-
-<!--
-#message-box {
-display: block;
-margin: 5px auto 0;
-resize: none;
-width: 156px;
-/*	height: 103px;*/
-height: 105px;
-font-size: 15px;
-text-align: center;
-color: #47371f;
-line-height: 26px;
-overflow: hidden;
-word-break: break-all;
-}-->
