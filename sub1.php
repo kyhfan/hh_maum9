@@ -34,7 +34,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 						</div>
 					</div>
 					<div class="btn-area _1">
-                        <button type="button" id="next_btn" onclick="alert('영상 재생 후 5초 뒤에 다음단계로 넘어가실 수 있습니다.')">
+                        <button type="button" id="next_btn" onclick="alert('영상 재생 후 다음단계로 넘어가실 수 있습니다.')">
 							<img src="./images/sub_step1_before_btn.png" alt="">
                         </button>
                         <div class="balloon">
@@ -83,10 +83,10 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
             {
                 console.log("1");
                 $(".balloon").fadeOut("fast");
-                setTimeout(function(){
+                // setTimeout(function(){
 					$("#next_btn").find('img').attr('src', './images/sub_step1_btn.png');
                     $("#next_btn").attr("onclick","NTrackObj.callTrackTag('34103', callbackFn, 13294);click_tracking('STEP1-메시지작성하기');nextPage(2)");
-                }, 5000);
+                // }, 5000);
             }
         }else if (event.data == 2){
             play_flag = 1;
