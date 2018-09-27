@@ -203,7 +203,7 @@ input[type="checkbox"]:focus {
 	color: #47371f;
 	line-height: 26px;
 	overflow: hidden;
-	word-break: break-all;
+/*	word-break: break-all;*/
 }
 .sub-wrap .inner .text-area .text-line {
 	position: relative;

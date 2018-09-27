@@ -54,7 +54,7 @@ include_once "sub_head.php";
 </div>
 -->
 								<form id="message-form" action="sample_action.php">
-									<textarea method="POST" name="message" id="message-box" rows="4" cols="12" maxlength="48" wrap="hard"></textarea>
+									<textarea method="POST" name="message" id="message-box" rows="3" cols="12" wrap="hard"></textarea>
 								</form>
 								<!--
 <div class="text-line2 text-group">
@@ -119,6 +119,9 @@ include_once "sub_head.php";
 		</div>
 	</div>
 	<script>
+		var messageLength = 0;
+		var lineBreak = 0;
+		
 		$('#message-box').on('keyup', function(e) {
 //			console.log(e);
 			e.stopPropagation();
@@ -127,8 +130,15 @@ include_once "sub_head.php";
 //			console.log($(this).val());
 			var messageLength = $(this).val().length;
 			var lineBreak = ($(this).val().match(/\n/g)||[]).length;
+//			console.log(lineBreak);
+//			console.log(messageLength);
+			
+			
+			if(messageLength>48) {
+				$(this).val($(this).val().substring(0, 48));
+			}
 
-			if(messageLength>0 && lineBreak<3 && messageLength%12 == 0 ) {
+//			if(messageLength>0 && lineBreak<3 && messageLength%12 == 0 ) {
 				// 강제 개행
 //				console.log("linebreak");
 				//				var lastStr = $(this).val().substr(messageLength - 1);
@@ -138,16 +148,42 @@ include_once "sub_head.php";
 				//				console.log(messageLength);
 				//				console.log("asd");
 //				$(this).val($(this).val() + '\n');
-			}
+//			}
+//			console.log(lineBreak);
 			if(lineBreak > 3) {
-//				console.log("linebreak > 3");
-//				$(this).val($(this).val().slice(0, -1));
+				console.log("linebreak > 3");
+//				$(this).val($(this).val().slice(0, 48));
+				$(this).val($(this).val().slice(0, -1));
 			} else {
 //				console.log("line break else");
 			}
-//			console.log($(this));
-			//			console.log(messageLength);
-		})
+			
+//			$.ajax({
+//				type: "POST",
+//				url: "./sample_action.php",
+//				data: {
+//					"message": $('#message-box').val()
+//				},
+//				success: function(rs) {
+//					console.log(rs);
+//				}
+//			})
+//			$('#message-form').submit();
+		});
+
+//		$('#message-form').submit(function(e) {
+//			e.preventDefault();
+//			$.ajax({
+//				type: "POST",
+//				url: "./sample_action.php",
+//				data: {
+//					"message": $('#message-form').serialize()
+//				},
+//				success: function(rs) {
+//					console.log(rs);
+//				}
+//			})
+//		});
 
 
 		var prev_bot_idx = 4;
