@@ -1,10 +1,11 @@
 <?php
 
-$msg =  urldecode($_REQUEST['message']); 
+//$msg =  $_REQUEST['message']; 
+//$msg =  urldecode($_REQUEST['message']); 
 //$msg =  nl2br($msg); 
+$msg =  nl2br($_REQUEST['message']); 
 //$msg =  nl2br($_REQUEST['message']); 
-//$msg =  nl2br($_REQUEST['message']); 
-$msg =  nl2br($msg); 
+//$msg =  nl2br($msg); 
 //$arrasd = explode('<br>', $msg);
 //print_r($arrasd);
 

@@ -140,8 +140,8 @@ class UploadHandler
 				),
 				// Uncomment the following to create medium sized images:
 				'medium' => array(
-					'max_width' => 408,
-					'max_height' => 230
+					'max_width' => 529,
+					'max_height' => 290
 				),
 				'thumbnail' => array(
 					// Uncomment the following to use a defined directory for the thumbnails

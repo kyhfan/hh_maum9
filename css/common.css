@@ -461,6 +461,9 @@ html.popup-opened {
 	text-align: center;
 	background: #f7f6f4;
 }
+.popup.picture-input .title img {
+	width: auto;
+}
 .popup.picture-input .input-area {
 	display: inline-block;
 	width: 409px;

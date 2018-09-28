@@ -91,6 +91,103 @@ input[type="checkbox"]:focus {
 	width: 100%;
 	height: 100%;
 }
+.content.sub.upload {
+/*	display: block;*/
+}
+.content.sub.upload > .inner {
+	text-align: center;
+/*	padding: 166px 0 0;*/
+	width: 100%;
+	display: table-cell;
+	vertical-align: middle;
+}
+.sub.upload img {
+	max-width: 100%;
+	width: auto;
+}
+.sub.upload .pic-frame {
+	position: relative;
+	width: 529px;
+	min-height: 296px;
+	margin: 23px auto 19px;
+	background: url(../images/frame_tl.png) 0 0 / 17px 18px no-repeat,
+		url(../images/frame_tr.png) 100% 0 / 17px 18px no-repeat,
+		url(../images/frame_br.png) 100% 100% / 17px 18px no-repeat,
+		url(../images/frame_bl.png) 0 100% / 17px 18px no-repeat;
+}
+.sub.upload .pic-frame .inner {
+	padding: 16px;
+	width: 100%;
+	height: 100%;
+	min-height: 296px;
+	position: relative;
+}
+.sub.upload .pic-frame #file-upload {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	visibility: hidden;
+}
+.sub.upload .pic-frame label {
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.sub.upload .re-upload-btn {
+	position: relative;
+}
+.sub.upload .re-upload-btn #re-upload {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	visibility: hidden;
+}
+.sub.upload .re-upload-btn label {
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.sub.upload .input-area {
+	width: 529px;
+	margin: 29px auto 35px;
+}
+.sub.upload .input-area .input-group {
+	position: relative;
+}
+.sub.upload .input-area .input-group:first-child {
+	margin-bottom: 6px;
+}
+.sub.upload .input-area .input-group .guide {
+	width: 69px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+}
+.sub.upload .input-area .input-group .guide.desc {background: url(../images/picture_guide_desc.png) center / 40px 19px no-repeat #3e301d;}
+.sub.upload .input-area .input-group .guide.tag {background: url(../images/picture_guide_tag.png) center / 40px 16px no-repeat #3e301d;}
+.sub.upload .input-area .input-group input[type="text"] {
+	background: rgba(255, 255, 255, 0.4);
+	width: 100%;
+	height: 43px;
+	padding-left: 82px;
+	font-size: 15px;
+}
+
+.sub.upload .btn {
+	display: block;
+	margin: 0 auto;
+}
 .sub-wrap {
 	width: 100%;
 	display: table-cell;

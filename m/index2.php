@@ -38,29 +38,12 @@ if ($mobileYN == "PC")
 		<title>[현대해상] 우리가족 튼튼 메신저</title>
 		<link rel="stylesheet" href="./css/reset.css">
 		<link rel="stylesheet" href="./css/common.css">
-		<link rel="stylesheet" href="../lib/cropper/cropper.css">
+<!--		<link rel="stylesheet" href="../lib/cropper/cropper.css">-->
 		<link rel="stylesheet" href="./css/main.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/css/swiper.min.css">
 		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 		<link type="image/icon" rel="shortcut icon" href="https://www.hi-maumbot.co.kr/images/maum_favi.ico" />
 		<script src="../js/jquery-1.11.2.min.js"></script>
-		<script type="text/javascript" src="../lib/cropper/cropper.min.js"></script>
-		<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
-		<script src="../lib/jQuery-File-Upload/js/vendor/jquery.ui.widget.js"></script>
-		<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
-		<script src="//blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
-		<!-- The Canvas to Blob plugin is included for image resizing functionality -->
-		<script src="//blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
-		<!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
-		<!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
-		<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-		<!-- <script src="./lib/jQuery-File-Upload/js/jquery.iframe-transport.js"></script> -->
-		<!-- The basic File Upload plugin -->
-		<script src="../lib/jQuery-File-Upload/js/jquery.fileupload.js"></script>
-		<!-- The File Upload processing plugin -->
-		<script src="../lib/jQuery-File-Upload/js/jquery.fileupload-process.js"></script>
-		<!-- The File Upload image preview & resize plugin -->
-		<script src="../lib/jQuery-File-Upload/js/jquery.fileupload-image.js"></script>
 		<script src="../js/m_main.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/js/swiper.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
@@ -248,7 +231,8 @@ if ($mobileYN == "PC")
 								<img src="./images/main_sec3_infobox_btn.jpg" alt="">
 							</button>
 						</div>
-						<button type="button" class="btn-verify" onclick="_nto.callTrack('6469', callback());click_tracking('인증 이벤트 참여');" data-popup="#popup-picture">
+<!--						<button type="button" class="btn-verify" onclick="_nto.callTrack('6469', callback());click_tracking('인증 이벤트 참여');" data-popup="#popup-picture">-->
+						<button type="button" class="btn-verify" onclick="_nto.callTrack('6469', callback());click_tracking('인증 이벤트 참여');location.href='./event_2nd.php'">
 							<img src="./images/main_sec3_verify.jpg" alt="">
 						</button>
 						<!-- <div class="not-open">
@@ -412,61 +396,6 @@ if ($mobileYN == "PC")
 				</button>
 			</div>
 			<a href="javascript:void(0)" class="popup-close" data-popup="@close"></a>
-		</div>
-		<div class="popup picture-input" id="popup-picture-input">
-			<div class="inner">
-				<div class="title">
-					<img src="./images/popup_picinput_title.png" alt="">
-				</div>
-				<div class="input-area">
-					<form id="picture-user-info" method="post">
-						<div class="input-group name">
-							<div class="guide">
-								<img src="./images/sub4_input_name.png" alt="">
-							</div>
-							<div class="input">
-								<input type="text" id="mb_name" name="mb_name">
-							</div>
-						</div>
-						<div class="input-group phone">
-							<div class="guide">
-								<img src="./images/sub4_input_phone.png" alt="">
-							</div>
-							<div class="input">
-								<input type="tel" id="mb_phone1" name="mb_phone1" onkeyup="lengthCheck(this, 3)">
-								<input type="tel" id="mb_phone2" name="mb_phone2" onkeyup="lengthCheck(this, 4)">
-								<input type="tel" id="mb_phone3" name="mb_phone3" onkeyup="lengthCheck(this, 4)">
-							</div>
-						</div>
-					</form>
-				</div>
-				<div class="terms-area">
-					<div class="row">
-						<div class="check" data-popup="#popup-agree2">
-							<input type="checkbox" class="checkbox" id="terms1" disabled>
-							<div class="checkbox-visual"></div>
-							<label for="terms1"><img src="./images/terms_label1.png" alt=""></label>
-						</div>
-						<div class="view">
-							<button type="button" data-popup="#popup-agree2"></button>
-						</div>
-					</div>
-					<div class="row _2">
-						<div class="check" data-popup="#popup-agree1">
-							<input type="checkbox" class="checkbox" id="terms2" disabled>
-							<div class="checkbox-visual"></div>
-							<label for="terms2"><img src="./images/terms_label2.png" alt=""></label>
-						</div>
-						<div class="view">
-							<button type="button" data-popup="#popup-agree1"></button>
-						</div>
-					</div>
-				</div>
-				<button class="btn" id="picture-input-btn">
-					<img src="./images/popup_picinput_btn.jpg" alt="">
-				</button>
-			</div>
-			<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>
 		</div>
 		<div class="popup picture-result" id="popup-picture-result">
 			<div class="inner">
