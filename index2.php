@@ -243,7 +243,7 @@ $folder_name = mnv_phprandom::getString(16);
 	if (!$htag_arr[1])
 		$htag_arr[1] = "우리가족튼튼메신저";			
 ?>
-							<div class="box">
+							<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
 								<div class="img">
 									<img src="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" alt="">
 								</div>
@@ -280,7 +280,7 @@ $folder_name = mnv_phprandom::getString(16);
 						</div>
 						<div class="col indent">
 
-							<div class="box">
+							<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
 								<div class="img">
 									<img src="./images/main_sec3_box_sample2.jpg" alt="">
 								</div>
@@ -289,7 +289,7 @@ $folder_name = mnv_phprandom::getString(16);
 									<span>#우리가족튼튼메신저</span>
 								</div>
 							</div>
-							<div class="box">
+							<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
 								<div class="img">
 									<img src="./images/main_sec3_box_sample2.jpg" alt="">
 								</div>
@@ -297,7 +297,7 @@ $folder_name = mnv_phprandom::getString(16);
 									<span>#마음봇</span>
 								</div>
 							</div>
-							<div class="box">
+							<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
 								<div class="img">
 									<img src="./images/main_sec3_box_sample1.jpg" alt="">
 								</div>
@@ -306,7 +306,7 @@ $folder_name = mnv_phprandom::getString(16);
 									<span>#우리가족튼튼메신저</span>
 								</div>
 							</div>
-							<div class="box">
+							<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
 								<div class="img">
 									<img src="./images/main_sec3_box_sample1.jpg" alt="">
 								</div>
@@ -334,7 +334,7 @@ $folder_name = mnv_phprandom::getString(16);
 		if (!$htag_arr[1])
 			$htag_arr[1] = "우리가족튼튼메신저";
 ?>	
-							<div class="box">
+							<div class="box"  data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
 								<div class="img">
 									<img src="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" alt="">
 								</div>
@@ -580,6 +580,24 @@ $folder_name = mnv_phprandom::getString(16);
 			</div>
 			<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>
 		</div>
+		<div class="popup picture-detail" id="popup-picture-detail">
+			<div class="inner">
+				<div class="img-area">
+					<img src="" alt="" id="verify-img">
+				</div>
+				<div class="txt-area">
+					<div class="name"></div>
+					<div class="text">
+						<div class="tag">
+							<span></span>
+							<span></span>
+						</div>
+						<div class="desc"></div>
+					</div>
+				</div>
+			</div>
+			<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>
+		</div>
 		<!-- 개인정보 취급 위탁 약관 팝업 -->
 		<div class="popup agree1" id="popup-agree1">
 			<div class="inner">
@@ -643,6 +661,14 @@ $folder_name = mnv_phprandom::getString(16);
 					instaTotalCount = data.result.count;
 					instaTotalPage	= Math.floor(instaTotalCount / 4) - 1;
 					$('.list-container .indent .box').each(function(idx, el) {
+						var hashArrayDefault = data.result.data[idx].hashtags.split(' ');
+						hashArrayDefault.forEach(function(el, idx) {
+							el.concat(', ');
+						});
+						$(this).attr('data-source-url', data.result.data[idx].standard_image);
+						$(this).attr('data-source-owner', data.result.data[idx].user_name);
+						$(this).attr('data-source-tag', hashArrayDefault);
+						$(this).attr('data-source-desc', data.result.data[idx].text);
 						$(this).find("img").attr("src", data.result.data[idx].standard_image);
 						$(this).find("img").css("display", "block");
 						$(this).find("a").attr("onclick","NTrackObj.callTrackTag('33285', callbackFn, 12902);click_tracking('<?=$_gl['POPUP']['EVENT']['FAMILY_DETAIL']?>');open_insta_detail('"+data.result.data[idx].standard_image+"','"+data.result.data[idx].user_name+"','"+encodeURIComponent(data.result.data[idx].text)+"','"+hashArray[0]+"','"+hashArray[1]+"');");

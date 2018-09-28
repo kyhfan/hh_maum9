@@ -101,8 +101,8 @@ iframe {
 
 /* popup */
 
-html.menu-opened,
-html.popup-opened {
+html.menu-opened body,
+html.popup-opened body {
 	overflow: hidden;
 }
 .popup-wrap {
@@ -529,6 +529,58 @@ html.popup-opened {
 	color: #3e301d;
 	background: #ffffff;
 	cursor: pointer;
+}
+.popup.picture-detail > .inner {
+/*	padding: 22px 26px;*/
+	padding: 25px 37px 25px 84px;
+	font-size: 0;
+	text-align: center;
+}
+.popup.picture-detail .img-area {
+	display: inline-block;
+	margin-right: 87px;
+	vertical-align: top;
+}
+.popup.picture-detail .img-area img {
+/*	max-width: 100%;*/
+	max-width: 568px;
+}
+.popup.picture-detail .txt-area {
+	display: inline-block;
+	width: 314px;
+	padding-top: 84px;
+	text-align: left;
+	vertical-align: top;
+}
+.popup.picture-detail .txt-area .name {
+	border-bottom: 2px solid #3e301d;
+	padding-bottom: 20px;
+	font-size: 39px;
+	color: #3e301d;
+	letter-spacing: -0.65px;
+}
+.popup.picture-detail .txt-area .text {
+	padding-top: 20px;
+	font-size: 19px;
+}
+.popup.picture-detail .txt-area .text .tag {
+	color: #00b4ff;
+	margin-bottom: 5px;
+	font-size: 0;
+}
+.popup.picture-detail .txt-area .text .tag span {
+	display: inline-block;
+	font-size: 19px;
+	margin-right: 3px;
+	letter-spacing: -0.65px;
+	line-height: 24px;
+}
+.popup.picture-detail .txt-area .text .desc {
+	color: #3e301d;
+	letter-spacing: -0.65px;
+	line-height: 24px;
+	max-height: 375px;
+	overflow: auto;
 }
 input[type="checkbox"] {
 	position: absolute;

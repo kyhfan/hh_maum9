@@ -552,6 +552,46 @@ bottom: 0;
 .popup.picture-input .terms-area .view.last {
 	margin-left: 11px;
 }
+.popup.picture-detail > .inner {
+	padding: 40px 15px 31px;
+}
+.popup.picture-detail .img-area {
+	margin-bottom: 9px;
+}
+.popup.picture-detail .img-area img {
+	width: 100%;
+}
+.popup.picture-detail .txt-area {
+	margin-bottom: 6px;
+}
+.popup.picture-detail .txt-area .name {
+	border-bottom: 1px solid #3e301d;
+	padding-bottom: 8px;
+	font-size: 19px;
+	color: #3e301d;
+	letter-spacing: -0.65px;
+}
+.popup.picture-detail .txt-area .text {
+	padding-top: 9px;
+	font-size: 10px;
+}
+.popup.picture-detail .txt-area .text .tag {
+	color: #00b4ff;
+	margin-bottom: 3px;
+	font-size: 0;
+}
+.popup.picture-detail .txt-area .text .tag span {
+	display: inline-block;
+	font-size: 10px;
+	margin-right: 2px;
+	letter-spacing: -0.65px;
+	line-height: 12px;
+}
+.popup.picture-detail .txt-area .text .desc {
+	color: #3e301d;
+	letter-spacing: -0.65px;
+	line-height: 12px;
+}
 input[type="checkbox"] {
 	position: absolute;
 	/*
