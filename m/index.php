@@ -106,7 +106,18 @@
 						<img src="./images/main_sec1_title.png" alt="">
 					</div>
 					<div class="button">
+<?
+    if (date("Y-m-d") < "2018-10-08")
+    {
+?>                
 						<button type="button" class="btn-message" onclick="_nto.callTrack('6450', callback());click_tracking('사랑의 건강 기원 메시지 쓰기');nextPage(1)">
+<?
+	}else{
+?>		
+						<button type="button" class="btn-message" onclick="_nto.callTrack('6450', callback());click_tracking('사랑의 건강 기원 메시지 쓰기');alert('이벤트가 종료되었습니다')">
+<?
+	}
+?>				
 							<img src="./images/main_sec1_btn_bg.png" alt="">
 							<img src="./images/main_sec1_btn_pencile.png" class="pencil" alt="">
 						</button>
