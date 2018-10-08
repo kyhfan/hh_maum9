@@ -842,4 +842,7 @@ input[type="checkbox"]:focus {
 	.sub-wrap {
 		display: block;
 	}
+	.content.sub.upload > .inner {
+		display: block;
+	}
 }
