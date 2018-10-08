@@ -161,7 +161,6 @@ $folder_name = mnv_phprandom::getString(16);
 							<div class="slder-area">
 								<!-- <div class="swiper-container slder-area"> -->
 								<!-- <div class="swiper-wrapper"> -->
-<!--
 								<?
 	$query 		= "SELECT * FROM member_info_9 WHERE mb_serial <> '' AND mb_show='Y' GROUP BY mb_serial ORDER BY idx DESC LIMIT 100";
 							$result 	= mysqli_query($my_db, $query);
@@ -185,7 +184,6 @@ $folder_name = mnv_phprandom::getString(16);
 									<?
 							}
 							?>
--->
 							</div>
 							<div class="prev-button">
 								<button type="button" class="button-prev slick-prev"></button>
