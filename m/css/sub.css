@@ -39,6 +39,101 @@ input[type="checkbox"]:focus {
 	position: relative;
 	padding: 14px 29px;
 }
+.content.upload {
+	text-align: center;
+}
+.content.upload > .inner {
+	padding: 65px 0;
+/*	padding: 30px 0;*/
+/*	background: url(../images/popup_kitlist_bg.jpg) center / cover no-repeat;*/
+}
+.content.upload .title {
+	display: inline-block;
+	width: 247px;
+}
+.content.upload .pic-frame {
+	position: relative;
+	width: 264px;
+	min-height: 148px;
+	margin: 14px auto 31px;
+	background: url(../images/frame_tl.png) 0 0 / 8px 9px no-repeat,
+		url(../images/frame_tr.png) 100% 0 / 8px 9px no-repeat,
+		url(../images/frame_br.png) 100% 100% / 8px 9px no-repeat,
+		url(../images/frame_bl.png) 0 100% / 8px 9px no-repeat;
+}
+.content.upload .pic-frame .inner {
+	padding: 8px;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.content.upload .pic-frame #file-upload {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	visibility: hidden;
+}
+.content.upload .pic-frame label {
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.content.upload .re-upload-btn {
+	position: relative;
+	width: 52px;
+	margin: 0 auto;
+}
+.content.upload .re-upload-btn #re-upload {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	visibility: hidden;
+}
+.content.upload .re-upload-btn label {
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.sub.upload .input-area {
+	margin: 31px auto 29px;
+}
+.sub.upload .input-area .input-group {
+	position: relative;
+}
+.sub.upload .input-area .input-group:first-child {
+	margin-bottom: 10px;
+}
+.sub.upload .input-area .input-group .guide {
+	width: 40px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+}
+.sub.upload .input-area .input-group .guide.desc {background: url(../images/picture_guide_desc.png) center / 24px 11px no-repeat #3e301d;}
+.sub.upload .input-area .input-group .guide.tag {background: url(../images/picture_guide_tag.png) center / 25px 10px no-repeat #3e301d;}
+.sub.upload .input-area .input-group input[type="text"] {
+	background: rgba(255, 255, 255, 0.4);
+	width: 100%;
+	height: 30px;
+	padding-left: 49px;
+	font-size: 13px;
+}
+.content.upload .btn {
+	display: block;
+	width: 219px;
+	margin: 0 auto;
+}
 .content.sub .copyright {
 /*	width: 316px;*/
 	margin: 30px auto 0;

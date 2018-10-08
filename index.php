@@ -310,7 +310,6 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
             </div>
         </div>
     </div>
-	<!-- <button id="popup-open-btn" data-popup="#popup-kitlist"></button> -->
 	<!-- 개인정보 취급 위탁 약관 팝업 -->
 	<div class="popup kitlist" id="popup-kitlist">
 		<div class="inner">
@@ -372,6 +371,51 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 		</div>
 		<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>
 	</div>
+	<div class="popup winner-list" id="popup-winner-list">
+		<div class="inner">
+			<div class="title">
+				<img src="./images/popup_winner_title.png" alt="">
+			</div>
+			<div class="input-wrap">
+				<div class="input-group">
+					<input type="text">
+					<button class="search-num"></button>
+				</div>
+			</div>
+			<div class="list-wrap">
+				<div class="list-box">
+					<div class="inner">
+						<span>배*선 1418</span>
+						<span>배*선 1418</span>
+						<span>배*선 1418</span>
+						<span>배*선 1418</span>
+						<span>배*선 1418</span>
+						<span>배*선 1418</span>
+						<span>배*선 1418</span>
+						<span>배*선 1418</span>
+						<span>배*선 1418</span>
+						<span>배*선 1418</span>
+						<span>배*선 1418</span>
+						<span>배*선 1418</span>
+						<span>배*선 1418</span>
+						<span>배*선 1418</span>
+						<span>배*선 1418</span>
+						<span>배*선 1418</span>
+						<span>배*선 1418</span>
+					</div>
+				</div>
+			</div>
+			<button type="button" class="btn">
+				<img src="./images/popup_winner_confirm.png" alt="">
+			</button>
+			<div class="guide-area">
+				<img src="./images/popup_winner_guide.png" alt="">
+			</div>
+		</div>
+		<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>
+	</div>
+<!--	<button id="popup-open-btn" data-popup="#popup-winner-list"></button> -->
+
 	<!-- 개인정보 취급 위탁 약관 팝업 -->
     <script>
 		// var swiper = new Swiper ('.slder-area', {
@@ -388,9 +432,9 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 		// 		prevEl: '.button-prev',
 		// 	}
 		// })
-		// $(window).on('load', function() {
-		// 	$('#popup-open-btn').trigger('click');
-		// });
+		$(window).on('load', function() {
+			$('#popup-open-btn').trigger('click');
+		});
 		
 		var menuOffsetArray = [];
 		var sectionOffsetArray = [];

@@ -40,27 +40,9 @@ $folder_name = mnv_phprandom::getString(16);
 		<link rel="stylesheet" href="./css/common.css">
 		<link rel="stylesheet" href="./css/main.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/css/swiper.min.css">
-		<link rel="stylesheet" href="./lib/cropper/cropper.css">
 		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 		<link type="image/icon" rel="shortcut icon" href="https://www.hi-maumbot.co.kr/images/maum_favi.ico" />
 		<script src="./js/jquery-1.11.2.min.js"></script>
-		<script type="text/javascript" src="./lib/cropper/cropper.min.js"></script>
-		<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
-		<script src="./lib/jQuery-File-Upload/js/vendor/jquery.ui.widget.js"></script>
-		<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
-		<script src="//blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
-		<!-- The Canvas to Blob plugin is included for image resizing functionality -->
-		<script src="//blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
-		<!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
-		<!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
-		<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-		<!-- <script src="./lib/jQuery-File-Upload/js/jquery.iframe-transport.js"></script> -->
-		<!-- The basic File Upload plugin -->
-		<script src="./lib/jQuery-File-Upload/js/jquery.fileupload.js"></script>
-		<!-- The File Upload processing plugin -->
-		<script src="./lib/jQuery-File-Upload/js/jquery.fileupload-process.js"></script>
-		<!-- The File Upload image preview & resize plugin -->
-		<script src="./lib/jQuery-File-Upload/js/jquery.fileupload-image.js"></script>
 		<script src="./js/main.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/js/swiper.min.js"></script>
 		<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -225,7 +207,8 @@ $folder_name = mnv_phprandom::getString(16);
 							<button type="button" onclick="NTrackObj.callTrackTag('34125', callbackFn, 13294);click_tracking('인증 이벤트 당첨자 발표');alert('당첨자는 11월 2일에 발표 될 예정입니다.')"></button>
 						</div>
 					</div>
-					<button class="btn-verify" onclick="NTrackObj.callTrackTag('34126', callbackFn, 13294);click_tracking('인증 이벤트 참여');" data-popup="#popup-picture">
+<!--					<button class="btn-verify" onclick="NTrackObj.callTrackTag('34126', callbackFn, 13294);click_tracking('인증 이벤트 참여');" data-popup="#popup-picture">-->
+					<button class="btn-verify" onclick="NTrackObj.callTrackTag('34126', callbackFn, 13294);click_tracking('인증 이벤트 참여');location.href='./event_2nd.php';">
 						<img src="./images/section3_verify_btn.jpg" alt="">
 					</button>
 					<div class="list-container">
@@ -260,7 +243,7 @@ $folder_name = mnv_phprandom::getString(16);
 	if (!$htag_arr[1])
 		$htag_arr[1] = "우리가족튼튼메신저";			
 ?>
-							<div class="box">
+							<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
 								<div class="img">
 									<img src="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" alt="">
 								</div>
@@ -297,7 +280,7 @@ $folder_name = mnv_phprandom::getString(16);
 						</div>
 						<div class="col indent">
 
-							<div class="box">
+							<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
 								<div class="img">
 									<img src="./images/main_sec3_box_sample2.jpg" alt="">
 								</div>
@@ -306,7 +289,7 @@ $folder_name = mnv_phprandom::getString(16);
 									<span>#우리가족튼튼메신저</span>
 								</div>
 							</div>
-							<div class="box">
+							<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
 								<div class="img">
 									<img src="./images/main_sec3_box_sample2.jpg" alt="">
 								</div>
@@ -314,7 +297,7 @@ $folder_name = mnv_phprandom::getString(16);
 									<span>#마음봇</span>
 								</div>
 							</div>
-							<div class="box">
+							<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
 								<div class="img">
 									<img src="./images/main_sec3_box_sample1.jpg" alt="">
 								</div>
@@ -323,7 +306,7 @@ $folder_name = mnv_phprandom::getString(16);
 									<span>#우리가족튼튼메신저</span>
 								</div>
 							</div>
-							<div class="box">
+							<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
 								<div class="img">
 									<img src="./images/main_sec3_box_sample1.jpg" alt="">
 								</div>
@@ -351,7 +334,7 @@ $folder_name = mnv_phprandom::getString(16);
 		if (!$htag_arr[1])
 			$htag_arr[1] = "우리가족튼튼메신저";
 ?>	
-							<div class="box">
+							<div class="box"  data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
 								<div class="img">
 									<img src="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" alt="">
 								</div>
@@ -597,6 +580,24 @@ $folder_name = mnv_phprandom::getString(16);
 			</div>
 			<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>
 		</div>
+		<div class="popup picture-detail" id="popup-picture-detail">
+			<div class="inner">
+				<div class="img-area">
+					<img src="" alt="" id="verify-img">
+				</div>
+				<div class="txt-area">
+					<div class="name"></div>
+					<div class="text">
+						<div class="tag">
+							<span></span>
+							<span></span>
+						</div>
+						<div class="desc"></div>
+					</div>
+				</div>
+			</div>
+			<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>
+		</div>
 		<!-- 개인정보 취급 위탁 약관 팝업 -->
 		<div class="popup agree1" id="popup-agree1">
 			<div class="inner">
@@ -660,6 +661,14 @@ $folder_name = mnv_phprandom::getString(16);
 					instaTotalCount = data.result.count;
 					instaTotalPage	= Math.floor(instaTotalCount / 4) - 1;
 					$('.list-container .indent .box').each(function(idx, el) {
+						var hashArrayDefault = data.result.data[idx].hashtags.split(' ');
+						hashArrayDefault.forEach(function(el, idx) {
+							el.concat(', ');
+						});
+						$(this).attr('data-source-url', data.result.data[idx].standard_image);
+						$(this).attr('data-source-owner', data.result.data[idx].user_name);
+						$(this).attr('data-source-tag', hashArrayDefault);
+						$(this).attr('data-source-desc', data.result.data[idx].text);
 						$(this).find("img").attr("src", data.result.data[idx].standard_image);
 						$(this).find("img").css("display", "block");
 						$(this).find("a").attr("onclick","NTrackObj.callTrackTag('33285', callbackFn, 12902);click_tracking('<?=$_gl['POPUP']['EVENT']['FAMILY_DETAIL']?>');open_insta_detail('"+data.result.data[idx].standard_image+"','"+data.result.data[idx].user_name+"','"+encodeURIComponent(data.result.data[idx].text)+"','"+hashArray[0]+"','"+hashArray[1]+"');");
@@ -894,169 +903,6 @@ $folder_name = mnv_phprandom::getString(16);
 //					}
 //				});
 //			});
-			$(function () {
-				'use strict';
-				
-				var url = './upload.php?fid='+$("#folder_name").val();
-				var preview_width 	= $(".preview-zone").width();
-//				var preview_height 	= $(".preview-zone").height();
-				$('#file-upload, #re-upload').fileupload({
-					url: url,
-					dataType: 'json',
-					autoUpload: true,
-					acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
-					maxFileSize: 10000000,
-					disableImageResize: /Android(?!.*Chrome)|Opera/
-					.test(window.navigator.userAgent),
-					previewMaxWidth: preview_width,
-//					previewMaxHeight: preview_height,
-					previewThumbnail: false,
-					previewCrop: false,
-					// disableImagePreview: true
-					// imageCrop: true
-				}).on('fileuploadadd', function (e, data) {
-					$(".preview-zone .inner #prev_thum").remove();
-					data.context = $('<div id="prev_thum"/>').appendTo('.preview-zone .inner');
-					TweenMax.to($('.re-upload'), 0.3, {css:{autoAlpha: 1}});
-					$.each(data.files, function (index, file) {
-						var node = $('<p style="margin:0" />');
-						node.appendTo(data.context);
-					});
-				}).on('fileuploadprocessalways', function (e, data) {
-					var index = data.index,
-						file = data.files[index],
-						node = $(data.context.children()[index]);
-					console.log(file);
-					console.log(file.preview.width);
-					console.log(file.preview.height);
-					var div_left 	= file.preview.width / 2;
-					var div_top 	= file.preview.height / 2;
-
-//					$('#prev_thum').attr("style","position:absolute;top:50%;left:50%;margin-top:-"+div_top+"px;margin-left:-"+div_left+"px");
-//					$('#prev_thum').attr("style","position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)");
-					$(".preview-zone #sample-image").hide();
-					$(".preview-zone label").hide();
-
-					if (file.preview) {
-						node
-							.prepend('<br>')
-							.prepend(file.preview);
-						
-					}
-					if (file.error) {
-						node
-							.append('<br>')
-							.append($('<span class="text-danger"/>').text(file.error));
-					}
-				}).on('fileuploadprogressall', function (e, data) {
-					var progress = parseInt(data.loaded / data.total * 100, 10);
-					$('#progress .progress-bar').css(
-						'width',
-						progress + '%'
-					);
-				}).on('fileuploaddone', function (e, data) {
-					console.log("done");
-					$.each(data.result.files, function (index, file) {
-						console.log(file);
-						if (file.url) {
-							$("#file_url").val(file.url);
-							$("#prev_thum p").hide();
-//							$("#prev_thum").append("<img id='img_set' src='"+file.mediumUrl+"' crossorigin>");
-							$("#prev_thum").append("<img id='img_set' src='"+file.url+"' style='max-height:300px;opacity:0' crossorigin>");
-
-							setTimeout(function(){
-								$('#img_set').cropper({
-									aspectRatio: 1 / 1,
-									// minCanvasWidth: 293,
-									viewMode: 0,
-									dragMode: 'move',
-									autoCropArea: 0.8,
-									// aspectRatio: 1200/630,
-									responsive: true,
-									restore: true,
-									guides: false,
-									highlight: true,
-									background: false,
-									cropBoxMovable: true,
-									cropBoxResizable: true,
-									// preview: '.preview',
-									center:true,
-									zoomOnWheel:false,
-									toggleDragModeOnDblclick:false
-								});
-
-							},1000);
-						} else if (file.error) {
-							var error = $('<span class="text-danger"/>').text(file.error);
-							$(data.context.children()[index])
-								.append('<br>')
-								.append(error);
-						}
-					});
-				}).on('fileuploadfail', function (e, data) {
-					console.log(data.errorThrown);
-					console.log(data.textStatus);
-					$.each(data.files, function (index) {
-						var error = $('<span class="text-danger"/>').text('File upload failed.');
-						$(data.context.children()[index])
-							.append('<br>')
-							.append(error);
-					});
-				}).prop('disabled', !$.support.fileInput)
-					.parent().addClass($.support.fileInput ? undefined : 'disabled');
-			});
-
-			function getCropImage()
-			{
-				var croppedCanvas = $('#img_set').cropper('getCroppedCanvas', 
-														  {
-					imageSmoothingEnabled: false,
-					imageSmoothingQuality: 'high'
-				});
-				var crop_image_url = croppedCanvas.toDataURL("image/jpeg");
-				console.log(crop_image_url);
-				$.ajax({
-					method: 'POST',
-					url: './main_exec.php',
-					data: {
-						exec            : "crop_save_image",
-						crop_image_url  : crop_image_url,
-						file_url 		: $("#file_url").val(),
-						folder_name		: $("#folder_name").val()
-					},
-					success: function(response){
-						console.log(response);
-						hh_maum9.popup.close($('#popup-picture'));
-						hh_maum9.popup.show($('#popup-picture-input'));
-//						wmbt.popupOpen('input_family_info_popup');
-					}
-				});
-			}
-			
-			$('#picture-input-btn').off().on('click', function() {
-				console.log("asd");
-				//				var data = $('#picture-user-info').serialize();
-				var verifyName = $('#picture-user-info #mb_name').val();
-				var verifyPhone = $('#picture-user-info #mb_phone1').val()+$('#picture-user-info #mb_phone2').val()+$('#picture-user-info #mb_phone3').val();
-
-				$.ajax({
-					method: 'POST',
-					url: './main_exec.php',
-					data: {
-						exec: 'input_verify_info',
-						verify_name: verifyName,
-						verify_phone: verifyPhone
-					},
-					success: function(response) {
-						if(response == "Y") {
-							hh_maum9.popup.close($('#popup-picture-input'));
-							hh_maum9.popup.show($('#popup-picture-result'));
-						} else {
-							alert("인서트 에러");
-						}
-					}
-				});
-			});
 			
 			function lengthCheck(obj, ln) {
 				var $obj = $(obj);

@@ -101,8 +101,8 @@ iframe {
 
 /* popup */
 
-html.menu-opened,
-html.popup-opened {
+html.menu-opened body,
+html.popup-opened body {
 	overflow: hidden;
 }
 .popup-wrap {
@@ -461,6 +461,9 @@ html.popup-opened {
 	text-align: center;
 	background: #f7f6f4;
 }
+.popup.picture-input .title img {
+	width: auto;
+}
 .popup.picture-input .input-area {
 	display: inline-block;
 	width: 409px;
@@ -526,6 +529,58 @@ html.popup-opened {
 	color: #3e301d;
 	background: #ffffff;
 	cursor: pointer;
+}
+.popup.picture-detail > .inner {
+/*	padding: 22px 26px;*/
+	padding: 25px 37px 25px 84px;
+	font-size: 0;
+	text-align: center;
+}
+.popup.picture-detail .img-area {
+	display: inline-block;
+	margin-right: 87px;
+	vertical-align: top;
+}
+.popup.picture-detail .img-area img {
+/*	max-width: 100%;*/
+	max-width: 568px;
+}
+.popup.picture-detail .txt-area {
+	display: inline-block;
+	width: 314px;
+	padding-top: 84px;
+	text-align: left;
+	vertical-align: top;
+}
+.popup.picture-detail .txt-area .name {
+	border-bottom: 2px solid #3e301d;
+	padding-bottom: 20px;
+	font-size: 39px;
+	color: #3e301d;
+	letter-spacing: -0.65px;
+}
+.popup.picture-detail .txt-area .text {
+	padding-top: 20px;
+	font-size: 19px;
+}
+.popup.picture-detail .txt-area .text .tag {
+	color: #00b4ff;
+	margin-bottom: 5px;
+	font-size: 0;
+}
+.popup.picture-detail .txt-area .text .tag span {
+	display: inline-block;
+	font-size: 19px;
+	margin-right: 3px;
+	letter-spacing: -0.65px;
+	line-height: 24px;
+}
+.popup.picture-detail .txt-area .text .desc {
+	color: #3e301d;
+	letter-spacing: -0.65px;
+	line-height: 24px;
+	max-height: 375px;
+	overflow: auto;
 }
 input[type="checkbox"] {
 	position: absolute;
@@ -635,5 +690,70 @@ input[type="checkbox"] {
 	position: absolute;top: 233px;
 	left: 50%;
 	margin-left: -109px;
+}
+.popup.winner-list {
+	width: 542px;
+	text-align: center;
+}
+.popup.winner-list > .inner {
+	padding: 54px 0 0 0;
+	background: #f7f6f4;
+}
+.popup.winner-list .title {
+	margin-bottom: 19px;
+}
+.popup.winner-list .input-wrap {
+	display: inline-block;
+	margin-bottom: 10px;
+}
+.popup.winner-list .input-wrap .input-group {
+	width: 285px;
+	position: relative;
+}
+.popup.winner-list .input-wrap .input-group input[type="text"] {
+	width: 100%;
+	height: 38px;
+	background: #ffffff;
+	padding-left: 14px;
+}
+.popup.winner-list .input-wrap .input-group .search-num {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 43px;
+	height: 38px;
+	background: url(../images/find_obj.png) center / 27px auto no-repeat #f4892f;
+}
+.popup.winner-list .list-box {
+	display: inline-block;
+	width: 285px;
+	height: 163px;
+	padding: 21px 18px 21px 15px;
+	background: #ffffff;
+	box-sizing: border-box;
+}
+.popup.winner-list .list-box .inner {
+	height: 100%;
+	overflow: scroll;
+	text-align: left;
+	font-size: 0;
+}
+.popup.winner-list .list-box span {
+	width: 50%;
+	display: inline-block;
+	font-size: 19px;
+	letter-spacing: -0.27px;
+	text-align: center;
+	line-height: 25px;
+	color: #7a7a7a;
+}
+.popup.winner-list .btn {
+	width: 219px;
+	height: 58px;
+	margin: 11px auto 35px;
+}
+.popup.winner-list .guide-area {
+	background: #e3d7c4;
+	padding: 27px 0 30px;
 }
 /* popup */
