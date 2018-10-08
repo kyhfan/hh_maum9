@@ -181,7 +181,7 @@ $folder_name = mnv_phprandom::getString(16);
 									<div class="slide">
 										<img src="./files/<?=$data['mb_serial']?>/<?=$file_name?>" alt="">
 									</div>
-									<?
+							<?
 							}
 							?>
 							</div>
