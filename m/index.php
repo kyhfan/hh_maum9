@@ -403,7 +403,7 @@
 						<div class="search-list"></div>
 					</div>
 				</div>
-				<button type="button" class="btn">
+				<button type="button" class="btn" data-popup="@close">
 					<img src="./images/popup_winner_btn.png" alt="">
 				</button>
 				<div class="guide-area">

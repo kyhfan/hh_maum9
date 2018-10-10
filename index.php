@@ -377,7 +377,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 					<div class="search-list"></div>
 				</div>
 			</div>
-			<button type="button" class="btn">
+			<button type="button" class="btn" data-popup="@close">
 				<img src="./images/popup_winner_confirm.png" alt="">
 			</button>
 			<div class="guide-area">
