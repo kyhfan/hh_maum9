@@ -115,7 +115,7 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
                 <div class="info">
                     <div class="txt"></div>
                     <div class="button">
-                        <button type="button" onclick="NTrackObj.callTrackTag('34124', callbackFn, 13294);click_tracking('건강기원 메시지 당첨자 발표');alert('10월 10일에 당첨자가 발표 됩니다.')"></button>
+						<button type="button" onclick="NTrackObj.callTrackTag('34124', callbackFn, 13294);click_tracking('건강기원 메시지 당첨자 발표');" data-popup="#popup-winner-list"></button>
                     </div>
                 </div>
                 <div class="village">
@@ -366,31 +366,15 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 			</div>
 			<div class="input-wrap">
 				<div class="input-group">
-					<input type="text">
+					<input type="text" id="search-val">
 					<button class="search-num"></button>
 				</div>
 			</div>
 			<div class="list-wrap">
 				<div class="list-box">
 					<div class="inner">
-						<span>배*선 1418</span>
-						<span>배*선 1418</span>
-						<span>배*선 1418</span>
-						<span>배*선 1418</span>
-						<span>배*선 1418</span>
-						<span>배*선 1418</span>
-						<span>배*선 1418</span>
-						<span>배*선 1418</span>
-						<span>배*선 1418</span>
-						<span>배*선 1418</span>
-						<span>배*선 1418</span>
-						<span>배*선 1418</span>
-						<span>배*선 1418</span>
-						<span>배*선 1418</span>
-						<span>배*선 1418</span>
-						<span>배*선 1418</span>
-						<span>배*선 1418</span>
 					</div>
+					<div class="search-list"></div>
 				</div>
 			</div>
 			<button type="button" class="btn">
@@ -567,6 +551,49 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 //		console.log(menuOffsetArray);
 //		console.log(sectionOffsetArray);
 
+		var winnerList = "";
+		$(document).on('popupOpened', function(popup) {
+			if(popup.target.id == 'popup-winner-list') {
+				$.ajax({
+					type   : "POST",
+					dataType: "json",
+					async  : false,
+					url    : "./winner_list.json",
+					success: function(rs) {
+						winnerList = rs;
+						for(i=0; i<rs.length; i++) {
+							$('#popup-winner-list .list-box .inner').append("<span>"+rs[i].A+" "+rs[i].B+"</span>");
+						}
+					}
+				})
+			}
+		});
+		$('#popup-winner-list .search-num').on('click', function() {
+			var targetVal = $('#search-val').val();
+			var outputArray = new Array();
+			if(targetVal && targetVal.length == 4) {
+				for(i=0; i<winnerList.length; i++) {
+					if(winnerList[i].B == targetVal) {
+						outputArray.push({
+							"A": winnerList[i].A,
+							"B": winnerList[i].B,
+						});
+						$('#popup-winner-list .list-box .search-list').empty();
+					}
+				}
+				for(i=0; i<outputArray.length; i++) {
+					$('#popup-winner-list .list-box .search-list').append("<span>"+outputArray[i].A+" "+outputArray[i].B+"</span>").show();
+				}
+			} else {
+				alert('휴대폰번호 뒤 4자리를 정확히 입력해주세요');
+			}
+		});
+		$('#popup-winner-list #search-val').off().on('keyup', function(e) {
+			var keyCode = e.keyCode;
+			if($(this).val().length<1) {
+				$('#popup-winner-list .list-box .search-list').empty().hide();
+			}
+		});
     </script>
 </body>
 </html>
