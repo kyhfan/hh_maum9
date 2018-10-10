@@ -752,12 +752,28 @@ input[type="checkbox"]:focus {
 	padding: 11px 8px 11px 12px;
 	background: #ffffff;
 	box-sizing: border-box;
+	position: relative;
 }
 .popup.winner-list .list-box .inner {
 	height: 100%;
 	overflow: scroll;
 	text-align: left;
 	font-size: 0;
+}
+.popup.winner-list .list-box .search-list {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 100%;
+	padding: 11px 8px 11px 12px;
+	box-sizing: border-box;
+	overflow: scroll;
+	text-align: left;
+	font-size: 0;
+	display: none;
+	background: #ffffff;
 }
 .popup.winner-list .list-box span {
 	width: 50%;

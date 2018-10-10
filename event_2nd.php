@@ -118,12 +118,12 @@ $folder_name = mnv_phprandom::getString(16);
 	<div class="popup picture-result" id="popup-picture-result">
 		<div class="inner">
 			<img src="./images/popup_picresult_bg.jpg" alt="">
-			<button class="btn" onclick="location.href='./index.php'" data-popup="@close">
+			<button class="btn" onclick="location.href='./index2.php'" data-popup="@close">
 				<img src="./images/popup_winner_confirm.png" alt="">
 			</button>
 		</div>
 <!--		<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>-->
-		<a href="./index.php" class="btn-close" data-popup="@close"></a>
+		<a href="./index2.php" class="btn-close" data-popup="@close"></a>
 	</div>
 	<!-- 개인정보 취급 위탁 약관 팝업 -->
 	<div class="popup agree1" id="popup-agree1">
