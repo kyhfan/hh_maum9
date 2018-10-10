@@ -678,3 +678,7 @@ function sns_share(media, flag)
 		});
 	}
 }
+//문자열 인덱스 기준 치환
+String.prototype.replaceAt = function(index, character) {
+	return this.substr(0, index) + character + this.substr(index+character.length);
+};

@@ -574,7 +574,8 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 					success: function(rs) {
 						winnerList = rs;
 						for(i=0; i<rs.length; i++) {
-							$('#popup-winner-list .list-box .inner').append("<span>"+rs[i].A+" "+rs[i].B+"</span>");
+							var name = rs[i].A.replaceAt(1, 'O');
+							$('#popup-winner-list .list-box .inner').append("<span>"+name+" "+rs[i].B+"</span>");
 						}
 					}
 				})
@@ -586,18 +587,26 @@ document.write(unescape("%3Cscript src='" + _nsmart.host + "n00.nsmartad.com/etc
 			if(targetVal && targetVal.length == 4) {
 				for(i=0; i<winnerList.length; i++) {
 					if(winnerList[i].B == targetVal) {
+						var name = winnerList[i].A.replaceAt(1, 'O');
 						outputArray.push({
-							"A": winnerList[i].A,
+							"A": name,
 							"B": winnerList[i].B,
 						});
 						$('#popup-winner-list .list-box .search-list').empty();
 					}
 				}
-				for(i=0; i<outputArray.length; i++) {
-					$('#popup-winner-list .list-box .search-list').append("<span>"+outputArray[i].A+" "+outputArray[i].B+"</span>").show();
+				if(outputArray.length>0) {
+					for(i=0; i<outputArray.length; i++) {
+						$('#popup-winner-list .list-box .search-list').append("<span>"+outputArray[i].A+" "+outputArray[i].B+"</span>").show();
+					}
+				} else {
+					$('#popup-winner-list .list-box .search-list').empty().hide();
+					alert('당첨내역이 없습니다.');
 				}
 			} else {
 				alert('휴대폰번호 뒤 4자리를 정확히 입력해주세요');
+				$('#popup-winner-list .list-box .search-list').empty().hide();
+				$('#popup-winner-list #search-val').focus();
 			}
 		});
 		$('#popup-winner-list #search-val').off().on('keyup', function(e) {
