@@ -1,9 +1,0 @@
-.popup {
-    text-align: center;
-    background: #fff;
-}
-.popup.winner {
-    background: url(../images/popup_winner_bg.png);
-    width: 565px;
-    height: 448px;
-}
