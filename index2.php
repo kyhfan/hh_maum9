@@ -105,7 +105,7 @@ $folder_name = mnv_phprandom::getString(16);
 					<div class="info">
 						<div class="txt"></div>
 						<div class="button">
-							<button type="button" onclick="NTrackObj.callTrackTag('34124', callbackFn, 13294);click_tracking('건강기원 메시지 당첨자 발표');alert('10월 10일에 당첨자가 발표 됩니다.')"></button>
+							<button type="button" onclick="NTrackObj.callTrackTag('34124', callbackFn, 13294);click_tracking('건강기원 메시지 당첨자 발표');" data-popup="#popup-winner-list"></button>
 						</div>
 					</div>
 					<div class="village">
@@ -161,8 +161,9 @@ $folder_name = mnv_phprandom::getString(16);
 							<div class="slder-area">
 								<!-- <div class="swiper-container slder-area"> -->
 								<!-- <div class="swiper-wrapper"> -->
-								<?
-	$query 		= "SELECT * FROM member_info_9 WHERE mb_serial <> '' AND mb_show='Y' GROUP BY mb_serial ORDER BY idx DESC LIMIT 100";
+						<?
+//							$query 		= "SELECT * FROM member_info_9 WHERE mb_serial <> '' AND mb_show='Y' GROUP BY mb_serial ORDER BY idx DESC LIMIT 100";
+							$query 		= "SELECT * FROM member_info_9_1st WHERE mb_serial <> '' AND mb_show='Y' GROUP BY mb_serial ORDER BY idx";
 							$result 	= mysqli_query($my_db, $query);
 
 							while ($data = mysqli_fetch_array($result))
@@ -183,7 +184,7 @@ $folder_name = mnv_phprandom::getString(16);
 									</div>
 							<?
 							}
-							?>
+					?>
 							</div>
 							<div class="prev-button">
 								<button type="button" class="button-prev slick-prev"></button>
@@ -234,7 +235,7 @@ $folder_name = mnv_phprandom::getString(16);
 		if ($i == 4)
 			break;
 
-	$htag_arr 	= explode(",",str_replace("#","",$val["verify_hashtag"]));
+	$htag_arr 	= explode(",",str_replace("#","",$val["verify_tag"]));
 	if (!$htag_arr[0])
 		$htag_arr[0] = "마음봇건강키트";
 
@@ -293,6 +294,7 @@ $folder_name = mnv_phprandom::getString(16);
 								</div>
 								<div class="hashtag">
 									<span>#마음봇</span>
+									<span>#마음봇</span>
 								</div>
 							</div>
 							<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
@@ -325,7 +327,7 @@ $folder_name = mnv_phprandom::getString(16);
 			continue;
 		}
 
-		$htag_arr 	= explode(",",str_replace("#","",$val["verify_hashtag"]));
+		$htag_arr 	= explode(",",str_replace("#","",$val["verify_tag"]));
 		if (!$htag_arr[0])
 			$htag_arr[0] = "마음봇건강키트";
 
@@ -486,6 +488,33 @@ $folder_name = mnv_phprandom::getString(16);
 					<li class="thumb" id="slide7"><a href="javascript:void(0)"><img src="./images/kit_thumb8.png" alt=""></a></li>
 					<li class="thumb" id="slide8"><a href="javascript:void(0)"><img src="./images/kit_thumb9.png" alt=""></a></li>
 				</ul>
+			</div>
+			<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>
+		</div>
+		<div class="popup winner-list" id="popup-winner-list">
+			<div class="inner">
+				<div class="title">
+					<img src="./images/popup_winner_title.png" alt="">
+				</div>
+				<div class="input-wrap">
+					<div class="input-group">
+						<input type="text" id="search-val">
+						<button class="search-num"></button>
+					</div>
+				</div>
+				<div class="list-wrap">
+					<div class="list-box">
+						<div class="inner">
+						</div>
+						<div class="search-list"></div>
+					</div>
+				</div>
+				<button type="button" class="btn" data-popup="@close">
+					<img src="./images/popup_winner_confirm.png" alt="">
+				</button>
+				<div class="guide-area">
+					<img src="./images/popup_winner_guide.png" alt="">
+				</div>
 			</div>
 			<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>
 		</div>
@@ -660,6 +689,7 @@ $folder_name = mnv_phprandom::getString(16);
 					instaTotalPage	= Math.floor(instaTotalCount / 4) - 1;
 					$('.list-container .indent .box').each(function(idx, el) {
 						var hashArrayDefault = data.result.data[idx].hashtags.split(' ');
+						var hashArray = [hashArrayDefault[0], hashArrayDefault[1]];
 						hashArrayDefault.forEach(function(el, idx) {
 							el.concat(', ');
 						});
@@ -901,6 +931,59 @@ $folder_name = mnv_phprandom::getString(16);
 //					}
 //				});
 //			});
+			
+			var winnerList = "";
+			$(document).on('popupOpened', function(popup) {
+				if(popup.target.id == 'popup-winner-list') {
+					$.ajax({
+						type   : "POST",
+						dataType: "json",
+						async  : false,
+						url    : "./winner_list.json",
+						success: function(rs) {
+							winnerList = rs;
+							for(i=0; i<rs.length; i++) {
+								var name = rs[i].A.replaceAt(1, 'O');
+								$('#popup-winner-list .list-box .inner').append("<span>"+name+" "+rs[i].B+"</span>");
+							}
+						}
+					})
+				}
+			});
+			$('#popup-winner-list .search-num').on('click', function() {
+				var targetVal = $('#search-val').val();
+				var outputArray = new Array();
+				if(targetVal && targetVal.length == 4) {
+					for(i=0; i<winnerList.length; i++) {
+						if(winnerList[i].B == targetVal) {
+							var name = winnerList[i].A.replaceAt(1, 'O');
+							outputArray.push({
+								"A": name,
+								"B": winnerList[i].B,
+							});
+							$('#popup-winner-list .list-box .search-list').empty();
+						}
+					}
+					if(outputArray.length>0) {
+						for(i=0; i<outputArray.length; i++) {
+							$('#popup-winner-list .list-box .search-list').append("<span>"+outputArray[i].A+" "+outputArray[i].B+"</span>").show();
+						}
+					} else {
+						$('#popup-winner-list .list-box .search-list').empty().hide();
+						alert('당첨내역이 없습니다.');
+					}
+				} else {
+					alert('휴대폰번호 뒤 4자리를 정확히 입력해주세요');
+					$('#popup-winner-list .list-box .search-list').empty().hide();
+					$('#popup-winner-list #search-val').focus();
+				}
+			});
+			$('#popup-winner-list #search-val').off().on('keyup', function(e) {
+				var keyCode = e.keyCode;
+				if($(this).val().length<1) {
+					$('#popup-winner-list .list-box .search-list').empty().hide();
+				}
+			});
 			
 			function lengthCheck(obj, ln) {
 				var $obj = $(obj);

@@ -26,7 +26,7 @@ foreach($verify_data as $key => $val)
 	if ($i == 4)
 		break;        
 
-	$htag_arr 	= explode(",",str_replace("#","",$val["verify_hashtag"]));
+	$htag_arr 	= explode(",",str_replace("#","",$val["verify_tag"]));
 	if (!$htag_arr[0])
 		$htag_arr[0] = "마음봇건강키트";
 
@@ -45,6 +45,7 @@ foreach($verify_data as $key => $val)
 
 $k = 0;
 foreach($insta_data as $key => $val) {
+	$htag_arr = explode(" ", $val["hashtags"]);
 	if (!$htag_arr[0])
 		$htag_arr[0] = "마음봇건강키트";
 
@@ -99,7 +100,7 @@ foreach($verify_data as $key => $val)
 		continue;
 	}
 
-	$htag_arr 	= explode(",",str_replace("#","",$val["verify_hashtag"]));
+	$htag_arr 	= explode(",",str_replace("#","",$val["verify_tag"]));
 	if (!$htag_arr[0])
 		$htag_arr[0] = "마음봇건강키트";
 

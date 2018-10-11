@@ -25,7 +25,7 @@ foreach($verify_data as $key => $val)
 	if ($i == 3)
 		break;        
 
-	$htag_arr 	= explode(",",str_replace("#","",$val["verify_hashtag"]));
+	$htag_arr 	= explode(",",str_replace("#","",$val["verify_tag"]));
 	if (!$htag_arr[0])
 		$htag_arr[0] = "마음봇건강키트";
 

@@ -47,7 +47,7 @@ $folder_name = mnv_phprandom::getString(16);
 					</div>
 					<div class="input-group">
 						<div class="guide tag"></div>
-						<input type="text" placeholder="ex) 마음봇, 마음" id="input-tag">
+						<input type="text" placeholder="ex) 마음봇건강키트, 우리가족튼튼메신저" id="input-tag">
 					</div>
 				</div>
 				<button class="btn" onclick="getCropImage()">
@@ -303,11 +303,14 @@ $folder_name = mnv_phprandom::getString(16);
 				.parent().addClass($.support.fileInput ? undefined : 'disabled');
 		});
 
+		var fileTag = "";
+		var fileDesc = "";
 		function getCropImage()
 		{
-			var fileVal = $('#file_url').val(),
-				fileTag = $('#input-tag').val(),
-				fileDesc = $('#input-desc').val();
+			var fileVal = $('#file_url').val();
+			
+			fileTag = $('#input-tag').val(),
+			fileDesc = $('#input-desc').val();
 			
 			if(!fileVal) {
 				alert("이미지를 업로드해주세요!");
@@ -358,7 +361,9 @@ $folder_name = mnv_phprandom::getString(16);
 				data: {
 					exec: 'input_verify_info',
 					verify_name: verifyName,
-					verify_phone: verifyPhone
+					verify_phone: verifyPhone,
+					file_tag: fileTag,
+					file_desc: fileDesc
 				},
 				success: function(response) {
 					if(response == "Y") {

@@ -46,7 +46,7 @@ $folder_name = mnv_phprandom::getString(16);
 					</div>
 					<div class="input-group">
 						<div class="guide tag"></div>
-						<input type="text" id="input-tag" placeholder="ex) 마음봇, 마음">
+						<input type="text" id="input-tag" placeholder="ex) 마음봇건강키트, 우리가족튼튼메신저">
 					</div>
 				</div>
 				<button class="btn" onclick="getCropImage()">
@@ -269,11 +269,13 @@ $folder_name = mnv_phprandom::getString(16);
 				.parent().addClass($.support.fileInput ? undefined : 'disabled');
 		});
 
+		var fileTag = "",
+			fileDesc = "";
 		function getCropImage()
 		{
-			var fileVal = $('#file_url').val(),
-				fileTag = $('#input-tag').val(),
-				fileDesc = $('#input-desc').val();
+			var fileVal = $('#file_url').val();
+			fileTag = $('#input-tag').val(),
+			fileDesc = $('#input-desc').val();
 
 			if(!fileVal) {
 				alert("이미지를 업로드해주세요!");
@@ -302,7 +304,8 @@ $folder_name = mnv_phprandom::getString(16);
 					exec            : "crop_save_image",
 					crop_image_url  : crop_image_url,
 					file_url 		: $("#file_url").val(),
-					folder_name		: $("#folder_name").val()
+					folder_name		: $("#folder_name").val(),
+					
 				},
 				success: function(response){
 					console.log(response);
@@ -313,7 +316,6 @@ $folder_name = mnv_phprandom::getString(16);
 			});
 		}
 		$('#picture-input-btn').off().on('click', function() {
-			console.log("asd");
 			//				var data = $('#picture-user-info').serialize();
 			var verifyName = $('#picture-user-info #mb_name').val();
 			var verifyPhone = $('#picture-user-info #mb_phone1').val()+$('#picture-user-info #mb_phone2').val()+$('#picture-user-info #mb_phone3').val();
@@ -324,7 +326,9 @@ $folder_name = mnv_phprandom::getString(16);
 				data: {
 					exec: 'input_verify_info',
 					verify_name: verifyName,
-					verify_phone: verifyPhone
+					verify_phone: verifyPhone,
+					file_tag		: fileTag,
+					file_desc		: fileDesc,
 				},
 				success: function(response) {
 					if(response == "Y") {

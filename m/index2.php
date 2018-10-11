@@ -144,7 +144,7 @@ if ($mobileYN == "PC")
 					<div class="text">
 						<img src="./images/main_sec1_2_text.png" alt="">
 					</div>
-					<button type="button" onclick="_nto.callTrack('6467', callback());click_tracking('건강기원 메시지 당첨자 발표');alert('당첨자는 10월 10일에 발표 될 예정입니다.')">
+					<button type="button" onclick="_nto.callTrack('6467', callback());click_tracking('건강기원 메시지 당첨자 발표');" data-popup="#popup-winner-list">
 						<img src="./images/main_sec1_2_btn.png" alt="">
 					</button>
 				</div>
@@ -162,7 +162,8 @@ if ($mobileYN == "PC")
 								$total_result 	= mysqli_query($my_db, $total_query);
 								$total_count	= mysqli_num_rows($total_result);
 
-								$query 		= "SELECT * FROM member_info_9 WHERE mb_serial <> '' AND mb_show='Y' GROUP BY mb_serial ORDER BY idx DESC LIMIT 100";
+//								$query 		= "SELECT * FROM member_info_9 WHERE mb_serial <> '' AND mb_show='Y' GROUP BY mb_serial ORDER BY idx DESC LIMIT 100";
+								$query 		= "SELECT * FROM member_info_9_1st WHERE mb_serial <> '' AND mb_show='Y' GROUP BY mb_serial ORDER BY idx";
 								$result 	= mysqli_query($my_db, $query);
 
 								while ($data = mysqli_fetch_array($result))
@@ -292,7 +293,7 @@ if ($mobileYN == "PC")
 		if ($i == 3)
 			break;
 
-		$htag_arr 	= explode(",",str_replace("#","",$val["verify_hashtag"]));
+		$htag_arr 	= explode(",",str_replace("#","",$val["verify_tag"]));
 		if (!$htag_arr[0])
 			$htag_arr[0] = "마음봇건강키트";
 
@@ -470,6 +471,32 @@ if ($mobileYN == "PC")
 			</div>
 			<a href="javascript:void(0)" class="popup-close" data-popup="@close"></a>
 		</div>
+		<div class="popup winner-list" id="popup-winner-list">
+			<div class="inner">
+				<div class="title">
+					<img src="./images/popup_winnerlist_title.png" alt="">
+				</div>
+				<div class="input-wrap">
+					<div class="input-group">
+						<input type="text" id="search-val">
+						<button class="search-num"></button>
+					</div>
+				</div>
+				<div class="list-wrap">
+					<div class="list-box">
+						<div class="inner"></div>
+						<div class="search-list"></div>
+					</div>
+				</div>
+				<button type="button" class="btn" data-popup="@close">
+					<img src="./images/popup_winner_btn.png" alt="">
+				</button>
+				<div class="guide-area">
+					<img src="./images/popup_winner_guide.png" alt="">
+				</div>
+			</div>
+			<a href="javascript:void(0)" class="popup-close" data-popup="@close"></a>
+		</div>
 		<!-- 개인정보 취급 위탁 약관 팝업 -->
 		<div class="popup agree" id="popup-agree2">
 			<div class="inner">
@@ -521,6 +548,7 @@ if ($mobileYN == "PC")
 					instaTotalPage	= Math.floor(instaTotalCount / 4) - 1;
 					$('.list-container .indent .box').each(function(idx, el) {
 						var hashArrayDefault = data.result.data[idx].hashtags.split(' ');
+						var hashArray = [hashArrayDefault[0], hashArrayDefault[1]];
 						hashArrayDefault.forEach(function(el, idx) {
 							el.concat(', ');
 						});
@@ -732,6 +760,58 @@ if ($mobileYN == "PC")
 				}
 			}
 			
+			var winnerList = "";
+			$(document).on('popupOpened', function(popup) {
+				if(popup.target.id == 'popup-winner-list') {
+					$.ajax({
+						type   : "POST",
+						dataType: "json",
+						async  : false,
+						url    : "../winner_list.json",
+						success: function(rs) {
+							winnerList = rs;
+							for(i=0; i<rs.length; i++) {
+								var name = rs[i].A.replaceAt(1, 'O');
+								$('#popup-winner-list .list-box .inner').append("<span>"+name+" "+rs[i].B+"</span>");
+							}
+						}
+					})
+				}
+			});
+			$('#popup-winner-list .search-num').on('click', function() {
+				var targetVal = $('#search-val').val();
+				var outputArray = new Array();
+				if(targetVal && targetVal.length == 4) {
+					for(i=0; i<winnerList.length; i++) {
+						if(winnerList[i].B == targetVal) {
+							var name = winnerList[i].A.replaceAt(1, 'O');
+							outputArray.push({
+								"A": name,
+								"B": winnerList[i].B,
+							});
+							$('#popup-winner-list .list-box .search-list').empty();
+						}
+					}
+					if(outputArray.length>0) {
+						for(i=0; i<outputArray.length; i++) {
+							$('#popup-winner-list .list-box .search-list').append("<span>"+outputArray[i].A+" "+outputArray[i].B+"</span>").show();
+						}
+					} else {
+						$('#popup-winner-list .list-box .search-list').empty().hide();
+						alert('당첨내역이 없습니다.');
+					}
+				} else {
+					alert('휴대폰번호 뒤 4자리를 정확히 입력해주세요');
+					$('#popup-winner-list .list-box .search-list').empty().hide();
+					$('#popup-winner-list #search-val').focus();
+				}
+			});
+			$('#popup-winner-list #search-val').off().on('keyup', function(e) {
+				var keyCode = e.keyCode;
+				if($(this).val().length<1) {
+					$('#popup-winner-list .list-box .search-list').empty().hide();
+				}
+			});
 
 			function lengthCheck(obj, ln) {
 				var $obj = $(obj);
