@@ -19,13 +19,9 @@ if ($mobileYN == "PC")
 	$saveMedia     = $mnv_f->SaveMedia();
 	$rs_tracking   = $mnv_f->InsertTrackingInfo($mobileYN);
 }
-
-// 파일 저장 폴더 생성용 난수 번호
-$folder_name = mnv_phprandom::getString(16);
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, maximum-scale=1, minimum-scale=1.0;">
@@ -38,10 +34,9 @@ $folder_name = mnv_phprandom::getString(16);
 		<title>[현대해상] 우리가족 튼튼 메신저</title>
 		<link rel="stylesheet" href="./css/reset.css">
 		<link rel="stylesheet" href="./css/common.css">
-		<!--		<link rel="stylesheet" href="../lib/cropper/cropper.css">-->
 		<link rel="stylesheet" href="./css/main.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/css/swiper.min.css">
-		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 		<link type="image/icon" rel="shortcut icon" href="https://www.hi-maumbot.co.kr/images/maum_favi.ico" />
 		<script src="../js/jquery-1.11.2.min.js"></script>
 		<script src="../js/m_main.js"></script>
@@ -53,26 +48,22 @@ $folder_name = mnv_phprandom::getString(16);
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111799987-1"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
-
-			function gtag() {
-				dataLayer.push(arguments);
-			}
+			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
 
 			gtag('config', 'UA-111799987-1');
 		</script>
 	</head>
-
 	<body>
-		<script type="text/javascript">
-			var _ntp = {};
-			_ntp.host = (('https:' == document.location.protocol) ? 'https://' : 'http://')
-			_ntp.dID = 978;
-			document.write(unescape("%3Cscript src='" + _ntp.host + "nmt.nsmartad.com/content?cid=1' type='text/javascript'%3E%3C/script%3E"));
-		</script>
+		<script type="text/javascript"> 
+			var _ntp = {}; 
+			_ntp.host = (('https:' == document.location.protocol) ? 'https://' : 'http://') 
+			_ntp.dID = 978; 
+			document.write(unescape("%3Cscript src='" + _ntp.host + "nmt.nsmartad.com/content?cid=1' type='text/javascript'%3E%3C/script%3E")); 
+		</script> 
 		<script>
-			callback = function() {}
-		</script>
+			callback = function(){}
+		</script>	
 		<div class="page-wrap">
 			<div class="menu-layer">
 				<div class="inner">
@@ -162,8 +153,8 @@ $folder_name = mnv_phprandom::getString(16);
 								$total_result 	= mysqli_query($my_db, $total_query);
 								$total_count	= mysqli_num_rows($total_result);
 
-								//								$query 		= "SELECT * FROM member_info_9 WHERE mb_serial <> '' AND mb_show='Y' GROUP BY mb_serial ORDER BY idx DESC LIMIT 100";
-								$query 		= "SELECT * FROM member_info_9_1st WHERE mb_serial <> '' AND mb_show='Y' GROUP BY mb_serial ORDER BY idx";
+								//    $query 		= "SELECT * FROM member_info_9 WHERE mb_serial <> '' AND mb_show='Y' GROUP BY mb_serial ORDER BY idx DESC LIMIT 100";
+								$query 		= "SELECT * FROM member_info_9_1st WHERE mb_serial <> '' AND mb_show='Y' GROUP BY mb_serial ORDER BY idx DESC";
 								$result 	= mysqli_query($my_db, $query);
 
 								while ($data = mysqli_fetch_array($result))
@@ -178,14 +169,14 @@ $folder_name = mnv_phprandom::getString(16);
 										$file_name = "/maumbot_cheerup2.jpg";
 									else if ($data['mb_type'] == "5")
 										$file_name = "/maumbot_dontworry2.jpg";
-								?>
+								?>                            
 
 								<div class="swiper-slide slide">
 									<img src="../files/<?=$data['mb_serial']?>/<?=$file_name?>" alt="">
 								</div>
 								<?
 								}
-								?>
+								?>                            
 							</div>
 						</div>
 						<div class="prev-button arrow">
@@ -232,93 +223,74 @@ $folder_name = mnv_phprandom::getString(16);
 								<img src="./images/main_sec3_infobox_btn.jpg" alt="">
 							</button>
 						</div>
-						<!--						<button type="button" class="btn-verify" onclick="_nto.callTrack('6469', callback());click_tracking('인증 이벤트 참여');" data-popup="#popup-picture">-->
-						<button type="button" class="btn-verify" onclick="_nto.callTrack('6469', callback());click_tracking('인증 이벤트 참여');location.href='./event_2nd.php'">
+						<button type="button" class="btn-verify" onclick="_nto.callTrack('6469', callback());click_tracking('인증 이벤트 참여');alert('인증이벤트는 10월 15일부터 시작 될 예정입니다.')">
 							<img src="./images/main_sec3_verify.jpg" alt="">
 						</button>
 						<!-- <div class="not-open">
 <img src="./images/event_not open.png" alt="">
 </div> -->
 						<div class="list-container">
-							<div class="col indent">
-								<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="../uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
-									<div class="img">
-										<img src="./images/main_sec3_box_sample1.jpg" alt="">
-									</div>
-									<div class="hashtag">
-										<span>#마음봇건강키트</span>
-										<span>#우리가족튼튼메신저</span>
-									</div>
-								</div>
-								<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="../uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
-									<div class="img">
-										<img src="./images/main_sec3_box_sample2.jpg" alt="">
-									</div>
-									<div class="hashtag">
-										<span>#마음봇</span>
-										<span>#마음봇</span>
-									</div>
-								</div>
-								<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="../uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
-									<div class="img">
-										<img src="./images/main_sec3_box_sample1.jpg" alt="">
-									</div>
-									<div class="hashtag">
-										<span>#마음봇건강키트</span>
-										<span>#우리가족튼튼메신저</span>
-									</div>
-								</div>
-							</div>
-							<div class="col campaign">
-								<?
-	$block_num 		= 3;
-									$page_num 		= 0;
-									$next_num		= 1;
-									$total_query 	= "SELECT * FROM verify_info_9 WHERE verify_show='Y'";
-									$total_result 	= mysqli_query($my_db, $total_query);
-									$total_num		= mysqli_num_rows($total_result);
-									$total_page		= $total_num / $block_num;
-									$limit_num		= $page_num * $block_num;
-									$query 			= "SELECT * FROM verify_info_9 WHERE verify_show='Y' ORDER BY idx DESC Limit ".$limit_num.", ".$block_num."";
-									$result 		= mysqli_query($my_db, $query);
-
-									while ($data = mysqli_fetch_array($result))
-									{
-										$verify_data[]	= $data;
-									}
-
-									$i = 0;
-									foreach($verify_data as $key => $val)
-									{
-										if ($i == 3)
-											break;
-
-										$htag_arr 	= explode(",",str_replace("#","",$val["verify_tag"]));
-										if (!$htag_arr[0])
-											$htag_arr[0] = "마음봇건강키트";
-
-										if (!$htag_arr[1])
-											$htag_arr[1] = "우리가족튼튼메신저";			
-								?>
-								<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="../uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
-									<div class="img">
-										<img src="../uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" alt="">
-									</div>
-									<div class="hashtag">
-										<span>#<?=$htag_arr[0]?></span>
-										<span>#<?=$htag_arr[1]?></span>
-									</div>
-								</div>
-								<?
-									$i++;
-									}
-								?>
-								<input type="hidden" id="total-page-num"value="<?=$total_page?>">
-							</div>
+							<!-- <div class="col indent">
+<div class="box">
+<div class="img">
+<img src="./images/main_sec3_box_sample1.jpg" alt="">
+</div>
+<div class="hashtag">
+<span>#마음봇건강키트</span>
+<span>#우리가족튼튼메신저</span>
+</div>
+</div>
+<div class="box">
+<div class="img">
+<img src="./images/main_sec3_box_sample2.jpg" alt="">
+</div>
+<div class="hashtag">
+<span>#마음봇</span>
+</div>
+</div>
+<div class="box">
+<div class="img">
+<img src="./images/main_sec3_box_sample1.jpg" alt="">
+</div>
+<div class="hashtag">
+<span>#마음봇건강키트</span>
+<span>#우리가족튼튼메신저</span>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="box">
+<div class="img">
+<img src="./images/main_sec3_box_sample2.jpg" alt="">
+</div>
+<div class="hashtag">
+<span>#좋아요</span>
+<span>#마음봇</span>
+</div>
+</div>
+<div class="box">
+<div class="img">
+<img src="./images/main_sec3_box_sample1.jpg" alt="">
+</div>
+<div class="hashtag">
+<span>#마음봇건강키트</span>
+<span>#우리가족튼튼메신저</span>
+</div>
+</div>
+<div class="box">
+<div class="img">
+<img src="./images/main_sec3_box_sample2.jpg" alt="">
+</div>
+<div class="hashtag">
+<span>#마음봇건강키트</span>
+<span>#우리가족튼튼메신저</span>
+</div>
+</div>
+</div> -->
 						</div>
-						<button type="button" class="btn-more" onclick="loadMore();">
-							<img src="./images/main_sec3_more.png" alt="">
-						</button> 
+						<!-- <button type="button" class="btn-more">
+<img src="./images/main_sec3_more.png" alt="">
+</button> -->
 					</div>
 				</div>
 			</div>
@@ -354,63 +326,7 @@ $folder_name = mnv_phprandom::getString(16);
 				</div>
 			</div>
 		</div>
-		<input type="hidden" id="folder_name" value="<?=$folder_name?>">
-		<input type="hidden" id="file_url" value="">
-		<div class="popup picture" id="popup-picture">
-			<div class="inner">
-				<div class="title">
-					<img src="./images/popup_picture_title.png" alt="">
-				</div>
-				<div class="pic-frame preview-zone">
-					<div class="inner">
-						<label for="file-upload"></label>
-						<input type="file" id="file-upload" name="files[]" accept="file_extension|audio/*|video/*|image/*|media_type">
-						<img src="./images/popup_picture_sample.jpg" alt="" id="sample-image">
-					</div>
-				</div>
-				<div class="re-upload-btn">
-					<label for="re-upload"></label>
-					<input type="file" id="re-upload">
-					<img src="./images/popup_picture_reupload.png" alt="">
-				</div>
-				<button class="btn" onclick="getCropImage()">
-					<img src="./images/popup_picture_btn.jpg" alt="">
-				</button>
-			</div>
-			<a href="javascript:void(0)" class="popup-close" data-popup="@close"></a>
-		</div>
-		<div class="popup picture-result" id="popup-picture-result">
-			<div class="inner">
-				<div class="title">
-					<img src="./images/popup_picresult_title.png" alt="">
-				</div>
-				<button class="btn" data-popup="@close">
-					<img src="./images/popup_winner_btn.png" alt="">
-				</button>
-				<div class="guide-block">
-					<img src="./images/popup_event_guide.png" alt="">
-				</div>
-			</div>
-			<a href="javascript:void(0)" class="popup-close" data-popup="@close"></a>
-		</div>
-		<div class="popup picture-detail" id="popup-picture-detail">
-			<div class="inner">
-				<div class="img-area">
-					<img src="" alt="" id="verify-img">
-				</div>
-				<div class="txt-area">
-					<div class="name"></div>
-					<div class="text">
-						<div class="tag">
-							<span></span>
-							<span></span>
-						</div>
-						<div class="desc"></div>
-					</div>
-				</div>
-			</div>
-			<a href="javascript:void(0)" class="popup-close" data-popup="@close"></a>
-		</div>
+		<!-- 개인정보 취급 위탁 약관 팝업 -->
 		<div class="popup kitlist" id="popup-kitlist">
 			<div class="inner">
 				<div class="title">
@@ -497,110 +413,12 @@ $folder_name = mnv_phprandom::getString(16);
 			</div>
 			<a href="javascript:void(0)" class="popup-close" data-popup="@close"></a>
 		</div>
+		<!--		<button id="popup-open-btn" data-popup="#popup-winner-list"></button> -->
 		<!-- 개인정보 취급 위탁 약관 팝업 -->
-		<div class="popup agree" id="popup-agree2">
-			<div class="inner">
-				<div class="text">
-					<img src="./images/popup_agree2_text.png" alt="">
-				</div>
-				<button type="button" class="btn" onclick="check_agree('terms1','#popup-agree2')">
-					<img src="./images/popup_agree_btn.jpg" alt="">
-				</button>
-			</div>
-			<a href="javascript:void(0)" class="popup-close" data-popup="@close"></a>
-		</div>
-		<!-- 개인정보 취급 위탁 약관 팝업 -->
-
-		<!-- 개인정보 수집 및 이용에 관한 약관 팝업 -->
-		<div class="popup agree" id="popup-agree1">
-			<div class="inner">
-				<div class="text">
-					<img src="./images/popup_agree1_text.png" alt="">
-				</div>
-				<button type="button" class="btn" onclick="check_agree('terms2','#popup-agree1')">
-					<img src="./images/popup_agree_btn.jpg" alt="">
-				</button>
-			</div>
-			<a href="javascript:void(0)" class="popup-close" data-popup="@close"></a>
-		</div>
-		<!-- 개인정보 수집 및 이용에 관한 약관 팝업 -->
-		<!--		<button id="popup-open-btn" data-popup="#popup-picture-result"></button> -->
 		<script>
-			//			 $(window).on('load', function() {
-			//			 	$('#popup-open-btn').trigger('click');
-			//			 });
-			var instaLoadIdx = 0;
-			var instaData;
-			var currentLastIdx = 0;
-			var hashArray = ['마음봇건강키트', '우리가족튼튼메신저'];
-			var instaTotalCount 	= 0;
-			var instaTotalPage 		= 0;
-			//			<!-- Attractt 데이터 호출 코드 -->
-			$.ajax({
-				url : "https://www.attractt.com/api/posts",
-				data : { code : "QCzupctc0vyaB8a" },
-				dataType : "jsonp",
-				jsonp : "attracttCallback",
-				success : function(data) {
-					//										console.log(data);
-					instaData = data;
-					instaTotalCount = data.result.count;
-					instaTotalPage	= Math.floor(instaTotalCount / 4) - 1;
-					$('.list-container .indent .box').each(function(idx, el) {
-						var hashArrayDefault = data.result.data[idx].hashtags.split(' ');
-						var hashArray = [hashArrayDefault[0], hashArrayDefault[1]];
-						hashArrayDefault.forEach(function(el, idx) {
-							el.concat(', ');
-						});
-						$(this).attr('data-source-url', data.result.data[idx].standard_image);
-						$(this).attr('data-source-owner', data.result.data[idx].user_name);
-						$(this).attr('data-source-tag', hashArrayDefault);
-						$(this).attr('data-source-desc', data.result.data[idx].text);
-						$(this).find("img").attr("src", data.result.data[idx].standard_image);
-						$(this).find("img").css("display", "block");
-						//						$(this).find("a").attr("onclick","NTrackObj.callTrackTag('33285', callbackFn, 12902);click_tracking('<?=$_gl['POPUP']['EVENT']['FAMILY_DETAIL']?>');open_insta_detail('"+data.result.data[idx].standard_image+"','"+data.result.data[idx].user_name+"','"+encodeURIComponent(data.result.data[idx].text)+"','"+hashArray[0]+"','"+hashArray[1]+"');");
-						$(this).find(".hashtag span:first-child").text("#"+hashArray[0]);
-						$(this).find(".hashtag span:last-child").text("#"+hashArray[1]);
-						currentLastIdx = idx+1;
-						console.log(currentLastIdx);
-					});
-					//					renderingInsta(data, instaLoadIdx);
-					if (instaTotalPage > 1)
-						$(".section3-wrap .btn-more").show();
-
-				},
-				error : function(data) { console.log(data); }
+			$(window).on('load', function() {
+				$('#popup-open-btn').trigger('click');
 			});
-			//			<!-- Attractt 데이터 호출 코드 끝 -->
-
-
-
-			var pageNum = 0;
-			function loadMore() {
-				pageNum 	= pageNum + 1;
-				var passingData = instaData.result.data.slice(currentLastIdx, currentLastIdx+3);
-				$.ajax({
-					type: "POST",
-					url: "./ajax_picture.php",
-					data: {
-						"insta_data": passingData,
-						"page_num": pageNum
-					},
-					success: function(rs) {
-						currentLastIdx = currentLastIdx+3;
-						//						console.log(rs);
-						console.log(currentLastIdx);
-						// $(".grid").append(rs);
-						rsArray = rs.split('||');
-						$(".list-container .col:last-child").append(rsArray[0]);
-						$(".list-container .indent").append(rsArray[1]);
-
-						if (pageNum >= parseFloat($('#total-page-num'))) {
-							$(".section3-wrap .btn-more").hide();
-						}
-					}
-				});
-			}
 
 			$('.kit-slider').slick({
 				variableWidth: true,
@@ -609,10 +427,10 @@ $folder_name = mnv_phprandom::getString(16);
 				prevArrow: $('.slick-prev'),
 				nextArrow: $('.slick-next')
 			})
-			$('.kit-slider').on('afterChange', function(slick, currentSlide) {
+			$('.kit-slider').on('afterChange', function(slick, currentSlide){
 				// console.log(currentSlide.currentSlide);
 				$(".thumb").removeClass("is-active");
-				$("#slide" + currentSlide.currentSlide).addClass("is-active");
+				$("#slide"+currentSlide.currentSlide).addClass("is-active");
 			});
 
 			var swiper = new Swiper('.slide-area', {
@@ -642,10 +460,12 @@ $folder_name = mnv_phprandom::getString(16);
 				});
 				// scrolled($(window).scrollTop());
 				<?
-	if ($_REQUEST["g"]) { ?>
-				go_section('<?=$_REQUEST["g"]?>'); 
+	if ($_REQUEST["g"])
+	{
+				?>  
+				go_section('<?=$_REQUEST["g"]?>');
 				<?
-						} 
+	}
 				?>
 			});
 			//
@@ -662,7 +482,7 @@ $folder_name = mnv_phprandom::getString(16);
 			//			});
 			//
 			$(window).on('scroll', function(e) {
-				var currentScroll = $(this).scrollTop() + 37;
+				var currentScroll = $(this).scrollTop()+37;
 				scrolled(currentScroll);
 			});
 			//
@@ -686,11 +506,11 @@ $folder_name = mnv_phprandom::getString(16);
 				}
 				setTimeout(function() {
 					$('.menu-layer .menu-list li').each(function() {
-						if ($(this).hasClass('_' + activeIndex)) {
-							$(this).find('img').attr('src', './images/menu_' + activeIndex + '_active.png');
+						if($(this).hasClass('_'+activeIndex)) {
+							$(this).find('img').attr('src', './images/menu_'+activeIndex+'_active.png');
 						} else {
 							var originImagSrc = $(this).find('img').attr('src').split('.')[1].replace('_active', '');
-							$(this).find('img').attr('src', '.' + originImagSrc + '.png');
+							$(this).find('img').attr('src', '.'+originImagSrc+'.png');
 						}
 					});
 				}, 500);
@@ -711,51 +531,38 @@ $folder_name = mnv_phprandom::getString(16);
 
 				var this_class = $(this).data("value");
 				console.log(this_class);
-				switch (this_class) {
-					case 1:
-						$('html, body').animate({
-							scrollTop: 0
-						}, 1000);
+				switch (this_class)
+				{
+					case 1 :
+						$('html, body').animate({scrollTop : 0}, 1000);
 						break;
-					case 2:
-						$('html, body').animate({
-							scrollTop: sectionOffsetArray[2] - 37
-						}, 1000);
+					case 2 :
+						$('html, body').animate({scrollTop :  sectionOffsetArray[2]-37}, 1000);
 						break;
-					case 3:
-						$('html, body').animate({
-							scrollTop: sectionOffsetArray[3] - 185
-						}, 1000);
+					case 3 :
+						$('html, body').animate({scrollTop :  sectionOffsetArray[3]-185}, 1000);
 						break;
-					case 4:
-						$('html, body').animate({
-							scrollTop: sectionOffsetArray[4] - 37
-						}, 1000);
+					case 4 :
+						$('html, body').animate({scrollTop :  sectionOffsetArray[4]-37}, 1000);
 						break;
 				}
 			});
 
-			function go_section(param) {
-				switch (param) {
-					case "1":
-						$('html, body').animate({
-							scrollTop: 0
-						}, 1000);
+			function go_section(param)
+			{
+				switch (param)
+				{
+					case "1" :
+						$('html, body').animate({scrollTop : 0}, 1000);
 						break;
-					case "2":
-						$('html, body').animate({
-							scrollTop: sectionOffsetArray[2] - 37
-						}, 1000);
+					case "2" :
+						$('html, body').animate({scrollTop :  sectionOffsetArray[2]-37}, 1000);
 						break;
-					case "3":
-						$('html, body').animate({
-							scrollTop: sectionOffsetArray[3] - 185
-						}, 1000);
+					case "3" :
+						$('html, body').animate({scrollTop :  sectionOffsetArray[3]-185}, 1000);
 						break;
-					case "4":
-						$('html, body').animate({
-							scrollTop: sectionOffsetArray[4] - 37
-						}, 1000);
+					case "4" :
+						$('html, body').animate({scrollTop :  sectionOffsetArray[4]-37}, 1000);
 						break;
 				}
 			}
@@ -813,19 +620,6 @@ $folder_name = mnv_phprandom::getString(16);
 				}
 			});
 
-			function lengthCheck(obj, ln) {
-				var $obj = $(obj);
-				var regExp = /^[0-9]+$/;
-
-				if(!regExp.test($obj.val())) {
-					$obj.val($obj.val().replace(/[^0-9]/g, ""));
-				} else {
-					if($obj.val().length>=ln) {
-						$obj.is('input:last-child') ? $obj.blur() : $obj.next().focus();
-					}
-				}
-			}
 		</script>
 	</body>
-
 </html>

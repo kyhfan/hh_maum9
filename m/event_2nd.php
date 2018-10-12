@@ -119,7 +119,7 @@ $folder_name = mnv_phprandom::getString(16);
 			<div class="title">
 				<img src="./images/popup_picresult_title.png" alt="">
 			</div>
-			<button class="btn" onclick="location.href='./index2.php'" data-popup="@close">
+			<button class="btn" onclick="location.href='./index.php'" data-popup="@close">
 				<img src="./images/popup_winner_btn.png" alt="">
 			</button>
 			<div class="guide-block">
@@ -127,7 +127,7 @@ $folder_name = mnv_phprandom::getString(16);
 			</div>
 		</div>
 <!--		<a href="javascript:void(0)" class="popup-close" data-popup="@close"></a>-->
-		<a href="./index2.php" class="popup-close" data-popup="@close"></a>
+		<a href="./index.php" class="popup-close" data-popup="@close"></a>
 	</div>
 	<!-- 개인정보 취급 위탁 약관 팝업 -->
 	<div class="popup agree" id="popup-agree2">
