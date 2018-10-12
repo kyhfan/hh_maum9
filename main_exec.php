@@ -538,12 +538,14 @@ switch ($_REQUEST['exec'])
 		$verify_file_name	= $_SESSION['ss_filename'];
 		$verify_file_folder	= $_SESSION['ss_filefolder'];
 		$verify_file_url	= $_SESSION['ss_fileurl'];
+		$verify_file_tag	= $_REQUEST['file_tag'];
+		$verify_file_desc	= $_REQUEST['file_desc'];
 //		$verify_desc		= $_SESSION['ss_family_desc'];
 //		$verify_hashtag		= $_SESSION['ss_family_hashtag'];
 
 		$img_size 	= getimagesize(str_replace("../","./",$verify_file_url));
 		// $img_size 	= getimagesize($family_file_url);
-		$query 		= "INSERT INTO verify_info_9(verify_ipaddr, verify_name, verify_phone, verify_directory, verify_file_url, verify_file_width, verify_file_height, verify_file_name, verify_gubun, verify_media, verify_regdate) values ('".$_SERVER['REMOTE_ADDR']."','".$verify_name."','".$verify_phone."','".$verify_file_folder."','".$verify_file_url."','".$img_size[0]."','".$img_size[1]."','".$verify_file_name."','".$gubun."','".$_SESSION['ss_media']."','".date("Y-m-d H:i:s")."')";
+		$query 		= "INSERT INTO verify_info_9(verify_ipaddr, verify_name, verify_phone, verify_directory, verify_file_url, verify_file_width, verify_file_height, verify_file_name, verify_desc, verify_tag, verify_gubun, verify_media, verify_regdate) values ('".$_SERVER['REMOTE_ADDR']."','".$verify_name."','".$verify_phone."','".$verify_file_folder."','".$verify_file_url."','".$img_size[0]."','".$img_size[1]."','".$verify_file_name."','".$verify_file_desc."','".$verify_file_tag."','".$gubun."','".$_SESSION['ss_media']."','".date("Y-m-d H:i:s")."')";
 		$result 	= mysqli_query($my_db, $query);
 
 		if ($result)
