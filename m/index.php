@@ -538,11 +538,12 @@ $folder_name = mnv_phprandom::getString(16);
 			//			<!-- Attractt 데이터 호출 코드 -->
 			$.ajax({
 				url : "https://www.attractt.com/api/posts",
-				data : { code : "QCzupctc0vyaB8a" },
+//				data : { code : "QCzupctc0vyaB8a" },
+				data : { code : "xDAmH923veFqGgC" },
 				dataType : "jsonp",
 				jsonp : "attracttCallback",
 				success : function(data) {
-					//										console.log(data);
+															console.log(data);
 					instaData = data;
 					instaTotalCount = data.result.count;
 					instaTotalPage	= Math.floor(instaTotalCount / 4) - 1;
