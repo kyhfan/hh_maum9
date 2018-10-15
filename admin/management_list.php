@@ -133,8 +133,7 @@
 	$buyer_count_query = "SELECT count(*) FROM verify_info_9 WHERE  1 ".$where."";
 
 	list($buyer_count) = @mysqli_fetch_array(mysqli_query($my_db, $buyer_count_query));
-	$PAGE_CLASS = new Page($pg,$buyer_count,$page_size,$block_size);
-
+	$PAGE_CLASS = new mnv_page($pg,$buyer_count,$page_size,$block_size);
 	$BLOCK_LIST = $PAGE_CLASS->blockList();
 	$PAGE_UNCOUNT = $PAGE_CLASS->page_uncount;
 	$buyer_list_query = "SELECT * FROM verify_info_9 WHERE 1 ".$where." Order by idx DESC LIMIT $PAGE_CLASS->page_start, $page_size";
