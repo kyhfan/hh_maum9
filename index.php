@@ -279,7 +279,7 @@ $folder_name = mnv_phprandom::getString(16);
 						</div>
 						<div class="col indent">
 
-							<!-- <div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
+							<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
 								<div class="img">
 									<img src="./images/main_sec3_box_sample2.jpg" alt="">
 								</div>
@@ -314,7 +314,7 @@ $folder_name = mnv_phprandom::getString(16);
 									<span>#마음봇건강키트</span>
 									<span>#우리가족튼튼메신저</span>
 								</div>
-							</div> -->
+							</div>
 						</div>
 						<div class="col">
 							<?
