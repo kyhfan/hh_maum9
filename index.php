@@ -236,10 +236,10 @@ $folder_name = mnv_phprandom::getString(16);
 									break;
 
 								$htag_arr 	= explode(",",str_replace("#","",$val["verify_tag"]));
-								if (!$htag_arr[0])
+//								if (!$htag_arr[0])
 									$htag_arr[0] = "마음봇건강키트";
 
-								if (!$htag_arr[1])
+//								if (!$htag_arr[1])
 									$htag_arr[1] = "우리가족튼튼메신저";			
 							?>
 							<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
@@ -293,8 +293,8 @@ $folder_name = mnv_phprandom::getString(16);
 									<img src="./images/main_sec3_box_sample2.jpg" alt="">
 								</div>
 								<div class="hashtag">
-									<span>#마음봇</span>
-									<span>#마음봇</span>
+									<span>#마음봇건강키트</span>
+									<span>#우리가족튼튼메신저</span>
 								</div>
 							</div>
 							<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
@@ -328,10 +328,10 @@ $folder_name = mnv_phprandom::getString(16);
 									   }
 
 									   $htag_arr 	= explode(",",str_replace("#","",$val["verify_tag"]));
-									   if (!$htag_arr[0])
+//									   if (!$htag_arr[0])
 										   $htag_arr[0] = "마음봇건강키트";
 
-									   if (!$htag_arr[1])
+//									   if (!$htag_arr[1])
 										   $htag_arr[1] = "우리가족튼튼메신저";
 							?>	
 							<div class="box"  data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
@@ -701,8 +701,10 @@ e.parentNode.insertBefore(j, e);
 						$(this).find("img").attr("src", data.result.data[idx].standard_image);
 						$(this).find("img").css("display", "block");
 						$(this).find("a").attr("onclick","NTrackObj.callTrackTag('33285', callbackFn, 12902);click_tracking('<?=$_gl['POPUP']['EVENT']['FAMILY_DETAIL']?>');open_insta_detail('"+data.result.data[idx].standard_image+"','"+data.result.data[idx].user_name+"','"+encodeURIComponent(data.result.data[idx].text)+"','"+hashArray[0]+"','"+hashArray[1]+"');");
-						$(this).find(".hashtag span:first-child").text("#"+hashArray[0]);
-						$(this).find(".hashtag span:last-child").text("#"+hashArray[1]);
+//						$(this).find(".hashtag span:first-child").text("#"+hashArray[0]);
+//						$(this).find(".hashtag span:last-child").text("#"+hashArray[1]);
+						$(this).find(".hashtag span:first-child").text("#마음봇건강키트");
+						$(this).find(".hashtag span:last-child").text("#우리가족튼튼메신저");
 						currentLastIdx = idx+1;
 					});
 					//					renderingInsta(data, instaLoadIdx);
