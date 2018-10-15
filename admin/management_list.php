@@ -157,7 +157,7 @@
 									</a>
 								</td>
                 <td><?php echo $val['verify_desc']?></td>
-                <td><?php echo $val['verify_hashtag']?></td>
+                <td><?php echo $val['verify_tag']?></td>
                 <td><?php echo $val['verify_media']?></td>
                 <td><?php echo $val['verify_gubun']?></td>
                 <td><?php echo $val['verify_regdate']?></td>
