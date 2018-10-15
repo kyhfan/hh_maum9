@@ -1,7 +1,10 @@
 <?php
 
 	// 설정파일
-	include_once "../config.php";
+	include_once "../include/autoload.php";
+
+	$mnv_f = new mnv_function();
+	$my_db         = $mnv_f->Connect_MySQL();
 /*
 	if (isset($_SESSION['ss_mb_id']) == false)
 	{
@@ -79,21 +82,21 @@
             <form name="frm_execute" method="POST" onsubmit="return checkfrm()">
               <input type="hidden" name="pg" value="<?=$pg?>">
               <select name="search_type">
-                <option value="family_name" <?php if($search_type == "family_name"){?>selected<?php }?>>이름</option>
-                <option value="family_phone" <?php if($search_type == "family_phone"){?>selected<?php }?>>전화번호</option>
+                <option value="verify_name" <?php if($search_type == "verify_name"){?>selected<?php }?>>이름</option>
+                <option value="verify_phone" <?php if($search_type == "verify_phone"){?>selected<?php }?>>전화번호</option>
               </select>
               <input type="text" name="search_txt" value="<?php echo $search_txt?>">
               <input type="text" id="sDate" name="sDate" value="<?=$sDate?>"> - <input type="text" id="eDate" name="eDate" value="<?=$eDate?>">
 							<input type="submit" value="검색">
-							<a href="javascript:void(0)" id="excel_download_list">
+							<!-- <a href="javascript:void(0)" id="excel_download_list">
 								<span>엑셀 다운로드</span>
-							</a>
+							</a> -->
 			  <li align="right";>
 			  <?
-					$member = "SELECT count(idx) FROM ".$_gl['family_info_table']." WHERE 1";
+					$member = "SELECT count(idx) FROM verify_info_9 WHERE 1";
 					$res3 = mysqli_query($my_db, $member);
 					list($total_count)	= @mysqli_fetch_array($res3);
-					$uniqueMember = "SELECT count(*) FROM ".$_gl['family_info_table']." WHERE 1 GROUP BY family_phone";
+					$uniqueMember = "SELECT count(*) FROM verify_info_9 WHERE 1 GROUP BY verify_phone";
 					$resUnique = mysqli_query($my_db, $uniqueMember);
 					$unique_total_count	= mysqli_num_rows($resUnique);
 					echo  "전체 참여자수 : $total_count / 유니크 : $unique_total_count";
@@ -108,8 +111,8 @@
                 <th>이름</th>
                 <th>전화번호</th>
                 <th>업로드사진</th>
-                <th>가족설명</th>
-                <th>가족 해쉬태그</th>
+                <th>설명</th>
+                <th>해쉬태그</th>
                 <th>유입매체</th>
                 <th>유입구분</th>
                 <th>참여일자</th>
@@ -121,20 +124,20 @@
 	$where = "";
 
 	if ($sDate != "")
-		$where	.= " AND family_regdate >= '".$sDate."' AND family_regdate <= '".$eDate." 23:59:59'";
+		$where	.= " AND verify_regdate >= '".$sDate."' AND verify_regdate <= '".$eDate." 23:59:59'";
 
 	if ($search_txt != "")
 	{
 		$where	.= " AND ".$search_type." like '%".$search_txt."%'";
 	}
-	$buyer_count_query = "SELECT count(*) FROM ".$_gl['family_info_table']." WHERE  1 ".$where."";
+	$buyer_count_query = "SELECT count(*) FROM verify_info_9 WHERE  1 ".$where."";
 
 	list($buyer_count) = @mysqli_fetch_array(mysqli_query($my_db, $buyer_count_query));
 	$PAGE_CLASS = new Page($pg,$buyer_count,$page_size,$block_size);
 
 	$BLOCK_LIST = $PAGE_CLASS->blockList();
 	$PAGE_UNCOUNT = $PAGE_CLASS->page_uncount;
-	$buyer_list_query = "SELECT * FROM ".$_gl['family_info_table']." WHERE 1 ".$where." Order by idx DESC LIMIT $PAGE_CLASS->page_start, $page_size";
+	$buyer_list_query = "SELECT * FROM verify_info_9 WHERE 1 ".$where." Order by idx DESC LIMIT $PAGE_CLASS->page_start, $page_size";
 	$res = mysqli_query($my_db, $buyer_list_query);
 
 	while ($buyer_data = @mysqli_fetch_array($res))
@@ -147,22 +150,22 @@
 ?>
               <tr>
                 <td><?php echo $PAGE_UNCOUNT--?></td>
-                <td><?php echo $val['family_name']?></td>
-                <td><?php echo $val['family_phone']?></td>
+                <td><?php echo $val['verify_name']?></td>
+                <td><?php echo $val['verify_phone']?></td>
                 <td>
-									<a href="https://www.hi-maumbot.co.kr/uploads/<?=$val["family_file_folder"]?>/<?=$val["family_file_name"]?>" target="_blank">
-										<img src="../uploads/<?=$val["family_file_folder"]?>/<?=$val["family_file_name"]?>" style="width:70px;height:70px">
+									<a href="https://www.hi-maumbot.co.kr/uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" target="_blank">
+										<img src="../uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" style="width:70px;height:70px">
 									</a>
 								</td>
-                <td><?php echo $val['family_desc']?></td>
-                <td><?php echo $val['family_hashtag']?></td>
-                <td><?php echo $val['family_media']?></td>
-                <td><?php echo $val['family_gubun']?></td>
-                <td><?php echo $val['family_regdate']?></td>
+                <td><?php echo $val['verify_desc']?></td>
+                <td><?php echo $val['verify_hashtag']?></td>
+                <td><?php echo $val['verify_media']?></td>
+                <td><?php echo $val['verify_gubun']?></td>
+                <td><?php echo $val['verify_regdate']?></td>
                 <td>
-									<select id="family_show" onchange="changeShow('<?=$val["idx"]?>',this.value)">
-										<option value="Y" <?if($val['family_show'] == "Y"){?>selected<?}?>>Y</option>
-										<option value="N" <?if($val['family_show'] == "N"){?>selected<?}?>>N</option>
+									<select id="verify_show" onchange="changeShow('<?=$val[idx]?>',this.value)">
+										<option value="Y" <?if($val['verify_show'] == "Y"){?>selected<?}?>>Y</option>
+										<option value="N" <?if($val['verify_show'] == "N"){?>selected<?}?>>N</option>
 									</select>
 								</td>
               </tr>
