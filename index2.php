@@ -107,7 +107,7 @@ $folder_name = mnv_phprandom::getString(16);
 					<div class="title">
 					</div>
 					<div class="button">
-						<button type="button" class="btn-message" onclick="NTrackObj.callTrackTag('34101', callbackFn, 13294);click_tracking('사랑의 건강 기원 메시지 쓰기');nextPage(1)">
+						<button type="button" class="btn-message" onclick="NTrackObj.callTrackTag('34101', callbackFn, 13294);click_tracking('사랑의 건강 기원 메시지 쓰기');alert('이벤트가 종료되었습니다')">
 							<img src="./images/btn_message2.png" alt="">
 							<img src="./images/pencil.png" class="pencil" alt="">
 						</button>
