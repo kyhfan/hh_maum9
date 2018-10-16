@@ -649,6 +649,7 @@ body {
 	color: #3e301d;
 	font-weight: 800;
 	letter-spacing: -0.4px;
+	word-break: break-all;
 }
 .section3-wrap .list-container .col .box .hashtag span:last-child {
 	margin-right: 0;
