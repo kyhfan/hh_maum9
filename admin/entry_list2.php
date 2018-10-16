@@ -146,7 +146,7 @@
 									</a>
 								</td>
                 <td><?php echo $buyer_info[$key]['verify_desc']?></td>
-                <td><?php echo $buyer_info[$key]['verify_hashtag']?></td>
+                <td><?php echo $buyer_info[$key]['verify_tag']?></td>
                 <td><?php echo $buyer_info[$key]['verify_media']?></td>
                 <td><?php echo $buyer_info[$key]['verify_gubun']?></td>
                 <td><?php echo $buyer_info[$key]['verify_regdate']?></td>
