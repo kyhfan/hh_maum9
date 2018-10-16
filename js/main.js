@@ -90,10 +90,18 @@ $(function(){
 		},
 		contentChange: function($popup, datas) {
 			if(datas.popup == '#popup-picture-detail') {
+				var startIdx = Math.floor(datas.sourceOwner.length/2);
+				var ModifiedNameArr = datas.sourceOwner.split("");
+				var sliceLength = (datas.sourceOwner.length >= 5) ? 2 : 1;
+				ModifiedNameArr.splice(startIdx, 1, '*');
+				if(sliceLength>1) {
+					ModifiedNameArr.splice(startIdx+1, 1, '*');
+				}
+				var outputName = ModifiedNameArr.join("");
 				var imgUrl = datas.sourceUrl,
 					desc = datas.sourceDesc,
 					tag = datas.sourceTag.split(','),
-					name = datas.sourceOwner;
+					name = outputName;
 
 				$popup.find('#verify-img').attr('src', imgUrl);
 				$popup.find('.name').text(name);
