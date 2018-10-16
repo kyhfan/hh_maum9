@@ -49,6 +49,16 @@ if ($mobileYN == "PC")
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
 		<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 		<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+		<!-- Global site tag (gtag.js) - AdWords: 787918455 -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=AW-787918455"></script>
+		<script>
+
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'AW-787918455');
+		</script>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111799987-1"></script>
 		<script>
@@ -114,7 +124,7 @@ if ($mobileYN == "PC")
 						<img src="./images/main_sec1_title.png" alt="">
 					</div>
 					<div class="button">
-						<button type="button" class="btn-message" onclick="_nto.callTrack('6450', callback());click_tracking('사랑의 건강 기원 메시지 쓰기');nextPage(1)">
+						<button type="button" class="btn-message" onclick="_nto.callTrack('6450', callback());click_tracking('사랑의 건강 기원 메시지 쓰기');alert('이벤트가 종료되었습니다')">
 							<img src="./images/main_sec1_btn_bg.png" alt="">
 							<img src="./images/main_sec1_btn_pencile.png" class="pencil" alt="">
 						</button>

@@ -28,7 +28,7 @@
 					</div>
 				</div>
 				<div class="btn-wrap">
-					<button type="button" class="btn" onclick="alert('영상 재생 후 5초 뒤에 다음단계로 넘어가실 수 있습니다.')">
+					<button type="button" class="btn" onclick="alert('영상 재생 후 다음단계로 넘어가실 수 있습니다.')">
 						<img src="./images/sub1_btn_before.jpg" alt="" id="sub1_btn">
 					</button>
 					<div class="msg"></div>
@@ -85,10 +85,10 @@
 					{
 						console.log("1");
 						$(".msg").fadeOut("fast");
-						setTimeout(function(){
+						// setTimeout(function(){
 							$("#sub1_btn").attr('src', './images/sub1_btn_after.jpg');
 							$(".btn-wrap button").attr("onclick","_nto.callTrack('6452', callback());click_tracking('STEP1-메시지작성하기');nextPage(2)");
-						}, 5000);
+						// }, 5000);
 					}
 				}else if (event.data == 2){
 					play_flag = 1;

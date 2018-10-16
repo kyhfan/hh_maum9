@@ -143,10 +143,13 @@
 		break;
 
 		case "change_family_show" :
+			$mnv_f          = new mnv_function();
+			$my_db          = $mnv_f->Connect_MySQL();
+
 			$idx			= $_REQUEST['idx'];
 			$family_show	= $_REQUEST['family_show'];
 
-			$query	= "UPDATE ".$_gl['family_info_table']." SET family_show='".$family_show."' WHERE idx='".$idx."'";
+			$query	= "UPDATE verify_info_9 SET verify_show='".$family_show."' WHERE idx='".$idx."'";
 			$result		= mysqli_query($my_db, $query);
 
 			if ($result)

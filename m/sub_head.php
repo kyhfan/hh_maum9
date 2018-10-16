@@ -1,3 +1,7 @@
+<?
+    // if (date("Y-m-d") > "2018-10-07")
+	// 	exit;
+?>                
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -41,13 +45,14 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
 		<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111799987-1"></script>
-		<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+    <!-- Global site tag (gtag.js) - AdWords: 787918455 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-787918455"></script>
+    <script>
 
-		gtag('config', 'UA-111799987-1');
-		</script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-787918455');
+    </script>
 	</head>

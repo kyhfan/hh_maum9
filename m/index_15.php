@@ -49,6 +49,16 @@ $folder_name = mnv_phprandom::getString(16);
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
 		<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 		<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <!-- Global site tag (gtag.js) - AdWords: 787918455 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-787918455"></script>
+    <script>
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-787918455');
+    </script>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111799987-1"></script>
 		<script>
@@ -114,7 +124,18 @@ $folder_name = mnv_phprandom::getString(16);
 						<img src="./images/main_sec1_title.png" alt="">
 					</div>
 					<div class="button">
-						<button type="button" class="btn-message" onclick="_nto.callTrack('6450', callback());click_tracking('사랑의 건강 기원 메시지 쓰기');alert('이벤트가 종료되었습니다.')">
+<?
+    if (date("Y-m-d") < "2018-10-08")
+    {
+?>                
+						<button type="button" class="btn-message" onclick="_nto.callTrack('6450', callback());click_tracking('사랑의 건강 기원 메시지 쓰기');nextPage(1)">
+<?
+	}else{
+?>		
+						<button type="button" class="btn-message" onclick="_nto.callTrack('6450', callback());click_tracking('사랑의 건강 기원 메시지 쓰기');alert('이벤트가 종료되었습니다')">
+<?
+	}
+?>				
 							<img src="./images/main_sec1_btn_bg.png" alt="">
 							<img src="./images/main_sec1_btn_pencile.png" class="pencil" alt="">
 						</button>
@@ -255,8 +276,8 @@ $folder_name = mnv_phprandom::getString(16);
 										<img src="./images/main_sec3_box_sample2.jpg" alt="">
 									</div>
 									<div class="hashtag">
-										<span>#마음봇건강키트</span>
-										<span>#우리가족튼튼메신저</span>
+										<span>#마음봇</span>
+										<span>#마음봇</span>
 									</div>
 								</div>
 								<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="../uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
@@ -294,10 +315,10 @@ $folder_name = mnv_phprandom::getString(16);
 											break;
 
 										$htag_arr 	= explode(",",str_replace("#","",$val["verify_tag"]));
-//										if (!$htag_arr[0])
+										if (!$htag_arr[0])
 											$htag_arr[0] = "마음봇건강키트";
 
-//										if (!$htag_arr[1])
+										if (!$htag_arr[1])
 											$htag_arr[1] = "우리가족튼튼메신저";			
 								?>
 								<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="../uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
@@ -560,10 +581,8 @@ $folder_name = mnv_phprandom::getString(16);
 						$(this).find("img").attr("src", data.result.data[idx].standard_image);
 						$(this).find("img").css("display", "block");
 						//						$(this).find("a").attr("onclick","NTrackObj.callTrackTag('33285', callbackFn, 12902);click_tracking('<?=$_gl['POPUP']['EVENT']['FAMILY_DETAIL']?>');open_insta_detail('"+data.result.data[idx].standard_image+"','"+data.result.data[idx].user_name+"','"+encodeURIComponent(data.result.data[idx].text)+"','"+hashArray[0]+"','"+hashArray[1]+"');");
-//						$(this).find(".hashtag span:first-child").text("#"+hashArray[0]);
-//						$(this).find(".hashtag span:last-child").text("#"+hashArray[1]);
-						$(this).find(".hashtag span:first-child").text("#마음봇건강키트");
-						$(this).find(".hashtag span:last-child").text("#우리가족튼튼메신저");
+						$(this).find(".hashtag span:first-child").text("#"+hashArray[0]);
+						$(this).find(".hashtag span:last-child").text("#"+hashArray[1]);
 						currentLastIdx = idx+1;
 						console.log(currentLastIdx);
 					});

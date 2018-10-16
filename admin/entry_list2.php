@@ -1,15 +1,8 @@
 <?php
+	include_once "../include/autoload.php";
 
-	// 설정파일
-	include_once "../config.php";
-/*
-	if (isset($_SESSION['ss_mb_id']) == false)
-	{
-		//header('Location: index.php');
-		echo "<script>location.href='index.php'</script>";
-		exit;
-	}
-*/
+	$mnv_f = new mnv_function();
+	$my_db         = $mnv_f->Connect_MySQL();
 
 	include "./head.php";
 
@@ -68,7 +61,7 @@
   <!-- Page Heading -->
     <div class="row">
       <div class="col-lg-12">
-        <h1 class="page-header">내 마음대로 부문 참여자 목록</h1>
+        <h1 class="page-header">이벤트 참여자 목록</h1>
       </div>
     </div>
     <!-- /.row -->
@@ -79,8 +72,8 @@
             <form name="frm_execute" method="POST" onsubmit="return checkfrm()">
               <input type="hidden" name="pg" value="<?=$pg?>">
               <select name="search_type">
-                <option value="liking_name" <?php if($search_type == "liking_name"){?>selected<?php }?>>이름</option>
-                <option value="liking_phone" <?php if($search_type == "liking_phone"){?>selected<?php }?>>전화번호</option>
+                <option value="family_name" <?php if($search_type == "family_name"){?>selected<?php }?>>이름</option>
+                <option value="family_phone" <?php if($search_type == "family_phone"){?>selected<?php }?>>전화번호</option>
               </select>
               <input type="text" name="search_txt" value="<?php echo $search_txt?>">
               <input type="text" id="sDate" name="sDate" value="<?=$sDate?>"> - <input type="text" id="eDate" name="eDate" value="<?=$eDate?>">
@@ -90,10 +83,10 @@
 							</a>
 			  <li align="right";>
 			  <?
-					$member = "SELECT count(idx) FROM ".$_gl['liking_info_table']." WHERE 1";
+					$member = "SELECT count(idx) FROM verify_info_9 WHERE 1";
 					$res3 = mysqli_query($my_db, $member);
 					list($total_count)	= @mysqli_fetch_array($res3);
-					$uniqueMember = "SELECT count(*) FROM ".$_gl['liking_info_table']." WHERE 1 GROUP BY liking_phone";
+					$uniqueMember = "SELECT count(*) FROM verify_info_9 WHERE 1 GROUP BY verify_phone";
 					$resUnique = mysqli_query($my_db, $uniqueMember);
 					$unique_total_count	= mysqli_num_rows($resUnique);
 					echo  "전체 참여자수 : $total_count / 유니크 : $unique_total_count";
@@ -107,12 +100,11 @@
                 <th>순번</th>
                 <th>이름</th>
                 <th>전화번호</th>
-                <th>선택한 스타일</th>
-                <th>선택한 색상</th>
-                <th>선택한 재질</th>
-                <th>선택한 상품</th>
-                <th>유입구분</th>
+                <th>업로드사진</th>
+                <th>가족설명</th>
+                <th>가족 해쉬태그</th>
                 <th>유입매체</th>
+                <th>유입구분</th>
                 <th>참여일자</th>
               </tr>
             </thead>
@@ -121,20 +113,19 @@
 	$where = "";
 
 	if ($sDate != "")
-		$where	.= " AND liking_regdate >= '".$sDate."' AND liking_regdate <= '".$eDate." 23:59:59'";
+		$where	.= " AND verify_regdate >= '".$sDate."' AND verify_regdate <= '".$eDate." 23:59:59'";
 
 	if ($search_txt != "")
 	{
 		$where	.= " AND ".$search_type." like '%".$search_txt."%'";
 	}
-	$buyer_count_query = "SELECT count(*) FROM ".$_gl['liking_info_table']." WHERE  1 ".$where."";
+	$buyer_count_query = "SELECT count(*) FROM verify_info_9 WHERE  1 ".$where."";
 
 	list($buyer_count) = @mysqli_fetch_array(mysqli_query($my_db, $buyer_count_query));
-	$PAGE_CLASS = new Page($pg,$buyer_count,$page_size,$block_size);
-
+	$PAGE_CLASS = new mnv_page($pg,$buyer_count,$page_size,$block_size);
 	$BLOCK_LIST = $PAGE_CLASS->blockList();
 	$PAGE_UNCOUNT = $PAGE_CLASS->page_uncount;
-	$buyer_list_query = "SELECT * FROM ".$_gl['liking_info_table']." WHERE 1 ".$where." Order by idx DESC LIMIT $PAGE_CLASS->page_start, $page_size";
+	$buyer_list_query = "SELECT * FROM verify_info_9 WHERE 1 ".$where." Order by idx DESC LIMIT $PAGE_CLASS->page_start, $page_size";
 	$res = mysqli_query($my_db, $buyer_list_query);
 
 	while ($buyer_data = @mysqli_fetch_array($res))
@@ -147,15 +138,18 @@
 ?>
               <tr>
                 <td><?php echo $PAGE_UNCOUNT--?></td>
-                <td><?php echo $buyer_info[$key]['liking_name']?></td>
-                <td><?php echo $buyer_info[$key]['liking_phone']?></td>
-                <td><?php echo $buyer_info[$key]['liking_cate']?></td>
-                <td><?php echo $buyer_info[$key]['liking_tone']?></td>
-                <td><?php echo $buyer_info[$key]['liking_texture']?></td>
-                <td><?php echo $buyer_info[$key]['liking_select']?></td>
-                <td><?php echo $buyer_info[$key]['linking_gubun']?></td>
-                <td><?php echo $buyer_info[$key]['linking_media']?></td>
-                <td><?php echo $buyer_info[$key]['linking_regdate']?></td>
+                <td><?php echo $buyer_info[$key]['verify_name']?></td>
+                <td><?php echo $buyer_info[$key]['verify_phone']?></td>
+                <td>
+									<a href="https://www.hi-maumbot.co.kr/uploads/<?=$buyer_info[$key]["verify_directory"]?>/<?=$buyer_info[$key]["verify_file_name"]?>" target="_blank">
+										<img src="../uploads/<?=$buyer_info[$key]["verify_directory"]?>/<?=$buyer_info[$key]["verify_file_name"]?>" style="width:70px;height:70px">
+									</a>
+								</td>
+                <td><?php echo $buyer_info[$key]['verify_desc']?></td>
+                <td><?php echo $buyer_info[$key]['verify_tag']?></td>
+                <td><?php echo $buyer_info[$key]['verify_media']?></td>
+                <td><?php echo $buyer_info[$key]['verify_gubun']?></td>
+                <td><?php echo $buyer_info[$key]['verify_regdate']?></td>
               </tr>
 <?php
 	}
@@ -189,7 +183,7 @@
 	$('#excel_download_list').on('click', function() {
 		var $sDate = $('#sDate').val();
 		var $eDate = $('#eDate').val();
-		location.href="excel_download_list2.php?sDate="+$sDate+"&eDate="+$eDate;
+		location.href="excel_download_insta_list.php?sDate="+$sDate+"&eDate="+$eDate;
 	});
 	
 

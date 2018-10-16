@@ -1,8 +1,5 @@
 <?
     session_start();
-
-    if (date("Y-m-d") > "2018-10-07")
-		exit;
 ?>                
 <!DOCTYPE html>
 <html lang="en">

@@ -165,6 +165,10 @@ include_once "sub_head.php";
 //			console.log($(this).val());
 			var messageLength = $(this).val().length;
 			var lineBreak = ($(this).val().match(/\n/g)||[]).length;
+<<<<<<< HEAD
+			console.log(messageLength);
+			if(messageLength>0 && lineBreak<3 && messageLength%12 == 0 ) {
+=======
 //			console.log(lineBreak);
 //			console.log(messageLength);
 			
@@ -174,6 +178,7 @@ include_once "sub_head.php";
 			}
 
 //			if(messageLength>0 && lineBreak<3 && messageLength%12 == 0 ) {
+>>>>>>> 0d9127a4144a71c487c78fb7d4f25b545bd7c749
 				// 강제 개행
 //				console.log("linebreak");
 				//				var lastStr = $(this).val().substr(messageLength - 1);

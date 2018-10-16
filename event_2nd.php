@@ -1,6 +1,6 @@
 <?
 include_once "./include/autoload.php";
-include_once "sub_head.php";
+include_once "sub_head2.php";
 
 $mnv_f 			= new mnv_function();
 // 파일 저장 폴더 생성용 난수 번호

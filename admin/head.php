@@ -101,10 +101,10 @@ if (isset($_SESSION['ss_mb_name']) == false)
                   <li>
                     <a href="daily_media_count.php">캠페인 참여자 수</a>
                   </li>
-<!--
                   <li>
-                    <a href="daily_tracking_count2.php">2차 일자별 사이트 유입자 수</a>
+                    <a href="daily_media_count2.php">인증 이벤트 참여자 수</a>
                   </li>
+<!--
                   <li>
                     <a href="winner_count2.php">2차 경품별 당첨자 수</a>
                   </li>
@@ -122,10 +122,11 @@ if (isset($_SESSION['ss_mb_name']) == false)
               </li>
               <li>
                 <a href="entry_list.php"><i class="fa fa-fw fa-table"></i> 이벤트 참여자 목록</a>
+              
               </li>
-              <!-- <li>
-                <a href="entry_list2.php"><i class="fa fa-fw fa-table"></i> 내 마음대로 부문 참여자 목록</a>
-              </li> -->
+              <li>
+                <a href="entry_list2.php"><i class="fa fa-fw fa-table"></i> 인증 이벤트 참여자 목록</a>
+              </li>
               <!--<li>
                 <a href="entry_list2.php"><i class="fa fa-fw fa-table"></i> 이름짓기 투표 참여자 목록</a>
               </li>
