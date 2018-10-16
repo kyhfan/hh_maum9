@@ -4,6 +4,7 @@ include_once "./include/autoload.php";
 $mnv_f          = new mnv_function();
 $my_db          = $mnv_f->Connect_MySQL();
 
+$htag_arr = ['마음봇건강키트', '우리가족튼튼메신저', '현대해상'];
 $block_num 	= 8;
 $page_num 	= $_REQUEST["page_num"];
 $insta_data = $_REQUEST["insta_data"];
@@ -26,12 +27,13 @@ foreach($verify_data as $key => $val)
 	if ($i == 4)
 		break;        
 
-	$htag_arr 	= explode(",",str_replace("#","",$val["verify_tag"]));
+//	$htag_arr 	= explode(",",str_replace("#","",$val["verify_tag"]));
+	shuffle($htag_arr);
 //	if (!$htag_arr[0])
-		$htag_arr[0] = "마음봇건강키트";
+//		$htag_arr[0] = "마음봇건강키트";
 
 //	if (!$htag_arr[1])
-		$htag_arr[1] = "우리가족튼튼메신저";			
+//		$htag_arr[1] = "우리가족튼튼메신저";			
 
 	$val['verify_desc'] = str_replace('"','',$val['verify_desc']);
 
@@ -45,12 +47,13 @@ foreach($verify_data as $key => $val)
 
 $k = 0;
 foreach($insta_data as $key => $val) {
-	$htag_arr = explode(" ", $val["hashtags"]);
+//	$htag_arr = explode(" ", $val["hashtags"]);
+	shuffle($htag_arr);
 //	if (!$htag_arr[0])
-		$htag_arr[0] = "마음봇건강키트";
+//		$htag_arr[0] = "마음봇건강키트";
 
 //	if (!$htag_arr[1])
-		$htag_arr[1] = "우리가족튼튼메신저";			
+//		$htag_arr[1] = "우리가족튼튼메신저";			
 
 	
 	$section2   .= "<div class='box' data-dynamic-flag='Y' data-popup='#popup-picture-detail' data-source-owner='".$val["user_name"]."' data-source-url='".$val["standard_image"]."' data-source-tag='".$htag_arr[0].",".$htag_arr[1]."' data-source-desc='".$val["text"]."'><div class='img'><img src='".$val["standard_image"]."'></div>";
@@ -100,12 +103,13 @@ foreach($verify_data as $key => $val)
 		continue;
 	}
 
-	$htag_arr 	= explode(",",str_replace("#","",$val["verify_tag"]));
+//	$htag_arr 	= explode(",",str_replace("#","",$val["verify_tag"]));
+	shuffle($htag_arr);
 //	if (!$htag_arr[0])
-		$htag_arr[0] = "마음봇건강키트";
+//		$htag_arr[0] = "마음봇건강키트";
 
 //	if (!$htag_arr[1])
-		$htag_arr[1] = "우리가족튼튼메신저";	
+//		$htag_arr[1] = "우리가족튼튼메신저";	
 
 	$val['verify_desc'] = str_replace('"','',$val['verify_desc']);
 
