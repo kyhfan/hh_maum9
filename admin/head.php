@@ -124,7 +124,7 @@ if (isset($_SESSION['ss_mb_name']) == false)
                 <a href="entry_list.php"><i class="fa fa-fw fa-table"></i> 이벤트 참여자 목록</a>
               </li>
               <!-- <li>
-                <a href="entry_list2.php"><i class="fa fa-fw fa-table"></i> 내 마음대로 부문 참여자 목록</a>
+                <a href="entry_list2.php"><i class="fa fa-fw fa-table"></i> 인증 이벤트 참여자 목록</a>
               </li> -->
               <!--<li>
                 <a href="entry_list2.php"><i class="fa fa-fw fa-table"></i> 이름짓기 투표 참여자 목록</a>
