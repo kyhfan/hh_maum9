@@ -343,7 +343,7 @@ $folder_name = mnv_phprandom::getString(16);
 				},
 				success: function(response){
 					console.log(response);
-					hh_maum9.popup.close($('#popup-picture'));
+//					hh_maum9.popup.close($('#popup-picture'));
 					hh_maum9.popup.show($('#popup-picture-input'));
 					//						wmbt.popupOpen('input_family_info_popup');
 				}
@@ -354,6 +354,25 @@ $folder_name = mnv_phprandom::getString(16);
 			//				var data = $('#picture-user-info').serialize();
 			var verifyName = $('#picture-user-info #mb_name').val();
 			var verifyPhone = $('#picture-user-info #mb_phone1').val()+$('#picture-user-info #mb_phone2').val()+$('#picture-user-info #mb_phone3').val();
+			
+			if(!verifyName || verifyName.trim().length < 1) {
+				alert("이름을 입력해주세요!");
+				return false;
+			}
+			if(!verifyPhone || verifyPhone.trim().length < 1) {
+				alert("휴대전화번호를 입력해주세요!");
+				return false;
+			}
+			if ($("#terms1").is(":checked") === false)
+			{
+				alert('개인정보 수집 및 이용약관에 동의하셔야만 이벤트 참여가 가능합니다.');
+				return false;
+			}
+			if ($("#terms2").is(":checked") === false)
+			{
+				alert('개인정보 취급 위탁 약관에 동의하셔야만 이벤트 참여가 가능합니다.');
+				return false;
+			}
 
 			$.ajax({
 				method: 'POST',
