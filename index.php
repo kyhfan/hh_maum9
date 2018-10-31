@@ -204,12 +204,30 @@ $folder_name = mnv_phprandom::getString(16);
 					<div class="info">
 						<div class="button">
 							<button type="button" onclick="NTrackObj.callTrackTag('34125', callbackFn, 13294);click_tracking('인증 이벤트 당첨자 발표');alert('당첨자는 11월 2일에 발표 될 예정입니다.')"></button>
+<!--							<button type="button" onclick="NTrackObj.callTrackTag('34125', callbackFn, 13294);click_tracking('인증 이벤트 당첨자 발표');" data-popup="#popup-verify-winner-list"></button>-->
 						</div>
 					</div>
 					<!--					<button class="btn-verify" onclick="NTrackObj.callTrackTag('34126', callbackFn, 13294);click_tracking('인증 이벤트 참여');" data-popup="#popup-picture">-->
+					<?
+					if(date('Y-m-d') <= '2018-10-31') {
+					?>
 					<button class="btn-verify" onclick="NTrackObj.callTrackTag('34126', callbackFn, 13294);click_tracking('인증 이벤트 참여');location.href='./event_2nd.php';">
 						<img src="./images/section3_verify_btn.jpg" alt="">
 					</button>
+					<?	
+					} else {
+					?>
+					<button class="btn-verify" onclick="NTrackObj.callTrackTag('34126', callbackFn, 13294);click_tracking('인증 이벤트 참여');alert('이벤트가 종료되었습니다. 당첨자는 11월 2일 발표 될 예정입니다.');">
+						<img src="./images/section3_verify_btn.jpg" alt="">
+					</button>
+					<?	
+					}
+					?>
+<!--
+					<button class="btn-verify" onclick="NTrackObj.callTrackTag('34126', callbackFn, 13294);click_tracking('인증 이벤트 참여');location.href='./event_2nd.php';">
+						<img src="./images/section3_verify_btn.jpg" alt="">
+					</button>
+-->
 					<div class="list-container">
 						<div class="col">
 							<?
@@ -517,6 +535,58 @@ $folder_name = mnv_phprandom::getString(16);
 				</button>
 				<div class="guide-area">
 					<img src="./images/popup_winner_guide.png" alt="">
+				</div>
+			</div>
+			<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>
+		</div>
+		<div class="popup winner-list verify-winner-list" id="popup-verify-winner-list">
+			<div class="inner">
+				<div class="title">
+					<img src="./images/popup_vf_winner_title.png" alt="">
+				</div>
+				<div class="input-wrap">
+					<div class="input-group">
+						<input type="text" id="verify-search-val">
+						<button class="search-num"></button>
+					</div>
+				</div>
+				<div class="list-wrap">
+					<div class="tab-wrap">
+						<div class="tab _01 is-active" data-tab-idx="1">
+							<img src="./images/popup_vf_tab_01.png" alt="">
+						</div>
+						<div class="tab _02" data-tab-idx="2">
+							<img src="./images/popup_vf_tab_02.png" alt="">
+						</div>
+						<div class="tab _03" data-tab-idx="3">
+							<img src="./images/popup_vf_tab_03.png" alt="">
+						</div>
+					</div>
+					<div class="list-box">
+						<div class="type-block">
+							<span><img src="./images/popup_vf_type_01.png" alt=""></span>
+							<span><img src="./images/popup_vf_type_02.png" alt=""></span>
+						</div>
+						<div class="inner">
+							<div class="list-block _01 is-active">
+								<div class="list _01"></div>
+								<div class="list _02"></div>
+							</div>
+							<div class="list-block _02">
+								<div class="list _01"></div>
+								<div class="list _02"></div>
+							</div>
+							<div class="list-block _03">
+								<div class="list _01"></div>
+								<div class="list _02"></div>
+							</div>
+						</div>
+						<div class="search-list">
+						</div>
+					</div>
+				</div>
+				<div class="guide-area">
+					<img src="./images/popup_vf_winner_guide.png" alt="">
 				</div>
 			</div>
 			<a href="javascript:void(0)" class="btn-close" data-popup="@close"></a>
@@ -1000,6 +1070,178 @@ e.parentNode.insertBefore(j, e);
 					$('#popup-winner-list .list-box .search-list').empty().hide();
 				}
 			});
+			var vfWinnerList = "";
+			var winnerClass1 = [];
+			var winnerClass2 = [];
+			var winnerClass3 = [];
+			$(document).on('popupOpened', function(popup) {
+				if(popup.target.id == 'popup-verify-winner-list') {
+					if(!vfWinnerList) {
+						$.ajax({
+							type   : "POST",
+							async  : false,
+							url    : "./main_exec.php",
+							data   : {
+								"exec": "get_vf_winner_info"
+							},
+							success: function(rs) {
+								vfWinnerList = JSON.parse(rs);
+								vfWinnerList.forEach(function(item, idx) {
+									switch(item.winner_rank) {
+										case "1":
+											winnerClass1.push(item);
+										break;
+										case "2":
+											winnerClass2.push(item);
+										break;
+										case "3":
+											winnerClass3.push(item);
+										break;
+									}
+								});
+
+								// 각 등수 셋팅
+								winnerClass1.forEach(function(item, idx) {
+									switch(item.winner_type) {
+										case "campaign":
+											var winnerName = item.winner_name.replaceAt(1, '*');
+											$('#popup-verify-winner-list .list-box .list-block._01 .list._01').append("<span>"+winnerName+ " "+item.winner_id+"</span>");
+											break;
+										case "instagram":
+											var startIdx = Math.floor(winnerClass1[idx].winner_id.length/2);
+											var modifiedNameArr = winnerClass1[idx].winner_id.split("");
+											var sliceLength = (winnerClass1[idx].winner_id.length >= 5) ? 2 : 1;
+											modifiedNameArr.splice(startIdx, 1, '*');
+											if(sliceLength>1) {
+												modifiedNameArr.splice(startIdx+1, 1, '*');
+											}
+											var winnerId = modifiedNameArr.join("");
+											$('#popup-verify-winner-list .list-box .list-block._01 .list._02').append("<span>"+item.winner_name+ " "+winnerId+"</span>");
+											break;
+									}
+								});
+								winnerClass2.forEach(function(item, idx) {
+									switch(item.winner_type) {
+										case "campaign":
+											var winnerName = item.winner_name.replaceAt(1, '*');
+											$('#popup-verify-winner-list .list-box .list-block._02 .list._01').append("<span>"+winnerName+ " "+item.winner_id+"</span>");
+											break;
+										case "instagram":
+											var startIdx = Math.floor(winnerClass2[idx].winner_id.length/2);
+											var modifiedNameArr = winnerClass2[idx].winner_id.split("");
+											var sliceLength = (winnerClass2[idx].winner_id.length >= 5) ? 2 : 1;
+											modifiedNameArr.splice(startIdx, 1, '*');
+											if(sliceLength>1) {
+												modifiedNameArr.splice(startIdx+1, 1, '*');
+											}
+											var winnerId = modifiedNameArr.join("");
+											$('#popup-verify-winner-list .list-box .list-block._02 .list._02').append("<span>"+item.winner_name+ " "+winnerId+"</span>");
+											break;
+									}
+								});
+								winnerClass3.forEach(function(item, idx) {
+									switch(item.winner_type) {
+										case "campaign":
+											var winnerName = item.winner_name.replaceAt(1, '*');
+											$('#popup-verify-winner-list .list-box .list-block._03 .list._01').append("<span>"+winnerName+ " "+item.winner_id+"</span>");
+											break;
+										case "instagram":
+											var startIdx = Math.floor(winnerClass3[idx].winner_id.length/2);
+											var modifiedNameArr = winnerClass3[idx].winner_id.split("");
+											var sliceLength = (winnerClass3[idx].winner_id.length >= 5) ? 2 : 1;
+											modifiedNameArr.splice(startIdx, 1, '*');
+											if(sliceLength>1) {
+												modifiedNameArr.splice(startIdx+1, 1, '*');
+											}
+											var winnerId = modifiedNameArr.join("");
+											$('#popup-verify-winner-list .list-box .list-block._03 .list._02').append("<span>"+item.winner_name+ " "+winnerId+"</span>");
+											break;
+									}
+								});
+							}
+						})
+					}
+				}
+			});
+			$('#popup-verify-winner-list .search-num').on('click', function() {
+				var targetVal = $('#verify-search-val').val();
+				var outputArray = new Array();
+				if(targetVal) {
+					for(i=0; i<vfWinnerList.length; i++) {
+						if(vfWinnerList[i].winner_id == targetVal) {
+							if(vfWinnerList[i].winner_name) {
+								var winnerName = vfWinnerList[i].winner_name.replaceAt(1, '*');
+							} else {
+								var startIdx = Math.floor(vfWinnerList[i].winner_id.length/2);
+								var modifiedNameArr = vfWinnerList[i].winner_id.split("");
+								var sliceLength = (vfWinnerList[i].winner_id.length >= 5) ? 2 : 1;
+								modifiedNameArr.splice(startIdx, 1, '*');
+								if(sliceLength>1) {
+									modifiedNameArr.splice(startIdx+1, 1, '*');
+								}
+								var winnerId = modifiedNameArr.join("");
+							}
+							outputArray.push({
+								"type": vfWinnerList[i].winner_type,
+								"name": winnerName ? winnerName : vfWinnerList[i].winner_name,
+								"id": winnerId ? winnerId : vfWinnerList[i].winner_id,
+								"rank": vfWinnerList[i].winner_rank
+							});
+						}
+					}
+					$('#popup-verify-winner-list .list-box .search-list').empty();
+					if(outputArray.length>0) {
+						outputArray.sort(function (a, b) {
+							if (a.rank > b.rank) {
+								return 1;
+							}
+							if (a.rank < b.rank) {
+								return -1;
+							}
+							return 0;
+						});
+						for(i=0; i<outputArray.length; i++) {
+							$('#popup-verify-winner-list .list-box .search-list').append("<span>"+outputArray[i].name+" "+outputArray[i].id+" <em>("+outputArray[i].rank+"등)</em>"+"</span>");
+						}
+						$('#popup-verify-winner-list .list-box .search-list').append("<a href='javascript:void(0)' class='btn-close reset' onclick='verifySearchReset()'></a>").show();
+						
+					} else {
+						$('#popup-winner-list .list-box .search-list').empty().hide();
+						alert('당첨내역이 없습니다.');
+					}
+				} else {
+					alert('휴대폰번호 뒤 4자리 또는 인스타그램 아이디를 정확히 입력해주세요!');
+					$('#popup-verify-winner-list .list-box .search-list').empty().hide()
+					$('#popup-verify-winner-list #verify-search-val').focus();
+				}
+			});
+			$('#popup-verify-winner-list #verify-search-val').off().on('keyup', function(e) {
+				var keyCode = e.keyCode;
+				if($(this).val().length<1) {
+					$('#popup-verify-winner-list .list-box .search-list').empty().hide();
+				}
+			});
+			$('#popup-verify-winner-list .tab').on('click', function() {
+				var $tabWrapper = $(this).parent();
+				var $contentWrapper = $(this).parent().siblings('.list-box');
+				var $currentTab = $tabWrapper.find('.tab.is-active');
+				var $currentContent = $contentWrapper.find('.list-block.is-active');
+				var idx = $(this).attr('data-tab-idx');
+				
+				if($currentTab.hasClass('_0'+idx)) {
+					return;
+				} else {
+					$currentTab.removeClass('is-active');
+					$(this).addClass('is-active');
+					
+					// 탭 콘텐츠 교체
+					$currentContent.removeClass('is-active');
+					$contentWrapper.find('.list-block._0'+idx).addClass('is-active');
+				}
+			});
+			function verifySearchReset() {
+				$('#popup-verify-winner-list .list-box .search-list').empty().hide();
+			}
 
 			function lengthCheck(obj, ln) {
 				var $obj = $(obj);

@@ -557,6 +557,27 @@ switch ($_REQUEST['exec'])
 		echo $flag;
 		
 	break;
+	
+	case "get_vf_winner_info":
+		$mnv_f          = new mnv_function();
+		$my_db          = $mnv_f->Connect_MySQL();
 		
+		$query = "SELECT * FROM vf_winner_info_9 WHERE 1";
+		$result = mysqli_query($my_db, $query);
+		$num = mysqli_num_rows($result);
+		$outputArray = [];
+		if($num>0) {
+			$i=0;
+			while($data = mysqli_fetch_array($result)) {
+				$outputArray[$i] = $data;
+				$i++;
+			}
+		} else {
+			$outputArray = "N";
+		}
+		
+//		print_r($outputArray);
+		echo json_encode($outputArray);
+	break;
 }
 ?>

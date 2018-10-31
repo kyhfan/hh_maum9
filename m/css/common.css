@@ -796,4 +796,126 @@ input[type="checkbox"]:focus {
 .popup.winner-list .guide-area img {
 	width: 178px;
 }
+
+.popup.verify-winner-list {
+/*	width: 759px;*/
+}
+.popup.verify-winner-list .input-wrap {
+	margin-bottom: 13px;
+}
+.popup.verify-winner-list .list-wrap {
+	width: 263px;
+	margin: 0 auto 16px;
+	/*	padding-top: 43px;*/
+}
+.popup.verify-winner-list .list-wrap .tab-wrap {
+	text-align: center;
+	font-size: 0;
+}
+.popup.verify-winner-list .list-wrap .tab-wrap .tab {
+	display: inline-block;
+	opacity: 0.4;
+	cursor: pointer;
+	width: 78px;
+}
+.popup.verify-winner-list .list-wrap .tab-wrap .tab.is-active {
+	opacity: 1;
+}
+.popup.verify-winner-list .list-wrap .tab-wrap .tab:nth-child(2) {
+	margin: 0 2px;
+}
+.popup.verify-winner-list .list-wrap .list-box {
+	width: 100%;
+	height: 198px;
+	padding: 29px 0 11px 0;
+}
+.popup.verify-winner-list .list-wrap .list-box .search-list {
+	padding: 29px 8px 11px 12px;
+	top: -24px;
+	height: 221px;
+	z-index: 2;
+	background: rgba(255, 255, 255, 0.95);
+}
+.popup.verify-winner-list .list-wrap .list-box .search-list .reset {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	width: 12px;
+	height: 12px;
+	background-size: cover;
+	margin: 0;
+}
+.popup.verify-winner-list .list-wrap .list-box .type-block {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 23px;
+	font-size: 0;
+}
+.popup.verify-winner-list .list-wrap .list-box .type-block span:first-child {
+	width: 114px;
+}
+.popup.verify-winner-list .list-wrap .list-box .type-block span {
+	display: inline-block;
+	width: 149px;
+	height: 23px;
+	line-height: 23px;
+	text-align: center;
+}
+.popup.verify-winner-list .list-wrap .list-box .type-block span:first-child img {
+	width: 74px;
+}
+.popup.verify-winner-list .list-wrap .list-box .type-block span img {
+	width: 62px;
+	height: 10px;
+	vertical-align: middle;
+}
+.popup.verify-winner-list .list-wrap .list-box:after {
+	content: "";
+	display: block;
+	position: absolute;
+	z-index: 1;
+	left: 114px;
+	top: 35px;
+	width: 1px;
+	height: 153px;
+	background: #f4892f;
+}
+.popup.verify-winner-list .list-wrap .list-box .list-block {
+	font-size: 0;
+	height: 100%;
+	display: none;
+}
+.popup.verify-winner-list .list-wrap .list-box .list-block.is-active {
+	display: block;
+}
+.popup.verify-winner-list .list-wrap .list-box .list-block .list {
+	display: inline-block;
+	vertical-align: top;
+}
+.popup.verify-winner-list .list-wrap .list-box .list-block .list._01 {
+	width: 114px;
+}
+.popup.verify-winner-list .list-wrap .list-box .list-block .list._02 {
+	width: 149px;
+}
+.popup.verify-winner-list .list-wrap .list-box .list-block .list span {
+	/*	text-align: left;*/
+	width: 100%;
+	color: #7a7a7a;
+	line-height: 20px;
+}
+.popup.verify-winner-list .list-wrap .list-box .search-list span {
+	line-height: 20px;
+}
+.popup.verify-winner-list .list-wrap .list-box .search-list span em {
+	color: #f59435;
+}
+.popup.verify-winner-list .guide-area img {
+	width: 253px;
+}
+.popup.verify-winner-list .title img {
+	width: 279px;
+}
 /* popup */
