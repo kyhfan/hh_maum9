@@ -228,7 +228,7 @@ $folder_name = mnv_phprandom::getString(16);
 						<div class="info-box">
 							<!-- <img src="./images/main_sec3_infobox.jpg" alt=""> -->
 							<img src="./images/main_sec3_infobox.png" alt="">
-							<button type="button" onclick="_nto.callTrack('6468', callback());click_tracking('인증 이벤트 당첨자 발표');alert('당첨자는 11월 2일에 발표 될 예정입니다.')">
+							<button type="button" onclick="_nto.callTrack('6468', callback());click_tracking('인증 이벤트 당첨자 발표');alert('당첨자는 11월 5일에 발표 될 예정입니다.')">
 								<img src="./images/main_sec3_infobox_btn.jpg" alt="">
 							</button>
 <!--
@@ -246,7 +246,7 @@ $folder_name = mnv_phprandom::getString(16);
 						<?
 						} else {
 						?>
-						<button type="button" class="btn-verify" onclick="_nto.callTrack('6469', callback());click_tracking('인증 이벤트 참여');alert('이벤트가 종료되었습니다. 당첨자는 11월 2일 발표 될 예정입니다.')">
+						<button type="button" class="btn-verify" onclick="_nto.callTrack('6469', callback());click_tracking('인증 이벤트 참여');alert('이벤트가 종료되었습니다. 당첨자는 11월 5일 발표 될 예정입니다.')">
 							<img src="./images/main_sec3_verify.jpg" alt="">
 						</button>
 						<?

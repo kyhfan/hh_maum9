@@ -203,7 +203,7 @@ $folder_name = mnv_phprandom::getString(16);
 					<div class="title"></div>
 					<div class="info">
 						<div class="button">
-							<button type="button" onclick="NTrackObj.callTrackTag('34125', callbackFn, 13294);click_tracking('인증 이벤트 당첨자 발표');alert('당첨자는 11월 2일에 발표 될 예정입니다.')"></button>
+							<button type="button" onclick="NTrackObj.callTrackTag('34125', callbackFn, 13294);click_tracking('인증 이벤트 당첨자 발표');alert('당첨자는 11월 5일에 발표 될 예정입니다.')"></button>
 <!--							<button type="button" onclick="NTrackObj.callTrackTag('34125', callbackFn, 13294);click_tracking('인증 이벤트 당첨자 발표');" data-popup="#popup-verify-winner-list"></button>-->
 						</div>
 					</div>
@@ -217,7 +217,7 @@ $folder_name = mnv_phprandom::getString(16);
 					<?	
 					} else {
 					?>
-					<button class="btn-verify" onclick="NTrackObj.callTrackTag('34126', callbackFn, 13294);click_tracking('인증 이벤트 참여');alert('이벤트가 종료되었습니다. 당첨자는 11월 2일 발표 될 예정입니다.');">
+					<button class="btn-verify" onclick="NTrackObj.callTrackTag('34126', callbackFn, 13294);click_tracking('인증 이벤트 참여');alert('이벤트가 종료되었습니다. 당첨자는 11월 5일 발표 될 예정입니다.');">
 						<img src="./images/section3_verify_btn.jpg" alt="">
 					</button>
 					<?	
