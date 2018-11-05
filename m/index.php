@@ -913,6 +913,22 @@ $folder_name = mnv_phprandom::getString(16);
 							},
 							success: function(rs) {
 								vfWinnerList = JSON.parse(rs);
+								vfWinnerList.sort(function (a, b) {
+									if(a.winner_name.trim().length<1) {
+										var targetA = a.winner_id;
+										var targetB = b.winner_id;
+									} else {
+										var targetA = a.winner_name;
+										var targetB = b.winner_name;
+									}
+									if (targetA > targetB) {
+										return 1;
+									}
+									if (targetA < targetB) {
+										return -1;
+									}
+									return 0;
+								});
 								vfWinnerList.forEach(function(item, idx) {
 									switch(item.winner_rank) {
 										case "1":
