@@ -882,6 +882,9 @@ input[type="checkbox"]:focus {
 	height: 153px;
 	background: #f4892f;
 }
+.popup.verify-winner-list .list-wrap .list-box.rank1:after {
+	content: none;
+}
 .popup.verify-winner-list .list-wrap .list-box .list-block {
 	font-size: 0;
 	height: 100%;
@@ -899,6 +902,12 @@ input[type="checkbox"]:focus {
 }
 .popup.verify-winner-list .list-wrap .list-box .list-block .list._02 {
 	width: 149px;
+}
+.popup.verify-winner-list .list-wrap .list-box.rank1 .list-block .list._01 {
+	display: none;
+}
+.popup.verify-winner-list .list-wrap .list-box.rank1 .list-block .list._02 {
+	width: 100%;
 }
 .popup.verify-winner-list .list-wrap .list-box .list-block .list span {
 	/*	text-align: left;*/

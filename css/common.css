@@ -851,6 +851,9 @@ input[type="checkbox"] {
 	height: 124px;
 	background: #f4892f;
 }
+.popup.verify-winner-list .list-wrap .list-box.rank1:after {
+	content: none;
+}
 .popup.verify-winner-list .list-wrap .list-box .list-block {
 	font-size: 0;
 	height: 100%;
@@ -868,7 +871,14 @@ input[type="checkbox"] {
 }
 .popup.verify-winner-list .list-wrap .list-box .list-block .list._02 {
 /*	width: 375px;*/
-	width: 357px;
+/*	width: 357px;*/
+	width: 354px;
+}
+.popup.verify-winner-list .list-wrap .list-box.rank1 .list-block .list._01 {
+	display: none;
+}
+.popup.verify-winner-list .list-wrap .list-box.rank1 .list-block .list._02 {
+	width: 100%;
 }
 .popup.verify-winner-list .list-wrap .list-box .list-block .list span {
 /*	text-align: left;*/

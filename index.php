@@ -203,8 +203,8 @@ $folder_name = mnv_phprandom::getString(16);
 					<div class="title"></div>
 					<div class="info">
 						<div class="button">
-							<button type="button" onclick="NTrackObj.callTrackTag('34125', callbackFn, 13294);click_tracking('인증 이벤트 당첨자 발표');alert('당첨자는 11월 5일에 발표 될 예정입니다.')"></button>
-<!--							<button type="button" onclick="NTrackObj.callTrackTag('34125', callbackFn, 13294);click_tracking('인증 이벤트 당첨자 발표');" data-popup="#popup-verify-winner-list"></button>-->
+<!--							<button type="button" onclick="NTrackObj.callTrackTag('34125', callbackFn, 13294);click_tracking('인증 이벤트 당첨자 발표');alert('당첨자는 11월 5일에 발표 될 예정입니다.')"></button>-->
+							<button type="button" onclick="NTrackObj.callTrackTag('34125', callbackFn, 13294);click_tracking('인증 이벤트 당첨자 발표');" data-popup="#popup-verify-winner-list"></button>
 						</div>
 					</div>
 					<!--					<button class="btn-verify" onclick="NTrackObj.callTrackTag('34126', callbackFn, 13294);click_tracking('인증 이벤트 참여');" data-popup="#popup-picture">-->
@@ -1161,6 +1161,14 @@ e.parentNode.insertBefore(j, e);
 							}
 						})
 					}
+					
+					if($('#popup-verify-winner-list .tab').hasClass('_01')) {
+						$('#popup-verify-winner-list .type-block').hide();
+						$('.popup.verify-winner-list .list-wrap .list-box').addClass('rank1');
+					} else {
+						$('#popup-verify-winner-list .type-block').show();
+						$('.popup.verify-winner-list .list-wrap .list-box').removeClass('rank1');
+					}
 				}
 			});
 			$('#popup-verify-winner-list .search-num').on('click', function() {
@@ -1228,6 +1236,14 @@ e.parentNode.insertBefore(j, e);
 				var $currentContent = $contentWrapper.find('.list-block.is-active');
 				var idx = $(this).attr('data-tab-idx');
 				
+				if($(this).hasClass('_01')) {
+					$contentWrapper.find('.type-block').hide();
+					$('.popup.verify-winner-list .list-wrap .list-box').addClass('rank1');
+				} else {
+					$contentWrapper.find('.type-block').show();
+					$('.popup.verify-winner-list .list-wrap .list-box').removeClass('rank1');
+				}
+				
 				if($currentTab.hasClass('_0'+idx)) {
 					return;
 				} else {
@@ -1236,7 +1252,7 @@ e.parentNode.insertBefore(j, e);
 					
 					// 탭 콘텐츠 교체
 					$currentContent.removeClass('is-active');
-					$contentWrapper.find('.list-block._0'+idx).addClass('is-active');
+					$contentWrapper.find('.list-block._0'+idx).addClass('is-active');				
 				}
 			});
 			function verifySearchReset() {

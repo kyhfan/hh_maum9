@@ -228,14 +228,14 @@ $folder_name = mnv_phprandom::getString(16);
 						<div class="info-box">
 							<!-- <img src="./images/main_sec3_infobox.jpg" alt=""> -->
 							<img src="./images/main_sec3_infobox.png" alt="">
+<!--
 							<button type="button" onclick="_nto.callTrack('6468', callback());click_tracking('인증 이벤트 당첨자 발표');alert('당첨자는 11월 5일에 발표 될 예정입니다.')">
 								<img src="./images/main_sec3_infobox_btn.jpg" alt="">
 							</button>
-<!--
+-->
 							<button type="button" onclick="_nto.callTrack('6468', callback());click_tracking('인증 이벤트 당첨자 발표');" data-popup="#popup-verify-winner-list">
 								<img src="./images/main_sec3_infobox_btn.jpg" alt="">
 							</button>
--->
 						</div>
 						<?
 						if(date('Y-m-d') <= '2018-10-31') {
@@ -988,6 +988,13 @@ $folder_name = mnv_phprandom::getString(16);
 							}
 						})
 					}
+					if($('#popup-verify-winner-list .tab').hasClass('_01')) {
+						$('#popup-verify-winner-list .type-block').hide();
+						$('.popup.verify-winner-list .list-wrap .list-box').addClass('rank1');
+					} else {
+						$('#popup-verify-winner-list .type-block').show();
+						$('.popup.verify-winner-list .list-wrap .list-box').removeClass('rank1');
+					}
 				}
 			});
 			$('#popup-verify-winner-list .search-num').on('click', function() {
@@ -1055,6 +1062,14 @@ $folder_name = mnv_phprandom::getString(16);
 				var $currentContent = $contentWrapper.find('.list-block.is-active');
 				var idx = $(this).attr('data-tab-idx');
 
+				if($(this).hasClass('_01')) {
+					$contentWrapper.find('.type-block').hide();
+					$('.popup.verify-winner-list .list-wrap .list-box').addClass('rank1');
+				} else {
+					$contentWrapper.find('.type-block').show();
+					$('.popup.verify-winner-list .list-wrap .list-box').removeClass('rank1');
+				}
+				
 				if($currentTab.hasClass('_0'+idx)) {
 					return;
 				} else {
