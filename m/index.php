@@ -2,7 +2,7 @@
 include_once "../include/autoload.php";
 
 $mnv_f 			= new mnv_function();
-$my_db         = $mnv_f->Connect_MySQL();
+// $my_db         = $mnv_f->Connect_MySQL();
 $mobileYN      = $mnv_f->MobileCheck();
 // $obYN          = $mnv_f->BrowserCheck();
 $IEYN          = $mnv_f->IECheck();
@@ -17,7 +17,7 @@ if ($mobileYN == "PC")
 	echo "<script>location.href='../index.php?media=".$_REQUEST["media"]."&adkey=".$adkey."';</script>";
 }else{
 	$saveMedia     = $mnv_f->SaveMedia();
-	$rs_tracking   = $mnv_f->InsertTrackingInfo($mobileYN);
+	// $rs_tracking   = $mnv_f->InsertTrackingInfo($mobileYN);
 }
 
 // 파일 저장 폴더 생성용 난수 번호
