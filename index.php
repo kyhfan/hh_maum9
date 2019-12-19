@@ -315,7 +315,7 @@ $folder_name = mnv_phprandom::getString(16);
 	$j = 0;
 								   foreach($verify_data as $key => $val)
 								   {
-									   if ($j < $i)
+									   if ($j < 8)
 									   {
 										   $j++;
 										   continue;
