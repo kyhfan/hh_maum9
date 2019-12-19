@@ -703,44 +703,6 @@ e.parentNode.insertBefore(j, e);
 			var hashArrayList = ['마음봇건강키트', '우리가족튼튼메신저', '현대해상'];
 			var instaTotalCount 	= 0;
 			var instaTotalPage 		= 0;
-			//			<!-- Attractt 데이터 호출 코드 -->
-			$.ajax({
-				url : "https://www.attractt.com/api/posts",
-//				data : { code : "QCzupctc0vyaB8a" },
-				data : { code : "xDAmH923veFqGgC" },
-				dataType : "jsonp",
-				jsonp : "attracttCallback",
-				success : function(data) {
-										console.log(data);
-					instaData = data;
-					instaTotalCount = data.result.count;
-					instaTotalPage	= Math.floor(instaTotalCount / 4) - 1;
-					$('.list-container .indent .box').each(function(idx, el) {
-						var hashArrayDefault = data.result.data[idx].hashtags.split(' ');
-//						var hashArray = [hashArrayDefault[0], hashArrayDefault[1]];
-						var hashArray = shuffle(hashArrayList);
-						hashArrayDefault.forEach(function(el, idx) {
-							el.concat(', ');
-						});
-						$(this).attr('data-source-url', data.result.data[idx].standard_image);
-						$(this).attr('data-source-owner', data.result.data[idx].user_name);
-						$(this).attr('data-source-tag', hashArrayDefault);
-						$(this).attr('data-source-desc', data.result.data[idx].text);
-						$(this).find("img").attr("src", data.result.data[idx].standard_image);
-						$(this).find("img").css("display", "block");
-						$(this).find("a").attr("onclick","NTrackObj.callTrackTag('33285', callbackFn, 12902);click_tracking('<?=$_gl['POPUP']['EVENT']['FAMILY_DETAIL']?>');open_insta_detail('"+data.result.data[idx].standard_image+"','"+data.result.data[idx].user_name+"','"+encodeURIComponent(data.result.data[idx].text)+"','"+hashArray[0]+"','"+hashArray[1]+"');");
-						$(this).find(".hashtag span:first-child").text("#"+hashArray[0]);
-						$(this).find(".hashtag span:last-child").text("#"+hashArray[1]);
-						currentLastIdx = idx+1;
-					});
-					//					renderingInsta(data, instaLoadIdx);
-					if (instaTotalPage > 1)
-						$(".section3-wrap .btn-more").show();
-
-				},
-				error : function(data) { console.log(data); }
-			});
-			//			<!-- Attractt 데이터 호출 코드 끝 -->
 			
 			function shuffle(a) {
 				var j, x, i;
