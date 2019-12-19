@@ -48,7 +48,7 @@ foreach($verify_data as $key => $val)
 		break;        
 	shuffle($htag_arr);
 	
-	$section2   .= "<div class='box' data-dynamic-flag='Y' data-popup='#popup-picture-detail' data-source-owner='".$val["user_name"]."' data-source-url='".$val["standard_image"]."' data-source-tag='".$htag_arr[0].",".$htag_arr[1]."' data-source-desc='".$val["text"]."'><div class='img'><img src='".$val["standard_image"]."'></div>";
+	$section2   .= "<div class='box' data-dynamic-flag='Y' data-popup='#popup-picture-detail' data-source-owner='".$val["verify_name"]."' data-source-url='./uploads/".$val["verify_directory"]."/".$val['verify_file_name']."' data-source-tag='".$htag_arr[0].",".$htag_arr[1]."' data-source-desc='".$val["verify_desc"]."'><div class='img'><img src='./uploads/".$val["verify_directory"]."/".$val["verify_file_name"]."'></div>";
 	$section2   .= "<div class='hashtag'><span>#".$htag_arr[0]."</span><span>#".$htag_arr[1]."</span></div></div>";
 
 	$k++;
