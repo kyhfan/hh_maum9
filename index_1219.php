@@ -232,7 +232,7 @@ $folder_name = mnv_phprandom::getString(16);
 						<div class="col">
 							<?
 							$htag_arr = ['마음봇건강키트', '우리가족튼튼메신저', '현대해상'];
-							$block_num 		= 12;
+							$block_num 		= 8;
 							$page_num 		= 0;
 							$next_num		= 1;
 							$total_query 	= "SELECT * FROM verify_info_9 WHERE verify_show='Y'";
@@ -276,39 +276,65 @@ $folder_name = mnv_phprandom::getString(16);
 							}
 							?>
 							<input type="hidden" id="total-page-num"value="<?=$total_page?>">
+							<!--
+<div class="box">
+<div class="img">
+<img src="./images/main_sec3_box_sample1.jpg" alt="">
+</div>
+<div class="hashtag">
+<span>#마음봇건강키트</span>
+<span>#우리가족튼튼메신저</span>
+</div>
+</div>
+<div class="box">
+<div class="img">
+<img src="./images/main_sec3_box_sample2.jpg" alt="">
+</div>
+<div class="hashtag">
+<span>#마음봇건강키트</span>
+<span>#우리가족튼튼메신저</span>
+</div>
+</div>
+-->
 						</div>
 						<div class="col indent">
-						<?
-	$k = 0;
-								   foreach($verify_data as $key => $val)
-								   {
-									   if ($k < $i)
-									   {
-										   $k++;
-										   continue;
-									   }
 
-//									   $htag_arr 	= explode(",",str_replace("#","",$val["verify_tag"]));
-									   shuffle($htag_arr);
-//									   if (!$htag_arr[0])
-//										   $htag_arr[0] = "마음봇건강키트";
-
-//									   if (!$htag_arr[1])
-//										   $htag_arr[1] = "우리가족튼튼메신저";
-							?>	
-							<div class="box"  data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
+							<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
 								<div class="img">
-									<img src="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" alt="">
+									<img src="./images/main_sec3_box_sample2.jpg" alt="">
 								</div>
 								<div class="hashtag">
-									<span>#<?=$htag_arr[0]?></span>
-									<span>#<?=$htag_arr[1]?></span>
+									<span>#마음봇건강키트</span>
+									<span>#우리가족튼튼메신저</span>
 								</div>
 							</div>
-							<?
-								$k++;
-								   }
-							?>
+							<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
+								<div class="img">
+									<img src="./images/main_sec3_box_sample2.jpg" alt="">
+								</div>
+								<div class="hashtag">
+									<span>#마음봇건강키트</span>
+									<span>#우리가족튼튼메신저</span>
+								</div>
+							</div>
+							<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
+								<div class="img">
+									<img src="./images/main_sec3_box_sample1.jpg" alt="">
+								</div>
+								<div class="hashtag">
+									<span>#마음봇건강키트</span>
+									<span>#우리가족튼튼메신저</span>
+								</div>
+							</div>
+							<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="./uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
+								<div class="img">
+									<img src="./images/main_sec3_box_sample1.jpg" alt="">
+								</div>
+								<div class="hashtag">
+									<span>#마음봇건강키트</span>
+									<span>#우리가족튼튼메신저</span>
+								</div>
+							</div>
 						</div>
 						<div class="col">
 							<?
@@ -342,6 +368,26 @@ $folder_name = mnv_phprandom::getString(16);
 								$j++;
 								   }
 							?>
+							<!--
+<div class="box">
+<div class="img">
+<img src="./images/main_sec3_box_sample1.jpg" alt="">
+</div>
+<div class="hashtag">
+<span>#마음봇건강키트</span>
+<span>#우리가족튼튼메신저</span>
+</div>
+</div>
+<div class="box">
+<div class="img">
+<img src="./images/main_sec3_box_sample2.jpg" alt="">
+</div>
+<div class="hashtag">
+<span>#마음봇건강키트</span>
+<span>#우리가족튼튼메신저</span>
+</div>
+</div>
+-->
 						</div>
 					</div>
 					<button type="button" class="btn-more" onclick="loadMore();">
