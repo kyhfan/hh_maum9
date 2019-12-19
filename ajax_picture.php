@@ -5,9 +5,8 @@ $mnv_f          = new mnv_function();
 $my_db          = $mnv_f->Connect_MySQL();
 
 $htag_arr = ['마음봇건강키트', '우리가족튼튼메신저', '현대해상'];
-$block_num 	= 8;
+$block_num 	= 12;
 $page_num 	= $_REQUEST["page_num"];
-$insta_data = $_REQUEST["insta_data"];
 $limit_num	= $page_num * $block_num;
 $query 		= "SELECT * FROM verify_info_9 WHERE verify_show='Y' ORDER BY idx DESC Limit ".$limit_num.", ".$block_num."";
 // print_r($query);
