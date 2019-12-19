@@ -287,6 +287,8 @@ $folder_name = mnv_phprandom::getString(16);
 										   $k++;
 										   continue;
 									   }
+									   if ($k == 8)
+											break;
 
 //									   $htag_arr 	= explode(",",str_replace("#","",$val["verify_tag"]));
 									   shuffle($htag_arr);
