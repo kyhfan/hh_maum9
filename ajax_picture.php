@@ -39,17 +39,19 @@ foreach($verify_data as $key => $val)
 $k = 0;
 foreach($verify_data as $key => $val)
 {
-	if ($j < $i)
+	if ($k < $i)
 	{
-		$j++;
+		$k++;
 		continue;
 	}
-	if ($i == 8)
+	if ($k == 8)
 		break;        
 	shuffle($htag_arr);
 	
 	$section2   .= "<div class='box' data-dynamic-flag='Y' data-popup='#popup-picture-detail' data-source-owner='".$val["user_name"]."' data-source-url='".$val["standard_image"]."' data-source-tag='".$htag_arr[0].",".$htag_arr[1]."' data-source-desc='".$val["text"]."'><div class='img'><img src='".$val["standard_image"]."'></div>";
 	$section2   .= "<div class='hashtag'><span>#".$htag_arr[0]."</span><span>#".$htag_arr[1]."</span></div></div>";
+
+	$k++;
 }
 
 $j = 0;
