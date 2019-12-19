@@ -630,12 +630,10 @@ $folder_name = mnv_phprandom::getString(16);
 			var pageNum = 0;
 			function loadMore() {
 				pageNum 	= pageNum + 1;
-				var passingData = instaData.result.data.slice(currentLastIdx, currentLastIdx+3);
 				$.ajax({
 					type: "POST",
 					url: "./ajax_picture.php",
 					data: {
-						"insta_data": passingData,
 						"page_num": pageNum
 					},
 					success: function(rs) {
