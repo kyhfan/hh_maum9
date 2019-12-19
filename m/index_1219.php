@@ -259,9 +259,38 @@ $folder_name = mnv_phprandom::getString(16);
 -->
 						<div class="list-container">
 							<div class="col indent">
-							<?
+								<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="../uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
+									<div class="img">
+										<img src="./images/main_sec3_box_sample1.jpg" alt="">
+									</div>
+									<div class="hashtag">
+										<span>#마음봇건강키트</span>
+										<span>#우리가족튼튼메신저</span>
+									</div>
+								</div>
+								<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="../uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
+									<div class="img">
+										<img src="./images/main_sec3_box_sample2.jpg" alt="">
+									</div>
+									<div class="hashtag">
+										<span>#마음봇건강키트</span>
+										<span>#우리가족튼튼메신저</span>
+									</div>
+								</div>
+								<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="../uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
+									<div class="img">
+										<img src="./images/main_sec3_box_sample1.jpg" alt="">
+									</div>
+									<div class="hashtag">
+										<span>#마음봇건강키트</span>
+										<span>#우리가족튼튼메신저</span>
+									</div>
+								</div>
+							</div>
+							<div class="col campaign">
+								<?
 									$htag_arr = ['마음봇건강키트', '우리가족튼튼메신저', '현대해상'];
-									$block_num 		= 6;
+									$block_num 		= 3;
 									$page_num 		= 0;
 									$next_num		= 1;
 									$total_query 	= "SELECT * FROM verify_info_9 WHERE verify_show='Y'";
@@ -277,48 +306,11 @@ $folder_name = mnv_phprandom::getString(16);
 										$verify_data[]	= $data;
 									}
 
-									$j = 0;
-									foreach($verify_data as $key => $val)
-									{
-										if ($j == 3)
-											break;
-
-//										$htag_arr 	= explode(",",str_replace("#","",$val["verify_tag"]));
-										shuffle($htag_arr);
-//										if (!$htag_arr[0])
-//											$htag_arr[0] = "마음봇건강키트";
-
-//										if (!$htag_arr[1])
-//											$htag_arr[1] = "우리가족튼튼메신저";			
-								?>
-								<div class="box" data-dynamic-flag="Y" data-popup="#popup-picture-detail" data-source-owner="<?=$val["verify_name"]?>" data-source-url="../uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" data-source-tag="<?=$htag_arr[0]?>, <?=$htag_arr[1]?>" data-source-desc="<?=$val["verify_desc"]?>">
-									<div class="img">
-										<img src="../uploads/<?=$val["verify_directory"]?>/<?=$val["verify_file_name"]?>" alt="">
-									</div>
-									<div class="hashtag">
-										<span>#<?=$htag_arr[0]?></span>
-										<span>#<?=$htag_arr[1]?></span>
-									</div>
-								</div>
-								<?
-									$j++;
-									}
-								?>
-								<input type="hidden" id="total-page-num"value="<?=$total_page?>">
-							</div>
-							<div class="col campaign">
-								<?
 									$i = 0;
 									foreach($verify_data as $key => $val)
 									{
-										if ($i < $j)
-										{
-											$i++;
-											continue;
-										}
-										 if ($i == 3)
+										if ($i == 3)
 											break;
-
 
 //										$htag_arr 	= explode(",",str_replace("#","",$val["verify_tag"]));
 										shuffle($htag_arr);
@@ -341,6 +333,7 @@ $folder_name = mnv_phprandom::getString(16);
 									$i++;
 									}
 								?>
+								<input type="hidden" id="total-page-num"value="<?=$total_page?>">
 							</div>
 						</div>
 						<button type="button" class="btn-more" onclick="loadMore();">
@@ -614,6 +607,45 @@ $folder_name = mnv_phprandom::getString(16);
 			var hashArrayList = ['마음봇건강키트', '우리가족튼튼메신저', '현대해상'];
 			var instaTotalCount 	= 0;
 			var instaTotalPage 		= 0;
+			//			<!-- Attractt 데이터 호출 코드 -->
+			$.ajax({
+				url : "https://www.attractt.com/api/posts",
+//				data : { code : "QCzupctc0vyaB8a" },
+				data : { code : "xDAmH923veFqGgC" },
+				dataType : "jsonp",
+				jsonp : "attracttCallback",
+				success : function(data) {
+															console.log(data);
+					instaData = data;
+					instaTotalCount = data.result.count;
+					instaTotalPage	= Math.floor(instaTotalCount / 4) - 1;
+					$('.list-container .indent .box').each(function(idx, el) {
+						var hashArrayDefault = data.result.data[idx].hashtags.split(' ');
+						var hashArray = shuffle(hashArrayList);
+						hashArrayDefault.forEach(function(el, idx) {
+							el.concat(', ');
+						});
+						$(this).attr('data-source-url', data.result.data[idx].standard_image);
+						$(this).attr('data-source-owner', data.result.data[idx].user_name);
+						$(this).attr('data-source-tag', hashArrayDefault);
+						$(this).attr('data-source-desc', data.result.data[idx].text);
+						$(this).find("img").attr("src", data.result.data[idx].standard_image);
+						$(this).find("img").css("display", "block");
+						//						$(this).find("a").attr("onclick","NTrackObj.callTrackTag('33285', callbackFn, 12902);click_tracking('<?=$_gl['POPUP']['EVENT']['FAMILY_DETAIL']?>');open_insta_detail('"+data.result.data[idx].standard_image+"','"+data.result.data[idx].user_name+"','"+encodeURIComponent(data.result.data[idx].text)+"','"+hashArray[0]+"','"+hashArray[1]+"');");
+						$(this).find(".hashtag span:first-child").text("#"+hashArray[0]);
+						$(this).find(".hashtag span:last-child").text("#"+hashArray[1]);
+						currentLastIdx = idx+1;
+						console.log(currentLastIdx);
+					});
+					//					renderingInsta(data, instaLoadIdx);
+					if (instaTotalPage > 1)
+						$(".section3-wrap .btn-more").show();
+
+				},
+				error : function(data) { console.log(data); }
+			});
+			//			<!-- Attractt 데이터 호출 코드 끝 -->
+
 
 			function shuffle(a) {
 				var j, x, i;
