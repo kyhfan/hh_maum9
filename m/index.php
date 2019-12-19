@@ -316,7 +316,7 @@ $folder_name = mnv_phprandom::getString(16);
 											$i++;
 											continue;
 										}
-										 if ($i == 3)
+										 if ($i == 6)
 											break;
 
 
